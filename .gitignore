@@ -1,0 +1,64 @@
+*
+
+# ----------------------- ~ -----------------------
+
+!.gitignore
+!.bash_profile
+!.bashrc
+
+# ------------------- ~/.config -------------------
+
+!.config/
+
+# niri
+!.config/niri/
+!.config/niri/config.kdl
+
+# waybar
+!.config/waybar/
+!.config/waybar/config
+!.config/waybar/style.css
+
+# wofi
+!.config/wofi/
+!.config/wofi/config
+!.config/wofi/style.css
+
+# mako
+!.config/mako/
+!.config/mako/config
+
+# vscode
+!.config/Code/
+!.config/Code/User/
+!.config/Code/User/settings.json
+!.config/Code/User/keybindings.json
+!.config/Code/User/snippets/
+!.config/Code/User/snippets/*
+
+# mpv
+!.config/mpv/
+!.config/mpv/input.conf
+!.config/mpv/mpv.conf
+
+# fcitx5
+!.config/fcitx5/
+!.config/fcitx5/config
+!.config/fcitx5/profile
+!.config/fcitx5/conf/
+!.config/fcitx5/conf/classicui.conf
+!.config/fcitx5/conf/clipboard.conf
+!.config/fcitx5/conf/keyboard.conf
+!.config/fcitx5/conf/kimpanel.conf
+!.config/fcitx5/conf/mozc.conf
+!.config/fcitx5/conf/notifications.conf
+!.config/fcitx5/conf/quickphrase.conf
+
+# fontconfig
+!.config/fontconfig/
+!.config/fontconfig/fonts.conf
+
+# ------------------- ~/Scripts -------------------
+
+!Scripts/
+!Scripts/**/*

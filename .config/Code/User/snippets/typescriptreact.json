@@ -1,0 +1,107 @@
+{
+	"React arrow function component": {
+		"prefix": "fc",
+		"body": [
+			"import { FC } from 'react';",
+			"",
+			"export const ${1:$TM_FILENAME_BASE}: FC = () => {",
+			"  return <div>${1:$TM_FILENAME_BASE}</div>;",
+			"};",
+			""
+		]
+	},
+	"React arrow function component with default export": {
+		"prefix": "fcdefault",
+		"body": [
+			"import { FC } from 'react';",
+			"",
+			"const ${1:$TM_FILENAME_BASE}: FC = () => {",
+			"  return <div>${1:$TM_FILENAME_BASE}</div>;",
+			"};",
+			"export default ${1:$TM_FILENAME_BASE};",
+			""
+		]
+	},
+	"React arrow function component with props": {
+		"prefix": "fcprops",
+		"body": [
+			"import { FC } from 'react';",
+			"",
+			"export interface ${1:$TM_FILENAME_BASE}Props {",
+			"  $2",
+			"}",
+			"",
+			"export const ${1:$TM_FILENAME_BASE}: FC<${1:$TM_FILENAME_BASE}Props> = ({$2}) => {",
+			"  return <div>${1:$TM_FILENAME_BASE}</div>;",
+			"};",
+			""
+		]
+	},
+	"React arrow function component with props with default export": {
+		"prefix": "fcpropsdefault",
+		"body": [
+			"import { FC } from 'react';",
+			"",
+			"export interface ${1:$TM_FILENAME_BASE}Props {",
+			"  $2",
+			"}",
+			"",
+			"const ${1:$TM_FILENAME_BASE}: FC<${1:$TM_FILENAME_BASE}Props> = ({$2}) => {",
+			"  return <div>${1:$TM_FILENAME_BASE}</div>;",
+			"};",
+			"export default ${1:$TM_FILENAME_BASE};",
+			""
+		]
+	},
+	"React component props interface": {
+		"prefix": "props",
+		"body": [
+			"export interface ${1:$TM_FILENAME_BASE}Props {",
+			"  $2",
+			"}",
+			""
+		]
+	},
+	"React context": {
+		"prefix": "context",
+		"body": [
+			"import { createContext, FC, PropsWithChildren } from 'react';",
+			"",
+			"export interface ${1:$TM_FILENAME_BASE}Value {",
+			"  $3",
+			"};",
+			"",
+			"export const ${1:$TM_FILENAME_BASE} = createContext<${1:$TM_FILENAME_BASE}Value | null>(null);",
+			"",
+			"export const ${2:$TM_FILENAME_BASE}Provider: FC<PropsWithChildren> = ({ children }) => {",
+			"  return <${1:$TM_FILENAME_BASE}.Provider value={{$3}}>{children}</${1:$TM_FILENAME_BASE}.Provider>;",
+			"};",
+			""
+		]
+	},
+	"React context with default export": {
+		"prefix": "contextdefault",
+		"body": [
+			"import { createContext, FC, PropsWithChildren } from 'react';",
+			"",
+			"export interface ${1:$TM_FILENAME_BASE}Value {",
+			"  $3",
+			"};",
+			"",
+			"const ${1:$TM_FILENAME_BASE} = createContext<${1:$TM_FILENAME_BASE}Value | null>(null);",
+			"",
+			"export const ${2:$TM_FILENAME_BASE}Provider: FC<PropsWithChildren> = ({ children }) => {",
+			"  return <${1:$TM_FILENAME_BASE}.Provider value={{$3}}>{children}</${1:$TM_FILENAME_BASE}.Provider>;",
+			"};",
+			"",
+			"export default ${1:$TM_FILENAME_BASE};",
+			""
+		]
+	},
+	"React useState hook": {
+		"prefix": "usestate",
+		"body": [
+			"const [$1, set${1/(.)/${1:/capitalize}/}] = useState$2()"
+		]
+	}
+}

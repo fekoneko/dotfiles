@@ -1,0 +1,114 @@
+{
+  "layer": "top",
+  "height": 32,
+  "margin-top": 8,
+  "margin-left": 8,
+  "margin-right": 8,
+  "spacing": 0,
+  "modules-left": ["tray", "cpu", "memory", "wlr/taskbar"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/color-picker",
+    "network",
+    "custom/vpn",
+    "bluetooth",
+    "wireplumber",
+    "backlight",
+    "battery"
+  ],
+
+  // Using fcitx5 instead
+  // "niri/language": {
+  //   "format": "{shortDescription}",
+  //   "on-click": "niri msg action switch-layout next"
+  // },
+  "cpu": {
+    "format": "{usage}%  ",
+    "on-click": "missioncenter"
+  },
+  "memory": {
+    "format": "{}%  ",
+    "on-click": "missioncenter"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "tooltip-format": "{title} | {app_id}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "fullscreen"
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%e %B %H:%M}"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "custom/color-picker": {
+    "format": "  ",
+    "tooltip-format": "",
+    "on-click": "$HOME/Scripts/pick-color.sh"
+  },
+  "network": {
+    "format": "{icon}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr}",
+    "format-icons": {
+      "wifi": "󰖩 ",
+      "ethernet": "󰖩 ",
+      "disconnected": "󰖪 "
+    },
+    "on-click": "alacritty -e nmtui"
+  },
+  "custom/vpn": {
+    "format": "{text}",
+    "return-type": "json",
+    "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
+    "on-click": "$HOME/Scripts/waybar-vpn-on-click.sh",
+    "restart-interval": 60
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "tooltip-format": "{controller_alias}",
+    "tooltip-format-connected": "{controller_alias} ({controller_address})\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias} ({device_address})",
+    "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_address}) {device_battery_percentage}% 󰂎",
+    "format-icons": {
+      "on": "󰂯",
+      "off": "󰂲",
+      "connected": "󰂱"
+    },
+    "on-click": "alacritty -e bluetui"
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": "  {icon}",
+    "format-muted": " ",
+    "format-source": "{volume}%  ",
+    "format-source-muted": " ",
+    "format-icons": {
+      "headphone": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [" ", " ", " ", " "]
+    },
+    "on-click": "alacritty -e alsamixer"
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "tooltip": false
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄",
+    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": false
+  }
+}

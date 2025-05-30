@@ -1,0 +1,121 @@
+{
+  "editor.tabSize": 2,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "postcss": "css"
+  },
+  "git.enableSmartCommit": true,
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "prettier.printWidth": 100,
+  "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+  "prettier.singleQuote": true,
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.tabSize": 4
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+  "editor.codeActionsOnSave": {},
+  "css.lint.unknownAtRules": "ignore",
+  "python.defaultInterpreterPath": "C:\\Users\\Андрей\\AppData\\Local\\Microsoft\\WindowsApps\\python3.11.exe",
+  "git.ignoreRebaseWarning": true,
+  "git.confirmSync": false,
+  "workbench.startupEditor": "none",
+  "workbench.editorAssociations": {
+    "*.OBJ": "hexEditor.hexedit"
+  },
+  "zenMode.hideLineNumbers": false,
+  "zenMode.showTabs": "single",
+  "editor.cursorSurroundingLines": 999,
+  "settingsSync.ignoredSettings": [
+    "editor.fontFamily",
+    "editor.fontSize",
+    "gitlens.currentLine.fontFamily",
+    "terminal.integrated.fontFamily",
+    "terminal.integrated.fontSize"
+  ],
+  "supermaven.enable": {
+    "*": true
+  },
+  "cssVariables.lookupFiles": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "node_modules/@mantine/core/styles.css"
+  ],
+  "editor.largeFileOptimizations": false,
+  "svg.preview.mode": "svg",
+  "reactTsScss.diagnostics": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.statusLineSeparator": "  |  ",
+  "vscode-neovim.compositeKeys": {
+    "jj": { "command": "vscode-neovim.escape" },
+    "kk": { "command": "vscode-neovim.escape" }
+  },
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontSize": 13,
+  "editor.renderWhitespace": "none",
+  "zenMode.centerLayout": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.activityBar.location": "hidden",
+  "chat.commandCenter.enabled": false,
+  "window.autoDetectColorScheme": true,
+  "editor.renderLineHighlight": "none",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.indent": 6,
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": false,
+  "telemetry.telemetryLevel": "off",
+  "git.autofetch": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "explorer.confirmDragAndDrop": false,
+  "gitlens.launchpad.indicator.enabled": false,
+  "files.associations": {
+    "*.ui": "xml"
+  },
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "gitlens.graph.minimap.enabled": false,
+  "todohighlight.keywords": [
+    {
+      "text": "TODO:",
+      "color": "#ffffff",
+      "backgroundColor": "#4c9957"
+    },
+    {
+      "text": "FIXME:",
+      "color": "#ffffff",
+      "backgroundColor": "#d2587c"
+    }
+  ],
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "reactTsScss.cssSyntaxColor": false,
+  "window.menuBarVisibility": "hidden",
+  "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "workbench.preferredDarkColorTheme": "fekoneko-theme",
+  "editor.minimap.renderCharacters": false
+}

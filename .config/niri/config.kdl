@@ -1,0 +1,250 @@
+environment {
+    // XWayland support
+    DISPLAY ":0";
+
+    // Use Wayland for Electron apps
+    ELECTRON_OZONE_PLATFORM_HINT "wayland";
+
+    // X11 Apps input method
+    // GTK_IM_MODULE "fcitx"; // do per individual XWayland application if needed
+    // QT_IM_MODULE "fcitx"; // do per individual XWayland application if needed
+    XMODIFIERS "@im=fcitx";
+
+    // Theme
+    // GTK_THEME "Adwaita:dark"; // force gtk4 dark theme (do per individual application if needed)
+    GTK2_RC_FILES "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc";
+    QT_STYLE_OVERRIDE "Adwaita-Dark";
+    XCURSOR_PATH "$XCURSOR_PATH:$HOME/.local/share/icons";
+}
+
+// XWayland support
+spawn-at-startup "xwayland-satellite"
+
+// Auth prompts
+spawn-at-startup "dbus-update-activation-environment" "--all"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+// Cursor theme
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 22
+    hide-when-typing
+    hide-after-inactive-ms 10000
+}
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Classic"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
+
+// Wallpaper
+spawn-at-startup "swaybg" "-i" "/home/fekoneko/.wallpaper"
+
+// Top bar
+spawn-at-startup "waybar"
+
+// Input method
+spawn-at-startup "fcitx5 -d"
+
+// Persistent clipboard (ignore for password MIME types) + Clipboard manager
+spawn-at-startup "wl-clip-persist" "--clipboard" "regular" "--all-mime-type-regex" "'^(?!x-kde-passwordManagerHint).+'"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+// Notification (this call is actually not nesessary as dbus would start it automatically is not running)
+spawn-at-startup "mako"
+
+// Main laptop monitor
+output "eDP-1" {
+    scale 1.4
+    focus-at-startup
+}
+
+// Second monitor at my work
+output "Philips Consumer Electronics Company PHL 240V5A UK01714029438" {
+    position x=-1920 y=0
+}
+
+input {
+    keyboard {
+        numlock
+        xkb { layout "us, ru"; }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+
+layout {
+    gaps 8
+    center-focused-column "never"
+    focus-ring { off; }
+    default-column-width { proportion 1.0; }
+
+    preset-column-widths {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    shadow {
+        on
+        softness 15
+        offset x=0 y=5
+        color "#0002"
+    }
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+    tiled-state true
+    open-maximized true
+}
+
+// Open Zen picture-in-picture player as floating
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Open terminal and file manager with half width
+window-rule {
+    match app-id=r#"^Alacritty$|Nautilus$"#
+    default-column-width { proportion 0.5; }
+    open-maximized false
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+binds {
+    Mod+F1 hotkey-overlay-title="Show hotkeys overlay" { show-hotkey-overlay; }
+    Mod+Ctrl+Alt+Shift+F13 hotkey-overlay-title=null { quit; }                  // Remove from hotkeys overlay
+    Mod+Ctrl+Alt+Shift+F14 hotkey-overlay-title=null { maximize-column; }       // Remove from hotkeys overlay
+
+    // Fn buttons
+
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "sh" "-c" \
+        "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ --limit 1.5"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "sh" "-c" \
+        "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+
+    // Windows
+
+    Mod+Backslash        hotkey-overlay-title="Toggle Overview"                   { toggle-overview; }
+    Mod+W                hotkey-overlay-title="Close the window"                  { close-window; }
+    Mod+Q                hotkey-overlay-title=null                                { close-window; }
+    Alt+F4               hotkey-overlay-title=null                                { close-window; }
+
+    Mod+Left             hotkey-overlay-title="Focus column to the left [...]"    { focus-column-left; }
+    Mod+Right            hotkey-overlay-title=null                                { focus-column-right; }
+    Mod+Up               hotkey-overlay-title=null                                { focus-window-up; }
+    Mod+Down             hotkey-overlay-title=null                                { focus-window-down; }
+    Mod+Home             hotkey-overlay-title="Focus first column [...]"          { focus-column-first; }
+    Mod+End              hotkey-overlay-title=null                                { focus-column-last; }
+    Mod+WheelScrollLeft  hotkey-overlay-title=null                                { focus-column-left; }
+    Mod+WheelScrollRight hotkey-overlay-title=null                                { focus-column-right; }
+    Mod+Shift+WheelScrollUp hotkey-overlay-title=null                             { focus-column-left; }
+    Mod+Shift+WheelScrollDown hotkey-overlay-title=null                           { focus-column-right; }
+
+    Mod+Ctrl+Left        hotkey-overlay-title="Move column left [...]"            { move-column-left; }
+    Mod+Ctrl+Right       hotkey-overlay-title=null                                { move-column-right; }
+    Mod+Ctrl+Up          hotkey-overlay-title=null                                { move-window-up; }
+    Mod+Ctrl+Down        hotkey-overlay-title=null                                { move-window-down; }
+    Mod+Ctrl+Home        hotkey-overlay-title="Move column to start [...]"        { move-column-to-first; }
+    Mod+Ctrl+End         hotkey-overlay-title=null                                { move-column-to-last; }
+    Mod+Ctrl+WheelScrollLeft hotkey-overlay-title=null                            { move-column-left; }
+    Mod+Ctrl+WheelScrollRight hotkey-overlay-title=null                           { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp hotkey-overlay-title=null                        { move-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown hotkey-overlay-title=null                      { move-column-right; }
+
+    Mod+BracketLeft      hotkey-overlay-title="Tile vertically to the left [...]" { consume-or-expel-window-left; }
+    Mod+BracketRight     hotkey-overlay-title=null                                { consume-or-expel-window-right; }
+
+    Mod+R                hotkey-overlay-title="Toggle column width"               { switch-preset-column-width; }
+    Mod+F                hotkey-overlay-title="Toggle fullscreen"                 { fullscreen-window; }
+    Mod+Minus            hotkey-overlay-title="Decrease column width [...]"       { set-column-width "-10%"; }
+    Mod+Equal            hotkey-overlay-title=null                                { set-column-width "+10%"; }
+    Mod+Shift+Minus      hotkey-overlay-title="Decrease column height [...]"      { set-window-height "-10%"; }
+    Mod+Shift+Equal      hotkey-overlay-title=null                                { set-window-height "+10%"; }
+
+    Mod+D                hotkey-overlay-title="Switch window to floating"         { toggle-window-floating; }
+    Mod+Shift+D          hotkey-overlay-title="Focus floating / tiled"            { switch-focus-between-floating-and-tiling; }
+
+    // Monitors
+
+    Mod+Shift+Left       hotkey-overlay-title="Focus monitor to the left [...]"   { focus-monitor-left; }
+    Mod+Shift+Right      hotkey-overlay-title=null                                { focus-monitor-right; }
+    Mod+Shift+Up         hotkey-overlay-title=null                                { focus-monitor-up; }
+    Mod+Shift+Down       hotkey-overlay-title=null                                { focus-monitor-down; }
+
+    Mod+Shift+Ctrl+Left  hotkey-overlay-title="Move to the left monitor [...]"    { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  hotkey-overlay-title=null                                { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    hotkey-overlay-title=null                                { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right hotkey-overlay-title=null                                { move-column-to-monitor-right; }
+
+    // Workspaces
+
+    Mod+Page_Up          hotkey-overlay-title="Focus workspace above [...]"       { focus-workspace-up; }
+    Mod+Page_Down        hotkey-overlay-title=null                                { focus-workspace-down; }
+    Mod+WheelScrollUp    hotkey-overlay-title=null cooldown-ms=150                { focus-workspace-up; }
+    Mod+WheelScrollDown  hotkey-overlay-title=null cooldown-ms=150                { focus-workspace-down; }
+
+    Mod+Ctrl+Page_Up     hotkey-overlay-title="Move to workspace above [...]"     { move-column-to-workspace-up; }
+    Mod+Ctrl+Page_Down   hotkey-overlay-title=null                                { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up    hotkey-overlay-title=null                                { move-workspace-up; }
+    Mod+Shift+Page_Down  hotkey-overlay-title=null                                { move-workspace-down; }
+    Mod+Ctrl+WheelScrollUp hotkey-overlay-title=null cooldown-ms=150              { move-column-to-workspace-up; }
+    Mod+Ctrl+WheelScrollDown hotkey-overlay-title=null cooldown-ms=150            { move-column-to-workspace-down; }
+
+    // Applications
+
+    Ctrl+Shift+Escape    hotkey-overlay-title="Task manager"                      { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
+    Mod+T                hotkey-overlay-title="Terminal"                          { spawn "gtk-launch" "Alacritty"; }
+    Mod+E                hotkey-overlay-title="File manager"                      { spawn "gtk-launch" "org.gnome.Nautilus"; }
+    Mod+C                hotkey-overlay-title="VS Code"                           { spawn "gtk-launch" "code"; }
+    Mod+Z                hotkey-overlay-title="Zen Browser"                       { spawn "gtk-launch" "zen"; }
+    Mod+G                hotkey-overlay-title="Gaplesss [...]"                    { spawn "gtk-launch" "com.github.neithern.g4music"; }
+    Mod+A                hotkey-overlay-title=null                                { spawn "gtk-launch" "anki"; }
+    Mod+K                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.kde.krita"; }
+    Mod+O                hotkey-overlay-title=null                                { spawn "gtk-launch" "obsidian"; }
+    Mod+U                hotkey-overlay-title=null                                { spawn "gtk-launch" "chromium"; }
+
+    // Miscellaneous
+
+    Mod+P                hotkey-overlay-title="Toggle waybar"                     { spawn "killall" "-SIGUSR1" "waybar"; }
+    Mod+X                hotkey-overlay-title="Dismiss all notifications"         { spawn "makoctl" "dismiss" "--all"; }
+    Mod+N                                                                         { spawn "makoctl" "dismiss" "--all"; }
+
+    Mod+Tab              hotkey-overlay-title="Run an application"                { spawn "~/Scripts/drun.sh"; }
+    Mod+V                hotkey-overlay-title="Clipboard manager"                 { spawn "~/Scripts/clipboard-dmenu.sh"; }
+    Mod+Shift+V          hotkey-overlay-title="Clear clipboard"                   { spawn "cliphist" "wipe"; }
+    Mod+Period           hotkey-overlay-title="Emoji picker"                      { spawn "~/Scripts/emoji-dmenu.sh"; }
+
+    // Using fcitx5 instead
+    // Mod+Space            hotkey-overlay-title="Next keyboard layout [...]"     { switch-layout "next"; }
+    // Mod+Shift+Space      hotkey-overlay-title=null                             { switch-layout "prev"; }
+    // Alt+Space            hotkey-overlay-title=null                             { switch-layout "next"; }
+    // Alt+Shift+Space      hotkey-overlay-title=null                             { switch-layout "prev"; }
+
+    Mod+L                hotkey-overlay-title="Lock the screen"                   { spawn "gtklock"; }
+    Mod+Shift+L          hotkey-overlay-title="Power off monitors"                { power-off-monitors; }
+
+    Mod+S                hotkey-overlay-title="Take a screenshot [...]"           { screenshot-screen; }
+    Print                hotkey-overlay-title=null                                { screenshot-screen; }
+    Mod+Shift+S          hotkey-overlay-title=null                                { screenshot; }
+    Mod+Ctrl+Shift+S     hotkey-overlay-title=null                                { screenshot-window; }
+    Mod+I                hotkey-overlay-title="Pick color from screen"            { spawn "~/Scripts/pick-color.sh"; }
+
+    // An escape hatch if some appication steals control from niri
+    Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}
