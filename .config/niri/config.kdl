@@ -52,7 +52,7 @@ spawn-at-startup "mako"
 
 // Main laptop monitor
 output "eDP-1" {
-    scale 1.4
+    scale 1.35
     focus-at-startup
 }
 
