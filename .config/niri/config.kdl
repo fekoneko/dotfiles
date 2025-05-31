@@ -73,6 +73,12 @@ input {
     }
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 layout {
     gaps 8
     center-focused-column "never"
