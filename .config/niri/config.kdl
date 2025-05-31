@@ -272,10 +272,13 @@ binds {
     Mod+Period           hotkey-overlay-title="Emoji picker"                      { spawn "~/Scripts/emoji-dmenu.sh"; }
 
     // Using fcitx5 instead
-    // Mod+Space            hotkey-overlay-title="Next keyboard layout [...]"     { switch-layout "next"; }
-    // Mod+Shift+Space      hotkey-overlay-title=null                             { switch-layout "prev"; }
-    // Alt+Space            hotkey-overlay-title=null                             { switch-layout "next"; }
-    // Alt+Shift+Space      hotkey-overlay-title=null                             { switch-layout "prev"; }
+    // Mod+Space         hotkey-overlay-title="Next keyboard layout [...]"        { switch-layout "next"; }
+    // Mod+Shift+Space   hotkey-overlay-title=null                                { switch-layout "prev"; }
+    // Alt+Space         hotkey-overlay-title=null                                { switch-layout "next"; }
+    // Alt+Shift+Space   hotkey-overlay-title=null                                { switch-layout "prev"; }
+
+    Mod+Grave            hotkey-overlay-title="Mount VeraCrypt volumes"           { spawn "veracrypt" "--auto-mount=favorites"; }
+    Mod+Shift+Grave      hotkey-overlay-title="Dismount VeraCrypt volumes"        { spawn "veracrypt" "--unmount"; }
 
     Mod+L                hotkey-overlay-title="Lock the screen"                   { spawn "gtklock"; }
     Mod+Shift+L          hotkey-overlay-title="Power off monitors"                { power-off-monitors; }
