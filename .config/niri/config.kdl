@@ -101,15 +101,50 @@ window-rule {
     open-maximized true
 }
 
-// Open Zen picture-in-picture player as floating
 window-rule {
-    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match is-focused=false
+    opacity 0.965
+}
+
+// Open in floating mode
+window-rule {
+    // VeraCrypt password prompts
+    match app-id="^veracrypt$" title="^Administrator privileges required$|^Enter password for"
+    // Zen picture-in-picture overlays
+    match app-id="^zen$" title="^Picture-in-Picture$"
+
     open-floating true
 }
 
-// Open terminal and file manager with half width
+// Open in floating mode 900 x 600
 window-rule {
-    match app-id=r#"^Alacritty$|Nautilus$"#
+    // All Krita windows except the main one
+    match app-id="^krita$" title="^[^()]* Krita$"
+    // Obsidian vault opening window
+    match app-id="^org.gnome.Nautilus$" title="^Open folder as vault$"
+
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 600; }
+}
+
+// Open in floating mode 500 x 400
+window-rule {
+    // Krita filter adjustments windows
+    match app-id="^krita$" title="^Filter: [^()]* — Krita$"
+
+    open-floating true
+    default-column-width { fixed 500; }
+    default-window-height { fixed 400; }
+}
+
+// Open in half width
+window-rule {
+    // Terminal
+    match app-id="^Alacritty$"
+    // File manager
+    match app-id="^org.gnome.Nautilus$"
+
     default-column-width { proportion 0.5; }
     open-maximized false
 }
