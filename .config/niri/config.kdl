@@ -150,6 +150,8 @@ window-rule {
     match app-id="^Alacritty$"
     // File manager
     match app-id="^org.gnome.Nautilus$"
+    // Gnome Online Accounts GTK
+    match app-id="^org.x.GnomeOnlineAccountsGtk$"
 
     default-column-width { proportion 0.5; }
     open-maximized false
