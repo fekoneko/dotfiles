@@ -36,6 +36,6 @@ rustup update || rust_error
 
 echo $'\nUpdating cargo binaries:'
 echo $'$ cargo_packages="$(jq -r \'.installs | keys[] | split(" ")[0]\' < "$CARGO_HOME/.crates2.json")"'
-echo $'cargo install --locked "$cargo_packages"r'
+echo $'$ cargo install --locked "$cargo_packages"\n'
 cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' < "$CARGO_HOME/.crates2.json")" || cargo_error
 cargo install --locked "$cargo_packages" || cargo_error
