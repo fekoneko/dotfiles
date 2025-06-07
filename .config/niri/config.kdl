@@ -261,6 +261,7 @@ binds {
     Mod+K                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.kde.krita"; }
     Mod+O                hotkey-overlay-title=null                                { spawn "gtk-launch" "obsidian"; }
     Mod+U                hotkey-overlay-title=null                                { spawn "gtk-launch" "chromium"; }
+    Mod+M                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.gnome.Geary"; }
 
     // Miscellaneous
 
