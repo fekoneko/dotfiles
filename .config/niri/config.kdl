@@ -6,8 +6,8 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "wayland";
 
     // Input method
+    // GTK_IM_MODULE "fcitx"; // do per individual XWayland application if needed
     // QT_IM_MODULE "fcitx"; // do per individual XWayland application if needed
-    GTK_IM_MODULE "fcitx";
     XMODIFIERS "@im=fcitx";
 
     // Theme

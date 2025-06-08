@@ -4,6 +4,7 @@
 
 !README.md
 !.gitignore
+!.profile
 !.bash_profile
 !.bashrc
 
@@ -30,12 +31,13 @@
 !.config/mako/config
 
 # vscode
+!.config/code-flags.conf
 !.config/Code/
 !.config/Code/User/
 !.config/Code/User/settings.json
 !.config/Code/User/keybindings.json
 !.config/Code/User/snippets/
-!.config/Code/User/snippets/*
+!.config/Code/User/snippets/**/*
 
 # mpv
 !.config/mpv/
@@ -63,3 +65,16 @@
 
 !Scripts/
 !Scripts/**/*
+
+# ---------- ~/.local/share/applications ----------
+
+!.local/
+!.local/share/
+!.local/share/applications/
+!.local/share/applications/**/*
+
+# -------------- ~/.local/bin ---------------------
+
+!.local/
+!.local/bin/
+!.local/bin/**/*
