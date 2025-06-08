@@ -273,12 +273,13 @@ binds {
     Mod+O                hotkey-overlay-title=null                                { spawn "gtk-launch" "obsidian"; }
     Mod+U                hotkey-overlay-title=null                                { spawn "gtk-launch" "chromium"; }
     Mod+M                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.gnome.Geary"; }
+    Mod+B                hotkey-overlay-title=null                                { spawn "alacritty" "-e" "bluetui"; }
+    Mod+N                hotkey-overlay-title=null                                { spawn "alacritty" "-e" "nmtui"; }
 
     // Miscellaneous
 
     Mod+P                hotkey-overlay-title="Toggle waybar"                     { spawn "killall" "-SIGUSR1" "waybar"; }
     Mod+X                hotkey-overlay-title="Dismiss all notifications"         { spawn "makoctl" "dismiss" "--all"; }
-    Mod+N                                                                         { spawn "makoctl" "dismiss" "--all"; }
 
     Mod+Tab              hotkey-overlay-title="Run an application"                { spawn "~/Scripts/drun.sh"; }
     Mod+V                hotkey-overlay-title="Clipboard manager"                 { spawn "~/Scripts/clipboard-dmenu.sh"; }
