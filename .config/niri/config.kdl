@@ -5,9 +5,9 @@ environment {
     // Use Wayland for Electron apps
     ELECTRON_OZONE_PLATFORM_HINT "wayland";
 
-    // X11 Apps input method
-    // GTK_IM_MODULE "fcitx"; // do per individual XWayland application if needed
+    // Input method
     // QT_IM_MODULE "fcitx"; // do per individual XWayland application if needed
+    GTK_IM_MODULE "fcitx";
     XMODIFIERS "@im=fcitx";
 
     // Theme
