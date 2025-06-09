@@ -81,9 +81,15 @@ gestures {
 layout {
     gaps 6
     center-focused-column "never"
-    focus-ring { off; }
     default-column-width { proportion 1.0; }
     tab-indicator { gap 2; }
+
+    focus-ring {
+        width 2
+        active-color "#7fc8ff"
+        inactive-color "transparent"
+        urgent-color "#ff8899"
+    }
 
     preset-column-widths {
         proportion 0.5
@@ -105,11 +111,6 @@ window-rule {
     clip-to-geometry true
     tiled-state true
     open-maximized true
-}
-
-window-rule {
-    match is-focused=false
-    opacity 0.965
 }
 
 // Open in floating mode
