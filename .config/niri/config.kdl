@@ -62,6 +62,10 @@ output "Philips Consumer Electronics Company PHL 240V5A UK01714029438" {
     position x=-1920 y=0
 }
 
+switch-events {
+    lid-close { spawn "gtklock"; }
+}
+
 input {
     keyboard {
         numlock
@@ -104,7 +108,7 @@ layout {
     }
 }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path null
 
 window-rule {
     geometry-corner-radius 8
