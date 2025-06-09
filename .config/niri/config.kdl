@@ -62,10 +62,6 @@ output "Philips Consumer Electronics Company PHL 240V5A UK01714029438" {
     position x=-1920 y=0
 }
 
-switch-events {
-    lid-close { spawn "gtklock"; }
-}
-
 input {
     keyboard {
         numlock
@@ -84,7 +80,9 @@ gestures {
 
 layout {
     gaps 6
+    empty-workspace-above-first
     center-focused-column "never"
+    background-color "#00000000"
     default-column-width { proportion 1.0; }
     tab-indicator { gap 2; }
 
@@ -108,7 +106,23 @@ layout {
     }
 }
 
+switch-events {
+    // Lock on lid close
+    lid-close { spawn "gtklock"; }
+}
+
 screenshot-path null
+
+overview {
+    workspace-shadow { off; }
+}
+
+// Show wallpaper within overview backdrop
+layer-rule {
+    match namespace="wallpaper"
+    match at-startup=true
+    place-within-backdrop true
+}
 
 window-rule {
     geometry-corner-radius 8
