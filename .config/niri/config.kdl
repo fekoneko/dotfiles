@@ -36,7 +36,7 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" 
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
 
 // Wallpaper
-spawn-at-startup "swaybg" "-i" "/home/fekoneko/.wallpaper"
+spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
 
 // Top bar
 spawn-at-startup "waybar"
