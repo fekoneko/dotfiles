@@ -48,7 +48,7 @@ spawn-at-startup "fcitx5 -d"
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular" "--all-mime-type-regex" "'^(?!x-kde-passwordManagerHint).+'"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
-// Notification (this call is actually not nesessary as dbus would start it automatically is not running)
+// Notifications (this call is actually not nesessary as dbus would start it automatically if not running)
 spawn-at-startup "mako"
 
 // Main laptop monitor
@@ -75,16 +75,15 @@ input {
 }
 
 gestures {
-    hot-corners {
-        off
-    }
+    hot-corners { off; }
 }
 
 layout {
-    gaps 8
+    gaps 6
     center-focused-column "never"
     focus-ring { off; }
     default-column-width { proportion 1.0; }
+    tab-indicator { gap 2; }
 
     preset-column-widths {
         proportion 0.5
@@ -102,7 +101,7 @@ layout {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 8
     clip-to-geometry true
     tiled-state true
     open-maximized true
