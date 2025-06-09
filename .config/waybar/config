@@ -1,9 +1,9 @@
 {
   "layer": "top",
   "height": 32,
-  "margin-top": 8,
-  "margin-left": 8,
-  "margin-right": 8,
+  "margin-top": 6,
+  "margin-left": 6,
+  "margin-right": 6,
   "spacing": 0,
   "modules-left": ["tray", "cpu", "memory", "wlr/taskbar"],
   "modules-center": ["clock"],
