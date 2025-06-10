@@ -11,11 +11,11 @@ environment {
     XMODIFIERS "@im=fcitx";
 
     // Theme
-    // GTK_THEME "Adwaita:dark"; // force gtk4 dark theme (do per individual application if needed)
-    GTK2_RC_FILES "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc";
     QT_STYLE_OVERRIDE "Adwaita-Dark";
-    XCURSOR_PATH "$XCURSOR_PATH:$HOME/.local/share/icons";
-    // SAL_USE_VCLPLUGIN "gtk4"; // use GTK4 for LibreOffice - as for now it crashes
+    GTK2_RC_FILES "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc";
+    // GTK_THEME "Adwaita:dark"; // force gtk4 dark theme (do per individual application if needed)
+    // XCURSOR_PATH "$XCURSOR_PATH:$HOME/.local/share/icons"; // breaks cursor in GTK3 apps
+    // SAL_USE_VCLPLUGIN "gtk4"; // use GTK4 for LibreOffice - as for now, it crashes
 }
 
 // XWayland support
