@@ -1,12 +1,11 @@
 {
   "layer": "top",
-  "height": 32,
+  "height": 34,
   "margin-top": 6,
   "margin-left": 6,
   "margin-right": 6,
   "spacing": 0,
-  "modules-left": ["tray", "cpu", "memory", "wlr/taskbar"],
-  "modules-center": ["clock"],
+  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
   "modules-right": [
     "custom/color-picker",
     "network",
@@ -14,7 +13,7 @@
     "bluetooth",
     "wireplumber",
     "backlight",
-    "battery"
+    "clock"
   ],
 
   // Using fcitx5 instead
@@ -39,7 +38,7 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%e %B %H:%M}"
+    "format": "{:%H:%M}"
   },
   "tray": {
     "spacing": 10

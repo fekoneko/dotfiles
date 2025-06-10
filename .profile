@@ -20,6 +20,8 @@ source /usr/share/nvm/init-nvm.sh
 export PATH="$HOME/.bun/bin:$PATH"
 
 # Newt TUI
+# Valid colors: black, blue, green, cyan, red, magenta, brown, lightgray, gray,
+# brightblue, brightgreen, brightcyan, brightred, brightmagenta, yellow, white
 export NEWT_COLORS='\
   root=green,black \
   border=green,black \
