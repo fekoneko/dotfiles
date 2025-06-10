@@ -61,6 +61,12 @@
 !.config/fcitx5/conf/notifications.conf
 !.config/fcitx5/conf/quickphrase.conf
 
+# gtklock
+!.config/gtklock/
+!.config/gtklock/config.ini
+!.config/gtklock/style.css
+!.config/gtklock/layout.ui
+
 # fontconfig
 !.config/fontconfig/
 !.config/fontconfig/fonts.conf
