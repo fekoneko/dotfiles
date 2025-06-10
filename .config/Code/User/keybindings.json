@@ -507,5 +507,13 @@
     "key": "ctrl+shift+g ,",
     "command": "-gitlens.diffWithPrevious",
     "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:tracked'"
+  },
+  {
+    "key": "alt+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "shift+alt+n",
+    "command": "explorer.newFolder"
   }
 ]
