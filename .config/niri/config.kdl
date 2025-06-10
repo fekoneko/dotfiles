@@ -51,6 +51,12 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // Notifications (this call is actually not nesessary as dbus would start it automatically if not running)
 spawn-at-startup "mako"
 
+// Lock after 10 minuts of inactivity
+spawn-at-startup "swayidle" "-w" \
+    "timeout" "600" "gtklock" \
+    "timeout" "570" "niri msg action power-off-monitors" \
+    "before-sleep" "gtklock"
+
 // Main laptop monitor
 output "eDP-1" {
     scale 1.35
