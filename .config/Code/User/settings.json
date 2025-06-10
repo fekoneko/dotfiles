@@ -116,7 +116,7 @@
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
   "window.commandCenter": false,
-  "workbench.preferredDarkColorTheme": "fekoneko-theme",
   "editor.minimap.renderCharacters": false,
-  "git.replaceTagsWhenPull": true
+  "git.replaceTagsWhenPull": true,
+  "workbench.preferredDarkColorTheme": "fekoneko-theme"
 }

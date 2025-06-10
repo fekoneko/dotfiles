@@ -87,10 +87,11 @@ layout {
     tab-indicator { gap 2; }
 
     focus-ring {
-        width 2
-        active-color "#7fc8ff"
+        width 1.5
+        active-color "#467ed2"
+        active-gradient from="#7790bf" to="#7790bf66"
         inactive-color "transparent"
-        urgent-color "#ff8899"
+        urgent-color "transparent"
     }
 
     preset-column-widths {
@@ -100,9 +101,9 @@ layout {
 
     shadow {
         on
-        softness 15
+        softness 25
         offset x=0 y=5
-        color "#0002"
+        color "#0003"
     }
 }
 
@@ -111,6 +112,7 @@ switch-events {
     lid-close { spawn "gtklock"; }
 }
 
+prefer-no-csd
 screenshot-path null
 
 overview {
@@ -125,10 +127,11 @@ layer-rule {
 }
 
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 6
     clip-to-geometry true
     tiled-state true
     open-maximized true
+    draw-border-with-background false
 }
 
 // Open in floating mode
