@@ -29,3 +29,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias neofetch='fastfetch'
+
+# Run fastfetch on startup
+fastfetch
