@@ -66,7 +66,6 @@ label:focus {
 }
 
 #tray,
-#taskbar,
 #battery,
 #language,
 #custom-color-picker {
@@ -114,6 +113,7 @@ label:focus {
 
 #taskbar button:last-child {
   border-radius: 0 12px 12px 0;
+  margin-right: 6px;
 }
 
 #taskbar button:first-child:last-child {
@@ -122,14 +122,20 @@ label:focus {
 
 #taskbar button:hover {
   background-color: rgba(37, 41, 50, 0.6);
+  border-top: 1.5px solid rgba(77, 84, 101, 0.6);
+  border-bottom: 1.5px solid rgba(28, 31, 37, 0.6);
 }
 
 #taskbar button.active {
   background-color: rgba(73, 82, 100, 0.6);
+  border-top: 1.5px solid rgba(98, 105, 127, 0.6);
+  border-bottom: 1.5px solid rgba(52, 58, 68, 0.6);
 }
 
 #taskbar button.active:hover {
-  background-color: rgba(84, 95, 115, 0.6);
+  background-color: rgba(77, 87, 105, 0.6);
+  border-top: 1.5px solid rgba(102, 109, 133, 0.6);
+  border-bottom: 1.5px solid rgba(58, 64, 75, 0.6);
 }
 
 #tray > .passive {
