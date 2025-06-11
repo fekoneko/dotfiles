@@ -35,6 +35,12 @@ cursor {
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Classic"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
 
+// Fonts for GTK
+gsettings set org.gnome.desktop.interface document-font-name 'sans-serif 10'
+gsettings set org.gnome.desktop.interface font-name 'sans-serif 10'
+gsettings set org.gnome.desktop.interface monospace-font-name 'monospace 10'
+// gconftool --set /apps/metacity/general/titlebar_font 'sans-serif 10' --type STRING
+
 // Wallpaper
 spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
 
