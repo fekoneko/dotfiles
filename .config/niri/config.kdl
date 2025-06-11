@@ -23,7 +23,7 @@ environment {
 
 // Use XSETTINGS manager specifically for Krita scaling
 // Remove xsettingsd when xwayland-satellite resolves the scale rounding issue or Krita supports Wayland
-spawn-at-startup "xsettingsd"
+spawn-at-startup "sh" "-c" "sleep 3 && xsettingsd"
 
 // XWayland support
 spawn-at-startup "xwayland-satellite"
