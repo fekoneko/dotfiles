@@ -71,6 +71,10 @@
 !.config/fontconfig/
 !.config/fontconfig/fonts.conf
 
+# xsettingsd
+!.config/xsettingsd/
+!.config/xsettingsd/xsettingsd.conf
+
 # ------------------- ~/Scripts -------------------
 
 !Scripts/

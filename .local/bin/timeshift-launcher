@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkexec env $(env | grep -v ' ') /usr/bin/timeshift-launcher
