@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-DISPLAY=:0 GTK_THEME=Adwaita:dark /usr/bin/timeshift-gtk "$@"
