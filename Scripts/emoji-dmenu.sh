@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+pidof wofi && exit 0
+
 emoji="$(sed '1,/^### DATA ###$/d' "$0" \
   | wofi --show dmenu --prompt 'Emojis' \
   | cut -d ' ' -f 1 \

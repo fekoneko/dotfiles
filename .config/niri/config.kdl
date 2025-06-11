@@ -36,9 +36,9 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" 
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
 
 // Fonts for GTK
-gsettings set org.gnome.desktop.interface document-font-name 'sans-serif 10'
-gsettings set org.gnome.desktop.interface font-name 'sans-serif 10'
-gsettings set org.gnome.desktop.interface monospace-font-name 'monospace 10'
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-name" "sans-serif 10"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "sans-serif 10"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "monospace 10"
 // gconftool --set /apps/metacity/general/titlebar_font 'sans-serif 10' --type STRING
 
 // Wallpaper
@@ -54,14 +54,11 @@ spawn-at-startup "fcitx5 -d"
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular" "--all-mime-type-regex" "'^(?!x-kde-passwordManagerHint).+'"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
-// Notifications (this call is actually not nesessary as dbus would start it automatically if not running)
-spawn-at-startup "mako"
-
 // Lock after 10 minuts of inactivity
 spawn-at-startup "swayidle" "-w" \
-    "timeout" "600" "gtklock" \
+    "timeout" "600" "~/Scripts/lock-screen.sh" \
     "timeout" "570" "niri msg action power-off-monitors" \
-    "before-sleep" "gtklock"
+    "before-sleep" "~/Scripts/lock-screen.sh"
 
 // Main laptop monitor
 output "eDP-1" {
@@ -120,7 +117,7 @@ layout {
 
 switch-events {
     // Lock on lid close
-    lid-close { spawn "gtklock"; }
+    lid-close { spawn "~/Scripts/lock-screen.sh"; }
 }
 
 prefer-no-csd
@@ -327,7 +324,7 @@ binds {
     Mod+Grave            hotkey-overlay-title="Mount VeraCrypt volumes"           { spawn "veracrypt" "--auto-mount=favorites"; }
     Mod+Shift+Grave      hotkey-overlay-title="Dismount VeraCrypt volumes"        { spawn "veracrypt" "--unmount"; }
 
-    Mod+L                hotkey-overlay-title="Lock the screen"                   { spawn "gtklock"; }
+    Mod+L                hotkey-overlay-title="Lock the screen"                   { spawn "~/Scripts/lock-screen.sh"; }
     Mod+Shift+L          hotkey-overlay-title="Power off monitors"                { spawn "~/Scripts/toggle-main-monitor.sh"; }
 
     Mod+S                hotkey-overlay-title="Take a screenshot [...]"           { screenshot-screen; }

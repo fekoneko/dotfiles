@@ -5,27 +5,27 @@ window {
 }
 
 #date-label {
-  font-size: 22;
+  font-size: 22px;
 }
 
 #clock-label {
-  font-size: 96;
+  font-size: 96px;
 }
 
 window.focused:not(.hidden) #clock-label {
   opacity: 0;
-  font-size: 0;
+  font-size: 0px;
 }
 
 window.focused:not(.hidden) #date-label {
   opacity: 0;
-  font-size: 0;
+  font-size: 0px;
 }
 
 #input-field {
-  padding: 4 12;
+  padding: 4px 12px;
   background-color: rgba(34, 34, 38, 0.7);
-  border-radius: 14;
+  border-radius: 14px;
 }
 
 #input-field:focus {
