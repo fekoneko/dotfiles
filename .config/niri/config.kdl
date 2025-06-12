@@ -243,8 +243,8 @@ binds {
     Mod+End              hotkey-overlay-title=null                                { focus-column-last; }
     Mod+WheelScrollLeft  hotkey-overlay-title=null                                { focus-column-left; }
     Mod+WheelScrollRight hotkey-overlay-title=null                                { focus-column-right; }
-    Mod+Shift+WheelScrollUp hotkey-overlay-title=null                             { focus-column-left; }
-    Mod+Shift+WheelScrollDown hotkey-overlay-title=null                           { focus-column-right; }
+    Mod+WheelScrollUp hotkey-overlay-title=null                                   { focus-column-left; }
+    Mod+WheelScrollDown hotkey-overlay-title=null                                 { focus-column-right; }
 
     Mod+Ctrl+Left        hotkey-overlay-title="Move column left [...]"            { move-column-left; }
     Mod+Ctrl+Right       hotkey-overlay-title=null                                { move-column-right; }
@@ -254,8 +254,8 @@ binds {
     Mod+Ctrl+End         hotkey-overlay-title=null                                { move-column-to-last; }
     Mod+Ctrl+WheelScrollLeft hotkey-overlay-title=null                            { move-column-left; }
     Mod+Ctrl+WheelScrollRight hotkey-overlay-title=null                           { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp hotkey-overlay-title=null                        { move-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown hotkey-overlay-title=null                      { move-column-right; }
+    Mod+Ctrl+WheelScrollUp hotkey-overlay-title=null                              { move-column-left; }
+    Mod+Ctrl+WheelScrollDown hotkey-overlay-title=null                            { move-column-right; }
 
     Mod+BracketLeft      hotkey-overlay-title="Tile vertically to the left [...]" { consume-or-expel-window-left; }
     Mod+BracketRight     hotkey-overlay-title=null                                { consume-or-expel-window-right; }
@@ -286,15 +286,15 @@ binds {
 
     Mod+Page_Up          hotkey-overlay-title="Focus workspace above [...]"       { focus-workspace-up; }
     Mod+Page_Down        hotkey-overlay-title=null                                { focus-workspace-down; }
-    Mod+WheelScrollUp    hotkey-overlay-title=null cooldown-ms=150                { focus-workspace-up; }
-    Mod+WheelScrollDown  hotkey-overlay-title=null cooldown-ms=150                { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp    hotkey-overlay-title=null cooldown-ms=150          { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown  hotkey-overlay-title=null cooldown-ms=150          { focus-workspace-down; }
 
     Mod+Ctrl+Page_Up     hotkey-overlay-title="Move to workspace above [...]"     { move-column-to-workspace-up; }
     Mod+Ctrl+Page_Down   hotkey-overlay-title=null                                { move-column-to-workspace-down; }
     Mod+Shift+Page_Up    hotkey-overlay-title=null                                { move-workspace-up; }
     Mod+Shift+Page_Down  hotkey-overlay-title=null                                { move-workspace-down; }
-    Mod+Ctrl+WheelScrollUp hotkey-overlay-title=null cooldown-ms=150              { move-column-to-workspace-up; }
-    Mod+Ctrl+WheelScrollDown hotkey-overlay-title=null cooldown-ms=150            { move-column-to-workspace-down; }
+    Mod+Shift+Ctrl+WheelScrollUp hotkey-overlay-title=null cooldown-ms=150        { move-column-to-workspace-up; }
+    Mod+Shift+Ctrl+WheelScrollDown hotkey-overlay-title=null cooldown-ms=150      { move-column-to-workspace-down; }
 
     // Applications
 
