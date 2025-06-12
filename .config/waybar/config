@@ -5,7 +5,13 @@
   "margin-left": 6,
   "margin-right": 6,
   "spacing": 0,
-  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
+  "modules-left": [
+    "battery",
+    "cpu",
+    "memory",
+    "wlr/taskbar",
+    "tray"
+  ],
   "modules-right": [
     "custom/color-picker",
     "network",
@@ -15,12 +21,6 @@
     "backlight",
     "clock"
   ],
-
-  // Using fcitx5 instead
-  // "niri/language": {
-  //   "format": "{shortDescription}",
-  //   "on-click": "niri msg action switch-layout next"
-  // },
   "cpu": {
     "format": "{usage}%  ",
     "on-click": "missioncenter"
@@ -37,7 +37,7 @@
     "on-click-right": "fullscreen"
   },
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<big>{:%a, %b %d}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{:%H:%M}"
   },
   "tray": {
@@ -90,13 +90,28 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": [" ", " ", " ", " "]
+      "default": [
+        " ",
+        " ",
+        " ",
+        " "
+      ]
     },
     "on-click": "alacritty -e alsamixer"
   },
   "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "tooltip": false
   },
   "battery": {
@@ -107,7 +122,19 @@
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% 󰂄",
-    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰂃",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "tooltip": false
   }
 }
