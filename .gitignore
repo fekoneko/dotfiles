@@ -12,6 +12,14 @@
 
 !.config/
 
+# fontconfig
+!.config/fontconfig/
+!.config/fontconfig/fonts.conf
+
+# xsettingsd
+!.config/xsettingsd/
+!.config/xsettingsd/xsettingsd.conf
+
 # niri
 !.config/niri/
 !.config/niri/config.kdl
@@ -30,14 +38,11 @@
 !.config/mako/
 !.config/mako/config
 
-# vscode
-!.config/code-flags.conf
-!.config/Code/
-!.config/Code/User/
-!.config/Code/User/settings.json
-!.config/Code/User/keybindings.json
-!.config/Code/User/snippets/
-!.config/Code/User/snippets/**/*
+# gtklock
+!.config/gtklock/
+!.config/gtklock/config.ini
+!.config/gtklock/style.css
+!.config/gtklock/layout.ui
 
 # alacritty
 !.config/alacritty/
@@ -48,47 +53,16 @@
 !.config/mpv/input.conf
 !.config/mpv/mpv.conf
 
-# fcitx5
-!.config/fcitx5/
-!.config/fcitx5/config
-!.config/fcitx5/profile
-!.config/fcitx5/conf/
-!.config/fcitx5/conf/classicui.conf
-!.config/fcitx5/conf/clipboard.conf
-!.config/fcitx5/conf/keyboard.conf
-!.config/fcitx5/conf/kimpanel.conf
-!.config/fcitx5/conf/mozc.conf
-!.config/fcitx5/conf/notifications.conf
-!.config/fcitx5/conf/quickphrase.conf
-
-# gtklock
-!.config/gtklock/
-!.config/gtklock/config.ini
-!.config/gtklock/style.css
-!.config/gtklock/layout.ui
-
-# fontconfig
-!.config/fontconfig/
-!.config/fontconfig/fonts.conf
-
-# xsettingsd
-!.config/xsettingsd/
-!.config/xsettingsd/xsettingsd.conf
+# vscode
+!.config/code-flags.conf
+!.config/Code/
+!.config/Code/User/
+!.config/Code/User/settings.json
+!.config/Code/User/keybindings.json
+!.config/Code/User/snippets/
+!.config/Code/User/snippets/**/*
 
 # ------------------- ~/Scripts -------------------
 
 !Scripts/
 !Scripts/**/*
-
-# ---------- ~/.local/share/applications ----------
-
-!.local/
-!.local/share/
-!.local/share/applications/
-!.local/share/applications/**/*
-
-# -------------- ~/.local/bin ---------------------
-
-!.local/
-!.local/bin/
-!.local/bin/**/*
