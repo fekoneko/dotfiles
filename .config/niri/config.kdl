@@ -6,8 +6,8 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "wayland";
 
     // Input method
-    // GTK_IM_MODULE "fcitx"; // do per individual XWayland application if needed
-    // QT_IM_MODULE "fcitx"; // do per individual XWayland application if needed
+    // GTK_IM_MODULE "fcitx"; // do per each individual application if needed
+    // QT_IM_MODULE "fcitx"; // do per each individual application if needed
     XMODIFIERS "@im=fcitx";
 
     // Theme
@@ -237,8 +237,8 @@ binds {
 
     Mod+Left             hotkey-overlay-title="Focus column to the left [...]"    { focus-column-left; }
     Mod+Right            hotkey-overlay-title=null                                { focus-column-right; }
-    Mod+Up               hotkey-overlay-title=null                                { focus-window-up; }
-    Mod+Down             hotkey-overlay-title=null                                { focus-window-down; }
+    Mod+Page_Up          hotkey-overlay-title=null                                { focus-window-up; }
+    Mod+Page_Down        hotkey-overlay-title=null                                { focus-window-down; }
     Mod+Home             hotkey-overlay-title="Focus first column [...]"          { focus-column-first; }
     Mod+End              hotkey-overlay-title=null                                { focus-column-last; }
     Mod+WheelScrollLeft  hotkey-overlay-title=null                                { focus-column-left; }
@@ -248,8 +248,8 @@ binds {
 
     Mod+Ctrl+Left        hotkey-overlay-title="Move column left [...]"            { move-column-left; }
     Mod+Ctrl+Right       hotkey-overlay-title=null                                { move-column-right; }
-    Mod+Ctrl+Up          hotkey-overlay-title=null                                { move-window-up; }
-    Mod+Ctrl+Down        hotkey-overlay-title=null                                { move-window-down; }
+    Mod+Ctrl+Page_Up     hotkey-overlay-title=null                                { move-window-up; }
+    Mod+Ctrl+Page_Down   hotkey-overlay-title=null                                { move-window-down; }
     Mod+Ctrl+Home        hotkey-overlay-title="Move column to start [...]"        { move-column-to-first; }
     Mod+Ctrl+End         hotkey-overlay-title=null                                { move-column-to-last; }
     Mod+Ctrl+WheelScrollLeft hotkey-overlay-title=null                            { move-column-left; }
@@ -274,25 +274,23 @@ binds {
 
     Mod+Shift+Left       hotkey-overlay-title="Focus monitor to the left [...]"   { focus-monitor-left; }
     Mod+Shift+Right      hotkey-overlay-title=null                                { focus-monitor-right; }
-    Mod+Shift+Up         hotkey-overlay-title=null                                { focus-monitor-up; }
-    Mod+Shift+Down       hotkey-overlay-title=null                                { focus-monitor-down; }
+    Mod+Shift+Page_Up    hotkey-overlay-title=null                                { focus-monitor-up; }
+    Mod+Shift+Page_Down  hotkey-overlay-title=null                                { focus-monitor-down; }
 
     Mod+Shift+Ctrl+Left  hotkey-overlay-title="Move to the left monitor [...]"    { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  hotkey-overlay-title=null                                { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    hotkey-overlay-title=null                                { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right hotkey-overlay-title=null                                { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Page_Up    hotkey-overlay-title=null                           { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Page_Down  hotkey-overlay-title=null                           { move-column-to-monitor-down; }
 
     // Workspaces
 
-    Mod+Page_Up          hotkey-overlay-title="Focus workspace above [...]"       { focus-workspace-up; }
-    Mod+Page_Down        hotkey-overlay-title=null                                { focus-workspace-down; }
+    Mod+Up               hotkey-overlay-title="Focus workspace above [...]"       { focus-workspace-up; }
+    Mod+Down             hotkey-overlay-title=null                                { focus-workspace-down; }
     Mod+Shift+WheelScrollUp    hotkey-overlay-title=null cooldown-ms=150          { focus-workspace-up; }
     Mod+Shift+WheelScrollDown  hotkey-overlay-title=null cooldown-ms=150          { focus-workspace-down; }
 
-    Mod+Ctrl+Page_Up     hotkey-overlay-title="Move to workspace above [...]"     { move-column-to-workspace-up; }
-    Mod+Ctrl+Page_Down   hotkey-overlay-title=null                                { move-column-to-workspace-down; }
-    Mod+Shift+Page_Up    hotkey-overlay-title=null                                { move-workspace-up; }
-    Mod+Shift+Page_Down  hotkey-overlay-title=null                                { move-workspace-down; }
+    Mod+Ctrl+Up          hotkey-overlay-title="Move to workspace above [...]"     { move-column-to-workspace-up; }
+    Mod+Ctrl+Down        hotkey-overlay-title=null                                { move-column-to-workspace-down; }
     Mod+Shift+Ctrl+WheelScrollUp hotkey-overlay-title=null cooldown-ms=150        { move-column-to-workspace-up; }
     Mod+Shift+Ctrl+WheelScrollDown hotkey-overlay-title=null cooldown-ms=150      { move-column-to-workspace-down; }
 
