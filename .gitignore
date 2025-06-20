@@ -20,6 +20,10 @@
 !.config/xsettingsd/
 !.config/xsettingsd/xsettingsd.conf
 
+# nix
+!.config/nix/
+!.config/nix/nix.conf
+
 # niri
 !.config/niri/
 !.config/niri/config.kdl
