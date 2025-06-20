@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 
 paru_error() {
-  echo $'\nFailed to upgrade packages, try upgrading the keyring first:'
+  echo $'\nFailed to update packages, try updating the keyring first:'
   echo '$ sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
   exit 1
 }
-flatpak_error() { echo $'\nFailed to upgrade flatpack packages'; exit 1; }
+flatpak_error() { echo $'\nFailed to update flatpack packages'; exit 1; }
 npm_error() { echo $'\nFailed to update npm packages'; exit 1; }
 pnpm_error() { echo $'\nFailed to update pnpm packages'; exit 1; }
 bun_error() { echo $'\nFailed to update bun packages'; exit 1; }
 go_error() { echo $'\nFailed to update go binaries'; exit 1; }
 rust_error() { echo $'\nFailed to update rust'; exit 1; }
 cargo_error() { echo $'\nFailed to update cargo binaries'; exit 1; }
+nix_error() { echo $'\nFailed to update nix packages'; exit 1; }
 
-echo $'Upgrading system packages:\n$ paru -Syu\n'
+echo $'Updating system packages:\n$ paru -Syu\n'
 paru -Syu || paru_error
 
-echo $'\nUpgrading flatpack packages:\n$ flatpak update\n'
+echo $'\nUpdating flatpack packages:\n$ flatpak update\n'
 flatpak update || flatpak_error
 
 echo $'\nUpdating npm packages:\n$ npm update -g\n'
@@ -39,3 +40,9 @@ echo $'$ cargo_packages="$(jq -r \'.installs | keys[] | split(" ")[0]\' < "$CARG
 echo $'$ cargo install --locked "$cargo_packages"\n'
 cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' < "$CARGO_HOME/.crates2.json")" || cargo_error
 cargo install --locked "$cargo_packages" || cargo_error
+
+echo $'\nUpdating Nix packages:\n$ nix-channel --update\nnix-env -u \'*\'\n'
+nix-channel --update || nix_error
+nix-env -u '*' || nix_error
+
+echo $'\nDone!'
