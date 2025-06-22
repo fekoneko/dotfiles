@@ -53,12 +53,12 @@ label:focus {
 #battery,
 #language,
 #custom-color-picker {
-  margin-right: 6px;
+  margin-right: 5px;
 }
 
 #window,
 #workspaces {
-  margin: 0 6px;
+  margin: 0 5px;
 }
 
 #battery {
@@ -69,7 +69,7 @@ label:focus {
 #network,
 #wireplumber {
   padding: 0 0 0 10px;
-  border-radius: 12px 0px 0px 12px;
+  border-radius: 12px 0 0 12px;
 }
 
 #custom-vpn {
@@ -79,9 +79,9 @@ label:focus {
 #memory,
 #bluetooth,
 #backlight {
-  margin-right: 6px;
-  padding: 0 13px 0 6px;
-  border-radius: 0px 12px 12px 0px;
+  margin-right: 5px;
+  padding: 0 13px 0 5px;
+  border-radius: 0 12px 12px 0;
 }
 
 #taskbar button {
@@ -89,15 +89,18 @@ label:focus {
   background-color: rgba(26, 29, 36, 0.6);
   border-top: 1.5px solid rgba(69, 75, 91, 0.6);
   border-bottom: 1.5px solid rgba(17, 19, 23, 0.6);
+  padding: 0 7px;
 }
 
 #taskbar button:first-child {
   border-radius: 12px 0 0 12px;
+  padding-left: 10px;
 }
 
 #taskbar button:last-child {
   border-radius: 0 12px 12px 0;
-  margin-right: 6px;
+  margin-right: 5px;
+  padding-right: 10px;
 }
 
 #taskbar button:first-child:last-child {
@@ -138,7 +141,7 @@ tooltip {
 tooltip label {
   color: #f0f0ff;
   background-color: rgba(39, 40, 46, 0.9);
-  padding: 6px 12px;
+  padding: 5px 12px;
   border-radius: 12px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }

@@ -95,7 +95,7 @@ gestures {
 }
 
 layout {
-    gaps 6
+    gaps 5
     empty-workspace-above-first
     center-focused-column "never"
     background-color "#00000000"
