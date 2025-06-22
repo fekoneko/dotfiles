@@ -95,7 +95,7 @@ gestures {
 }
 
 layout {
-    gaps 5
+    gaps 7
     empty-workspace-above-first
     center-focused-column "never"
     background-color "#00000000"
@@ -119,6 +119,13 @@ layout {
         softness 25
         offset x=0 y=5
         color "#0003"
+    }
+
+    struts {
+        left -2
+        right -2
+        top -2
+        bottom -2
     }
 }
 
