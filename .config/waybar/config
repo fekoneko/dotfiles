@@ -5,13 +5,9 @@
   "margin-left": 5,
   "margin-right": 5,
   "spacing": 0,
-  "modules-left": [
-    "battery",
-    "cpu",
-    "memory",
-    "wlr/taskbar",
-    "tray"
-  ],
+
+  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
+  "modules-center": ["custom/waybar-mpris"],
   "modules-right": [
     "custom/color-picker",
     "network",
@@ -21,6 +17,7 @@
     "backlight",
     "clock"
   ],
+
   "cpu": {
     "format": "{usage}%  ",
     "on-click": "missioncenter"
@@ -90,28 +87,13 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": [
-        " ",
-        " ",
-        " ",
-        " "
-      ]
+      "default": [" ", " ", " ", " "]
     },
     "on-click": "alacritty -e alsamixer"
   },
   "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
     "tooltip": false
   },
   "battery": {
@@ -122,19 +104,28 @@
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% 󰂄",
-    "format-icons": [
-      "󰂃",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
+    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip": false
+  },
+  "mpris": {
+    "format": "{status_icon} {artist} - {title}",
+    "format-stopped": "",
+    "tooltip-format": "{status_icon} {status} \nTitle: {title}\nArtist: {artist}\nAlbum: {album}\nLength: {length}",
+    "max-length": 40,
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    }
+  },
+  // Using a custom module instead of "mpris"
+  // to properly update the stop status after exiting Gapless
+  "custom/waybar-mpris": {
+    "return-type": "json",
+    "exec": "waybar-mpris --autofocus --play  --pause  --order SYMBOL:ARTIST:TITLE",
+    "on-click": "waybar-mpris --send toggle",
+    "max-length": 40,
+    "tooltip": false,
+    "escape": true
   }
 }
