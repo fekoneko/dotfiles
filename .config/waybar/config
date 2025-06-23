@@ -6,7 +6,7 @@
   "margin-right": 5,
   "spacing": 0,
 
-  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
+  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray", "custom/anki-word"],
   "modules-center": ["custom/waybar-mpris"],
   "modules-right": [
     "custom/recorder",
@@ -32,7 +32,8 @@
     "tooltip-format": "{title} | {app_id}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "on-click-right": "fullscreen"
+    "on-click-right": "fullscreen",
+    "icon-size": 15
   },
   "clock": {
     "tooltip-format": "<big>{:%a, %b %d}</big>\n<tt><small>{calendar}</small></tt>",
@@ -42,7 +43,7 @@
     "spacing": 10
   },
   "custom/color-picker": {
-    "format": "  ",
+    "format": " ",
     "tooltip-format": "Pick color",
     "on-click": "$HOME/Scripts/pick-color.sh"
   },
@@ -70,9 +71,9 @@
     "tooltip-format-enumerate-connected": "{device_alias} ({device_address})",
     "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_address}) {device_battery_percentage}% 󰂎",
     "format-icons": {
-      "on": "󰂯",
-      "off": "󰂲",
-      "connected": "󰂱"
+      "on": " 󰂯",
+      "off": " 󰂲",
+      "connected": " 󰂱"
     },
     "on-click": "alacritty -e bluetui"
   },
@@ -126,5 +127,12 @@
     "on-click": "$HOME/Scripts/toggle-recording.sh",
     "on-click-right": "$HOME/Scripts/toggle-recording.sh --slurp",
     "signal": 8
+  },
+  "custom/anki-word": {
+    "exec": "$HOME/Scripts/random-anki-word.py",
+    "on-click": "",
+    "on-click-right": "anki",
+    "tooltip-format": "Word of the hour: {text}",
+    "restart-interval": 3600
   }
 }
