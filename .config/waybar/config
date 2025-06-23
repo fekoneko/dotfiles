@@ -9,6 +9,7 @@
   "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
   "modules-center": ["custom/waybar-mpris"],
   "modules-right": [
+    "custom/recorder",
     "custom/color-picker",
     "network",
     "custom/vpn",
@@ -42,7 +43,7 @@
   },
   "custom/color-picker": {
     "format": "  ",
-    "tooltip-format": "",
+    "tooltip-format": "Pick color",
     "on-click": "$HOME/Scripts/pick-color.sh"
   },
   "network": {
@@ -94,7 +95,7 @@
   "backlight": {
     "format": "{percent}% {icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "tooltip": false
+    "tooltip-format": "Backlight: {percent}%"
   },
   "battery": {
     "states": {
@@ -105,18 +106,7 @@
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% 󰂄",
     "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "tooltip": false
-  },
-  "mpris": {
-    "format": "{status_icon} {artist} - {title}",
-    "format-stopped": "",
-    "tooltip-format": "{status_icon} {status} \nTitle: {title}\nArtist: {artist}\nAlbum: {album}\nLength: {length}",
-    "max-length": 40,
-    "status-icons": {
-      "playing": "",
-      "paused": "",
-      "stopped": ""
-    }
+    "tooltip-format": "Battery: {capacity}%"
   },
   // Using a custom module instead of "mpris"
   // to properly update the stop status after exiting Gapless
@@ -127,5 +117,14 @@
     "max-length": 40,
     "tooltip": false,
     "escape": true
+  },
+  "custom/recorder": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "$HOME/Scripts/waybar-recorder-exec.sh",
+    "return-type": "json",
+    "on-click": "$HOME/Scripts/toggle-recording.sh",
+    "on-click-right": "$HOME/Scripts/toggle-recording.sh --slurp",
+    "signal": 8
   }
 }
