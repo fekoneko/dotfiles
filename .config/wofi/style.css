@@ -16,10 +16,10 @@ window {
 
 #outer-box {
   margin: 10px;
-  background-color: #2e2e32;
+  background-color: rgba(46, 46, 50, 0.95);
   border: 1px solid #3e3e42;
   border-radius: 8px;
-  box-shadow: 0 2px 5px #161616;
+  box-shadow: 0 2px 5px rgba(22, 22, 22, 0.5);
 }
 
 #scroll {
