@@ -104,7 +104,7 @@ layout {
 
     focus-ring {
         width 1.5
-        active-gradient from="#569ef2" to="#467ed2bb"
+        active-gradient from="#467ed2" to="#b5ffff" angle=70 relative-to="workspace-view"
         inactive-color "transparent"
         urgent-color "transparent"
     }

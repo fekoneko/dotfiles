@@ -1,13 +1,9 @@
 {
   "layer": "top",
-  "height": 26,
-  "margin-top": 5,
-  "margin-left": 5,
-  "margin-right": 5,
   "spacing": 0,
 
   "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray", "custom/anki-word"],
-  "modules-center": ["custom/waybar-mpris"],
+  "modules-center": ["custom/mpris"],
   "modules-right": [
     "custom/recorder",
     "custom/color-picker",
@@ -111,7 +107,7 @@
   },
   // Using a custom module instead of "mpris"
   // to properly update the stop status after exiting Gapless
-  "custom/waybar-mpris": {
+  "custom/mpris": {
     "return-type": "json",
     "exec": "waybar-mpris --autofocus --play  --pause  --order SYMBOL:ARTIST:TITLE",
     "on-click": "waybar-mpris --send toggle",
