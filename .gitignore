@@ -48,9 +48,14 @@
 !.config/gtklock/style.css
 !.config/gtklock/layout.ui
 
-# alacritty
-!.config/alacritty/
-!.config/alacritty/alacritty.toml
+# kitty
+!.config/kitty/
+!.config/kitty/kitty.conf
+
+# fastfetch
+!.config/fastfetch/
+!.config/fastfetch/config.jsonc
+!.config/fastfetch/logo.png
 
 # mpv
 !.config/mpv/
