@@ -200,13 +200,12 @@ window-rule {
 
 // Open in half width
 window-rule {
-    // Terminal
-    match app-id="^Alacritty$"
-    // File manager
-    match app-id="^org.gnome.Nautilus$"
-    // Gnome Online Accounts GTK
-    match app-id="^org.x.GnomeOnlineAccountsGtk$"
+    match app-id="^Alacritty$" // Terminal
+    match app-id="^org.gnome.Nautilus$" // File manager
+    match app-id="^org.x.GnomeOnlineAccountsGtk$" // Gnome Online Accounts GTK
+    match app-id="^anki$" title="^Edit|^Add|^Statistics" // Anki add / edit note, add-ons, stats
 
+    open-floating false
     default-column-width { proportion 0.5; }
     open-maximized false
 }
