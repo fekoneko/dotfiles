@@ -190,7 +190,7 @@ window-rule {
 
 // Open in floating mode 180 x 120
 window-rule {
-    // Krita loadings windows as well as the main window (which we actually don't want to match here, but well)
+    // Krita loading windows as well as the main window (which we actually don't want to match here, but well)
     match app-id="^krita$" title="^Krita$"
 
     open-floating true
@@ -200,7 +200,7 @@ window-rule {
 
 // Open in half width
 window-rule {
-    match app-id="^Alacritty$" // Terminal
+    match app-id="^kitty$" // Terminal
     match app-id="^org.gnome.Nautilus$" // File manager
     match app-id="^org.x.GnomeOnlineAccountsGtk$" // Gnome Online Accounts GTK
     match app-id="^anki$" title="^Edit|^Add|^Statistics" // Anki add / edit note, add-ons, stats
@@ -303,7 +303,7 @@ binds {
     // Applications
 
     Ctrl+Shift+Escape    hotkey-overlay-title="Task manager"                      { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
-    Mod+T                hotkey-overlay-title="Terminal"                          { spawn "gtk-launch" "Alacritty"; }
+    Mod+T                hotkey-overlay-title="Terminal"                          { spawn "kitty"; }
     Mod+E                hotkey-overlay-title="File manager"                      { spawn "gtk-launch" "org.gnome.Nautilus"; }
     Mod+C                hotkey-overlay-title="VS Code"                           { spawn "gtk-launch" "code"; }
     Mod+Z                hotkey-overlay-title="Zen Browser"                       { spawn "gtk-launch" "zen"; }
@@ -313,8 +313,8 @@ binds {
     Mod+O                hotkey-overlay-title=null                                { spawn "gtk-launch" "obsidian"; }
     Mod+U                hotkey-overlay-title=null                                { spawn "gtk-launch" "chromium"; }
     Mod+M                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.gnome.Geary"; }
-    Mod+B                hotkey-overlay-title=null                                { spawn "alacritty" "-e" "bluetui"; }
-    Mod+N                hotkey-overlay-title=null                                { spawn "alacritty" "-e" "nmtui"; }
+    Mod+B                hotkey-overlay-title=null                                { spawn "kitty" "-e" "bluetui"; }
+    Mod+N                hotkey-overlay-title=null                                { spawn "kitty" "-e" "nmtui"; }
 
     // Miscellaneous
 
