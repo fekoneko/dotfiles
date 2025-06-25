@@ -14,7 +14,12 @@ rust_error() { echo $'\nFailed to update rust'; exit 1; }
 cargo_error() { echo $'\nFailed to update cargo binaries'; exit 1; }
 nix_error() { echo $'\nFailed to update nix packages'; exit 1; }
 
-echo $'Updating system packages:\n$ paru -Syu\n'
+echo $'Please check the news, can anything break?\n'
+zen-browser --new-tab https://archlinux.org/news/
+read -rp 'Proceed? [Y/n] ' choice
+case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
+
+echo $'\nUpdating system packages:\n$ paru -Syu\n'
 paru -Syu || paru_error
 
 echo $'\nUpdating flatpack packages:\n$ flatpak update\n'
