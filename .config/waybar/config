@@ -1,5 +1,6 @@
 {
   "layer": "top",
+  "height": 29,
   "spacing": 0,
 
   "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray", "custom/anki-word"],
