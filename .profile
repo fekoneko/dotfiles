@@ -1,6 +1,5 @@
-#
-# ~/.profile
-#
+# shellcheck shell=sh
+# shellcheck disable=SC1091
 
 # ~/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
@@ -14,7 +13,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export CARGO_HOME="$HOME/.cargo"
 
 # NVM
-source /usr/share/nvm/init-nvm.sh
+. /usr/share/nvm/init-nvm.sh
 
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
