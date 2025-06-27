@@ -74,7 +74,7 @@ for config_item in $archived_files_config; do
 done
 rm -rf "$temp_path/.temp" 2> /dev/null
 
-gtk-launch org.gnome.Nautilus "$temp_path"
+gtk-launch org.gnome.Nautilus "$temp_path" > /dev/null 2> /dev/null
 sleep 1
 echo $'\n'"these files will be moved to $destination_path"
 read -rp 'Is everything correct? [y/N]: ' ok || cleanup_and_panic
