@@ -40,8 +40,9 @@ while retries < 3:
         note_ids = collection.find_notes(f'"note:{NOTE_TYPE_NAME}"')
         random_note_id = choice(note_ids)
         print(get_field_by_note_id(random_note_id))
-        break
+        exit(0)
     except:
         retries += 1
         sleep(retries ** 2)
 
+exit(1)
