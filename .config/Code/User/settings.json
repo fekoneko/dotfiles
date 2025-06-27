@@ -10,7 +10,6 @@
   "editor.formatOnSave": true,
   "editor.wordWrap": "on",
   "prettier.printWidth": 100,
-  "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
   "prettier.singleQuote": true,
   "[python]": {
     "editor.formatOnType": true,
@@ -28,7 +27,6 @@
   },
   "editor.codeActionsOnSave": {},
   "css.lint.unknownAtRules": "ignore",
-  "python.defaultInterpreterPath": "C:\\Users\\Андрей\\AppData\\Local\\Microsoft\\WindowsApps\\python3.11.exe",
   "git.ignoreRebaseWarning": true,
   "git.confirmSync": false,
   "workbench.startupEditor": "none",

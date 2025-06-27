@@ -8,11 +8,18 @@ dir_path="$(dirname "$(realpath "$0")")"
 temp_path="$HOME/.cache/sync-archive"
 archive_path="$HOME/Archive"
 
-# <home path>;<archive path>;<nest inside directory>
-archived_files_config="$(cat "$dir_path/private/archived_files.conf")" || exit 1
+# files ignored by git are skipped
+# <path in home>;<path in archive>;<nest inside directory>
+archived_files_config="$(sed -ne 's/^archive *= *\(.\)/\1/p' \
+  "$dir_path/private/sync-archive.conf")" || exit 1
 
-# <home path>;<archive path>
-copied_files_config="$(cat "$dir_path/private/copied_files.conf")" || exit 1
+# <path in home>;<path in archive>
+copied_files_config="$(sed -ne 's/^copy *= *\(.\)/\1/p' \
+  "$dir_path/private/sync-archive.conf")" || exit 1
+
+# <path in archive>
+anki_colpkg_config="$(sed -ne 's/^anki *= *\(.\)/\1/p' \
+  "$dir_path/private/sync-archive.conf")" || exit 1
 
 if [[ ! -d "$archive_path/vault/.git" ]]; then echo $'archive is not mounted'; exit 1; fi
 
@@ -68,8 +75,6 @@ case "$ok" in
   y|Y)
     echo
     rsync -avcP "$temp_path/" "$archive_path/" || cleanup_and_panic
-    git -C "$archive_path/vault" add . || cleanup_and_panic
-    git -C "$archive_path/vault" commit -m 'sync vault'
     echo $'\nfiles moved to the archive';;
   *) cleanup_and_panic;;
 esac
@@ -77,7 +82,7 @@ rm -rf "$temp_path"
 
 # ------------------------------- Sync directly -------------------------------
 
-echo $'\nsyncing files that don\'t require archiving\n'
+echo $'\nsyncing files that don\'t require archiving'
 
 # Music
 
@@ -85,7 +90,7 @@ for config_item in $copied_files_config; do
   item_home_path="$(printf '%s' "$config_item" | cut -d';' -f1)" || cleanup_and_panic
   item_archive_path="$(printf '%s' "$config_item" | cut -d';' -f2)" || cleanup_and_panic
 
-  echo "synching '$HOME/$item_home_path' to '$archive_path/$item_archive_path'"
+  echo $'\n'"synching '$HOME/$item_home_path' to '$archive_path/$item_archive_path'"
   read -rp 'is everything correct? [y/N]: ' ok || cleanup_and_panic
   case "$ok" in y|Y);; *) cleanup_and_panic;; esac
 
@@ -95,5 +100,22 @@ for config_item in $copied_files_config; do
   echo
   rsync -avcP --delete "$HOME/$item_home_path/" "$archive_path/$item_archive_path/" || cleanup_and_panic
 done
+
+# ------------------------------ Anki collection ------------------------------
+
+anki_colpkg_path="$(printf '%s' "$anki_colpkg_config" | head -n1)" || cleanup_and_panic
+
+echo $'\nbacking up anki collection to file '"'$archive_path/$anki_colpkg_path'"
+read -rp 'is everything correct? [y/N]: ' ok || cleanup_and_panic
+case "$ok" in y|Y);; *) cleanup_and_panic;; esac
+
+echo
+"$dir_path/export-anki-collection.py" "$archive_path/$anki_colpkg_path" || cleanup_and_panic
+
+# ------------------------------ Commit changes -------------------------------
+
+echo $'\ncommitting changes to the vault\n'
+git -C "$archive_path/vault" add . || cleanup_and_panic
+git -C "$archive_path/vault" commit -m 'sync vault'
 
 IFS="$initial_ifs"
