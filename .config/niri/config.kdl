@@ -16,14 +16,7 @@ environment {
     // GTK_THEME "Adwaita:dark"; // force gtk4 dark theme (do per individual application if needed)
     // XCURSOR_PATH "$XCURSOR_PATH:$HOME/.local/share/icons"; // breaks cursor in GTK3 apps
     // SAL_USE_VCLPLUGIN "gtk4"; // use GTK4 for LibreOffice - as for now, it crashes
-
-    // Workaround for Krita scaling in XWayland (see ~/.config/xsettingsd/xsettingsd.conf)
-    QT_SCALE_FACTOR_ROUNDING_POLICY "PassThrough"
 }
-
-// Use XSETTINGS manager specifically for Krita scaling
-// Remove xsettingsd when xwayland-satellite resolves the scale rounding issue or Krita supports Wayland
-spawn-at-startup "sh" "-c" "sleep 3 && xsettingsd"
 
 // XWayland support
 spawn-at-startup "xwayland-satellite"
@@ -311,6 +304,7 @@ binds {
     Mod+G                hotkey-overlay-title="Gaplesss [...]"                    { spawn "gtk-launch" "com.github.neithern.g4music"; }
     Mod+A                hotkey-overlay-title=null                                { spawn "gtk-launch" "anki"; }
     Mod+K                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.kde.krita"; }
+    Mod+Shift+K          hotkey-overlay-title=null                                { spawn "~/Scripts/krita-scaled.sh"; }
     Mod+O                hotkey-overlay-title=null                                { spawn "gtk-launch" "obsidian"; }
     Mod+U                hotkey-overlay-title=null                                { spawn "gtk-launch" "chromium"; }
     Mod+M                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.gnome.Geary"; }
