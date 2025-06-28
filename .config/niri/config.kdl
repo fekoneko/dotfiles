@@ -161,8 +161,6 @@ window-rule {
 
 // Open in floating mode 900 x 600
 window-rule {
-    // All Krita windows (the main window has to be be tiled with a shortcut manually)
-    match app-id="^krita$"
     // Obsidian vault opening window
     match app-id="^org.gnome.Nautilus$" title="^Open folder as vault$"
 
@@ -171,24 +169,14 @@ window-rule {
     default-window-height { fixed 600; }
 }
 
-// Open in floating mode 500 x 400
+// Open in floating mode in minimum size and out of the way
 window-rule {
-    // Krita filter adjustments windows
-    match app-id="^krita$" title="^Filter: [^()]* — Krita$"
+    // All Krita windows
+    match app-id="^krita$"
 
     open-floating true
-    default-column-width { fixed 500; }
-    default-window-height { fixed 400; }
-}
-
-// Open in floating mode 180 x 120
-window-rule {
-    // Krita loading windows as well as the main window (which we actually don't want to match here, but well)
-    match app-id="^krita$" title="^Krita$"
-
-    open-floating true
-    default-column-width { fixed 180; }
-    default-window-height { fixed 120; }
+    default-column-width { fixed 0; }
+    default-window-height { fixed 0; }
 }
 
 // Open in half width
