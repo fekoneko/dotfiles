@@ -20,10 +20,6 @@
 !.config/fontconfig/
 !.config/fontconfig/fonts.conf
 
-# xsettingsd
-!.config/xsettingsd/
-!.config/xsettingsd/xsettingsd.conf
-
 # nix
 !.config/nix/
 !.config/nix/nix.conf
