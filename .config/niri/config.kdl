@@ -54,7 +54,7 @@ spawn-at-startup "fcitx5 -d"
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular" "--all-mime-type-regex" "'^(?!x-kde-passwordManagerHint).+'"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
-// Lock after 10 minuts of inactivity
+// Lock after 10 minutes of inactivity
 spawn-at-startup "swayidle" "-w" \
     "timeout" "600" "~/Scripts/lock-screen.sh" \
     "timeout" "570" "niri msg action power-off-monitors" \
@@ -321,7 +321,7 @@ binds {
     Mod+Shift+Grave      hotkey-overlay-title="Dismount VeraCrypt volumes"        { spawn "veracrypt" "--unmount"; }
 
     Mod+L                hotkey-overlay-title="Lock the screen"                   { spawn "~/Scripts/lock-screen.sh"; }
-    Mod+Shift+L          hotkey-overlay-title="Power off monitors"                { spawn "~/Scripts/toggle-main-monitor.sh"; }
+    Mod+Shift+L hotkey-overlay-title="Toggle main monitor" allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"; }
 
     Mod+S                hotkey-overlay-title="Take a screenshot [...]"           { screenshot-screen; }
     Print                hotkey-overlay-title=null                                { screenshot-screen; }
