@@ -14,15 +14,15 @@ COLLECTION_PATH = f'{getenv('HOME')}/.local/share/Anki2/fekoneko/collection.anki
 destination_path = argv[1]
 
 retries = 0
-while retries < 3:
+while True:
     try:
         collection = Collection(COLLECTION_PATH)
         exporter = AnkiCollectionPackageExporter(collection)
         exporter.exportInto(destination_path)
         print('Exported to %s' % destination_path)
-        exit(0)
-    except:
+        break
+    except Exception as e:
+        if retries >= 3:
+            exit(e)
         retries += 1
         sleep(retries ** 2)
-
-exit(1)

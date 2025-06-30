@@ -34,15 +34,15 @@ def get_field_by_note_id(note_id):
     return html_to_text(raw_field)
 
 retries = 0
-while retries < 3:
+while True:
     try:
         collection = Collection(COLLECTION_PATH)
         note_ids = collection.find_notes(f'"note:{NOTE_TYPE_NAME}"')
         random_note_id = choice(note_ids)
         print(get_field_by_note_id(random_note_id))
-        exit(0)
-    except:
+        break
+    except Exception as e:
+        if retries >= 3:
+            exit(e)
         retries += 1
         sleep(retries ** 2)
-
-exit(1)
