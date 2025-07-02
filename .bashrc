@@ -29,8 +29,8 @@ fi
 # Run fastfetch with default config if in tty
 [[ $TERM == 'linux' ]] && fastfetch --config ''
 
-# Initialize NVM
-# shellcheck disable=SC1091
+# NVM
+# shellcheck source=/dev/null
 . /usr/share/nvm/init-nvm.sh
 
 # Aliases

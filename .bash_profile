@@ -11,6 +11,10 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export CARGO_HOME="$HOME/.cargo"
 
+# NVM
+# shellcheck source=/dev/null
+. /usr/share/nvm/init-nvm.sh
+
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
 
