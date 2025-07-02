@@ -1,6 +1,4 @@
 # shellcheck shell=bash
-# shellcheck disable=SC1090
-# shellcheck disable=SC1091
 
 # ~/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
@@ -12,9 +10,6 @@ export PATH="$GOPATH/bin:$PATH"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export CARGO_HOME="$HOME/.cargo"
-
-# NVM
-source /usr/share/nvm/init-nvm.sh
 
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
@@ -29,6 +24,3 @@ export NEWT_COLORS='root=green,black border=green,black window=green,black '\
 'actlistbox=white,black sellistbox=black,green actsellistbox=black,green '\
 'textbox=green,black acttextbox=black,green emptyscale=green,black '\
 'fullscale=green,black helpline=green,black roottext=green,black'
-
-# ~/.bashrc
-[[ -f ~/.bashrc ]] && . ~/.bashrc
