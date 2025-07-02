@@ -18,16 +18,16 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # Fancy prompt if not in tty
-if [[ "$TERM" == "linux" ]]
+if [[ $TERM == 'linux' ]]
   then PS1='[\u@\h \W]$ '
   else PS1='\n\[\e[30;44;1m\] \u@\h\[\e[0m\]\[\e[34m\]\[\e[0m\] \W \[\e[1m\]\$\[\e[0m\] '
 fi
 
 # Run fastfetch if in kitty
-[[ "$TERM" == "xterm-kitty" ]] && fastfetch
+[[ $TERM == 'xterm-kitty' ]] && fastfetch
 
 # Run fastfetch with default config if in tty
-[[ "$TERM" == "linux" ]] && fastfetch --config ''
+[[ $TERM == 'linux' ]] && fastfetch --config ''
 
 # Initialize NVM
 # shellcheck disable=SC1091
