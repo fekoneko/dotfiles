@@ -286,20 +286,23 @@ binds {
 
     // Applications
 
-    Ctrl+Shift+Escape    hotkey-overlay-title="Task manager"                      { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
-    Mod+T                hotkey-overlay-title="Terminal"                          { spawn "kitty"; }
-    Mod+E                hotkey-overlay-title="File manager"                      { spawn "gtk-launch" "org.gnome.Nautilus"; }
-    Mod+C                hotkey-overlay-title="VS Code"                           { spawn "gtk-launch" "code"; }
-    Mod+Z                hotkey-overlay-title="Zen Browser"                       { spawn "gtk-launch" "zen"; }
-    Mod+G                hotkey-overlay-title="Gaplesss [...]"                    { spawn "gtk-launch" "com.github.neithern.g4music"; }
-    Mod+A                hotkey-overlay-title=null                                { spawn "gtk-launch" "anki"; }
-    Mod+K                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.kde.krita"; }
-    Mod+Shift+K          hotkey-overlay-title=null                                { spawn "~/Scripts/krita-scaled.sh"; }
-    Mod+O                hotkey-overlay-title=null                                { spawn "gtk-launch" "obsidian"; }
-    Mod+U                hotkey-overlay-title=null                                { spawn "gtk-launch" "chromium"; }
-    Mod+M                hotkey-overlay-title=null                                { spawn "gtk-launch" "org.gnome.Geary"; }
-    Mod+B                hotkey-overlay-title=null                                { spawn "kitty" "-e" "bluetui"; }
-    Mod+N                hotkey-overlay-title=null                                { spawn "kitty" "-e" "nmtui"; }
+    Ctrl+Shift+Escape    hotkey-overlay-title="Task manager"   { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
+    Mod+T                hotkey-overlay-title="Terminal"       { spawn "kitty"; }
+    Mod+E                hotkey-overlay-title="File manager"   { spawn "gtk-launch" "org.gnome.Nautilus"; }
+    Mod+C                hotkey-overlay-title="VS Code"        { spawn "gtk-launch" "code"; }
+    Mod+Z                hotkey-overlay-title="Zen Browser"    { spawn "gtk-launch" "zen"; }
+    Mod+G                hotkey-overlay-title="Gaplesss [...]" { spawn "gtk-launch" "com.github.neithern.g4music"; }
+    Mod+A                hotkey-overlay-title=null             { spawn "gtk-launch" "anki"; }
+    Mod+K                hotkey-overlay-title=null             { spawn "gtk-launch" "org.kde.krita"; }
+    // Workaround for Krita scaling on my HiDPI monitor in XWayland - remove when Krita supports Wayland
+    Mod+Shift+K          hotkey-overlay-title=null             { spawn "bash" "-c" "QT_SCALE_FACTOR=1.35 gtk-launch org.kde.krita"; }
+    // Workaround for Krita scaling on my HiDPI monitor in XWayland - remove when Krita supports Wayland
+    Mod+Shift+Ctrl+K     hotkey-overlay-title=null             { spawn "bash" "-c" "QT_SCALE_FACTOR=0.675 gtk-launch org.kde.krita"; }
+    Mod+O                hotkey-overlay-title=null             { spawn "gtk-launch" "obsidian"; }
+    Mod+U                hotkey-overlay-title=null             { spawn "gtk-launch" "chromium"; }
+    Mod+M                hotkey-overlay-title=null             { spawn "gtk-launch" "org.gnome.Geary"; }
+    Mod+B                hotkey-overlay-title=null             { spawn "kitty" "-e" "bluetui"; }
+    Mod+N                hotkey-overlay-title=null             { spawn "kitty" "-e" "nmtui"; }
 
     // Miscellaneous
 
