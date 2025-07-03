@@ -19,10 +19,6 @@
 !.config/fontconfig/
 !.config/fontconfig/fonts.conf
 
-# nix
-!.config/nix/
-!.config/nix/nix.conf
-
 # niri
 !.config/niri/
 !.config/niri/config.kdl
