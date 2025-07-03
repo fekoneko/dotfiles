@@ -12,7 +12,6 @@ bun_error() { echo $'\nFailed to update bun packages'; exit 1; }
 go_error() { echo $'\nFailed to update go binaries'; exit 1; }
 rust_error() { echo $'\nFailed to update rust'; exit 1; }
 cargo_error() { echo $'\nFailed to update cargo binaries'; exit 1; }
-nix_error() { echo $'\nFailed to update nix packages'; exit 1; }
 
 echo $'Please check the news, can anything break?'
 zen-browser --new-tab https://archlinux.org/news/
@@ -45,9 +44,5 @@ echo $'$ cargo_packages="$(jq -r \'.installs | keys[] | split(" ")[0]\' < "$CARG
 echo $'$ cargo install --locked "$cargo_packages"\n'
 cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' < "$CARGO_HOME/.crates2.json")" || cargo_error
 cargo install --locked "$cargo_packages" || cargo_error
-
-echo $'\nUpdating Nix packages:\n$ nix-channel --update\nnix-env -u \'*\'\n'
-nix-channel --update || nix_error
-nix-env -u '*' || nix_error
 
 echo $'\nDone!'
