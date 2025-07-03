@@ -23,15 +23,18 @@ if [[ $TERM == 'linux' ]]
   else PS1='\n\[\e[30;44;1m\] \u@\h\[\e[0m\]\[\e[34m\]\[\e[0m\] \W \[\e[1m\]\$\[\e[0m\] '
 fi
 
+# Set default editor
+export EDITOR='nano'
+
+# Initialize NVM
+# shellcheck source=/dev/null
+. /usr/share/nvm/init-nvm.sh
+
 # Run fastfetch if in kitty
 [[ $TERM == 'xterm-kitty' ]] && fastfetch
 
 # Run fastfetch with default config if in tty
 [[ $TERM == 'linux' ]] && fastfetch --config ''
-
-# NVM
-# shellcheck source=/dev/null
-. /usr/share/nvm/init-nvm.sh
 
 # Aliases
 alias ls='ls --color=auto'
