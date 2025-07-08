@@ -96,16 +96,22 @@
   },
   "gitlens.graph.minimap.enabled": false,
   "todohighlight.keywords": [
-    {
-      "text": "TODO:",
-      "color": "#ffffff",
-      "backgroundColor": "#4c9957"
-    },
-    {
-      "text": "FIXME:",
-      "color": "#ffffff",
-      "backgroundColor": "#d2587c"
-    }
+    { "text": "TODO:", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "ToDo:", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "Todo:", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "todo:", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "TODO ", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "ToDo ", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "Todo ", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "todo ", "color": "#ffffff", "backgroundColor": "#4c9957" },
+    { "text": "FIXME:", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "FixMe:", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "Fixme:", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "fixme:", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "FIXME ", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "FixMe ", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "Fixme ", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "fixme ", "color": "#ffffff", "backgroundColor": "#d2587c" }
   ],
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
