@@ -36,7 +36,8 @@ bun update -g || bun_error
 echo $'\nUpdating go binaries:\n$ gup update\n'
 gup update || go_error
 
-echo $'\nUpdating rust:\n$ rustup update\n'
+echo $'\nUpdating rust:\n$ rustup self upgrade-data\n$ rustup update\n'
+rustup self upgrade-data || rust_error
 rustup update || rust_error
 
 echo $'\nUpdating cargo binaries:'
