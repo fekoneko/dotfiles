@@ -51,6 +51,7 @@
 !.config/fastfetch/
 !.config/fastfetch/config.jsonc
 !.config/fastfetch/logo.png
+!.config/fastfetch/logo.txt
 
 # mpv
 !.config/mpv/
