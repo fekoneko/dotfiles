@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-pidof gtklock || gtklock
+pidof gtklock || gtklock -d
