@@ -11,10 +11,6 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export CARGO_HOME="$HOME/.cargo"
 
-# NVM
-# shellcheck source=/dev/null
-. /usr/share/nvm/init-nvm.sh
-
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
 
@@ -28,3 +24,6 @@ export NEWT_COLORS='root=green,black border=green,black window=green,black '\
 'actlistbox=white,black sellistbox=black,green actsellistbox=black,green '\
 'textbox=green,black acttextbox=black,green emptyscale=green,black '\
 'fullscale=green,black helpline=green,black roottext=green,black'
+
+# shellcheck source=/dev/null
+. ~/.bashrc
