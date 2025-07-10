@@ -122,11 +122,6 @@ layout {
     }
 }
 
-switch-events {
-    // Lock on lid close
-    lid-close { spawn "~/Scripts/lock-screen.sh"; }
-}
-
 prefer-no-csd
 screenshot-path null
 
