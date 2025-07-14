@@ -122,5 +122,9 @@
   "window.commandCenter": false,
   "editor.minimap.renderCharacters": false,
   "git.replaceTagsWhenPull": true,
-  "workbench.preferredDarkColorTheme": "fekoneko-theme"
+  "workbench.preferredDarkColorTheme": "fekoneko-theme",
+  "git.pruneOnFetch": true,
+  "gitlens.telemetry.enabled": false,
+  "telemetry.feedback.enabled": false,
+  "telemetry.editStats.enabled": false
 }

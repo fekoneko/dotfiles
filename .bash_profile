@@ -14,6 +14,12 @@ export CARGO_HOME="$HOME/.cargo"
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
 
+# PNPM
+export PNPM_HOME="$HOME/.pnpm"
+export PATH="$HOME/.pnpm:$PATH"
+
+# Only NPM packages are global for all users (/usr/lib)
+
 # Newt TUI
 # Valid colors: black, blue, green, cyan, red, magenta, brown, lightgray, gray,
 # brightblue, brightgreen, brightcyan, brightred, brightmagenta, yellow, white

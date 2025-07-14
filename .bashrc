@@ -26,10 +26,6 @@ fi
 # Set default editor
 export EDITOR='nano'
 
-# Initialize NVM
-# shellcheck source=/dev/null
-. /usr/share/nvm/init-nvm.sh
-
 # Run fastfetch with fancy logo in kitty and with text logo in other terminals
 if [[ $TERM == 'xterm-kitty' ]]
   then fastfetch

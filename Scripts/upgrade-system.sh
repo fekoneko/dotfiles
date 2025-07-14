@@ -24,8 +24,8 @@ paru -Syu || paru_error
 echo $'\nUpdating flatpack packages:\n$ flatpak update\n'
 flatpak update || flatpak_error
 
-echo $'\nUpdating npm packages:\n$ npm update -g\n'
-npm update -g || npm_error
+echo $'\nUpdating npm packages:\n$ sudo npm update -g\n'
+sudo npm update -g || npm_error
 
 echo $'\nUpdating pnpm packages:\n$ pnpm update -g\n'
 pnpm update -g || pnpm_error
