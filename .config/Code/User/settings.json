@@ -12,7 +12,6 @@
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
   "[python]": {
-    "editor.formatOnType": true,
     "editor.tabSize": 4
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -23,6 +22,10 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+  "[blueprint]": {
+    "editor.tabSize": 2,
     "editor.insertSpaces": false
   },
   "editor.codeActionsOnSave": {},
