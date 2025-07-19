@@ -2,73 +2,73 @@
 
 # ----------------------- ~ -----------------------
 
-!README.md
-!.gitignore
-!.bash_profile
-!.bashrc
-!.face
-!.wallpaper
-!.lock_wallpaper
-!.notification
+!/README.md
+!/.gitignore
+!/.bash_profile
+!/.bashrc
+!/.face
+!/.wallpaper
+!/.lock_wallpaper
+!/.notification
 
 # ------------------- ~/.config -------------------
 
-!.config/
+!/.config/
 
 # fontconfig
-!.config/fontconfig/
-!.config/fontconfig/fonts.conf
+!/.config/fontconfig/
+!/.config/fontconfig/fonts.conf
 
 # niri
-!.config/niri/
-!.config/niri/config.kdl
+!/.config/niri/
+!/.config/niri/config.kdl
 
 # waybar
-!.config/waybar/
-!.config/waybar/config
-!.config/waybar/style.css
+!/.config/waybar/
+!/.config/waybar/config
+!/.config/waybar/style.css
 
 # wofi
-!.config/wofi/
-!.config/wofi/config
-!.config/wofi/style.css
+!/.config/wofi/
+!/.config/wofi/config
+!/.config/wofi/style.css
 
 # mako
-!.config/mako/
-!.config/mako/config
+!/.config/mako/
+!/.config/mako/config
 
 # gtklock
-!.config/gtklock/
-!.config/gtklock/config.ini
-!.config/gtklock/style.css
-!.config/gtklock/layout.ui
+!/.config/gtklock/
+!/.config/gtklock/config.ini
+!/.config/gtklock/style.css
+!/.config/gtklock/layout.ui
 
 # kitty
-!.config/kitty/
-!.config/kitty/kitty.conf
+!/.config/kitty/
+!/.config/kitty/kitty.conf
 
 # fastfetch
-!.config/fastfetch/
-!.config/fastfetch/config.jsonc
-!.config/fastfetch/logo.png
-!.config/fastfetch/logo.txt
+!/.config/fastfetch/
+!/.config/fastfetch/config.jsonc
+!/.config/fastfetch/logo.png
+!/.config/fastfetch/logo.txt
 
 # mpv
-!.config/mpv/
-!.config/mpv/input.conf
-!.config/mpv/mpv.conf
+!/.config/mpv/
+!/.config/mpv/input.conf
+!/.config/mpv/mpv.conf
 
 # vscode
-!.config/code-flags.conf
-!.config/Code/
-!.config/Code/User/
-!.config/Code/User/settings.json
-!.config/Code/User/keybindings.json
-!.config/Code/User/snippets/
-!.config/Code/User/snippets/**/*
+!/.config/code-flags.conf
+!/.config/Code/
+!/.config/Code/User/
+!/.config/Code/User/settings.json
+!/.config/Code/User/keybindings.json
+!/.config/Code/User/snippets/
+!/.config/Code/User/snippets/**/*
 
 # ------------------- ~/Scripts -------------------
 
-!Scripts/
-!Scripts/**/*
-Scripts/private/
+!/Scripts/
+!/Scripts/**/*
+/Scripts/private/
