@@ -136,6 +136,12 @@ layer-rule {
     place-within-backdrop true
 }
 
+// Block out notifications from screencast
+layer-rule {
+    match namespace="notifications"
+    block-out-from "screencast"
+}
+
 window-rule {
     geometry-corner-radius 6
     clip-to-geometry true
