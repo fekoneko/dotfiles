@@ -82,14 +82,19 @@ label:focus {
 
 #cpu,
 #network,
-#wireplumber,
+#wireplumber.sink,
 #custom-recorder {
   padding: 0 0 0 10px;
   border-radius: 12px 0 0 12px;
 }
 
-#custom-vpn {
+#custom-vpn,
+#wireplumber.source {
   border-radius: 0;
+}
+
+#wireplumber.source {
+  padding: 0 8px;
 }
 
 #memory,

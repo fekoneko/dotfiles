@@ -11,7 +11,8 @@
     "network",
     "custom/vpn",
     "bluetooth",
-    "wireplumber",
+    "wireplumber#sink",
+    "wireplumber#source",
     "backlight",
     "clock"
   ],
@@ -74,13 +75,12 @@
     },
     "on-click": "kitty -e bluetui"
   },
-  "wireplumber": {
+  "wireplumber#sink": {
+    "node-type": "Audio/Sink",
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
     "format-bluetooth-muted": "  {icon}",
     "format-muted": " ",
-    "format-source": "{volume}%  ",
-    "format-source-muted": " ",
     "format-icons": {
       "headphone": " ",
       "phone": " ",
@@ -90,8 +90,17 @@
     },
     "on-click": "kitty -e alsamixer"
   },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬",
+    "format-muted": "󰍭",
+    "on-click": "$HOME/Scripts/toggle-mute.sh",
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "scroll-step": 0
+  },
   "backlight": {
-    "format": "{percent}% {icon}",
+    "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "tooltip-format": "Backlight: {percent}%"
   },

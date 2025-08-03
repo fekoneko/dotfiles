@@ -309,6 +309,7 @@ binds {
 
     Mod+P                hotkey-overlay-title="Toggle waybar"                     { spawn "killall" "-SIGUSR1" "waybar"; }
     Mod+X                hotkey-overlay-title="Dismiss all notifications"         { spawn "makoctl" "dismiss" "--all"; }
+    Mod+Comma            hotkey-overlay-title="Toggle microphone mute"            { spawn "~/Scripts/toggle-mute.sh"; }
 
     Mod+Tab              hotkey-overlay-title="Run an application"                { spawn "~/Scripts/drun.sh"; }
     Mod+V                hotkey-overlay-title="Clipboard manager"                 { spawn "~/Scripts/clipboard-dmenu.sh"; }
