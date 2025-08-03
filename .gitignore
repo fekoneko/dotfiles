@@ -67,10 +67,6 @@
 !/.config/Code/User/snippets/
 !/.config/Code/User/snippets/**/*
 
-# discord
-!/.config/discord/
-!/.config/discord/settings.json
-
 # ------------------- ~/Scripts -------------------
 
 !/Scripts/
