@@ -1,0 +1,17 @@
+# Warning notification at 15%
+-w
+15
+
+# Critical notification at 5%
+-c
+5
+
+# Suspend on 2%
+-d
+2
+-D
+systemctl suspend
+
+# Notification icon
+-I
+/home/fekoneko/.config/batsignal-icon.svg

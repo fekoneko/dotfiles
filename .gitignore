@@ -41,6 +41,10 @@
 !/.config/mako/
 !/.config/mako/config
 
+# batsignal
+!/.config/batsignal
+!/.config/batsignal-icon.svg
+
 # gtklock
 !/.config/gtklock/
 !/.config/gtklock/config.ini
