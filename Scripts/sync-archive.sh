@@ -5,28 +5,29 @@
 # ------------------------------- Configuration -------------------------------
 
 dir_path="$(dirname "$(realpath "$0")")"
+config_path="$dir_path/sync-archive.conf"
 temp_path="$HOME/.cache/sync-archive"
 
 # source = <absolute path>
 source_path="$(sed -ne 's/^source *= *\(.\)/\1/p' \
-  "$dir_path/private/sync-archive.conf" | head -n1)" || exit 1
+  "$config_path" | head -n1)" || exit 1
 
 # destination = <absolute path>
 destination_path="$(sed -ne 's/^destination *= *\(.\)/\1/p' \
-  "$dir_path/private/sync-archive.conf" | head -n1)" || exit 1
+  "$config_path" | head -n1)" || exit 1
 
 # files ignored by git are skipped
 # archive = <path in source>;<path in destination>;<nest inside directory>
 archived_files_config="$(sed -ne 's/^archive *= *\(.\)/\1/p' \
-  "$dir_path/private/sync-archive.conf")" || exit 1
+  "$config_path")" || exit 1
 
 # copy = <path in source>;<path in destination>
 copied_files_config="$(sed -ne 's/^copy *= *\(.\)/\1/p' \
-  "$dir_path/private/sync-archive.conf")" || exit 1
+  "$config_path")" || exit 1
 
 # anki = <path in destination>
 anki_path_in_destination="$(sed -ne 's/^anki *= *\(.\)/\1/p' \
-  "$dir_path/private/sync-archive.conf" | head -n1)" || exit 1
+  "$config_path" | head -n1)" || exit 1
 
 if [[ ! -d "$destination_path/vault/.git" ]]; then echo $'archive is not mounted'; exit 1; fi
 

@@ -4,8 +4,12 @@
 
 !/README.md
 !/.gitignore
+
+# shell configuration
 !/.bash_profile
 !/.bashrc
+
+# theming
 !/.face
 !/.wallpaper
 !/.lock_wallpaper
@@ -97,4 +101,6 @@
 
 !/Scripts/
 !/Scripts/**/*
-/Scripts/private/
+
+# private configuration
+/Scripts/**/*.conf
