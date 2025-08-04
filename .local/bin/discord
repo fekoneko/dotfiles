@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+flags="$(cat "$HOME/.config/electron-flags.conf")" || exit 1
+flags="${flags//$'\n'/ }"
+
+# shellcheck disable=SC2068,SC2086
+/usr/bin/discord $flags $@

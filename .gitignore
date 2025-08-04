@@ -70,6 +70,29 @@
 !/.config/electron-flags.conf
 !/.config/code-flags.conf
 
+# ----------------- ~/.local/bin ------------------
+
+!/.local/
+!/.local/bin/
+
+# timeshift patch
+!/.local/bin/timeshift-launcher
+
+# discord patch
+!/.local/bin/discord
+
+# ---------- ~/.local/share/applications ----------
+
+!/.local/
+!/.local/share/
+!/.local/share/applications/
+
+# nautilus patch
+!/.local/share/applications/org.gnome.Nautilus.desktop
+
+# discord patch
+!/.local/share/applications/discord.desktop
+
 # ------------------- ~/Scripts -------------------
 
 !/Scripts/
