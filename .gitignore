@@ -83,6 +83,9 @@
 !/.local/
 !/.local/bin/
 
+# nautilus patch
+!/.local/bin/nautilus
+
 # timeshift patch
 !/.local/bin/timeshift-launcher
 
