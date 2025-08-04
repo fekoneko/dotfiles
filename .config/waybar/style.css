@@ -94,7 +94,7 @@ label:focus {
 }
 
 #wireplumber.source {
-  padding: 0 8px;
+  padding: 0 10px;
 }
 
 #memory,
@@ -104,6 +104,10 @@ label:focus {
   margin-right: 5px;
   padding: 0 13px 0 5px;
   border-radius: 0 12px 12px 0;
+}
+
+#backlight {
+  padding: 0 10px 0 5px;
 }
 
 #taskbar button {
