@@ -67,16 +67,13 @@
 !/.config/mpv/mpv.conf
 
 # vscode
+!/.config/code-flags.conf
 !/.config/Code/
 !/.config/Code/User/
 !/.config/Code/User/settings.json
 !/.config/Code/User/keybindings.json
 !/.config/Code/User/snippets/
 !/.config/Code/User/snippets/**/*
-
-# electron
-!/.config/electron-flags.conf
-!/.config/code-flags.conf
 
 # ----------------- ~/.local/bin ------------------
 
