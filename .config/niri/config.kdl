@@ -187,10 +187,10 @@ window-rule {
     match app-id="^kitty$" // Terminal
     match app-id="^org.gnome.Nautilus$" title=".+" // File manager
     match app-id="^org.gnome.FileRoller$" // Archive manager
-    match app-id="^org.x.GnomeOnlineAccountsGtk$" // Gnome Online Accounts GTK
+    match app-id="^org.x.GnomeOnlineAccountsGtk$" // Gnome Online Accounts
     match app-id="^anki$" title="^Edit|^Add|^Statistics" // Anki add / edit note, add-ons, stats
+    match app-id="^org.prismlauncher.PrismLauncher$" title="^Prism Launcher" // Prism Launcher
 
-    open-floating false
     default-column-width { proportion 0.5; }
     open-maximized false
 }
