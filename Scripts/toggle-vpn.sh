@@ -1,7 +1,5 @@
 #!/usr/bin/sh
 
-sleep 0.5
-
 name="$(\
   nmcli connection show --active | \
   sed -nr 's/^(.*) +[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} +wireguard.*$/\1/p' | \
@@ -9,6 +7,6 @@ name="$(\
 )"
 
 if [ -n "$name" ]
-  then echo "{\"tooltip\":\"$name\",\"text\":\"\"}"
-  else echo "{\"tooltip\":\"Wireguard disconnected\",\"text\":\"\"}"
+  then nmcli connection down "$name"
+  else nmcli connection up 'fekoneko VPS'
 fi

@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
 
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle

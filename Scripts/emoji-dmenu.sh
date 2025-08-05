@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
 # shellcheck disable=SC2317,SC1089
 
 pidof wofi && exit 0
@@ -8,7 +8,7 @@ emoji="$(sed '1,/^### DATA ###$/d' "$0" \
   | cut -d ' ' -f 1 \
   | tr -d '\n')"
 
-if [[ -n "$emoji" ]]; then
+if [ -n "$emoji" ]; then
   wl-copy "$emoji"
 fi
 

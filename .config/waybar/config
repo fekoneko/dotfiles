@@ -59,7 +59,7 @@
     "format": "{text}",
     "return-type": "json",
     "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
-    "on-click": "$HOME/Scripts/waybar-vpn-on-click.sh",
+    "on-click": "$HOME/Scripts/toggle-vpn.sh",
     "restart-interval": 60
   },
   "bluetooth": {
@@ -105,19 +105,16 @@
     "tooltip-format": "Backlight: {percent}%"
   },
   "battery": {
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
+    "states": { "warning": 15, "critical": 5 },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% 󰂄",
     "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "Battery: {capacity}%"
   },
-  // Using a custom module instead of "mpris"
-  // to properly update the stop status after exiting Gapless
   "custom/mpris": {
+    // Using a custom module instead of "mpris"
+    // to properly update the stop status after exiting Gapless
     "return-type": "json",
     "exec": "waybar-mpris --autofocus --play  --pause  --order SYMBOL:ARTIST:TITLE",
     "on-click": "waybar-mpris --send toggle",

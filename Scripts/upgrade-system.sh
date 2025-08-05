@@ -3,19 +3,19 @@
 paru_error() {
   echo $'\nFailed to update packages, try updating the keyring first:'
   echo '$ sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
-  echo 'If there are conflicts in /usr/lib/node_modules, try removing the corresponding npm package, e.g.:'
+  echo 'In case of /usr/lib/node_modules conflict, try removing corresponding npm package, e.g.:'
   echo '$ npm --global remove node-gyp'
   exit 1
 }
-flatpak_error() { echo $'\nFailed to update flatpack packages'; exit 1; }
-npm_error() { echo $'\nFailed to update npm packages'; exit 1; }
-pnpm_error() { echo $'\nFailed to update pnpm packages'; exit 1; }
-bun_error() { echo $'\nFailed to update bun packages'; exit 1; }
-go_error() { echo $'\nFailed to update go binaries'; exit 1; }
-rust_error() { echo $'\nFailed to update rust'; exit 1; }
-cargo_error() { echo $'\nFailed to update cargo binaries'; exit 1; }
+flatpak_error() { echo $'\nFailed to update flatpak packages'; exit 1; }
+npm_error()     { echo $'\nFailed to update npm packages';     exit 1; }
+pnpm_error()    { echo $'\nFailed to update pnpm packages';    exit 1; }
+bun_error()     { echo $'\nFailed to update bun packages';     exit 1; }
+go_error()      { echo $'\nFailed to update go binaries';      exit 1; }
+rust_error()    { echo $'\nFailed to update rust';             exit 1; }
+cargo_error()   { echo $'\nFailed to update cargo binaries';   exit 1; }
 
-echo $'Please check the news, can anything break?'
+echo 'Please check the news, can anything break?'
 zen-browser --new-tab https://archlinux.org/news/
 read -rp 'Proceed? [Y/n] ' choice
 case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
@@ -48,4 +48,7 @@ echo $'$ cargo install --locked "$cargo_packages"\n'
 cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' < "$CARGO_HOME/.crates2.json")" || cargo_error
 cargo install --locked "$cargo_packages" || cargo_error
 
-echo $'\nDone!'
+echo
+echo '-------------------------------------'
+echo 'System upgrade finished successfully!'
+echo '-------------------------------------'
