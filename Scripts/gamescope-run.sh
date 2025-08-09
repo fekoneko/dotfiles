@@ -13,5 +13,6 @@ exec gamescope \
   --output-height "$screen_height" \
   --cursor "$cursor_path" \
   --force-grab-cursor \
+  --mouse-sensitivity 2.25 \
   --expose-wayland \
   -- $@
