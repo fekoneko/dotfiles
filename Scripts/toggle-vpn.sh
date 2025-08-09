@@ -8,5 +8,5 @@ name="$(\
 
 if [ -n "$name" ]
   then nmcli connection down "$name"
-  else nmcli connection up 'fekoneko VPS'
+  else nmcli connection up 'fekoneko VPS (tunneled)'
 fi

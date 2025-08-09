@@ -51,7 +51,8 @@
     "format-icons": {
       "wifi": "󰖩 ",
       "ethernet": "󰖩 ",
-      "disconnected": "󰖪 "
+      "disconnected": "󱛅 ",
+      "disabled": "󰖪 "
     },
     "on-click": "kitty -e nmtui"
   },
