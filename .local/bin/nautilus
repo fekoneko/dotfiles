@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 
 # shellcheck disable=2068
-exec env GTK_IM_MODULE=fcitx /usr/bin/nautilus $@
+exec env GTK_IM_MODULE=fcitx /usr/bin/nautilus "$@"

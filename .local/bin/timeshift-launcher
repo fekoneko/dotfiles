@@ -3,4 +3,4 @@
 # this ignores env variables that contain spaces
 # new lines in env variables can break things too
 # shellcheck disable=SC2046,SC2068
-pkexec env $(env | grep -v ' ') /usr/bin/timeshift-launcher $@
+pkexec env $(env | grep -v ' ') /usr/bin/timeshift-launcher "$@"

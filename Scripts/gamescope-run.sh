@@ -4,7 +4,6 @@ screen_width=1920
 screen_height=1200
 cursor_path="$HOME/.local/share/icons/gamescope-cursor"
 
-# shellcheck disable=SC2068
 exec gamescope \
   --fullscreen \
   --nested-width "$screen_width" \
@@ -15,4 +14,4 @@ exec gamescope \
   --force-grab-cursor \
   --mouse-sensitivity 2.25 \
   --expose-wayland \
-  -- $@
+  -- "$@"
