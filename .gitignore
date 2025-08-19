@@ -12,7 +12,7 @@
 # theming
 !/.face
 !/.wallpaper
-!/.lock_wallpaper
+!/.lock-wallpaper
 !/.notification
 
 # ------------------- ~/.config -------------------
