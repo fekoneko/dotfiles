@@ -5,23 +5,38 @@
 }
 
 window#waybar {
-  background: transparent;
   color: #ffffff;
+  background-color: rgba(0, 12, 42, 0.35);
 }
 
-window#waybar > * {
-  margin: 3px 5px 0 5px;
-}
-
-button {
+#cpu,
+#memory,
+#custom-anki-word,
+#custom-recorder,
+#custom-color-picker,
+#network,
+#custom-vpn,
+#bluetooth,
+#wireplumber,
+#taskbar button {
   box-shadow: none;
   border: none;
   border-radius: 0;
-  transition-property: none;
+  transition: background-color 0.1s ease-in-out;
 }
 
-button:hover {
-  background: none;
+#cpu:hover,
+#memory:hover,
+#custom-anki-word:hover,
+#custom-recorder:hover,
+#custom-color-picker:hover,
+#network:hover,
+#custom-vpn:hover,
+#bluetooth:hover,
+#wireplumber:hover,
+#taskbar button:hover,
+#taskbar button.active {
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: none;
   text-shadow: none;
   border: none;
@@ -30,133 +45,62 @@ button:hover {
 }
 
 #clock,
-#language,
 #battery,
-#cpu,
-#memory,
+#clock,
 #backlight,
-#network,
-#bluetooth,
-#wireplumber,
-#custom-color-picker,
-#custom-recorder,
-#custom-vpn,
-#custom-anki-word,
+#taskbar button {
+  padding: 0 8px;
+}
+
+#cpu,
+#memory {
+  padding: 0 11px 0 8px;
+}
+
 #tray {
   padding: 0 10px;
-  color: #d5d5e6;
-  background-color: rgba(26, 29, 36, 0.6);
-  border-radius: 12px;
-  border-top: 1.5px solid rgba(69, 75, 91, 0.6);
-  border-bottom: 1.5px solid rgba(17, 19, 23, 0.6);
-}
-
-label:focus {
-  background-color: #000000;
-}
-
-#tray,
-#battery,
-#language,
-#custom-color-picker,
-#custom-anki-word {
-  margin-right: 5px;
-}
-
-#window,
-#workspaces {
-  margin: 0 5px;
 }
 
 #custom-mpris {
-  text-shadow: 0 -1px 3.5px rgba(22, 33, 160, 0.5);
-}
-
-#battery {
-  padding-right: 12px;
+  padding: 0 10px;
+  font-size: 12.5px;
+  opacity: 0.8;
 }
 
 #custom-anki-word {
-  padding-bottom: 1px;
+  padding: 0 6px 0.5px 6px;
+  font-size: 12.5px;
+  opacity: 0.6;
 }
 
-#cpu,
-#network,
-#wireplumber.sink,
 #custom-recorder {
-  padding: 0 0 0 10px;
-  border-radius: 12px 0 0 12px;
+  padding: 0 12.5px 0 10px;
 }
 
-#custom-vpn,
-#wireplumber.source {
-  border-radius: 0;
-}
-
-#wireplumber.source {
-  padding: 0 10px;
-}
-
-#memory,
-#bluetooth,
-#backlight,
 #custom-color-picker {
-  margin-right: 5px;
-  padding: 0 13px 0 5px;
-  border-radius: 0 12px 12px 0;
+  padding: 1px 14px 0 9.5px;
+  font-size: 12.5px;
 }
 
-#backlight {
-  padding: 0 10px 0 5px;
+#network {
+  padding: 0 13.5px 0 9.5px;
 }
 
-#taskbar button {
-  color: #f0f0ff;
-  background-color: rgba(26, 29, 36, 0.6);
-  border-top: 1.5px solid rgba(69, 75, 91, 0.6);
-  border-bottom: 1.5px solid rgba(17, 19, 23, 0.6);
-  padding: 0 7px;
+#custom-vpn {
+  padding: 1px 13.5px 0 10.5px;
+  font-size: 12.5px;
 }
 
-#taskbar button:first-child {
-  border-radius: 12px 0 0 12px;
-  padding-left: 10px;
+#bluetooth {
+  padding: 0 12.5px 0 11.5px;
 }
 
-#taskbar button:last-child {
-  border-radius: 0 12px 12px 0;
-  margin-right: 5px;
-  padding-right: 10px;
+#wireplumber.sink {
+  padding: 0 15px 0 8px;
 }
 
-#taskbar button:first-child:last-child {
-  border-radius: 12px;
-}
-
-#taskbar button:hover {
-  background-color: rgba(37, 41, 50, 0.6);
-  border-top: 1.5px solid rgba(77, 84, 101, 0.6);
-  border-bottom: 1.5px solid rgba(28, 31, 37, 0.6);
-}
-
-#taskbar button.active {
-  background-color: rgba(73, 82, 100, 0.6);
-  border-top: 1.5px solid rgba(98, 105, 127, 0.6);
-  border-bottom: 1.5px solid rgba(52, 58, 68, 0.6);
-}
-
-#taskbar button.active:hover {
-  background-color: rgba(77, 87, 105, 0.6);
-  border-top: 1.5px solid rgba(102, 109, 133, 0.6);
-  border-bottom: 1.5px solid rgba(58, 64, 75, 0.6);
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
+#wireplumber.source {
+  padding: 0 11.5px;
 }
 
 tooltip {
@@ -166,8 +110,8 @@ tooltip {
 
 tooltip label {
   color: #f0f0ff;
-  background-color: rgba(39, 40, 46, 0.9);
+  background-color: rgba(39, 40, 46, 0.95);
   padding: 5px 12px;
-  border-radius: 12px;
+  border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }

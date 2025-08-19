@@ -1,28 +1,29 @@
 {
   "layer": "top",
-  "height": 29,
+  "height": 24,
   "spacing": 0,
 
-  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray", "custom/anki-word"],
+  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
   "modules-center": ["custom/mpris"],
   "modules-right": [
+    "custom/anki-word",
     "custom/recorder",
     "custom/color-picker",
     "network",
     "custom/vpn",
     "bluetooth",
-    "wireplumber#sink",
     "wireplumber#source",
+    "wireplumber#sink",
     "backlight",
     "clock"
   ],
 
   "cpu": {
-    "format": "{usage}%  ",
+    "format": "{usage}% ",
     "on-click": "missioncenter"
   },
   "memory": {
-    "format": "{}%  ",
+    "format": "{}% ",
     "on-click": "missioncenter"
   },
   "wlr/taskbar": {
@@ -38,10 +39,10 @@
     "format": "{:%H:%M}"
   },
   "tray": {
-    "spacing": 10
+    "spacing": 18
   },
   "custom/color-picker": {
-    "format": " ",
+    "format": "",
     "tooltip-format": "Pick color",
     "on-click": "$HOME/Scripts/pick-color.sh"
   },
@@ -49,10 +50,10 @@
     "format": "{icon}",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr}",
     "format-icons": {
-      "wifi": "󰖩 ",
-      "ethernet": "󰖩 ",
-      "disconnected": "󱛅 ",
-      "disabled": "󰖪 "
+      "wifi": "󰖩",
+      "ethernet": "󰖩",
+      "disconnected": "󱛅",
+      "disabled": "󰖪"
     },
     "on-click": "kitty -e nmtui"
   },
@@ -70,24 +71,22 @@
     "tooltip-format-enumerate-connected": "{device_alias} ({device_address})",
     "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_address}) {device_battery_percentage}% 󰂎",
     "format-icons": {
-      "on": " 󰂯",
-      "off": " 󰂲",
-      "connected": " 󰂱"
+      "on": "󰂯",
+      "off": "󰂲",
+      "connected": "󰂱"
     },
     "on-click": "kitty -e bluetui"
   },
   "wireplumber#sink": {
     "node-type": "Audio/Sink",
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-bluetooth-muted": "  {icon}",
-    "format-muted": " ",
+    "format-muted": "",
     "format-icons": {
-      "headphone": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": [" ", " ", " ", " "]
+      "headphone": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "", ""]
     },
     "on-click": "kitty -e alsamixer"
   },
@@ -101,7 +100,7 @@
     "scroll-step": 0
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{percent}% {icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "tooltip-format": "Backlight: {percent}%"
   },

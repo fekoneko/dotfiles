@@ -42,7 +42,7 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font
 // gconftool --set /apps/metacity/general/titlebar_font 'sans-serif 10' --type STRING
 
 // Wallpaper
-spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
+spawn-at-startup "swaybg" "--image" "~/.wallpaper" "--mode" "fill"
 
 // Top bar
 spawn-at-startup "waybar"
@@ -88,7 +88,7 @@ gestures {
 }
 
 layout {
-    gaps 7
+    gaps 6
     empty-workspace-above-first
     center-focused-column "never"
     background-color "#00000000"
@@ -97,7 +97,7 @@ layout {
 
     focus-ring {
         width 1.5
-        active-gradient from="#467ed2" to="#b5ffff" angle=70 relative-to="workspace-view"
+        active-gradient from="#6089d2ff" to="#9ac2ff" angle=70 relative-to="workspace-view"
         inactive-color "transparent"
         urgent-color "transparent"
     }
@@ -136,14 +136,14 @@ layer-rule {
     place-within-backdrop true
 }
 
-// Block out notifications from screencast
+// Block out notifications from screencast (but not screencapture)
 layer-rule {
     match namespace="notifications"
     block-out-from "screencast"
 }
 
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 3
     clip-to-geometry true
     tiled-state true
     open-maximized true
