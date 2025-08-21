@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 if [ -z "$(pgrep wf-recorder)" ]; then
 	options="$(niri msg outputs | sed -n 's/^Output "\(.*\)" (\(.*\))$/\2     (\1)/p')" || exit 1

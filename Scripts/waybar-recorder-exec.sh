@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 wf_recorder_pid="$(pgrep wf-recorder)"
 if [ -n "$wf_recorder_pid" ]

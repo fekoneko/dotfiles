@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 screen_width=1920
 screen_height=1200

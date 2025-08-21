@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 pidof wofi && exit 0
 
