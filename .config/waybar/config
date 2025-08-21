@@ -3,10 +3,9 @@
   "height": 24,
   "spacing": 0,
 
-  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray"],
+  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray", "custom/anki-word"],
   "modules-center": ["custom/mpris"],
   "modules-right": [
-    "custom/anki-word",
     "custom/recorder",
     "custom/color-picker",
     "network",
