@@ -515,5 +515,30 @@
   {
     "key": "shift+alt+n",
     "command": "explorer.newFolder"
+  },
+  {
+    "key": "ctrl+shift+g .",
+    "command": "-gitlens.diffWithNext:key",
+    "when": "editorTextFocus && gitlens:enabled && config.gitlens.keymap == 'chorded' && resourceScheme =~ /^(gitlens|git|pr)$/"
+  },
+  {
+    "key": "ctrl+shift+g b",
+    "command": "-gitlens.toggleFileBlame:key",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
+  },
+  {
+    "key": "ctrl+shift+g ,",
+    "command": "-gitlens.diffWithPrevious:key",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:tracked'"
+  },
+  {
+    "key": "ctrl+shift+g shift+[IntlBackslash]",
+    "command": "-gitlens.diffWithWorking:key",
+    "when": "editorTextFocus && gitlens:enabled && config.gitlens.keymap == 'chorded' && resourceScheme =~ /^(gitlens|git|pr)$/"
+  },
+  {
+    "key": "ctrl+shift+g shift+.",
+    "command": "-gitlens.diffWithWorking:key",
+    "when": "editorTextFocus && gitlens:enabled && config.gitlens.keymap == 'chorded' && resourceScheme =~ /^(gitlens|git|pr)$/"
   }
 ]
