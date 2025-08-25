@@ -78,9 +78,9 @@ rm -rf "$temp_path/.temp" 2> /dev/null
 gtk-launch org.gnome.Nautilus "$temp_path" > /dev/null 2> /dev/null
 sleep 1
 echo $'\n'"these files will be moved to $destination_path"
-read -rp 'Is everything correct? [y/N]: ' ok || cleanup_and_panic
+read -rp 'Is everything correct? [Y/n]: ' ok || cleanup_and_panic
 case "$ok" in
-  y|Y)
+  y|Y|'')
     echo
     rsync -avcP "$temp_path/" "$destination_path/" || cleanup_and_panic
     echo $'\nfiles moved to the archive';;
@@ -99,29 +99,31 @@ for config_item in $copied_files_config; do
   item_path_in_destination="$(printf '%s' "$config_item" | cut -d';' -f2)" || cleanup_and_panic
 
   echo $'\n'"synching '$source_path/$item_path_in_source' to '$destination_path/$item_path_in_destination'"
-  read -rp 'is everything correct? [y/N]: ' ok || cleanup_and_panic
-  case "$ok" in y|Y);; *) cleanup_and_panic;; esac
+  read -rp 'is everything correct? [Y/n]: ' ok || cleanup_and_panic
+  case "$ok" in y|Y|'');; *) cleanup_and_panic;; esac
 
-  read -rp $'\nsanitize files for exFAT first? (will rename the original files) [y/N]: ' ok || cleanup_and_panic
-  case "$ok" in y|Y) "$dir_path/sanitize-exfat.sh" "$source_path/$item_path_in_source" || cleanup_and_panic;; esac
+  read -rp $'\nsanitize files for exFAT first? (will rename the original files) [Y/n]: ' ok || cleanup_and_panic
+  case "$ok" in y|Y|'') "$dir_path/sanitize-exfat.sh" "$source_path/$item_path_in_source" || cleanup_and_panic;; esac
 
   echo
-  rsync -avcP --delete "$source_path/$item_path_in_source/" "$destination_path/$item_path_in_destination/" || cleanup_and_panic
+  rsync -avcP --delete "$source_path/$item_path_in_source/" "$destination_path/$item_path_in_destination/" \
+    || cleanup_and_panic
 done
 
 # ------------------------------ Anki collection ------------------------------
 
 echo $'\nbacking up anki collection to file '"'$destination_path/$anki_path_in_destination'"
-read -rp 'is everything correct? [y/N]: ' ok || cleanup_and_panic
-case "$ok" in y|Y);; *) cleanup_and_panic;; esac
+read -rp 'is everything correct? [Y/n]: ' ok || cleanup_and_panic
+case "$ok" in y|Y|'');; *) cleanup_and_panic;; esac
 
 echo
 "$dir_path/export-anki-collection.py" "$destination_path/$anki_path_in_destination" || cleanup_and_panic
 
-# ------------------------------ Commit changes -------------------------------
-
-echo $'\ncommitting changes to the vault\n'
-git -C "$destination_path/vault" add . || cleanup_and_panic
-git -C "$destination_path/vault" commit -m 'sync vault'
+# ---------------------------------- Done! ------------------------------------
 
 IFS="$initial_ifs"
+
+echo
+echo '--------------------------------------'
+echo 'Syncing archive finished successfully!'
+echo '--------------------------------------'
