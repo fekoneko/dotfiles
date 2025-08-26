@@ -16,11 +16,16 @@ go_error()      { echo $'\nFailed to update go binaries';      exit 1; }
 rust_error()    { echo $'\nFailed to update rust';             exit 1; }
 cargo_error()   { echo $'\nFailed to update cargo binaries';   exit 1; }
 
-echo $'Creating timeshift snapshot:\n$ sudo timeshift --create --comments \'before upgrade\'\n'
-sudo timeshift --create --comments 'before upgrade' || timeshift_error
+read -rp 'Create timeshift snapshot? [Y/n] ' choice
+case "$choice" in
+  y|Y|'' )
+    echo $'Creating timeshift snapshot:\n$ sudo timeshift --create --comments \'before upgrade\'\n'
+    sudo timeshift --create --comments 'before upgrade' || timeshift_error;;
+  * ) ;;
+esac
 
 echo $'\nPlease check the news, can anything break?'
-zen-browser --new-tab https://archlinux.org/news/
+nohup zen-browser --new-tab https://archlinux.org/news/ > /dev/null 2>/dev/null &
 read -rp 'Proceed? [Y/n] ' choice
 case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
 
