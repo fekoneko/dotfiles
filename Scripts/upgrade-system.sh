@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-timeshift_error() {
-  echo $'\nFailed to create timeshift snapshot, try running the script again.'
-  exit 1
-}
+timeshift_error() { echo $'\nFailed to create timeshift snapshot'; exit 1; }
 paru_error() {
   echo $'\nFailed to update packages, try updating the keyring first:'
   echo '$ sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
