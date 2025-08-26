@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+timeshift_error() {
+  echo $'\nFailed to create timeshift snapshot, try running the script again.'
+  exit 1
+}
 paru_error() {
   echo $'\nFailed to update packages, try updating the keyring first:'
   echo '$ sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
@@ -15,7 +19,10 @@ go_error()      { echo $'\nFailed to update go binaries';      exit 1; }
 rust_error()    { echo $'\nFailed to update rust';             exit 1; }
 cargo_error()   { echo $'\nFailed to update cargo binaries';   exit 1; }
 
-echo 'Please check the news, can anything break?'
+echo $'Creating timeshift snapshot:\n$ sudo timeshift --create --comments \'before upgrade\'\n'
+sudo timeshift --create --comments 'before upgrade' || timeshift_error
+
+echo $'\nPlease check the news, can anything break?'
 zen-browser --new-tab https://archlinux.org/news/
 read -rp 'Proceed? [Y/n] ' choice
 case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
