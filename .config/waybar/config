@@ -41,22 +41,6 @@
   "tray": {
     "spacing": 18
   },
-  "custom/color-picker": {
-    "format": "",
-    "tooltip-format": "Pick color",
-    "on-click": "$HOME/Scripts/pick-color.sh"
-  },
-  "custom/dnd": {
-    "return-type": "json",
-    "exec": "$HOME/Scripts/waybar-dnd-exec.sh",
-    "on-click": "$HOME/Scripts/toggle-dnd.sh"
-  },
-  "custom/vpn": {
-    "return-type": "json",
-    "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
-    "on-click": "$HOME/Scripts/toggle-vpn.sh",
-    "restart-interval": 60
-  },
   "network": {
     "format": "{icon}",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr}",
@@ -116,6 +100,21 @@
     "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "Battery: {capacity}%"
   },
+  "custom/color-picker": {
+    "format": "",
+    "tooltip-format": "Pick color",
+    "on-click": "$HOME/Scripts/pick-color.sh"
+  },
+  "custom/dnd": {
+    "return-type": "json",
+    "exec": "$HOME/Scripts/waybar-dnd-exec.sh",
+    "on-click": "$HOME/Scripts/toggle-dnd.sh"
+  },
+  "custom/vpn": {
+    "return-type": "json",
+    "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
+    "on-click": "$HOME/Scripts/toggle-vpn.sh"
+  },
   "custom/mpris": {
     // Using a custom module instead of "mpris"
     // to properly update the stop status after exiting Gapless
@@ -132,7 +131,6 @@
     "exec": "$HOME/Scripts/waybar-recorder-exec.sh",
     "return-type": "json",
     "on-click": "$HOME/Scripts/toggle-recording.sh",
-    "on-click-right": "$HOME/Scripts/toggle-recording.sh --slurp",
     "signal": 8
   },
   "custom/anki-word": {
