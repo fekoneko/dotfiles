@@ -8,6 +8,7 @@
   "modules-right": [
     "custom/recorder",
     "custom/color-picker",
+    "custom/dnd",
     "network",
     "custom/vpn",
     "bluetooth",
@@ -45,6 +46,11 @@
     "tooltip-format": "Pick color",
     "on-click": "$HOME/Scripts/pick-color.sh"
   },
+  "custom/dnd": {
+    "return-type": "json",
+    "exec": "$HOME/Scripts/waybar-dnd-exec.sh",
+    "on-click": "$HOME/Scripts/toggle-dnd.sh"
+  },
   "network": {
     "format": "{icon}",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr}",
@@ -57,7 +63,6 @@
     "on-click": "kitty -e nmtui"
   },
   "custom/vpn": {
-    "format": "{text}",
     "return-type": "json",
     "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
     "on-click": "$HOME/Scripts/toggle-vpn.sh",
