@@ -76,20 +76,16 @@ window#waybar {
 }
 
 #custom-recorder {
-  padding: 0 13px 0 10px;
+  padding: 0 13.5px 0 10.5px;
 }
 
 #custom-color-picker {
-  padding: 1px 14px 0 10px;
-  font-size: 12.5px;
-}
-
-#network {
-  padding: 0 14px 0 10px;
+  padding: 1px 14.5px 0 10px;
+  font-size: 12px;
 }
 
 #custom-dnd {
-  padding: 1px 13.5px 0 10.5px;
+  padding: 1px 13.5px 0 11px;
   font-size: 12.5px;
 }
 
@@ -98,12 +94,16 @@ window#waybar {
   font-size: 12px;
 }
 
+#network {
+  padding: 0 14px 0 10px;
+}
+
 #bluetooth {
   padding: 0 12px 0 12px;
 }
 
 #wireplumber.sink {
-  padding: 0 15px 0 8px;
+  padding: 0 14.5px 0 8px;
 }
 
 #wireplumber.source {

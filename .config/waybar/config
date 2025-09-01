@@ -51,6 +51,12 @@
     "exec": "$HOME/Scripts/waybar-dnd-exec.sh",
     "on-click": "$HOME/Scripts/toggle-dnd.sh"
   },
+  "custom/vpn": {
+    "return-type": "json",
+    "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
+    "on-click": "$HOME/Scripts/toggle-vpn.sh",
+    "restart-interval": 60
+  },
   "network": {
     "format": "{icon}",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr}",
@@ -61,12 +67,6 @@
       "disabled": "󰖪"
     },
     "on-click": "kitty -e nmtui"
-  },
-  "custom/vpn": {
-    "return-type": "json",
-    "exec": "$HOME/Scripts/waybar-vpn-exec.sh",
-    "on-click": "$HOME/Scripts/toggle-vpn.sh",
-    "restart-interval": 60
   },
   "bluetooth": {
     "format": "{icon}",
