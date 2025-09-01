@@ -1,9 +1,12 @@
 #!/bin/sh
 
 sleep_pid=''
+cleanup() {
+  kill "$sleep_pid" 2>/dev/null
+}
 
 update() {
-  kill "$sleep_pid" 2>/dev/null
+  cleanup
 
   if makoctl mode | grep -q '^do-not-disturb$'; then
     text='󰂛'
@@ -18,6 +21,7 @@ update() {
 
 update
 trap update USR1
+trap cleanup EXIT
 
 # Wait in background, not consuming CPU
 while :; do
