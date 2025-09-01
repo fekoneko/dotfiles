@@ -1,12 +1,12 @@
 #!/bin/sh
 
 update() {
-  if makoctl mode | grep -q 'do-not-disturb'; then
-    text="󰂛"
-    tooltip="Do Not Disturb enabled"
+  if makoctl mode | grep -q '^do-not-disturb$'; then
+    text='󰂛'
+    tooltip='Do Not Disturb enabled'
   else
-    text="󰂚"
-    tooltip="Do Not Disturb disabled"
+    text='󰂚'
+    tooltip='Do Not Disturb disabled'
   fi
 
   echo "{\"text\":\"$text\",\"tooltip\":\"$tooltip\"}"
