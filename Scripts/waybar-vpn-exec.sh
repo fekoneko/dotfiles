@@ -9,7 +9,11 @@
 #     killall -USR1 waybar-vpn-exec.sh
 #   fi
 
+sleep_pid=''
+
 update() {
+  kill "$sleep_pid" 2>/dev/null
+
   name="$(\
     nmcli connection show --active | \
     sed -nr 's/^(.*) +[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} +wireguard.*$/\1/p' | \
@@ -26,4 +30,7 @@ update
 trap update USR1
 
 # Wait in background, not consuming CPU
-while :; do sleep infinity & wait $!; done
+while :; do
+  sleep infinity & sleep_pid="$!"
+  wait "$sleep_pid"
+done

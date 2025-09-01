@@ -116,8 +116,8 @@
     "on-click": "$HOME/Scripts/toggle-vpn.sh"
   },
   "custom/mpris": {
-    // Using a custom module instead of "mpris"
-    // to properly update the stop status after exiting Gapless
+    // Using a custom module instead of 'mpris'
+    // to properly update 'stop' status after exiting Gapless
     "return-type": "json",
     "exec": "waybar-mpris --autofocus --play  --pause  --order SYMBOL:ARTIST:TITLE",
     "on-click": "waybar-mpris --send toggle",
@@ -127,11 +127,11 @@
   },
   "custom/recorder": {
     "format": "{}",
+    "signal": 8,
     "interval": "once",
-    "exec": "$HOME/Scripts/waybar-recorder-exec.sh",
     "return-type": "json",
-    "on-click": "$HOME/Scripts/toggle-recording.sh",
-    "signal": 8
+    "exec": "$HOME/Scripts/waybar-recorder-exec.sh",
+    "on-click": "$HOME/Scripts/toggle-recording.sh"
   },
   "custom/anki-word": {
     "exec": "$HOME/Scripts/random-anki-word.py",
