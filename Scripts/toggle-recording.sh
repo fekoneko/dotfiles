@@ -24,3 +24,5 @@ if [ -z "$(pgrep wf-recorder)" ]
 	then start_recording
 	else stop_recording
 fi
+
+killall -USR1 waybar-recorder-exec.sh

@@ -126,9 +126,6 @@
     "escape": true
   },
   "custom/recorder": {
-    "format": "{}",
-    "signal": 8,
-    "interval": "once",
     "return-type": "json",
     "exec": "$HOME/Scripts/waybar-recorder-exec.sh",
     "on-click": "$HOME/Scripts/toggle-recording.sh"
