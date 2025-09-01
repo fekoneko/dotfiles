@@ -1,14 +1,17 @@
-outer-margin=8
-margin=8
-padding=8,10
+outer-margin=4
+margin=7
+padding=6,8
 font=sans-serif 10
-text-color=#929292
-background-color=#2a2a2ad5
-border-size=2
-border-color=#11111188
-border-radius=10
-icon-border-radius=10
-progress-color=source #3f3f3fd5
+text-color=#a2a2a2
+background-color=#2e2e32ee
+border-size=1
+border-color=#3f3f43
+border-radius=4
+icon-border-radius=4
+progress-color=source #3f3f43d5
 
 on-notify=exec mpv $HOME/.notification
 max-visible=1
+
+[mode=do-not-disturb]
+invisible=1
