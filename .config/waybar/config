@@ -76,7 +76,7 @@
       "car": "",
       "default": ["", "", "", ""]
     },
-    "on-click": "kitty -e alsamixer"
+    "on-click": "pavucontrol"
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",

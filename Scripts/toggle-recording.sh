@@ -11,7 +11,11 @@ start_recording() {
 	output="$(printf '%s' "$selected_option" | sed -n 's/     (.*)$//p')"
 
 	filename=$(date '+%F_%T.mp4')
-	wf-recorder -f "$HOME/Videos/$filename" -o "$output" >/dev/null 2>&1 &
+	wf-recorder \
+		--audio \
+		--codec h264_vaapi \
+		--file "$HOME/Videos/$filename" \
+		--output "$output" >/dev/null 2>&1 &
 }
 
 stop_recording() {
