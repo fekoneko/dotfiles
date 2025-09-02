@@ -6,9 +6,9 @@
 -c
 5
 
-# Suspend on 2%
+# Suspend on 3%
 -d
-2
+3
 -D
 systemctl suspend
 
