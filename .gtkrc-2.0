@@ -1,0 +1,2 @@
+# Will only be used in XWayland
+gtk-im-module="fcitx"

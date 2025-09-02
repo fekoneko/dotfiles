@@ -15,7 +15,7 @@ start_recording() {
 }
 
 stop_recording() {
-	killall -s SIGINT wf-recorder || exit 1
+	killall -s INT wf-recorder || exit 1
 	while [ -n "$(pgrep -x wf-recorder)" ]; do wait; done
 	notify-send 'Recording stopped'
 }

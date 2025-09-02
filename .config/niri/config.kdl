@@ -8,6 +8,7 @@ environment {
     // Input method
     // GTK_IM_MODULE "fcitx"; // do per each individual application if needed
     // QT_IM_MODULE "fcitx"; // do per each individual application if needed
+    QT_IM_MODULES "wayland;fcitx;ibus";
     XMODIFIERS "@im=fcitx";
 
     // Theme
