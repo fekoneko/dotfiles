@@ -25,7 +25,7 @@ case "$choice" in
 esac
 
 echo $'\nPlease check the news, can anything break?'
-nohup zen-browser --new-tab https://archlinux.org/news/ > /dev/null 2>/dev/null &
+nohup zen-browser --new-tab https://archlinux.org/news/ > /dev/null 2>&1 &
 read -rp 'Proceed? [Y/n] ' choice
 case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
 

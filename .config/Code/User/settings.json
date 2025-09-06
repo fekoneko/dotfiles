@@ -129,5 +129,6 @@
   "git.pruneOnFetch": true,
   "gitlens.telemetry.enabled": false,
   "telemetry.feedback.enabled": false,
-  "telemetry.editStats.enabled": false
+  "telemetry.editStats.enabled": false,
+  "workbench.editor.empty.hint": "hidden"
 }
