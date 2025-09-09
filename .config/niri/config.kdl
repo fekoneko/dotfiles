@@ -67,11 +67,6 @@ output "eDP-1" {
     focus-at-startup
 }
 
-// Second monitor at work
-output "Philips Consumer Electronics Company PHL 240V5A UK01714029438" {
-    position x=-1920 y=0
-}
-
 input {
     keyboard {
         numlock
@@ -342,6 +337,8 @@ binds {
     Mod+Alt+Shift+J           { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
     Mod+Ctrl+Shift+J          { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
     Mod+Shift+J               { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
+    Mod+1                     { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
+
 
     // An escape hatch if some appication steals control from niri
     Mod+Shift+Escape          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
