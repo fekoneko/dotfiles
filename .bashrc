@@ -6,16 +6,22 @@
 # Don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 
-# Append to the history file, don't overwrite it
-shopt -s histappend
-
 # Set history length
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Enable ** globs and return empty array if it fails
+shopt -s globstar nullglob
+
+# Correct cd spelling
+shopt -s cdspell autocd
 
 # Fancy prompt if not in tty
 if [[ $TERM == 'linux' ]]

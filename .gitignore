@@ -8,6 +8,7 @@
 # shell configuration
 !/.bash_profile
 !/.bashrc
+!/.inputrc
 
 # theming
 !/.face
