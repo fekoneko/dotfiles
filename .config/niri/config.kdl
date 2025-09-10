@@ -65,6 +65,12 @@ spawn-at-startup "swayidle" "-w" \
 output "eDP-1" {
     scale 1.35
     focus-at-startup
+    position x=0 y=0
+}
+
+// Second monitor at work
+output "Philips Consumer Electronics Company PHL 240V5A UK01625003096" {
+    position x=1423 y=-192
 }
 
 input {
