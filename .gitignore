@@ -87,6 +87,10 @@
 !/.config/gtk-4.0/
 !/.config/gtk-4.0/settings.ini
 
+# foliate
+!/.config/com.github.johnfactotum.Foliate/
+!/.config/com.github.johnfactotum.Foliate/user-stylesheet.css
+
 # ---------------- ~/.local/share ----------------
 
 !/.local/
@@ -104,6 +108,9 @@
 
 # nautilus patch
 !/.local/bin/nautilus
+
+# foliate patch
+!/.local/bin/foliate
 
 # timeshift patch
 !/.local/bin/timeshift-launcher
