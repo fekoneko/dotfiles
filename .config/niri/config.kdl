@@ -19,9 +19,6 @@ environment {
     // SAL_USE_VCLPLUGIN "gtk4"; // use GTK4 for LibreOffice - as for now, it crashes
 }
 
-// XWayland support
-spawn-at-startup "xwayland-satellite"
-
 // Auth prompts
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
