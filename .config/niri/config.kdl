@@ -342,7 +342,6 @@ binds {
     Mod+Shift+J               { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
     Mod+1                     { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
 
-
     // An escape hatch if some appication steals control from niri
     Mod+Shift+Escape          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
