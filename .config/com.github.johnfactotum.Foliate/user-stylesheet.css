@@ -1,6 +1,6 @@
 :root:lang(ja) {
   /*
-    Workaround to make Japanese punctuation displat correctly with vertical text.
+    Workaround to make Japanese punctuation display correctly with vertical text.
     This does force vertical layout for all Japanese text though.
     This seems to be a WebKitGTK regression, more info in the issue below
     https://github.com/johnfactotum/foliate/issues/1519

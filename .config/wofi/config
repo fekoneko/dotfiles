@@ -1,5 +1,7 @@
-width=650
-height=336
+width=700
+height=326
+location=top
+yoffset=210
 no_actions=true
 allow_images=true
 image_size=24

@@ -96,7 +96,7 @@ layout {
 
     focus-ring {
         width 1.5
-        active-gradient from="#6089d2ff" to="#9ac2ff" angle=70 relative-to="workspace-view"
+        active-gradient from="#6089d2" to="#abccffff" angle=45 relative-to="workspace-view"
         inactive-color "transparent"
         urgent-color "transparent"
     }
@@ -113,12 +113,7 @@ layout {
         color "#0003"
     }
 
-    struts {
-        left -2
-        right -2
-        top -2
-        bottom -2
-    }
+    struts { top -3; }
 }
 
 prefer-no-csd
@@ -142,8 +137,6 @@ layer-rule {
 }
 
 window-rule {
-    geometry-corner-radius 3
-    clip-to-geometry true
     tiled-state true
     open-maximized true
     draw-border-with-background false
