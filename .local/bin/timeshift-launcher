@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# this ignores env variables that contain spaces
-# new lines in env variables can break things too
-# shellcheck disable=SC2046
-pkexec env $(env | grep -v ' ') /usr/bin/timeshift-launcher "$@"
+pkexec env \
+  XDG_SESSION_TYPE="$XDG_SESSION_TYPE" \
+  DISPLAY="$DISPLAY" \
+  WAYLAND_DISPLAY="$WAYLAND_DISPLAY" \
+  XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" \
+  GTK_THEME='Adwaita:dark' \
+  /usr/bin/timeshift-launcher "$@"
