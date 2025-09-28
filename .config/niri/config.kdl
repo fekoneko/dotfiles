@@ -137,6 +137,7 @@ layer-rule {
 }
 
 window-rule {
+    clip-to-geometry true
     tiled-state true
     open-maximized true
     draw-border-with-background false

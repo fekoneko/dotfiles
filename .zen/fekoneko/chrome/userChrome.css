@@ -1,0 +1,17 @@
+#zen-tabbox-wrapper {
+  margin: -8px 0 0 0 !important;
+}
+
+#zen-tabbox-wrapper > * > * > * {
+  border-radius: 0 !important;
+}
+
+.browserSidebarContainer {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#tabbrowser-tabpanels[zen-split-view='true'] .browserSidebarContainer.deck-selected {
+  outline: var(--zen-colors-border) !important;
+}

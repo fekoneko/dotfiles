@@ -130,6 +130,14 @@
 # discord patch
 !/.local/share/applications/discord.desktop
 
+# -------------------- ~/.zen ---------------------
+
+!/.zen/
+!/.zen/fekoneko/
+!/.zen/fekoneko/chrome/
+!/.zen/fekoneko/chrome/userChrome.css
+!/.zen/fekoneko/chrome/userContent.css
+
 # ------------------- ~/Scripts -------------------
 
 !/Scripts/
