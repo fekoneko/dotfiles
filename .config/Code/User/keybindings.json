@@ -540,5 +540,26 @@
     "key": "ctrl+shift+g shift+.",
     "command": "-gitlens.diffWithWorking:key",
     "when": "editorTextFocus && gitlens:enabled && config.gitlens.keymap == 'chorded' && resourceScheme =~ /^(gitlens|git|pr)$/"
+  },
+  {
+    "key": "alt+r",
+    "command": "-extension.cssrem.rpx-switch-px"
+  },
+  {
+    "key": "alt+v alt+w",
+    "command": "-extension.cssrem.vw-switch-px"
+  },
+  {
+    "key": "alt+r",
+    "command": "extension.cssrem.rem-switch-px"
+  },
+  {
+    "key": "alt+z",
+    "command": "-extension.cssrem.rem-switch-px"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "-editor.action.inlineSuggest.acceptNextWord",
+    "when": "cursorBeforeGhostText && inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
   }
 ]
