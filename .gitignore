@@ -36,10 +36,11 @@
 !/.config/waybar/config
 !/.config/waybar/style.css
 
-# wofi
-!/.config/wofi/
-!/.config/wofi/config
-!/.config/wofi/style.css
+# walker
+!/.config/walker/
+!/.config/walker/config.toml
+!/.config/walker/themes/
+!/.config/walker/themes/**/*
 
 # mako
 !/.config/mako/

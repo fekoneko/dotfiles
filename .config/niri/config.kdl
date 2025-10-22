@@ -19,9 +19,12 @@ environment {
     // SAL_USE_VCLPLUGIN "gtk4"; // use GTK4 for LibreOffice - as for now, it crashes
 }
 
-// Auth prompts
+// Polkit (GUI auth prompts)
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+// Preload Walker right away, so that it pops up faster
+spawn-at-startup "walker" "--gapplication-service"
 
 // Cursor theme
 cursor {
@@ -301,10 +304,9 @@ binds {
     Mod+Shift+X               { spawn "~/Scripts/toggle-dnd.sh"; }
     Mod+Comma                 { spawn "~/Scripts/toggle-mute.sh"; }
 
-    Mod+Tab                   { spawn "~/Scripts/drun.sh"; }
-    Mod+V                     { spawn "~/Scripts/clipboard-dmenu.sh"; }
-    Mod+Shift+V               { spawn "cliphist" "wipe"; }
-    Mod+Period                { spawn "~/Scripts/emoji-dmenu.sh"; }
+    Mod+Tab                   { spawn "walker"; }
+    Mod+V                     { spawn "walker" "--provider" "clipboard"; }
+    Mod+Period                { spawn "walker" "--provider" "symbols"; }
 
     // Using fcitx5 instead
     // Mod+Space              // { switch-layout "next"; }

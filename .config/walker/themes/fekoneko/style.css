@@ -1,0 +1,133 @@
+* {
+  all: unset;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.box-wrapper {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3);
+  background-color: #2a2a2f;
+  padding: 10px 16px 12px 16px;
+  border: 1.5px solid #6993dd;
+}
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+  color: #bbbbbb;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+.input {
+  caret-color: #bbbbbb;
+  padding: 10px;
+  color: #bbbbbb;
+}
+
+.list {
+  color: #bbbbbb;
+}
+
+.item-box {
+  padding: 10px;
+  border: 1.5px solid transparent;
+}
+
+.item-quick-activation {
+  opacity: 0.5;
+  padding: 10px;
+}
+
+child:hover .item-box,
+child:selected .item-box {
+  background-color: #77767b3f;
+  border-color: #77767b3f;
+}
+
+.item-subtext {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.providerlist .item-subtext {
+  font-size: unset;
+  opacity: 0.75;
+}
+
+.item-image-text {
+  font-size: 28px;
+}
+
+.preview {
+  border: 1px solid #77767b3f;
+  padding: 10px;
+  color: #bbbbbb;
+}
+
+.calc .item-text {
+  font-size: 24px;
+}
+
+.symbols .item-image {
+  font-size: 24px;
+}
+
+.todo.done .item-text-box {
+  opacity: 0.25;
+}
+
+.todo.urgent {
+  font-size: 24px;
+}
+
+.todo.active {
+  font-weight: bold;
+}
+
+.bluetooth.disconnected {
+  opacity: 0.5;
+}
+
+.preview .large-icons {
+  -gtk-icon-size: 64px;
+}
+
+.keybinds-wrapper {
+  border-top: 1px solid #77767b3f;
+  font-size: 12px;
+  opacity: 0.5;
+  color: #bbbbbb;
+}
+
+.keybind {
+  padding: 0 6px;
+}
+
+.keybind-bind {
+  /* color: lighter(#222226); */
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+.error {
+  padding: 10px;
+  background-color: #c34043;
+  color: #dcd7ba;
+}
+
+:not(.calc).current {
+  font-style: italic;
+}

@@ -1,0 +1,11 @@
+theme = "fekoneko"
+
+[placeholders]
+"default" = { input = "Search", list = "No Results" }
+"calculator" = { input = "Calculator", list = "No Results" }
+"clipboard" = { input = "Clipboard", list = "No Results" }
+"desktopapplications" = { input = "Applications", list = "No Results" }
+"symbols" = { input = "Emojis / symbols", list = "No Results" }
+
+[keybinds]
+quick_activate = ["F1", "F2", "F3", "F4", "F5"]
