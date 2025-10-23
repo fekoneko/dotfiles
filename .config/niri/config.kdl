@@ -193,6 +193,13 @@ window-rule {
     open-maximized false
 }
 
+// Open tiled
+window-rule {
+    match app-id="^steam_proton$" // Bottles apps and games
+
+    open-floating false
+}
+
 hotkey-overlay {
     skip-at-startup
 }

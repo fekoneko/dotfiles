@@ -5,7 +5,7 @@ paru_error() {
   echo $'\nFailed to update packages, try updating the keyring first:'
   echo '$ sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
   echo 'In case of /usr/lib/node_modules conflict, try removing corresponding npm package, e.g.:'
-  echo '$ npm --global remove node-gyp'
+  echo '$ sudo npm --global remove node-gyp'
   exit 1
 }
 flatpak_error() { echo $'\nFailed to update flatpak packages'; exit 1; }
