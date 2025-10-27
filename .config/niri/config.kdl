@@ -323,6 +323,10 @@ binds {
     Mod+Alt+Right             { spawn "wlrctl" "pointer" "move" "10" "0"; }
     Mod+Alt+Up                { spawn "wlrctl" "pointer" "move" "0" "-10"; }
     Mod+Alt+Down              { spawn "wlrctl" "pointer" "move" "0" "10"; }
+    Mod+Alt+Shift+Left        { spawn "wlrctl" "pointer" "move" "-80" "0"; }
+    Mod+Alt+Shift+Right       { spawn "wlrctl" "pointer" "move" "80" "0"; }
+    Mod+Alt+Shift+Up          { spawn "wlrctl" "pointer" "move" "0" "-80"; }
+    Mod+Alt+Shift+Down        { spawn "wlrctl" "pointer" "move" "0" "80"; }
     Mod+Alt+Prior             { spawn "wlrctl" "pointer" "scroll" "-10" "0"; }
     Mod+Alt+Next              { spawn "wlrctl" "pointer" "scroll" "10" "0"; }
     Mod+Alt+Home              { spawn "wlrctl" "pointer" "scroll" "0" "-10"; }
