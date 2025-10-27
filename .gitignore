@@ -50,6 +50,10 @@
 !/.config/batsignal
 !/.config/batsignal-icon.svg
 
+# wl-kbptr
+!/.config/wl-kbptr/
+!/.config/wl-kbptr/config
+
 # gtklock
 !/.config/gtklock/
 !/.config/gtklock/config.ini

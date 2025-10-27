@@ -304,34 +304,55 @@ binds {
     Mod+B                     { spawn "kitty" "-e" "bluetui"; }
     Mod+N                     { spawn "kitty" "-e" "nmtui"; }
 
-    // Miscellaneous
+    // Bar / notifications stuf
 
     Mod+P                     { spawn "killall" "-USR1" "waybar"; }
     Mod+X                     { spawn "makoctl" "dismiss" "--all"; }
     Mod+Shift+X               { spawn "~/Scripts/toggle-dnd.sh"; }
     Mod+Comma                 { spawn "~/Scripts/toggle-mute.sh"; }
 
+    // Launcher
+
     Mod+Tab                   { spawn "walker"; }
     Mod+V                     { spawn "walker" "--provider" "clipboard"; }
     Mod+Period                { spawn "walker" "--provider" "symbols"; }
 
-    // Using fcitx5 instead
-    // Mod+Space              // { switch-layout "next"; }
-    // Mod+Shift+Space        // { switch-layout "prev"; }
-    // Alt+Space              // { switch-layout "next"; }
-    // Alt+Shift+Space        // { switch-layout "prev"; }
+    // Mouse
+
+    Mod+Alt+Left              { spawn "wlrctl" "pointer" "move" "-10" "0"; }
+    Mod+Alt+Right             { spawn "wlrctl" "pointer" "move" "10" "0"; }
+    Mod+Alt+Up                { spawn "wlrctl" "pointer" "move" "0" "-10"; }
+    Mod+Alt+Down              { spawn "wlrctl" "pointer" "move" "0" "10"; }
+    Mod+Alt+Prior             { spawn "wlrctl" "pointer" "scroll" "-10" "0"; }
+    Mod+Alt+Next              { spawn "wlrctl" "pointer" "scroll" "10" "0"; }
+    Mod+Alt+Home              { spawn "wlrctl" "pointer" "scroll" "0" "-10"; }
+    Mod+Alt+End               { spawn "wlrctl" "pointer" "scroll" "0" "10"; }
+    Mod+Alt+Return            { spawn "wl-kbptr" "-o" "modes=split,click"; }
+    Print                     { spawn "wlrctl" "pointer" "click" "left"; }
+    Shift+Print               { spawn "wlrctl" "pointer" "click" "right"; }
+    Ctrl+Print                { spawn "wlrctl" "pointer" "click" "right"; }
+    Ctrl+Shift+Print          { spawn "wlrctl" "pointer" "click" "middle"; }
+    Alt+Print                 { spawn "wlrctl" "pointer" "click" "middle"; }
+    Mod+Return                { spawn "wl-kbptr" "-o" "modes=floating,click" "-o" "mode_floating.source=detect"; }
+
+    // Veracrypt
 
     Mod+Grave                 { spawn "veracrypt" "--auto-mount=favorites"; }
     Mod+Shift+Grave           { spawn "veracrypt" "--unmount"; }
 
+    // Lock screen / toggling monitors
+
     Mod+L                     { spawn "~/Scripts/lock-screen.sh"; }
     Mod+Shift+L               allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"; }
 
+    // Screenshots / color picker
+
     Mod+S                     { screenshot-screen; }
-    Print                     { screenshot-screen; }
     Mod+Shift+S               { screenshot; }
     Mod+Ctrl+Shift+S          { screenshot-window; }
     Mod+I                     { spawn "~/Scripts/pick-color.sh"; }
+
+    // OCR
 
     Mod+Alt+E                 { spawn "~/Scripts/ocr.sh" "eng"; }
     Mod+Ctrl+E                { spawn "~/Scripts/ocr.sh" "eng"; }
