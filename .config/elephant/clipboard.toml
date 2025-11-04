@@ -1,0 +1,2 @@
+image_editor_cmd = "loupe '%FILE%'"
+text_editor_cmd = "code '%FILE%'"

@@ -42,6 +42,10 @@
 !/.config/walker/themes/
 !/.config/walker/themes/**/*
 
+# elephant
+!/.config/elephant/
+!/.config/elephant/*.toml
+
 # mako
 !/.config/mako/
 !/.config/mako/config
