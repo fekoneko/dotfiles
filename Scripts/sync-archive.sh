@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: sync pixiv bookmarks / works
-
 # ------------------------------- Configuration -------------------------------
 
 dir_path="$(dirname "$(realpath "$0")")"
