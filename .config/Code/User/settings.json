@@ -65,7 +65,9 @@
     "terminal.integrated.fontFamily",
     "terminal.integrated.fontSize"
   ],
-  "supermaven.enable": { "*": true },
+  "supermaven.enable": {
+    "*": true
+  },
   "cssVariables.lookupFiles": [
     "**/*.css",
     "**/*.scss",
@@ -141,5 +143,6 @@
   "gitlens.telemetry.enabled": false,
   "telemetry.feedback.enabled": false,
   "telemetry.editStats.enabled": false,
-  "workbench.editor.empty.hint": "hidden"
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
