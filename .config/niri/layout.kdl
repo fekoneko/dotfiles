@@ -1,0 +1,35 @@
+layout {
+    gaps 6
+    empty-workspace-above-first
+    center-focused-column "never"
+    background-color "#00000000"
+    default-column-width { proportion 1.0; }
+    tab-indicator { gap 2; }
+
+    focus-ring {
+        width 1.5
+        active-gradient from="#6089d2" to="#abccff" angle=45 relative-to="workspace-view"
+        inactive-color "transparent"
+        urgent-color "transparent"
+    }
+
+    preset-column-widths {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    shadow {
+        on
+        softness 25
+        offset x=0 y=5
+        color "#00000033"
+    }
+
+    struts { top -3; }
+}
+
+overview {
+    workspace-shadow { off; }
+}
+
+prefer-no-csd

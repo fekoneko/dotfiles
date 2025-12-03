@@ -1,0 +1,34 @@
+///// Polkit (GUI auth prompts) /////
+spawn-at-startup "dbus-update-activation-environment" "--all"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+///// Preload Walker right away, so that it pops up faster /////
+spawn-at-startup "walker" "--gapplication-service"
+
+///// Cursor theme /////
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Classic"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
+
+///// Fonts for GTK /////
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-name" "sans-serif 10"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "sans-serif 10"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "monospace 10"
+// gconftool --set /apps/metacity/general/titlebar_font 'sans-serif 10' --type STRING
+
+///// Wallpaper /////
+spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
+
+///// Bar /////
+spawn-at-startup "waybar"
+
+///// Input method /////
+spawn-at-startup "fcitx5 -d"
+
+///// Persistent clipboard /////
+spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
+
+///// Lock after 10 minutes of inactivity /////
+spawn-at-startup "swayidle" "-w"                                                                            \
+    "timeout" "600" "~/Scripts/lock-screen.sh"                                                              \
+    "timeout" "570" "niri msg action power-off-monitors"                                                    \
+    "before-sleep" "~/Scripts/lock-screen.sh"

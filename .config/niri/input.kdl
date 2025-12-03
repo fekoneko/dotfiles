@@ -1,0 +1,22 @@
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 22
+    hide-when-typing
+    hide-after-inactive-ms 10000
+}
+
+input {
+    keyboard {
+        numlock
+        xkb { layout "us, ru"; }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+
+gestures {
+    hot-corners { off; }
+}

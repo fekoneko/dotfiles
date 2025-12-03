@@ -1,0 +1,11 @@
+///// Laptop monitor /////
+output "eDP-1" {
+    scale 1.35
+    position x=0 y=0
+    focus-at-startup
+}
+
+///// Second monitor at work /////
+output "Philips Consumer Electronics Company PHL 240V5A UK01625003096" {
+    position x=1423 y=-192
+}

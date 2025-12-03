@@ -1,0 +1,88 @@
+///// Show wallpaper within backdrop /////
+layer-rule {
+    match namespace="wallpaper"
+    match at-startup=true
+    place-within-backdrop true
+}
+
+///// Block out notifications from screencast (but not screencapture) /////
+layer-rule {
+    match namespace="notifications"
+    block-out-from "screencast"
+}
+
+///// Global window rules /////
+window-rule {
+    clip-to-geometry true
+    tiled-state true
+    open-maximized true
+    draw-border-with-background false
+}
+
+///// Tiled half width /////
+window-rule {
+    // Terminal
+    // File manager
+    // Archive manager
+    // Gnome Online Accounts
+    // Anki add / edit note, add-ons, stats
+    // Prism Launcher
+    // Volume Control
+    // Transmission
+    match app-id="^kitty$"
+    match app-id="^org.gnome.Nautilus$" title=".+"
+    match app-id="^org.gnome.FileRoller$"
+    match app-id="^org.x.GnomeOnlineAccountsGtk$"
+    match app-id="^anki$" title="^Edit|^Add|^Statistics"
+    match app-id="^org.prismlauncher.PrismLauncher$" title="^Prism Launcher"
+    match app-id="^org.pulseaudio.pavucontrol$" title="^Volume Control$"
+    match app-id="^com.transmissionbt.transmission" title="^Transmission$"
+
+    default-column-width { proportion 0.5; }
+    open-maximized false
+}
+
+///// Tiled /////
+window-rule {
+    // Bottles apps
+    match app-id="^steam_proton$"
+
+    open-floating false
+}
+
+///// Floating /////
+window-rule {
+    // VeraCrypt password prompts
+    // Zen Picture-in-Picture overlays
+    match app-id="^veracrypt$" title="^Administrator privileges required$"
+    match app-id="^veracrypt$" title="^Enter password for"
+    match app-id="^zen$" title="^Picture-in-Picture$"
+
+    open-floating true
+}
+
+///// Floating minimal size /////
+window-rule {
+    // All Krita windows by default
+    match app-id="^krita$"
+
+    open-floating true
+    default-column-width { fixed 0; }
+    default-window-height { fixed 0; }
+}
+
+///// Floating 900 x 600 /////
+window-rule {
+    // Krita file dialogs
+    // Obsidian vault opening window
+    match app-id="^krita$" title="^Open Images — Krita$"
+    match app-id="^krita$" title="^Saving As — Krita$"
+    match app-id="^krita$" title="^Exporting — Krita$"
+    match app-id="^krita$" title="^Import Resources and Resource Libraries — Krita$"
+    match app-id="^krita$" title="^Select the bundle — Krita$"
+    match app-id="^org.gnome.Nautilus$" title="^Open folder as vault$"
+
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 600; }
+}

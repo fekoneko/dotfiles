@@ -29,7 +29,7 @@
 
 # niri
 !/.config/niri/
-!/.config/niri/config.kdl
+!/.config/niri/**/*.kdl
 
 # waybar
 !/.config/waybar/
