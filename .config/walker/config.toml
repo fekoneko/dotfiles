@@ -1,5 +1,9 @@
 theme = "fekoneko"
 
+[columns]
+"default" = 1
+"symbols" = 3
+
 [placeholders]
 "default" = { input = "Search", list = "No Results" }
 "calculator" = { input = "Calculator", list = "No Results" }
