@@ -1,12 +1,15 @@
-hotkey-overlay { skip-at-startup; }
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
 screenshot-path null
 
 binds {
     ///// Fn buttons /////
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "sh" "-c"                                           \
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh                                                  \
         "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ --limit 1.5"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "sh" "-c"                                           \
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh                                                  \
                     "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
 
     XF86AudioMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"  ; }

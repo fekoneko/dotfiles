@@ -17,6 +17,7 @@ window-rule {
     tiled-state true
     open-maximized true
     draw-border-with-background false
+    open-maximized-to-edges false
 }
 
 ///// Tiled half width /////

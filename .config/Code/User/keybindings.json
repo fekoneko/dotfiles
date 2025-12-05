@@ -561,5 +561,9 @@
     "key": "ctrl+right",
     "command": "-editor.action.inlineSuggest.acceptNextWord",
     "when": "cursorBeforeGhostText && inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+alt+m",
+    "command": "git.merge"
   }
 ]
