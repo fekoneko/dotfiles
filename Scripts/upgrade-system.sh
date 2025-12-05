@@ -29,8 +29,8 @@ nohup zen-browser --new-tab https://archlinux.org/news/ > /dev/null 2>&1 &
 read -rp 'Proceed? [Y/n] ' choice
 case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
 
-echo $'\nUpdating system packages:\n$ paru -Syu\n'
-paru -Syu || paru_error
+echo $'\nUpdating system packages:\n$ paru -Syu --disable-download-timeout\n'
+paru -Syu --disable-download-timeout || paru_error
 
 echo $'\nUpdating flatpack packages:\n$ flatpak update\n'
 flatpak update || flatpak_error
