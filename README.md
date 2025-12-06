@@ -1,7 +1,10 @@
 # fekoneko dotfiles
 
-I use Arch with Niri compositor! Here are some of my config files and scripts.
+I use Arch with Niri! Here are some of my config files and scripts.
 
-![Desktop Screenshot](https://github.com/user-attachments/assets/87defe4c-6009-403d-8f46-216677cf4528)
+![Desktop Screenshot](https://github.com/user-attachments/assets/f636964a-0291-46bc-8671-5759f9b67ae7)
 
-![Desktop Screenshot](https://github.com/user-attachments/assets/4fd77c01-0bde-46d6-ab5a-c1f250b36c0f)
+![Desktop Screenshot](https://github.com/user-attachments/assets/3e62594a-42fa-4445-a5bc-217f4ff1e5e7)
+
+![Desktop Screenshot](https://github.com/user-attachments/assets/7a149471-fa71-4bfb-9629-09cf9f35b3e8)
+
