@@ -145,5 +145,6 @@
   "telemetry.feedback.enabled": false,
   "telemetry.editStats.enabled": false,
   "workbench.editor.empty.hint": "hidden",
-  "workbench.secondarySideBar.defaultVisibility": "hidden"
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "window.titleBarStyle": "native"
 }

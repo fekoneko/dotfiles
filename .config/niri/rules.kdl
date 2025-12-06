@@ -13,6 +13,7 @@ layer-rule {
 
 ///// Global window rules /////
 window-rule {
+    geometry-corner-radius 3
     clip-to-geometry true
     tiled-state true
     open-maximized true
