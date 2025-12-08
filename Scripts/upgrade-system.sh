@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
+# Usage: log_command <message> <command>
+log_command() {
+  echo $'\n'"$1:"$'\n'"$ $2"
+}
+
 timeshift_error() { echo $'\nFailed to create timeshift snapshot'; exit 1; }
 paru_error() {
-  echo $'\nFailed to update packages, try updating the keyring first:'
-  echo '$ sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
-  echo 'In case of /usr/lib/node_modules conflict, try removing corresponding npm package, e.g.:'
-  echo '$ sudo npm --global remove node-gyp'
+  command='sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
+  log_command 'Failed to update packages, try updating the keyring first' "$command"
+  command='sudo npm --global remove node-gyp'
+  log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command"
   exit 1
 }
 flatpak_error() { echo $'\nFailed to update flatpak packages'; exit 1; }
@@ -17,45 +22,51 @@ rust_error()    { echo $'\nFailed to update rust';             exit 1; }
 cargo_error()   { echo $'\nFailed to update cargo binaries';   exit 1; }
 
 read -rp 'Create timeshift snapshot? [Y/n] ' choice
-case "$choice" in
-  y|Y|'' )
-    echo $'Creating timeshift snapshot:\n$ sudo timeshift --create --comments \'before upgrade\'\n'
-    sudo timeshift --create --comments 'before upgrade' || timeshift_error;;
-  * ) ;;
-esac
+if [[ "$choice" =~ y|Y|'' ]]; then
+  command="sudo timeshift --create --comments 'before upgrade'"
+  log_command 'Creating timeshift snapshot' "$command"
+  eval "$command" || timeshift_error
+fi
 
-echo $'\nPlease check the news, can anything break?'
+echo $'\nPlease check the news, could anything break?'
 nohup zen-browser --new-tab https://archlinux.org/news/ > /dev/null 2>&1 &
 read -rp 'Proceed? [Y/n] ' choice
-case "$choice" in y|Y|'' ) ;; * ) exit 1;; esac
+if ! [[ "$choice" =~ y|Y|'' ]]; then exit 1; fi
 
-echo $'\nUpdating system packages:\n$ paru -Syu --disable-download-timeout\n'
-paru -Syu --disable-download-timeout || paru_error
+command='paru -Syu --disable-download-timeout'
+log_command 'Updating system packages' "$command"
+eval "$command" || paru_error
 
-echo $'\nUpdating flatpack packages:\n$ flatpak update\n'
-flatpak update || flatpak_error
+command='flatpak update'
+log_command 'Updating flatpack packages' "$command"
+eval "$command" || flatpak_error
 
-echo $'\nUpdating npm packages:\n$ sudo npm update -g\n'
-sudo npm update -g || npm_error
+command='sudo npm update -g'
+log_command 'Updating npm packages' "$command"
+eval "$command" || npm_error
 
-echo $'\nUpdating pnpm packages:\n$ pnpm update -g\n'
-pnpm update -g || pnpm_error
+command='pnpm update -g'
+log_command 'Updating pnpm packages' "$command"
+eval "$command" || pnpm_error
 
-echo $'\nUpdating bun packages:\n$ bun update -g\n'
-bun update -g || bun_error
+command='bun update -g'
+log_command 'Updating bun packages' "$command"
+eval "$command" || bun_error
 
-echo $'\nUpdating go binaries:\n$ gup update\n'
-gup update || go_error
+command='gup update'
+log_command 'Updating go binaries' "$command"
+eval "$command" || go_error
 
-echo $'\nUpdating rust:\n$ rustup self upgrade-data\n$ rustup update\n'
-rustup self upgrade-data || rust_error
-rustup update || rust_error
+command='rustup self upgrade-data && rustup update'
+log_command 'Updating rust' "$command"
+eval "$command" || rust_error
 
-echo $'\nUpdating cargo binaries:'
-echo $'$ cargo_packages="$(jq -r \'.installs | keys[] | split(" ")[0]\' < "$CARGO_HOME/.crates2.json")"'
-echo $'$ cargo install --locked "$cargo_packages"\n'
-cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' < "$CARGO_HOME/.crates2.json")" || cargo_error
-cargo install --locked "$cargo_packages" || cargo_error
+cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' \
+  < "$CARGO_HOME/.crates2.json")" || cargo_error
+
+command="cargo install --locked ${cargo_packages/$'\n'/' '}"
+log_command 'Updating cargo binaries' "$command"
+eval "$command" || cargo_error
 
 echo
 echo '-------------------------------------'
