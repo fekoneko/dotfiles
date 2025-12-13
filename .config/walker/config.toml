@@ -2,6 +2,9 @@ theme = "fekoneko"
 
 [columns]
 "default" = 1
+"calculator" = 1
+"clipboard" = 1
+"desktopapplications" = 1
 "symbols" = 3
 
 [placeholders]
