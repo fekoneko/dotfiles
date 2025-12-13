@@ -39,11 +39,13 @@ if [[ $TERM == 'xterm-kitty' ]]
 fi
 
 # Aliases
-alias ls='ls --color=auto'
+alias ls='eza --icons --hyperlink --no-quotes'
+alias la='eza --icons --hyperlink --no-quotes --all'
+alias ll="eza --icons --hyperlink --no-quotes --all --long --time-style '+%Y-%m-%d %H:%M'"
+alias gnu-ls='ls --color=auto'
+alias gnu-la='ls -A'
+alias gnu-ll='ls -alF'
 alias grep='grep --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias reset='reset && . ~/.bashrc'
 alias neofetch='fastfetch'
 alias nc='ncat'

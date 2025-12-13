@@ -31,5 +31,9 @@ export NEWT_COLORS='root=cyan,black border=cyan,black window=cyan,black '\
 'textbox=cyan,black acttextbox=black,cyan emptyscale=cyan,black '\
 'fullscale=cyan,black helpline=cyan,black roottext=cyan,black'
 
+# Eza (ls replacement) colors
+export EZA_COLORS='oc=90:ur=92:uw=92:ux=92:ue=92:gr=93:gw=93:gx=93:tr=91:tw=91:'\
+'tx=91:su=90:sf=90:xa=90:uu=92:uR=91:un=93:gu=92:gR=91:gn=93:da=90'
+
 # shellcheck source=/dev/null
 . ~/.bashrc
