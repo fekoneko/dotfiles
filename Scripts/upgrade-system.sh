@@ -16,6 +16,7 @@ paru_error() {
 flatpak_error() { echo $'\nFailed to update flatpak packages'; exit 1; }
 npm_error()     { echo $'\nFailed to update npm packages';     exit 1; }
 pnpm_error()    { echo $'\nFailed to update pnpm packages';    exit 1; }
+yarn_error()    { echo $'\nFailed to update yarn packages';    exit 1; }
 bun_error()     { echo $'\nFailed to update bun packages';     exit 1; }
 go_error()      { echo $'\nFailed to update go binaries';      exit 1; }
 rust_error()    { echo $'\nFailed to update rust';             exit 1; }
@@ -48,6 +49,10 @@ eval "$command" || npm_error
 command='pnpm update -g'
 log_command 'Updating pnpm packages' "$command"
 eval "$command" || pnpm_error
+
+command='yarn global upgrade'
+log_command 'Updating yarn packages' "$command"
+eval "$command" || yarn_error
 
 command='bun update -g'
 log_command 'Updating bun packages' "$command"
