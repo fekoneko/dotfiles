@@ -66,7 +66,7 @@
 
 # kitty
 !/.config/kitty/
-!/.config/kitty/kitty.conf
+!/.config/kitty/*.conf
 
 # fastfetch
 !/.config/fastfetch/
