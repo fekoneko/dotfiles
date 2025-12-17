@@ -2,9 +2,17 @@
   "layer": "top",
   "height": 24,
   "spacing": 0,
-
-  "modules-left": ["battery", "cpu", "memory", "wlr/taskbar", "tray", "custom/anki-word"],
-  "modules-center": ["niri/window"],
+  "modules-left": [
+    "battery",
+    "cpu",
+    "memory",
+    "wlr/taskbar",
+    "tray",
+    "custom/anki-word"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
   "modules-right": [
     "custom/recorder",
     "custom/color-picker",
@@ -17,7 +25,6 @@
     "backlight",
     "clock"
   ],
-
   "cpu": {
     "format": "{usage}% ",
     "on-click": "missioncenter"
@@ -36,6 +43,7 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%a, %b %d}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "gnome-calendar",
     "format": "{:%H:%M}"
   },
   "tray": {
@@ -80,7 +88,12 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", "", ""]
+      "default": [
+        "",
+        "",
+        "",
+        ""
+      ]
     },
     "on-click": "pavucontrol"
   },
@@ -95,15 +108,40 @@
   },
   "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "tooltip-format": "Backlight: {percent}%"
   },
   "battery": {
-    "states": { "warning": 15, "critical": 5 },
+    "states": {
+      "warning": 15,
+      "critical": 5
+    },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% 󰂄",
-    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰂃",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "tooltip-format": "Battery: {capacity}%"
   },
   "custom/color-picker": {
