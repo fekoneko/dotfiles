@@ -23,16 +23,16 @@ rust_error()    { echo $'\nFailed to update rust';             exit 1; }
 cargo_error()   { echo $'\nFailed to update cargo binaries';   exit 1; }
 
 read -rp 'Create timeshift snapshot? [Y/n] ' choice
-if [[ "$choice" =~ y|Y|'' ]]; then
+case "$choice" in y|Y|'')
   command="sudo timeshift --create --comments 'before upgrade'"
   log_command 'Creating timeshift snapshot' "$command"
   eval "$command" || timeshift_error
-fi
+esac
 
 echo $'\nPlease check the news, could anything break?'
-nohup zen-browser --new-tab https://archlinux.org/news/ > /dev/null 2>&1 &
+nohup zen-browser --new-tab https://archlinux.org/news/ &> /dev/null
 read -rp 'Proceed? [Y/n] ' choice
-if ! [[ "$choice" =~ y|Y|'' ]]; then exit 1; fi
+case "$choice" in y|Y|'') ;; *) exit 1;; esac
 
 command='paru -Syu --disable-download-timeout'
 log_command 'Updating system packages' "$command"
