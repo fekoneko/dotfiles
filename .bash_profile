@@ -20,6 +20,9 @@ export PATH="$HOME/.pnpm:$PATH"
 
 # Only NPM packages are global for all users (/usr/lib)
 
+# Rootless Docker
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
+
 # Newt TUI
 # Valid colors: black, blue, green, cyan, red, magenta, brown, lightgray, gray,
 # brightblue, brightgreen, brightcyan, brightred, brightmagenta, yellow, white

@@ -69,9 +69,13 @@ eval "$command" || rust_error
 cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' \
   < "$CARGO_HOME/.crates2.json")" || cargo_error
 
-command="cargo install --locked ${cargo_packages/$'\n'/' '}"
-log_command 'Updating cargo binaries' "$command"
-eval "$command" || cargo_error
+if [[ -n "$cargo_packages" ]]; then
+  command="cargo install --locked ${cargo_packages/$'\n'/' '}"
+  log_command 'Updating cargo binaries' "$command"
+  eval "$command" || cargo_error
+else
+  echo $'\nNo cargo binaries to update'
+fi
 
 echo
 echo '-------------------------------------'
