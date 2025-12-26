@@ -1,6 +1,6 @@
 ///// Laptop monitor /////
 output "eDP-1" {
-    scale 1.35
+    scale 1.875
     position x=0 y=0
     focus-at-startup
 }

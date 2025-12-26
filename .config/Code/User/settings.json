@@ -128,7 +128,17 @@
     { "text": "FIXME ", "color": "#ffffff", "backgroundColor": "#d2587c" },
     { "text": "FixMe ", "color": "#ffffff", "backgroundColor": "#d2587c" },
     { "text": "Fixme ", "color": "#ffffff", "backgroundColor": "#d2587c" },
-    { "text": "fixme ", "color": "#ffffff", "backgroundColor": "#d2587c" }
+    { "text": "fixme ", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "NOTE:", "color": "#ffffff", "backgroundColor": "#587cd2" },
+    { "text": "Note:", "color": "#ffffff", "backgroundColor": "#587cd2" },
+    { "text": "note:", "color": "#ffffff", "backgroundColor": "#587cd2" },
+    { "text": "NOTE ", "color": "#ffffff", "backgroundColor": "#587cd2" },
+    { "text": "Note ", "color": "#ffffff", "backgroundColor": "#587cd2" },
+    { "text": "note ", "color": "#ffffff", "backgroundColor": "#587cd2" },
+    { "text": "SAFETY:", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "Safety:", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "SAFETY ", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "Safety ", "color": "#ffffff", "backgroundColor": "#d2587c" }
   ],
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
