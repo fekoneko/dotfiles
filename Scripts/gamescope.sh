@@ -1,7 +1,7 @@
 #!/bin/sh
 
-screen_width=1920
-screen_height=1200
+screen_width="${WIDTH:-1920}"
+screen_height="${HEIGHT:-1200}"
 cursor_path="$HOME/.local/share/icons/gamescope-cursor"
 
 exec gamescope \

@@ -182,6 +182,6 @@ binds {
     Mod+Shift+Escape               allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit             ; }
 
     ///// Why whould I need a copilot button? /////
-    // `leftmeta+leftshift+f23 = finance` is remapped using keydm so that this works
+    // `leftmeta+leftshift+f23 = finance` is remapped using keyd so that this works
     XF86Finance                    { spawn "~/Scripts/microsoft-yell.sh"                                  ; }
 }
