@@ -10,7 +10,7 @@ border-radius=4
 icon-border-radius=4
 progress-color=source #3f3f43d5
 
-on-notify=exec mpv $HOME/.notification
+on-notify=exec mpv --no-video $HOME/.notification
 max-visible=1
 
 [mode=do-not-disturb]
