@@ -7,5 +7,5 @@ output "eDP-1" {
 
 ///// Second monitor at work /////
 output "Philips Consumer Electronics Company PHL 240V5A UK01625003096" {
-    position x=1423 y=-192
+    position x=1536 y=-120
 }
