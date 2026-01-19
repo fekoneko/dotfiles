@@ -42,7 +42,7 @@ fi
 
 alias ls='eza --icons --hyperlink --no-quotes'
 alias la='eza --icons --hyperlink --no-quotes --all'
-alias ll="eza --icons --hyperlink --no-quotes --all --long --time-style '+%Y-%m-%d %H:%M'"
+alias ll="eza --icons --hyperlink --no-quotes --all --long --group --smart-group --time-style '+%Y-%m-%d %H:%M'"
 alias cat='bat'
 
 alias gnu-ls='"$(which ls)" --color=auto'

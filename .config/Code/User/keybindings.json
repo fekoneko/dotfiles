@@ -565,5 +565,9 @@
   {
     "key": "ctrl+shift+alt+m",
     "command": "git.merge"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-editor.action.announceCursorPosition"
   }
 ]

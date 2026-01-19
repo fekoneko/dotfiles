@@ -15,7 +15,7 @@ destination_path="$(sed -ne 's/^destination *= *\(.\)/\1/p' \
   "$config_path" | head -n1)" || exit 1
 
 # files ignored by git are skipped
-# archive = <path in source>;<path in destination>;<nest inside directory>
+# archive = <path in source>;<path in destination>[;<nest inside directory>]
 archived_files_config="$(sed -ne 's/^archive *= *\(.\)/\1/p' \
   "$config_path")" || exit 1
 
@@ -32,46 +32,31 @@ if [[ ! -d "$destination_path/vault/.git" ]]; then echo $'archive is not mounted
 mkdir -p "$temp_path" || exit 1
 rm -rf "${temp_path:?}"/* 2> /dev/null
 
-cleanup_and_panic() { rm -rf "$temp_path" 2> /dev/null; IFS="$initial_ifs"; exit 1; }
+cleanup_and_panic() { rm -rf "$temp_path" 2> /dev/null; exit 1; }
 prepend() { while read -r line; do echo "$1$line"; done; }
 
-initial_ifs="$IFS"
+trap cleanup_and_panic EXIT
 IFS=$'\n'
 
 # ----------------------------- Require archiving -----------------------------
 
 echo $'archiving files into temporary location\n'
 
-mkdir -p "$temp_path/.temp" || cleanup_and_panic
 for config_item in $archived_files_config; do
   if [[ -z "$config_item" ]]; then continue; fi
   item_path_in_source="$(printf '%s' "$config_item" | cut -d';' -f1)" || cleanup_and_panic
   item_path_in_destination="$(printf '%s' "$config_item" | cut -d';' -f2)" || cleanup_and_panic
-  item_nest_inside_dir="$(printf '%s' "$config_item" | cut -d';' -f3)" || cleanup_and_panic
 
-  if [[ -d "$source_path/$item_path_in_source/.git" ]]; then
-    excluded_files="$(git -C "$source_path/$item_path_in_source" \
-      ls-files --exclude-standard --others --directory --no-empty-directory --ignored)" \
-      || cleanup_and_panic
-    if [[ -n "$item_nest_inside_dir" ]]; then
-      excluded_files="$(printf '%s' "$excluded_files" | prepend "$item_nest_inside_dir/")"
-    fi
-    else excluded_files=''
-  fi
+  cd "$source_path/$item_path_in_source" || cleanup_and_panic
 
-  printf '%s' "${excluded_files//,/$'\n'}" > "$temp_path/.temp/excluded_files" || cleanup_and_panic
-  if [[ -n "$item_nest_inside_dir" ]]; then
-    ln -s "$source_path/$item_path_in_source" "$temp_path/.temp/$item_nest_inside_dir" || cleanup_and_panic
-    arcive_from_path="$temp_path/.temp/$item_nest_inside_dir"
+  if [[ -d '.git' ]]; then
+    mapfile -d '' arcive_from_paths < <(git ls-files -z) || cleanup_and_panic
   else
-    arcive_from_path="$source_path/$item_path_in_source/*"
+    arcive_from_paths=("$source_path/$item_path_in_source/*")
   fi
 
-  7z a "$temp_path/$item_path_in_destination" "$arcive_from_path" \
-    -x@"$temp_path/.temp/excluded_files" \
-    || cleanup_and_panic
+  7z a "$temp_path/$item_path_in_destination" "${arcive_from_paths[@]}" || cleanup_and_panic
 done
-rm -rf "$temp_path/.temp" 2> /dev/null
 
 gtk-launch org.gnome.Nautilus "$temp_path" &> /dev/null
 sleep 1
@@ -118,8 +103,6 @@ echo
 "$dir_path/export-anki-collection.py" "$destination_path/$anki_path_in_destination" || cleanup_and_panic
 
 # ---------------------------------- Done! ------------------------------------
-
-IFS="$initial_ifs"
 
 echo
 echo '--------------------------------------'
