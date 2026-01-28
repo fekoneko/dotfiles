@@ -13,14 +13,15 @@ paru_error() {
   log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command"
   exit 1
 }
-flatpak_error() { echo $'\nFailed to update flatpak packages'; exit 1; }
-npm_error()     { echo $'\nFailed to update npm packages';     exit 1; }
-pnpm_error()    { echo $'\nFailed to update pnpm packages';    exit 1; }
-yarn_error()    { echo $'\nFailed to update yarn packages';    exit 1; }
-bun_error()     { echo $'\nFailed to update bun packages';     exit 1; }
-go_error()      { echo $'\nFailed to update go binaries';      exit 1; }
-rust_error()    { echo $'\nFailed to update rust';             exit 1; }
-cargo_error()   { echo $'\nFailed to update cargo binaries';   exit 1; }
+flatpak_error()        { echo $'\nFailed to update flatpak packages';        exit 1; }
+flatpak_unused_error() { echo $'\nFailed to remove unused flatpak packages'; exit 1; }
+npm_error()            { echo $'\nFailed to update npm packages';            exit 1; }
+pnpm_error()           { echo $'\nFailed to update pnpm packages';           exit 1; }
+yarn_error()           { echo $'\nFailed to update yarn packages';           exit 1; }
+bun_error()            { echo $'\nFailed to update bun packages';            exit 1; }
+go_error()             { echo $'\nFailed to update go binaries';             exit 1; }
+rust_error()           { echo $'\nFailed to update rust';                    exit 1; }
+cargo_error()          { echo $'\nFailed to update cargo binaries';          exit 1; }
 
 read -rp 'Create timeshift snapshot? [Y/n] ' choice
 case "$choice" in y|Y|'')
@@ -39,8 +40,12 @@ log_command 'Updating system packages' "$command"
 eval "$command" || paru_error
 
 command='flatpak update'
-log_command 'Updating flatpack packages' "$command"
+log_command 'Updating flatpak packages' "$command"
 eval "$command" || flatpak_error
+
+command='flatpak remove --unused'
+log_command 'Removing unused flatpak packages' "$command"
+eval "$command" || flatpak_unused_error
 
 command='sudo npm update -g'
 log_command 'Updating npm packages' "$command"

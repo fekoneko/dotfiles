@@ -45,6 +45,9 @@
 # elephant
 !/.config/elephant/
 !/.config/elephant/*.toml
+!/.config/elephant/menus/
+!/.config/elephant/menus/*.toml
+!/.config/elephant/menus/*.lua
 
 # mako
 !/.config/mako/
