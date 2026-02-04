@@ -22,6 +22,7 @@ bun_error()            { echo $'\nFailed to update bun packages';            exi
 go_error()             { echo $'\nFailed to update go binaries';             exit 1; }
 rust_error()           { echo $'\nFailed to update rust';                    exit 1; }
 cargo_error()          { echo $'\nFailed to update cargo binaries';          exit 1; }
+android_error()        { echo $'\nFailed to update Android tools';           exit 1; }
 
 read -rp 'Create timeshift snapshot? [Y/n] ' choice
 case "$choice" in y|Y|'')
@@ -81,6 +82,10 @@ if [[ -n "$cargo_packages" ]]; then
 else
   echo $'\nNo cargo binaries to update'
 fi
+
+command='sudo sdkmanager --update'
+log_command 'Updating Android tools' "$command"
+eval "$command" || android_error
 
 echo
 echo '-------------------------------------'

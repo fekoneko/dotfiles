@@ -56,9 +56,11 @@ window-rule {
 window-rule {
     // VeraCrypt password prompts
     // Zen Picture-in-Picture overlays
+    // Geary untrusted connection popups
     match app-id="^veracrypt$" title="^Administrator privileges required$"
     match app-id="^veracrypt$" title="^Enter password for"
     match app-id="^zen$" title="^Picture-in-Picture$"
+    match app-id="^org.gnome.Geary$" title="^Untrusted Connection$"
 
     open-floating true
 }

@@ -18,6 +18,9 @@ export PATH="$HOME/.bun/bin:$PATH"
 export PNPM_HOME="$HOME/.pnpm"
 export PATH="$HOME/.pnpm:$PATH"
 
+# Android tools
+export PATH="/opt/android-sdk/platform-tools:$PATH"
+
 # Only NPM packages are global for all users (/usr/lib)
 
 # Rootless Docker
