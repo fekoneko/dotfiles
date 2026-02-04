@@ -28,7 +28,7 @@ echo 'Starting system upgrade'
 echo '-----------------------'
 echo
 
-read -rp 'Create timeshift snapshot? [Y/n] ' choice
+read -rep 'Create timeshift snapshot? [Y/n] ' choice
 case "$choice" in y|Y|'')
   command="sudo timeshift --create --comments 'before upgrade'"
   log_command 'Creating timeshift snapshot' "$command"
@@ -37,7 +37,7 @@ esac
 
 echo $'\nPlease check the news, could anything break?'
 nohup zen-browser --new-tab https://archlinux.org/news/ &> /dev/null
-read -rp 'Proceed? [Y/n] ' choice
+read -rep 'Proceed? [Y/n] ' choice
 case "$choice" in y|Y|'') ;; *) exit 1;; esac
 
 command='paru -Syu --disable-download-timeout'
