@@ -1,28 +1,32 @@
 #!/usr/bin/env bash
 
 # Usage: log_command <message> <command>
-log_command() {
-  echo $'\n'"$1:"$'\n'"$ $2"
-}
+log_command() { echo $'\n'"$1:"$'\n'"$ $2"; }
 
-timeshift_error() { echo $'\nFailed to create timeshift snapshot'; exit 1; }
 paru_error() {
   command='sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
-  log_command 'Failed to update packages, try updating the keyring first' "$command"
+  log_command 'Failed to update packages, try updating the keyring first' "$command" >&2
   command='sudo npm --global remove node-gyp'
-  log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command"
+  log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command" >&2
   exit 1
 }
-flatpak_error()        { echo $'\nFailed to update flatpak packages';        exit 1; }
-flatpak_unused_error() { echo $'\nFailed to remove unused flatpak packages'; exit 1; }
-npm_error()            { echo $'\nFailed to update npm packages';            exit 1; }
-pnpm_error()           { echo $'\nFailed to update pnpm packages';           exit 1; }
-yarn_error()           { echo $'\nFailed to update yarn packages';           exit 1; }
-bun_error()            { echo $'\nFailed to update bun packages';            exit 1; }
-go_error()             { echo $'\nFailed to update go binaries';             exit 1; }
-rust_error()           { echo $'\nFailed to update rust';                    exit 1; }
-cargo_error()          { echo $'\nFailed to update cargo binaries';          exit 1; }
-android_error()        { echo $'\nFailed to update Android tools';           exit 1; }
+
+timeshift_error()      { echo $'\nFailed to create timeshift snapshot'      >&2; exit 1; }
+flatpak_error()        { echo $'\nFailed to update flatpak packages'        >&2; exit 1; }
+flatpak_unused_error() { echo $'\nFailed to remove unused flatpak packages' >&2; exit 1; }
+npm_error()            { echo $'\nFailed to update npm packages'            >&2; exit 1; }
+pnpm_error()           { echo $'\nFailed to update pnpm packages'           >&2; exit 1; }
+yarn_error()           { echo $'\nFailed to update yarn packages'           >&2; exit 1; }
+bun_error()            { echo $'\nFailed to update bun packages'            >&2; exit 1; }
+go_error()             { echo $'\nFailed to update go binaries'             >&2; exit 1; }
+rust_error()           { echo $'\nFailed to update rust'                    >&2; exit 1; }
+cargo_error()          { echo $'\nFailed to update cargo binaries'          >&2; exit 1; }
+android_error()        { echo $'\nFailed to update Android tools'           >&2; exit 1; }
+
+echo '-----------------------'
+echo 'Starting system upgrade'
+echo '-----------------------'
+echo
 
 read -rp 'Create timeshift snapshot? [Y/n] ' choice
 case "$choice" in y|Y|'')
