@@ -103,6 +103,9 @@
 !/.config/com.github.johnfactotum.Foliate/
 !/.config/com.github.johnfactotum.Foliate/user-stylesheet.css
 
+# krita shortcuts
+!/.config/kritashortcutsrc
+
 # ---------------- ~/.local/share ----------------
 
 !/.local/
@@ -112,6 +115,12 @@
 !/.local/share/fcitx5/
 !/.local/share/fcitx5/themes/
 !/.local/share/fcitx5/themes/**/*
+
+# some krita resources
+!/.local/share/krita/
+!/.local/share/krita/color-schemes
+!/.local/share/krita/color-schemes/*.colors
+!/.local/share/krita/paintoppresets/fekoneko_fun_brush.kpp
 
 # ----------------- ~/.local/bin ------------------
 

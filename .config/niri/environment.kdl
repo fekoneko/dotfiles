@@ -1,6 +1,7 @@
 environment {
     DISPLAY ":0";                                                 // XWayland support
     ELECTRON_OZONE_PLATFORM_HINT "wayland";                       // Use Wayland for Electron apps
+    QT_QPA_PLATFORM "wayland";                                    // Use Wayland for Krita 6.0
 
     ///// Input method /////
     QT_IM_MODULES "wayland;fcitx;ibus";                           // Prioritize wayland IM modile (Qt)

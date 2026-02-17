@@ -4,7 +4,7 @@ selectable_bg_color=#222226ee
 unselectable_bg_color=#11111166
 selectable_border_color=#11111166
 label_font_family=sans-serif
-label_font_size=14 50% 100
+label_font_size=16 50% 100
 
 [mode_split]
 pointer_size=20

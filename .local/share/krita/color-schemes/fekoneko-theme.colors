@@ -1,0 +1,23 @@
+[General]
+Name = fekoneko theme
+
+[ColorEffects:Inactive]
+ChangeSelectionColor = true
+
+[Colors:Button]
+BackgroundNormal = 55,55,59
+ForegroundNormal = 255,255,255
+
+[Colors:Selection]
+BackgroundNormal = 140,138,148
+ForegroundNormal = 0,0,0
+
+[Colors:View]
+BackgroundAlternate = 45,45,49
+BackgroundNormal = 45,45,49
+ForegroundLink = 255,255,255
+ForegroundNormal = 255,255,255
+
+[Colors:Window]
+BackgroundNormal = 55,55,59
+ForegroundNormal = 255,255,255
