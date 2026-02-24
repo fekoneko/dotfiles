@@ -119,7 +119,10 @@
 # some krita resources
 !/.local/share/krita/
 !/.local/share/krita/color-schemes
-!/.local/share/krita/color-schemes/*.colors
+!/.local/share/krita/color-schemes/fekoneko-theme.colors
+!/.local/share/krita/input/
+!/.local/share/krita/input/fekoneko input profile.profile
+!/.local/share/krita/paintoppresets/
 !/.local/share/krita/paintoppresets/fekoneko_fun_brush.kpp
 
 # ----------------- ~/.local/bin ------------------
