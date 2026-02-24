@@ -2,8 +2,6 @@
 
 I use Arch with Niri! Here are some of my config files and scripts :3
 
-![Screenshot 1](https://github.com/user-attachments/assets/13e44793-0775-4961-bdfb-114e4e7a6ba0)
+![Screenshot 1](https://github.com/user-attachments/assets/2419453e-3be0-46a1-a8e5-8fef2c0082f0)
 
-![Screenshot 2](https://github.com/user-attachments/assets/bb8189f1-c391-4cee-b4aa-92ba1487b1c3)
-
-![Screenshot 3](https://github.com/user-attachments/assets/284da6b8-6c29-4dc4-892a-d04550d66362)
+![Screenshot 2](https://github.com/user-attachments/assets/240daaa0-29b5-4c14-9d1f-b8a595a14090)
