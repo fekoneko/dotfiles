@@ -15,6 +15,11 @@ input {
         tap
         natural-scroll
     }
+
+    tablet {
+        // Drawing tablet screen
+        map-to-output "PNP(GAM) PD2200 0x00000001"
+    }
 }
 
 gestures {

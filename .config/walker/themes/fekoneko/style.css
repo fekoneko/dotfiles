@@ -18,8 +18,8 @@ scrollbar {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3);
   background-color: #2a2a2f;
   padding: 10px 16px 12px 16px;
-  border: 1.5px solid #6993dd;
-  border-radius: 4px;
+  border: 1.5px solid #6a7383;
+  border-radius: 6px;
 }
 
 .preview-box,

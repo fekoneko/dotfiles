@@ -9,3 +9,8 @@ output "eDP-1" {
 output "Philips Consumer Electronics Company PHL 240V5A UK01625003096" {
     position x=1536 y=-120
 }
+
+///// Drawing tablet screen /////
+output "PNP(GAM) PD2200 0x00000001" {
+    position x=0 y=960
+}

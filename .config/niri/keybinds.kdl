@@ -80,13 +80,13 @@ binds {
 
     Mod+Shift+Left                 { focus-monitor-left                                                   ; }
     Mod+Shift+Right                { focus-monitor-right                                                  ; }
-    Mod+Shift+Page_Up              { focus-monitor-up                                                     ; }
-    Mod+Shift+Page_Down            { focus-monitor-down                                                   ; }
+    Mod+Shift+Up                   { focus-monitor-up                                                     ; }
+    Mod+Shift+Down                 { focus-monitor-down                                                   ; }
 
     Mod+Shift+Ctrl+Left            { move-column-to-monitor-left                                          ; }
     Mod+Shift+Ctrl+Right           { move-column-to-monitor-right                                         ; }
-    Mod+Shift+Ctrl+Page_Up         { move-column-to-monitor-up                                            ; }
-    Mod+Shift+Ctrl+Page_Down       { move-column-to-monitor-down                                          ; }
+    Mod+Shift+Ctrl+Up              { move-column-to-monitor-up                                            ; }
+    Mod+Shift+Ctrl+Down            { move-column-to-monitor-down                                          ; }
 
     ///// Applications /////
 

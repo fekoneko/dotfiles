@@ -1,5 +1,5 @@
 layout {
-    gaps 7
+    gaps 8
     empty-workspace-above-first
     center-focused-column "never"
     background-color "#00000000"
@@ -7,16 +7,14 @@ layout {
     tab-indicator { gap 2; }
 
     struts {
-        top -3
-        left -2
-        right -2
+        top -4
     }
 
     focus-ring {
-        width 2
-        active-gradient from="#6089d2" to="#f8abffff" angle=45 relative-to="workspace-view"
-        inactive-color "transparent"
-        urgent-color "transparent"
+        width 1.5
+        active-color "#5e6775"
+        inactive-color "#27282c"
+        urgent-color "#27282c"
     }
 
     preset-column-widths {

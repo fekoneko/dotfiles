@@ -13,7 +13,7 @@ layer-rule {
 
 ///// Global window rules /////
 window-rule {
-    geometry-corner-radius 3
+    geometry-corner-radius 5
     clip-to-geometry true
     tiled-state true
     open-maximized true
@@ -57,10 +57,12 @@ window-rule {
     // VeraCrypt password prompts
     // Zen Picture-in-Picture overlays
     // Geary untrusted connection popups
+    // Some Krita windows
     match app-id="^veracrypt$" title="^Administrator privileges required$"
     match app-id="^veracrypt$" title="^Enter password for"
     match app-id="^zen$" title="^Picture-in-Picture$"
     match app-id="^org.gnome.Geary$" title="^Untrusted Connection$"
+    match app-id="^org.kde.krita$" title="[^ *] — Krita$"
 
     open-floating true
 }
@@ -74,3 +76,4 @@ window-rule {
     default-column-width { fixed 900; }
     default-window-height { fixed 600; }
 }
+
