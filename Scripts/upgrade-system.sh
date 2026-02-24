@@ -21,7 +21,6 @@ bun_error()            { echo $'\nFailed to update bun packages'            >&2;
 go_error()             { echo $'\nFailed to update go binaries'             >&2; exit 1; }
 rust_error()           { echo $'\nFailed to update rust'                    >&2; exit 1; }
 cargo_error()          { echo $'\nFailed to update cargo binaries'          >&2; exit 1; }
-android_error()        { echo $'\nFailed to update Android tools'           >&2; exit 1; }
 
 echo '-----------------------'
 echo 'Starting system upgrade'
@@ -86,10 +85,6 @@ if [[ -n "$cargo_packages" ]]; then
 else
   echo $'\nNo cargo binaries to update'
 fi
-
-command='sudo sdkmanager --update'
-log_command 'Updating Android tools' "$command"
-eval "$command" || android_error
 
 echo
 echo '-------------------------------------'
