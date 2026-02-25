@@ -31,6 +31,10 @@
 !/.config/niri/
 !/.config/niri/**/*.kdl
 
+# quickshell
+!/.config/quickshell/
+!/.config/quickshell/**/*
+
 # waybar
 !/.config/waybar/
 !/.config/waybar/config

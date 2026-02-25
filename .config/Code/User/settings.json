@@ -3,7 +3,7 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "postcss": "css"
+    "postcss": "css",
   },
   "git.enableSmartCommit": true,
   "editor.linkedEditing": true,
@@ -37,16 +37,16 @@
   "[kdl]": { "editor.tabSize": 4 },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.tabSize": 4,
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
   },
   "[blueprint]": {
     "editor.tabSize": 2,
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
   },
   "svelte.enable-ts-plugin": true,
   "editor.codeActionsOnSave": {},
@@ -55,7 +55,7 @@
   "git.confirmSync": false,
   "workbench.startupEditor": "none",
   "workbench.editorAssociations": {
-    "*.OBJ": "hexEditor.hexedit"
+    "*.OBJ": "hexEditor.hexedit",
   },
   "zenMode.hideLineNumbers": false,
   "zenMode.showTabs": "single",
@@ -65,28 +65,28 @@
     "editor.fontSize",
     "gitlens.currentLine.fontFamily",
     "terminal.integrated.fontFamily",
-    "terminal.integrated.fontSize"
+    "terminal.integrated.fontSize",
   ],
   "supermaven.enable": {
-    "*": true
+    "*": true,
   },
   "cssVariables.lookupFiles": [
     "**/*.css",
     "**/*.scss",
     "**/*.sass",
     "**/*.less",
-    "node_modules/@mantine/core/styles.css"
+    "node_modules/@mantine/core/styles.css",
   ],
   "editor.largeFileOptimizations": false,
   "svg.preview.mode": "svg",
   "reactTsScss.diagnostics": false,
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-neovim": 1,
   },
   "vscode-neovim.statusLineSeparator": "  |  ",
   "vscode-neovim.compositeKeys": {
     "jj": { "command": "vscode-neovim.escape" },
-    "kk": { "command": "vscode-neovim.escape" }
+    "kk": { "command": "vscode-neovim.escape" },
   },
   "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace",
   "editor.fontLigatures": true,
@@ -153,7 +153,7 @@
     { "text": "SAFETY ", "color": "#ffffff", "backgroundColor": "#d2587c" },
     { "text": "Safety ", "color": "#ffffff", "backgroundColor": "#d2587c" },
     { "text": "SAFETY(", "color": "#ffffff", "backgroundColor": "#d2587c" },
-    { "text": "Safety(", "color": "#ffffff", "backgroundColor": "#d2587c" }
+    { "text": "Safety(", "color": "#ffffff", "backgroundColor": "#d2587c" },
   ],
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
@@ -173,5 +173,12 @@
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "window.titleBarStyle": "native",
   "security.promptForLocalFileProtocolHandling": false,
-  "terminal.integrated.initialHint": false
+  "terminal.integrated.initialHint": false,
+  "qt-qml.qmlls.useQmlImportPathEnvVar": true,
+  "qt-core.additionalQtPaths": [
+    {
+      "name": "Qt-5.15.18-linux-g++_from_PATH",
+      "path": "/usr/sbin/qmake",
+    },
+  ],
 }
