@@ -81,11 +81,6 @@
 !/.config/fastfetch/logo.png
 !/.config/fastfetch/logo.txt
 
-# mpv
-!/.config/mpv/
-!/.config/mpv/input.conf
-!/.config/mpv/mpv.conf
-
 # vscode
 !/.config/code-flags.conf
 !/.config/Code/
