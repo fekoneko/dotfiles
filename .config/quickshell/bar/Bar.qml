@@ -6,8 +6,8 @@ Variants {
   model: Quickshell.screens
 
   PanelWindow {
-    required property var modelData
-
+    required property ShellScreen modelData
+    id: barWindow
     screen: modelData
     color: "transparent"
     implicitHeight: 24

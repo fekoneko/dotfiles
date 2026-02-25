@@ -1,8 +1,11 @@
 pragma Singleton
 
 import Quickshell
+import QtQuick
 
 Singleton {
-  readonly property string barFgColor: "#ffffff"
-  readonly property int barFontSize: 12
+  readonly property QtObject bar: QtObject {
+    property color fgColor: "#ffffff"
+    property int fontSize: 12
+  }
 }
