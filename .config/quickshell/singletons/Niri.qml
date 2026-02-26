@@ -6,8 +6,10 @@ import QtQuick
 
 Singleton {
   readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
-  property var windowIdToTitle: new Map()
-  property var focusedWindow: null
+  property var windows: new Map() // Map<id, { title, workspaceId }>
+  property var workspaces: new Map() // Map<id, { screenName }>
+  property var activeWindowIds: new Map() // Map<workspaceId, id>
+  property var activeWorkspaceIds: new Map() // Map<screenName, id>
 
   Socket {
     id: eventsSocket
@@ -41,26 +43,58 @@ Singleton {
 
       switch (eventType) {
         case "WindowsChanged":
-          windowIdToTitle = new Map();
+          windows = new Map();
           for (const window of event.windows) {
-            windowIdToTitle.set(window.id, window.title);
-            maybeSetFocusedWindow(window);
+            windows.set(window.id, trackedWindowFields(window));
+            windowsChanged(); // Let QML know the map is mutated internally
           }
           break;
 
-        case "WindowFocusChanged":
-          setFocusedWindowById(event.id);
-          break;
-
         case "WindowOpenedOrChanged":
-          windowIdToTitle.set(event.window.id, event.window.title);
-          maybeSetFocusedWindow(event.window) || updateFocusedWindow();
+          windows.set(event.window.id, trackedWindowFields(event.window));
+          windowsChanged(); // Let QML know the map is mutated internally
           break;
 
         case "WindowClosed":
-          windowIdToTitle.delete(event.id);
-          updateFocusedWindow();
+          windows.delete(event.id);
+          windowsChanged(); // Let QML know the map is mutated internally
           break;
+
+        case "WorkspacesChanged":
+          workspaces = new Map();
+          for (const workspace of event.workspaces) {
+            workspaces.set(workspace.id, trackedWorkspaceFields(workspace));
+            workspacesChanged(); // Let QML know the map is mutated internally
+
+            activeWindowIds.set(workspace.id, workspace.active_window_id);
+            activeWindowIdsChanged(); // Let QML know the map is mutated internally
+
+            if (workspace.is_active) activeWorkspaceIds.set(workspace.output, workspace.id);
+          }
+          break;
+
+        case "WorkspaceActiveWindowChanged":
+          activeWindowIds.set(event.workspace_id, event.active_window_id);
+          activeWindowIdsChanged(); // Let QML know the map is mutated internally
+          break;
+
+        case "WorkspaceActivated":
+          const output = workspaces.get(event.id)?.screenName;
+          activeWorkspaceIds.set(output, event.id);
+          activeWorkspaceIdsChanged(); // Let QML know the map is mutated internally
+          break;
+      }
+
+      function trackedWindowFields(window) {
+        return {
+          id: window.id,
+          title: window.title,
+          workspaceId: window.workspace_id,
+        };
+      }
+
+      function trackedWorkspaceFields(workspace) {
+        return { screenName: workspace.output };
       }
     }
   }
@@ -71,19 +105,9 @@ Singleton {
     socket.flush();
   }
 
-  function setFocusedWindowById(id) {
-    const title = windowIdToTitle.get(id);
-    if (title) focusedWindow = { id, title };
-    else focusedWindow = null;
-  }
-
-  function maybeSetFocusedWindow(window) {
-    const { id, title, is_focused } = window;
-    if (is_focused) focusedWindow = { id, title };
-    return is_focused;
-  }
-
-  function updateFocusedWindow() {
-    if (focusedWindow) setFocusedWindowById(focusedWindow.id);
+  function activeWindowByScreen(screenName) {
+    const activeWorkspaceId = activeWorkspaceIds.get(screenName);
+    const activeWindowId = activeWindowIds.get(activeWorkspaceId);
+    return windows.get(activeWindowId) ?? null;
   }
 }
