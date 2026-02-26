@@ -5,22 +5,10 @@ import QtQuick
 Repeater {
   model: SystemTray.items
 
-  MouseArea {
+  BarButton {
     required property SystemTrayItem modelData
-    acceptedButtons: Qt.LeftButton | Qt.RightButton
-    implicitWidth: 32
-    implicitHeight: 24
-
-    onClicked: ({ button, x, y }) => {
-      if (button === Qt.LeftButton) modelData.activate();
-      else barMenu.visible = true;
-    }
-
-    IconImage {
-      anchors.centerIn: parent
-      source: modelData.icon
-      implicitSize: 16
-    }
+    onMainAction: modelData.activate()
+    onSecondaryAction: barMenu.visible = true;
 
     BarMenu {
       id: barMenu

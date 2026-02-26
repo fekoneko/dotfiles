@@ -6,10 +6,10 @@ import QtQuick
 
 Singleton {
   readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
-  property var windows: new Map() // Map<id, { title, workspaceId }>
-  property var workspaces: new Map() // Map<id, { screenName }>
-  property var activeWindowIds: new Map() // Map<workspaceId, id>
-  property var activeWorkspaceIds: new Map() // Map<screenName, id>
+  property var windows: new Map()            // Map<windowId, { title, workspaceId }>
+  property var workspaces: new Map()         // Map<workspaceId, { screenName }>
+  property var activeWindowIds: new Map()    // Map<workspaceId, windowId>
+  property var activeWorkspaceIds: new Map() // Map<screenName, workspaceId>
 
   Socket {
     id: eventsSocket
@@ -18,17 +18,16 @@ Singleton {
 
     onConnectionStateChanged: {
       if (connected) {
-        console.log(`Niri: Connected to events socket: ${socketPath}`);
+        console.info(`Niri: Connected to socket: ${socketPath}`);
         send(eventsSocket, "EventStream");
       } else {
-        console.warn(`Niri: Disconnected from events socket: ${socketPath}`);
+        console.error(`Niri: Disconnected from socket: ${socketPath}`);
       }
     }
 
     parser: SplitParser {
       onRead: (line) => {
         try {
-          console.log(`Niri: Received event: ${line}`);
           const event = JSON.parse(line);
           eventsSocket.handleEvent(event);
         } catch (error) {
@@ -46,28 +45,28 @@ Singleton {
           windows = new Map();
           for (const window of event.windows) {
             windows.set(window.id, trackedWindowFields(window));
-            windowsChanged(); // Let QML know the map is mutated internally
+            windowsChanged(); // Let QML know the map was mutated internally
           }
           break;
 
         case "WindowOpenedOrChanged":
           windows.set(event.window.id, trackedWindowFields(event.window));
-          windowsChanged(); // Let QML know the map is mutated internally
+          windowsChanged(); // Let QML know the map was mutated internally
           break;
 
         case "WindowClosed":
           windows.delete(event.id);
-          windowsChanged(); // Let QML know the map is mutated internally
+          windowsChanged(); // Let QML know the map was mutated internally
           break;
 
         case "WorkspacesChanged":
           workspaces = new Map();
           for (const workspace of event.workspaces) {
             workspaces.set(workspace.id, trackedWorkspaceFields(workspace));
-            workspacesChanged(); // Let QML know the map is mutated internally
+            workspacesChanged(); // Let QML know the map was mutated internally
 
             activeWindowIds.set(workspace.id, workspace.active_window_id);
-            activeWindowIdsChanged(); // Let QML know the map is mutated internally
+            activeWindowIdsChanged(); // Let QML know the map was mutated internally
 
             if (workspace.is_active) activeWorkspaceIds.set(workspace.output, workspace.id);
           }
@@ -75,13 +74,13 @@ Singleton {
 
         case "WorkspaceActiveWindowChanged":
           activeWindowIds.set(event.workspace_id, event.active_window_id);
-          activeWindowIdsChanged(); // Let QML know the map is mutated internally
+          activeWindowIdsChanged(); // Let QML know the map was mutated internally
           break;
 
         case "WorkspaceActivated":
           const output = workspaces.get(event.id)?.screenName;
           activeWorkspaceIds.set(output, event.id);
-          activeWorkspaceIdsChanged(); // Let QML know the map is mutated internally
+          activeWorkspaceIdsChanged(); // Let QML know the map was mutated internally
           break;
       }
 
