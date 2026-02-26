@@ -1,3 +1,5 @@
+// TODO: switch to universal dmenu for everything
+
 import Quickshell
 import QtQuick
 import QtQuick.Layouts

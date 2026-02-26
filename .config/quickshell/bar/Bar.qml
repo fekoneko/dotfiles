@@ -38,6 +38,8 @@ Variants {
         Layout.fillWidth: true
         justifyContent: FlexboxLayout.JustifyCenter
         alignItems: FlexboxLayout.AlignCenter
+
+        WindowTitleWidget {}
       }
 
       FlexboxLayout {
