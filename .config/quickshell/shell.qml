@@ -1,4 +1,3 @@
-import Quickshell
-import qs.bar
+import qs.modules.bar
 
 Bar {}

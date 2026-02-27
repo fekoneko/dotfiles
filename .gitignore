@@ -34,6 +34,7 @@
 # quickshell
 !/.config/quickshell/
 !/.config/quickshell/**/*
+/.config/quickshell/.qmlls.ini
 
 # waybar
 !/.config/waybar/

@@ -35,6 +35,7 @@
   "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
   "[python]": { "editor.tabSize": 4 },
   "[kdl]": { "editor.tabSize": 4 },
+  "[qml]": { "editor.tabSize": 4 },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.tabSize": 4,
@@ -55,7 +56,11 @@
   "git.confirmSync": false,
   "workbench.startupEditor": "none",
   "workbench.editorAssociations": {
+    "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+    "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+    "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.ui": "default",
     "*.OBJ": "hexEditor.hexedit",
+    "*.qrc": "qt-core.qrcEditor",
   },
   "zenMode.hideLineNumbers": false,
   "zenMode.showTabs": "single",
@@ -174,11 +179,11 @@
   "window.titleBarStyle": "native",
   "security.promptForLocalFileProtocolHandling": false,
   "terminal.integrated.initialHint": false,
-  "qt-qml.qmlls.useQmlImportPathEnvVar": true,
   "qt-core.additionalQtPaths": [
     {
       "name": "Qt-5.15.18-linux-g++_from_PATH",
       "path": "/usr/sbin/qmake",
     },
   ],
+  "qt-qml.qmlls.useQmlImportPathEnvVar": true,
 }
