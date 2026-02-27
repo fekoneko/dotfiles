@@ -6,11 +6,11 @@ import QtQuick
 
 Singleton {
     readonly property bool onBattery: UPower.onBattery
-    readonly property real percentage: UPower.displayDevice.percentage
-    readonly property string formattedPercentage: Math.round(percentage * 100) + "%"
+    readonly property real percentage: UPower.displayDevice.percentage * 100
+    readonly property string formattedPercentage: Math.round(percentage) + "%"
 
     readonly property string icon: {
-        const roundedPercentage = Math.round(percentage * 10) * 10;
+        const roundedPercentage = Math.round(percentage / 10) * 10;
         const iconPath = `assets/icons/battery-${onBattery ? "" : "charging-"}${roundedPercentage}.svg`;
         return "file://" + Quickshell.shellPath(iconPath);
     }

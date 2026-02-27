@@ -52,6 +52,7 @@ Variants {
 
                 MicrophoneWidget {}
                 VolumeWidget {}
+                BrightnessWidget {}
                 ClockWidget {}
             }
         }
