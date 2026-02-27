@@ -7,6 +7,7 @@ Repeater {
     BarButton {
         id: barButton
         icon: modelData.icon
+        iconSize: 15
         onMainAction: modelData.activate()
         onSecondaryAction: barMenu.visible = true
 

@@ -1,11 +1,13 @@
+import Quickshell.Io
 import QtQuick
 import qs.services
-import qs.themes
 
-Text {
+BarButton {
     text: TimeService.time
-    color: BarTheme.fgPrimaryColor
-    opacity: BarTheme.fgPrimaryOpacity
-    font.pixelSize: BarTheme.fontSize
-    font.weight: Font.Bold
+    onMainAction: process.startDetached()
+
+    Process {
+        id: process
+        command: ["gnome-calendar"]
+    }
 }

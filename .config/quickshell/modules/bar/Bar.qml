@@ -20,8 +20,8 @@ Variants {
         }
 
         MarginWrapperManager {
-            leftMargin: 8
-            rightMargin: 8
+            leftMargin: 1
+            rightMargin: 1
         }
 
         RowLayout {
@@ -32,6 +32,7 @@ Variants {
                 justifyContent: FlexboxLayout.JustifyStart
                 alignItems: FlexboxLayout.AlignCenter
 
+                BatteryWidget {}
                 TrayWidget {}
             }
 
