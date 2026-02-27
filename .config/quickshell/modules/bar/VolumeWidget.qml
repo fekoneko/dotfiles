@@ -3,12 +3,12 @@ import QtQuick
 import qs.services
 
 BarButton {
-    icon: BatteryService.icon
-    text: BatteryService.percentage
+    icon: AudioService.icon
+    text: AudioService.volume
     onMainAction: process.startDetached()
 
     Process {
         id: process
-        command: ["tlpui"]
+        command: ["pavucontrol"]
     }
 }

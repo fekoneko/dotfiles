@@ -7,7 +7,7 @@ Rectangle {
     id: root
     color: "transparent"
     implicitWidth: layout.implicitWidth + 14 + (icon && text ? layout.gap : 0)
-    implicitHeight: 24
+    implicitHeight: BarTheme.height
 
     property string icon
     property alias iconSize: iconImage.implicitSize
@@ -35,13 +35,7 @@ Rectangle {
 
     Rectangle {
         anchors.fill: parent
-        color: {
-            if (mainTapHandler.pressed || secondaryTapHandler.pressed)
-                return BarTheme.bgPressedColor;
-            if (hoverHandler.hovered)
-                return BarTheme.bgHoverColor;
-            return "transparent";
-        }
+        color: BarTheme.bgColor
         opacity: {
             if (mainTapHandler.pressed || secondaryTapHandler.pressed)
                 return BarTheme.bgPressedOpacity;
@@ -50,6 +44,12 @@ Rectangle {
             return 0;
         }
         radius: 4
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: BarTheme.animationFast
+            }
+        }
     }
 
     FlexboxLayout {
@@ -70,7 +70,7 @@ Rectangle {
         Text {
             id: textComponent
             enabled: !!root.text
-            color: BarTheme.fgPrimaryColor
+            color: BarTheme.fgColor
             opacity: BarTheme.fgPrimaryOpacity
             font.pixelSize: BarTheme.fontSize
             font.weight: Font.Bold

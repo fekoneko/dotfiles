@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Widgets
 import QtQuick.Layouts
+import qs.themes
 
 Variants {
     model: Quickshell.screens
@@ -9,7 +10,7 @@ Variants {
         id: barWindow
         screen: modelData
         color: "transparent"
-        implicitHeight: 24
+        implicitHeight: BarTheme.height
 
         required property ShellScreen modelData
 
@@ -49,6 +50,7 @@ Variants {
                 justifyContent: FlexboxLayout.JustifyEnd
                 alignItems: FlexboxLayout.AlignCenter
 
+                VolumeWidget {}
                 ClockWidget {}
             }
         }
