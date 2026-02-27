@@ -6,12 +6,12 @@ import qs.themes
 Rectangle {
     id: root
     color: "transparent"
-    implicitWidth: layout.implicitWidth + 14 + (icon && text ? layout.gap : 0)
+    implicitWidth: iconImage.implicitSize + textItem.contentWidth + 14 + (icon && text ? 5 : 0)
     implicitHeight: BarTheme.height
 
     property string icon
     property alias iconSize: iconImage.implicitSize
-    property alias text: textComponent.text
+    property alias text: textItem.text
 
     signal mainAction
     signal secondaryAction
@@ -53,7 +53,6 @@ Rectangle {
     }
 
     FlexboxLayout {
-        id: layout
         anchors.fill: parent
         anchors.leftMargin: root.icon ? 7 : 2
         alignItems: FlexboxLayout.AlignCenter
@@ -68,7 +67,7 @@ Rectangle {
         }
 
         Text {
-            id: textComponent
+            id: textItem
             enabled: !!root.text
             color: BarTheme.fgColor
             opacity: BarTheme.fgPrimaryOpacity

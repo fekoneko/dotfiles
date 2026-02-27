@@ -50,6 +50,7 @@ Variants {
                 justifyContent: FlexboxLayout.JustifyEnd
                 alignItems: FlexboxLayout.AlignCenter
 
+                MicrophoneWidget {}
                 VolumeWidget {}
                 ClockWidget {}
             }
