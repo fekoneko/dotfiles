@@ -3,7 +3,7 @@ import QtQuick
 import qs.services
 
 BarButton {
-    text: TimeService.time
+    text: TimeService.formattedTime
     onMainAction: process.startDetached()
     onSecondaryAction: process.startDetached()
 

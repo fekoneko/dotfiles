@@ -5,19 +5,20 @@ import Quickshell.Services.Pipewire
 import QtQuick
 
 Singleton {
-    readonly property string volume: Math.round((Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100) + "%"
-    readonly property bool volumeMuted: Pipewire.defaultAudioSink?.audio.muted ?? false
+    readonly property real volume: Pipewire.defaultAudioSink?.audio.volume ?? 0
+    readonly property string formattedVolume: Math.round(volume * 100) + "%"
+    readonly property bool muted: Pipewire.defaultAudioSink?.audio.muted ?? false
+    readonly property bool microphoneMuted: Pipewire.defaultAudioSource?.audio.muted ?? false
 
     readonly property string volumeIcon: {
-        const sink = Pipewire.defaultAudioSink;
         let iconPath;
-        if (!sink || sink.audio.muted) {
+        if (!volume) {
             iconPath = "assets/icons/volume-muted.svg";
-        } else if (sink.audio.volume <= 1 / 3) {
+        } else if (volume <= 1 / 3) {
             iconPath = "assets/icons/volume-low.svg";
-        } else if (sink.audio.volume <= 2 / 3) {
+        } else if (volume <= 2 / 3) {
             iconPath = "assets/icons/volume-medium.svg";
-        } else if (sink.audio.volume <= 1) {
+        } else if (volume <= 1) {
             iconPath = "assets/icons/volume-high.svg";
         } else {
             iconPath = "assets/icons/volume-overamplified.svg";
@@ -26,9 +27,8 @@ Singleton {
     }
 
     readonly property string microphoneIcon: {
-        const source = Pipewire.defaultAudioSource;
         let iconPath;
-        if (!source || source.audio.muted) {
+        if (microphoneMuted) {
             iconPath = "assets/icons/microphone-muted.svg";
         } else {
             iconPath = "assets/icons/microphone.svg";

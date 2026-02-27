@@ -4,7 +4,7 @@ import qs.services
 
 BarButton {
     icon: BatteryService.icon
-    text: BatteryService.percentage
+    text: BatteryService.formattedPercentage
     onMainAction: process.startDetached()
     onSecondaryAction: process.startDetached()
 
