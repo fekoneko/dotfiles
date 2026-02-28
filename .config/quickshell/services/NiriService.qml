@@ -8,10 +8,10 @@ Singleton {
     id: root
 
     readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
-    property var windows: new Map()            // Map<windowId, { title, workspaceId }>
-    property var workspaces: new Map()         // Map<workspaceId, { screenName }>
-    property var activeWindowIds: new Map()    // Map<workspaceId, windowId>
-    property var activeWorkspaceIds: new Map() // Map<screenName, workspaceId>
+    property var windowById: new Map()                  // Map<windowId, { id, title, appId, workspaceId }>
+    property var workspaceById: new Map()               // Map<workspaceId, { id, screenName }>
+    property var activeWindowIdByWorkspaceId: new Map() // Map<workspaceId, windowId>
+    property var activeWorkspaceIdByScreen: new Map()   // Map<screenName, workspaceId>
 
     Socket {
         id: eventsSocket
@@ -20,10 +20,10 @@ Singleton {
 
         onConnectionStateChanged: {
             if (connected) {
-                console.info(`Niri: Connected to socket: ${root.socketPath}`);
+                console.info(`Niri: Connected to events socket: ${root.socketPath}`);
                 root.send(eventsSocket, "EventStream");
             } else {
-                console.error(`Niri: Disconnected from socket: ${root.socketPath}`);
+                console.error(`Niri: Disconnected from events socket: ${root.socketPath}`);
             }
         }
 
@@ -38,86 +38,120 @@ Singleton {
             }
         }
 
-        function handleEvent(event) {
+        function handleEvent(event: var): void {
             const eventType = Object.keys(event)[0];
             event = event[eventType];
 
             switch (eventType) {
             // Reports all initial windows
             case "WindowsChanged":
-                root.windows = new Map();
+                root.windowById = new Map();
                 for (const window of event.windows) {
-                    root.windows.set(window.id, trackedWindowFields(window));
-                    root.windowsChanged();
+                    root.windowById.set(window.id, trackedWindowFields(window));
+                    root.windowByIdChanged();
                 }
                 break;
 
             // Window was opened or changed
             case "WindowOpenedOrChanged":
-                root.windows.set(event.window.id, trackedWindowFields(event.window));
-                root.windowsChanged();
+                root.windowById.set(event.window.id, trackedWindowFields(event.window));
+                root.windowByIdChanged();
                 break;
 
             // Window was closed
             case "WindowClosed":
-                root.windows.delete(event.id);
-                root.windowsChanged();
+                root.windowById.delete(event.id);
+                root.windowByIdChanged();
                 break;
 
             // Reports all initial workspaces
             case "WorkspacesChanged":
-                root.workspaces = new Map();
+                root.workspaceById = new Map();
                 for (const workspace of event.workspaces) {
-                    root.workspaces.set(workspace.id, trackedWorkspaceFields(workspace));
-                    root.workspacesChanged();
+                    root.workspaceById.set(workspace.id, trackedWorkspaceFields(workspace));
+                    root.workspaceByIdChanged();
 
-                    root.activeWindowIds.set(workspace.id, workspace.active_window_id);
-                    root.activeWindowIdsChanged();
+                    root.activeWindowIdByWorkspaceId.set(workspace.id, workspace.active_window_id);
+                    root.activeWindowIdByWorkspaceIdChanged();
 
-                    if (workspace.is_active)
-                        root.activeWorkspaceIds.set(workspace.output, workspace.id);
+                    if (workspace.is_active) {
+                        root.activeWorkspaceIdByScreen.set(workspace.output, workspace.id);
+                        root.activeWorkspaceIdByScreenChanged();
+                    }
                 }
                 break;
 
             // Window was focused in a workspace
             case "WorkspaceActiveWindowChanged":
-                root.activeWindowIds.set(event.workspace_id, event.active_window_id);
-                root.activeWindowIdsChanged();
+                root.activeWindowIdByWorkspaceId.set(event.workspace_id, event.active_window_id);
+                root.activeWindowIdByWorkspaceIdChanged();
                 break;
 
             // User switched to a workspace and it's now active on a screen
             case "WorkspaceActivated":
-                const output = root.workspaces.get(event.id)?.screenName;
-                root.activeWorkspaceIds.set(output, event.id);
-                root.activeWorkspaceIdsChanged();
+                const output = root.workspaceById.get(event.id)?.screenName;
+                root.activeWorkspaceIdByScreen.set(output, event.id);
+                root.activeWorkspaceIdByScreenChanged();
                 break;
             }
 
-            function trackedWindowFields(window) {
+            function trackedWindowFields(window: var): var {
                 return {
                     id: window.id,
                     title: window.title,
+                    appId: window.app_id,
                     workspaceId: window.workspace_id
                 };
             }
 
-            function trackedWorkspaceFields(workspace) {
+            function trackedWorkspaceFields(workspace: var): var {
                 return {
+                    id: workspace.id,
                     screenName: workspace.output
                 };
             }
         }
     }
 
-    function send(socket, data) {
+    Socket {
+        id: actionsSocket
+        path: root.socketPath
+        connected: true
+    }
+
+    function windowsByScreen(screenName: string): list<var> {
+        const workspaceId = activeWorkspaceIdByScreen.get(screenName);
+        const windows = [];
+        windowById.forEach(window => {
+            if (window.workspaceId === workspaceId)
+                windows.push(window);
+        });
+        return windows;
+    }
+
+    function activeWindowIdByScreen(screenName: string): var {
+        const workspaceId = activeWorkspaceIdByScreen.get(screenName);
+        return activeWindowIdByWorkspaceId.get(workspaceId) ?? null;
+    }
+
+    function activeWindowByScreen(screenName: string): var {
+        const windowId = activeWindowIdByScreen(screenName);
+        return windowById.get(windowId) ?? null;
+    }
+
+    function focusWindow(windowId: int): void {
+        send(actionsSocket, {
+            Action: {
+                FocusWindow: {
+                    id: windowId
+                }
+            }
+        });
+    }
+
+    function send(socket: Socket, data: var): void {
         const message = JSON.stringify(data) + "\n";
         socket.write(message);
         socket.flush();
-    }
-
-    function activeWindowByScreen(screenName) {
-        const activeWorkspaceId = activeWorkspaceIds.get(screenName);
-        const activeWindowId = activeWindowIds.get(activeWorkspaceId);
-        return windows.get(activeWindowId) ?? null;
     }
 }

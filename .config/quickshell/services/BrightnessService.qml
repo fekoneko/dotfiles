@@ -54,11 +54,11 @@ Singleton {
         command: ["brightnessctl", "-c", "backlight", "s", "5%-"]
     }
 
-    function increaseBrightness() {
-        increaseProcess.running = true;
+    function increaseBrightness(): void {
+        increaseProcess.startDetached();
     }
 
-    function decreaseBrightness() {
-        decreaseProcess.running = true;
+    function decreaseBrightness(): void {
+        decreaseProcess.startDetached();
     }
 }

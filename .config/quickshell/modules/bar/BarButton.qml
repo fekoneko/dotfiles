@@ -6,9 +6,10 @@ import qs.themes
 Rectangle {
     id: root
     color: "transparent"
-    implicitWidth: iconImage.implicitSize + textItem.contentWidth + 14 + (icon && text ? 5 : 0)
+    implicitWidth: iconImage.implicitSize + textItem.contentWidth + 14 + (iconImage.implicitSize && text ? 5 : 0)
     implicitHeight: BarTheme.height
 
+    property bool active: false
     property string icon
     property alias iconSize: iconImage.implicitSize
     property alias text: textItem.text
@@ -39,6 +40,8 @@ Rectangle {
         opacity: {
             if (mainTapHandler.pressed || secondaryTapHandler.pressed)
                 return BarTheme.bgPressedOpacity;
+            if (root.active)
+                return BarTheme.bgActiveOpacity;
             if (hoverHandler.hovered)
                 return BarTheme.bgHoverOpacity;
             return 0;

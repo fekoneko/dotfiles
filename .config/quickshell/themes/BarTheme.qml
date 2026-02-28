@@ -15,6 +15,7 @@ Singleton {
     readonly property real fgTertiaryOpacity: 0.6
     readonly property real bgHoverOpacity: 0.1
     readonly property real bgPressedOpacity: 0.2
+    readonly property real bgActiveOpacity: 0.1
 
     readonly property real animationFast: 100
 }

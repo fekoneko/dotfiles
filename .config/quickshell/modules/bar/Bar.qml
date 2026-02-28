@@ -34,6 +34,7 @@ Variants {
                 alignItems: FlexboxLayout.AlignCenter
 
                 BatteryWidget {}
+                TaskbarWidget {}
                 TrayWidget {}
             }
 

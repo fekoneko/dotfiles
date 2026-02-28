@@ -36,13 +36,13 @@ Singleton {
         return "file://" + Quickshell.shellPath(iconPath);
     }
 
-    function toggleVolume() {
+    function toggleVolume(): void {
         const sink = Pipewire.defaultAudioSink;
         if (sink)
             sink.audio.muted = !sink.audio.muted;
     }
 
-    function toggleMicrophone() {
+    function toggleMicrophone(): void {
         const source = Pipewire.defaultAudioSource;
         if (source)
             source.audio.muted = !source.audio.muted;
