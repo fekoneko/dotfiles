@@ -6,7 +6,10 @@ import qs.services
 
 Repeater {
     id: root
-    model: NiriService.windowsByScreen(barWindow.screen.name) // qmllint disable unqualified
+    model: {
+        const windows = NiriService.windowsByScreen(barWindow.screen.name); // qmllint disable unqualified
+        return windows.sort((a, b) => a.order - b.order);
+    }
 
     readonly property var activeWindowId: {
         NiriService.activeWindowIdByScreen(barWindow.screen.name); // qmllint disable unqualified
@@ -23,7 +26,7 @@ Repeater {
             if (desktopEntry?.icon)
                 return Quickshell.iconPath(desktopEntry?.icon);
 
-            return "file://" + Quickshell.shellPath("assets/icons/window.svg");
+            return "file://" + Quickshell.shellPath("assets/icons/taskbar-placeholder.svg");
         }
 
         required property var modelData

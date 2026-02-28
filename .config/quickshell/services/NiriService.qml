@@ -8,7 +8,7 @@ Singleton {
     id: root
 
     readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
-    property var windowById: new Map()                  // Map<windowId, { id, title, appId, workspaceId }>
+    property var windowById: new Map()                  // Map<windowId, { id, title, appId, workspaceId, order }>
     property var workspaceById: new Map()               // Map<workspaceId, { id, screenName }>
     property var activeWindowIdByWorkspaceId: new Map() // Map<workspaceId, windowId>
     property var activeWorkspaceIdByScreen: new Map()   // Map<screenName, workspaceId>
@@ -58,6 +58,17 @@ Singleton {
                 root.windowByIdChanged();
                 break;
 
+            // Windows were rearranged
+            case "WindowLayoutsChanged":
+                for (const [windowId, layout] of event.changes) {
+                    const window = root.windowById.get(windowId);
+                    if (window) {
+                        window.order = layout.pos_in_scrolling_layout[0];
+                        root.windowByIdChanged();
+                    }
+                }
+                break;
+
             // Window was closed
             case "WindowClosed":
                 root.windowById.delete(event.id);
@@ -100,7 +111,8 @@ Singleton {
                     id: window.id,
                     title: window.title,
                     appId: window.app_id,
-                    workspaceId: window.workspace_id
+                    workspaceId: window.workspace_id,
+                    order: window.layout.pos_in_scrolling_layout[0]
                 };
             }
 
@@ -117,6 +129,13 @@ Singleton {
         id: actionsSocket
         path: root.socketPath
         connected: true
+
+        onConnectionStateChanged: {
+            if (connected)
+                console.info(`Niri: Connected to actions socket: ${root.socketPath}`);
+            else
+                console.error(`Niri: Disconnected from actions socket: ${root.socketPath}`);
+        }
     }
 
     function windowsByScreen(screenName: string): list<var> {
