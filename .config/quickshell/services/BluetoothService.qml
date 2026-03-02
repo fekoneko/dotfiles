@@ -10,8 +10,8 @@ import QtQuick
 Singleton {
     id: root
 
-    property list<BluetoothDevice> devices: Bluetooth.defaultAdapter?.devices.values ?? []
-    property bool connected: !!devices.filter(device => device.connected).length
+    readonly property list<BluetoothDevice> devices: Bluetooth.defaultAdapter?.devices.values ?? []
+    readonly property bool connected: !!devices.filter(device => device.connected).length
 
     readonly property string icon: {
         const adapter = Bluetooth.defaultAdapter;
@@ -30,19 +30,5 @@ Singleton {
         const adapter = Bluetooth.defaultAdapter;
         if (adapter)
             adapter.enabled = !adapter.enabled;
-    }
-
-    Repeater {
-        model: root.devices
-
-        Connections {
-            target: modelData
-
-            required property var modelData
-
-            function onConnectedChanged() {
-                root.devicesChanged();
-            }
-        }
     }
 }
