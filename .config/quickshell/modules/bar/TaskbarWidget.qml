@@ -6,6 +6,7 @@ import qs.services
 
 Repeater {
     id: root
+
     model: {
         const windows = NiriService.windowsByScreen(barWindow.screen.name); // qmllint disable unqualified
         return windows.sort((a, b) => a.order - b.order);

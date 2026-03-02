@@ -22,8 +22,10 @@ Singleton {
             if (connected) {
                 console.info(`Niri: Connected to events socket: ${root.socketPath}`);
                 root.send(eventsSocket, "EventStream");
+                ecentsReconnectTimer.stop();
             } else {
-                console.error(`Niri: Disconnected from events socket: ${root.socketPath}`);
+                console.warn(`Niri: Disconnected from events socket: ${root.socketPath}`);
+                ecentsReconnectTimer.start();
             }
         }
 
@@ -63,7 +65,7 @@ Singleton {
                 for (const [windowId, layout] of event.changes) {
                     const window = root.windowById.get(windowId);
                     if (window) {
-                        window.order = layout.pos_in_scrolling_layout[0];
+                        window.order = layout?.pos_in_scrolling_layout?.[0] ?? 0;
                         root.windowByIdChanged();
                     }
                 }
@@ -112,7 +114,7 @@ Singleton {
                     title: window.title,
                     appId: window.app_id,
                     workspaceId: window.workspace_id,
-                    order: window.layout.pos_in_scrolling_layout[0]
+                    order: window.layout?.pos_in_scrolling_layout?.[0] ?? 0
                 };
             }
 
@@ -131,11 +133,26 @@ Singleton {
         connected: true
 
         onConnectionStateChanged: {
-            if (connected)
+            if (connected) {
                 console.info(`Niri: Connected to actions socket: ${root.socketPath}`);
-            else
-                console.error(`Niri: Disconnected from actions socket: ${root.socketPath}`);
+                actionsReconnectTimer.stop();
+            } else {
+                console.warn(`Niri: Disconnected from actions socket: ${root.socketPath}`);
+                actionsReconnectTimer.start();
+            }
         }
+    }
+
+    Timer {
+        id: ecentsReconnectTimer
+        interval: 1000
+        onTriggered: eventsSocket.connected = true
+    }
+
+    Timer {
+        id: actionsReconnectTimer
+        interval: 1000
+        onTriggered: actionsSocket.connected = true
     }
 
     function windowsByScreen(screenName: string): list<var> {
