@@ -52,6 +52,7 @@ Variants {
                 alignItems: FlexboxLayout.AlignCenter
 
                 NetworkWidget {}
+                BluetoothWidget {}
                 MicrophoneWidget {}
                 VolumeWidget {}
                 BrightnessWidget {}

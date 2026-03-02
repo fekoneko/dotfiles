@@ -36,7 +36,7 @@ Repeater {
         Connections {
             target: DesktopEntries.applications
 
-            function onValuesChanged() {
+            function onValuesChanged(): void {
                 barButton.desktopEntry = DesktopEntries.byId(barButton.modelData.appId);
             }
         }

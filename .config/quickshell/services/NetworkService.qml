@@ -40,7 +40,7 @@ Singleton {
         }
 
         stdout: SplitParser {
-            onRead: line => Qt.callLater(() => refreshProcess.running = true)
+            onRead: refreshTimer.restart()
         }
     }
 
@@ -103,6 +103,12 @@ Singleton {
             refreshProcess.running = true;
             monitorProcess.running = true;
         }
+    }
+
+    Timer {
+        id: refreshTimer
+        interval: 200
+        onTriggered: refreshProcess.running = true
     }
 
     function connect(connectionId: string): void {

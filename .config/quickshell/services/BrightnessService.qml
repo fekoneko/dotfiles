@@ -28,7 +28,7 @@ Singleton {
         command: ["udevadm", "monitor", "--udev", "--subsystem-match", "backlight"]
 
         stdout: SplitParser {
-            onRead: Qt.callLater(() => refreshProcess.running = true)
+            onRead: refreshProcess.running = true
         }
 
         onStarted: {
