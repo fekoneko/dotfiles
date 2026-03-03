@@ -53,6 +53,7 @@ Variants {
                 justifyContent: FlexboxLayout.JustifyEnd
                 alignItems: FlexboxLayout.AlignCenter
 
+                AnkiWidget {}
                 NetworkWidget {}
                 BluetoothWidget {}
                 MicrophoneWidget {}

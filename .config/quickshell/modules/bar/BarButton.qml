@@ -13,6 +13,8 @@ Rectangle {
     property string icon
     property alias iconSize: iconImage.implicitSize
     property alias text: textItem.text
+    property color fgColor: BarTheme.fgColor
+    property real fgOpacity: BarTheme.fgPrimaryOpacity
 
     signal mainAction
     signal secondaryAction
@@ -65,15 +67,15 @@ Rectangle {
             id: iconImage
             enabled: !!root.icon
             source: root.icon
-            opacity: BarTheme.fgPrimaryOpacity
+            opacity: root.fgOpacity
             implicitSize: root.icon ? 12 : 0
         }
 
         Text {
             id: textItem
             enabled: !!root.text
-            color: BarTheme.fgColor
-            opacity: BarTheme.fgPrimaryOpacity
+            color: root.fgColor
+            opacity: root.fgOpacity
             font.pixelSize: BarTheme.fontSize
             font.weight: Font.Bold
         }
