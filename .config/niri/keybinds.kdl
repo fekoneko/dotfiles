@@ -104,15 +104,12 @@ binds {
     Mod+B                          { spawn "kitty" "-e" "bluetui"                                         ; }
     Mod+N                          { spawn "kitty" "-e" "nmtui"                                           ; }
 
-    ///// Bar and things in bar /////
+    ///// Shell /////
 
-    Mod+P                          { spawn "killall" "-USR1" "waybar"                                     ; }
+    // TODO: use quickshell IPC for these
     Mod+X                          { spawn "makoctl" "dismiss" "--all"                                    ; }
-    Mod+Shift+X                    { spawn "~/Scripts/toggle-dnd.sh"                                      ; }
-    Mod+Comma                      { spawn "~/Scripts/toggle-mute.sh"                                     ; }
-
-    ///// Launcher /////
-
+    Mod+Shift+X                    { spawn "makoctl" "mode" "-t" "do-not-disturb"                         ; }
+    Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"           ; }
     Mod+Tab                        { spawn "walker"                                                       ; }
     Mod+V                          { spawn "walker" "--provider" "clipboard"                              ; }
     Mod+Period                     { spawn "walker" "--provider" "symbols"                                ; }
@@ -181,7 +178,7 @@ binds {
     ///// An escape hatch if some application steals control from Niri /////
     Mod+Shift+Escape               allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit             ; }
 
-    ///// Why whould I need a copilot button? /////
+    ///// Microsoft yells when I press the Copilot button /////
     // `leftmeta+leftshift+f23 = finance` is remapped using keyd so that this works
     XF86Finance                    { spawn "~/Scripts/microsoft-yell.sh"                                  ; }
 }

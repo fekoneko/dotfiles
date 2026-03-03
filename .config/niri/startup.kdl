@@ -13,16 +13,15 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-name" "sans-serif 10"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "sans-serif 10"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "monospace 10"
-// gconftool --set /apps/metacity/general/titlebar_font 'sans-serif 10' --type STRING
 
 ///// Wallpaper /////
 spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
 
-///// Bar /////
-spawn-at-startup "waybar"
+///// Shell /////
+spawn-at-startup "quickshell"
 
 ///// Input method /////
-spawn-at-startup "fcitx5 -d"
+spawn-at-startup "fcitx5"
 
 ///// Persistent clipboard /////
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
