@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Print random word from Anki database
+# Usage: random-anki-word.py
 
 from os import getenv
 from re import sub

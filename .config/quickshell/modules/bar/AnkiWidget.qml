@@ -6,8 +6,8 @@ import qs.themes
 BarButton {
     text: AnkiService.randomWord
     fgOpacity: BarTheme.fgTertiaryOpacity
-    onMainAction: AnkiService.refreshRandomWord()
-    onSecondaryAction: process.startDetached()
+    onMainAction: AnkiService.showBrowser(AnkiService.randomWord)
+    onSecondaryAction: AnkiService.refreshRandomWord()
 
     Process {
         id: process

@@ -11,7 +11,7 @@ Singleton {
 
     Process {
         id: randomWordProcess
-        command: ["sh", "-c", Quickshell.shellPath("assets/scripts/random-anki-word.py")]
+        command: [Quickshell.shellPath("assets/scripts/random-anki-word.py")]
         running: true
 
         stdout: SplitParser {
@@ -22,6 +22,10 @@ Singleton {
             if (exitCode !== 0)
                 console.warn(`Anki: random-anki-word.py exited with code ${exitCode}`);
         }
+    }
+
+    Process {
+        id: actionProcess
     }
 
     Timer {
@@ -35,5 +39,10 @@ Singleton {
     function refreshRandomWord(): void {
         randomWordProcess.running = true;
         randomWordTimer.restart();
+    }
+
+    function showBrowser(query: string): void {
+        actionProcess.command = [Quickshell.shellPath("assets/scripts/show-anki-browser.sh"), query];
+        actionProcess.startDetached();
     }
 }
