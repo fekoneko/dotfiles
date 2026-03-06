@@ -12,7 +12,7 @@ Singleton {
     readonly property color bgColor: "#ffffff"
 
     readonly property real fgPrimaryOpacity: 0.8
-    readonly property real fgTertiaryOpacity: 0.6
+    readonly property real fgSecondaryOpacity: 0.6
     readonly property real bgHoverOpacity: 0.1
     readonly property real bgPressedOpacity: 0.2
     readonly property real bgActiveOpacity: 0.1

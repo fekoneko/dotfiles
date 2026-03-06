@@ -12,7 +12,7 @@ Singleton {
 
     readonly property string volumeIcon: {
         let icon;
-        if (!volume) {
+        if (muted) {
             icon = "assets/icons/volume-muted.svg";
         } else if (volume <= 100 / 3) {
             icon = "assets/icons/volume-low.svg";

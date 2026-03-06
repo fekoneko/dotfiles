@@ -5,7 +5,7 @@ import qs.themes
 
 BarButton {
     text: AnkiService.randomWord
-    fgOpacity: BarTheme.fgTertiaryOpacity
+    fgOpacity: BarTheme.fgSecondaryOpacity
     onMainAction: AnkiService.showBrowser(AnkiService.randomWord)
     onSecondaryAction: AnkiService.refreshRandomWord()
 
