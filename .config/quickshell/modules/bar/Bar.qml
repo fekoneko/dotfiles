@@ -1,8 +1,8 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import qs.themes
 import qs.services
+import qs.themes
 
 Variants {
     model: Quickshell.screens
@@ -12,14 +12,21 @@ Variants {
         screen: modelData
         color: "transparent"
         implicitHeight: BarTheme.height
-        margins.top: IpcService.barCollapsed && !hoverHandler.hovered ? -implicitHeight + 5 : 0 // qmllint disable
-
-        required property ShellScreen modelData
+        margins.top: isCollapsed ? 5 - implicitHeight : 0 // qmllint disable
 
         anchors {
             top: true
             left: true
             right: true
+        }
+
+        required property ShellScreen modelData
+
+        readonly property bool isCollapsed: {
+            const isCollapsed = IpcService.barCollapsed;
+            const isHovered = hoverHandler.hovered;
+            const hasActiveWindow = !!NiriService.activeWindowByScreen(modelData.name);
+            return isCollapsed && !isHovered && hasActiveWindow;
         }
 
         Loader {
@@ -66,9 +73,7 @@ Variants {
             }
         }
 
-        FloatingClock {
-            visible: !loader.active
-        }
+        FloatingClock {}
 
         HoverHandler {
             id: hoverHandler
@@ -79,7 +84,7 @@ Variants {
                 duration: BarTheme.animationDuration
 
                 onRunningChanged: {
-                    if (barWindow.margins.top !== 0) // qmllint disable unqualified
+                    if (margins.top < 0) // qmllint disable
                         loader.active = running; // qmllint disable unqualified
                 }
             }
