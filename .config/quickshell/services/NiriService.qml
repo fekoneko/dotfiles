@@ -22,10 +22,10 @@ Singleton {
             if (connected) {
                 console.info(`Niri: Connected to events socket: ${root.socketPath}`);
                 root.send(eventsSocket, "EventStream");
-                ecentsReconnectTimer.stop();
+                eventsReconnectTimer.stop();
             } else {
                 console.warn(`Niri: Disconnected from events socket: ${root.socketPath}`);
-                ecentsReconnectTimer.start();
+                eventsReconnectTimer.start();
             }
         }
 
@@ -33,96 +33,96 @@ Singleton {
             onRead: line => {
                 try {
                     const event = JSON.parse(line);
-                    eventsSocket.handleEvent(event);
+                    handleEvent(event);
                 } catch (error) {
                     console.warn(`Niri: Failed to parse event: ${line}: ${error}`);
                 }
             }
-        }
 
-        function handleEvent(event: var): void {
-            const eventType = Object.keys(event)[0];
-            event = event[eventType];
+            function handleEvent(event: var): void {
+                const eventType = Object.keys(event)[0];
+                event = event[eventType];
 
-            switch (eventType) {
-            // Reports all initial windows
-            case "WindowsChanged":
-                root.windowById = new Map();
-                for (const window of event.windows) {
-                    root.windowById.set(window.id, trackedWindowFields(window));
-                    root.windowByIdChanged();
-                }
-                break;
-
-            // Window was opened or changed
-            case "WindowOpenedOrChanged":
-                root.windowById.set(event.window.id, trackedWindowFields(event.window));
-                root.windowByIdChanged();
-                break;
-
-            // Windows were rearranged
-            case "WindowLayoutsChanged":
-                for (const [windowId, layout] of event.changes) {
-                    const window = root.windowById.get(windowId);
-                    if (window) {
-                        window.order = layout?.pos_in_scrolling_layout?.[0] ?? 0;
+                switch (eventType) {
+                // Reports all initial windows
+                case "WindowsChanged":
+                    root.windowById = new Map();
+                    for (const window of event.windows) {
+                        root.windowById.set(window.id, trackedWindowFields(window));
                         root.windowByIdChanged();
                     }
-                }
-                break;
+                    break;
 
-            // Window was closed
-            case "WindowClosed":
-                root.windowById.delete(event.id);
-                root.windowByIdChanged();
-                break;
+                // Window was opened or changed
+                case "WindowOpenedOrChanged":
+                    root.windowById.set(event.window.id, trackedWindowFields(event.window));
+                    root.windowByIdChanged();
+                    break;
 
-            // Reports all initial workspaces
-            case "WorkspacesChanged":
-                root.workspaceById = new Map();
-                for (const workspace of event.workspaces) {
-                    root.workspaceById.set(workspace.id, trackedWorkspaceFields(workspace));
-                    root.workspaceByIdChanged();
-
-                    root.activeWindowIdByWorkspaceId.set(workspace.id, workspace.active_window_id);
-                    root.activeWindowIdByWorkspaceIdChanged();
-
-                    if (workspace.is_active) {
-                        root.activeWorkspaceIdByScreen.set(workspace.output, workspace.id);
-                        root.activeWorkspaceIdByScreenChanged();
+                // Windows were rearranged
+                case "WindowLayoutsChanged":
+                    for (const [windowId, layout] of event.changes) {
+                        const window = root.windowById.get(windowId);
+                        if (window) {
+                            window.order = layout?.pos_in_scrolling_layout?.[0] ?? 0;
+                            root.windowByIdChanged();
+                        }
                     }
+                    break;
+
+                // Window was closed
+                case "WindowClosed":
+                    root.windowById.delete(event.id);
+                    root.windowByIdChanged();
+                    break;
+
+                // Reports all initial workspaces
+                case "WorkspacesChanged":
+                    root.workspaceById = new Map();
+                    for (const workspace of event.workspaces) {
+                        root.workspaceById.set(workspace.id, trackedWorkspaceFields(workspace));
+                        root.workspaceByIdChanged();
+
+                        root.activeWindowIdByWorkspaceId.set(workspace.id, workspace.active_window_id);
+                        root.activeWindowIdByWorkspaceIdChanged();
+
+                        if (workspace.is_active) {
+                            root.activeWorkspaceIdByScreen.set(workspace.output, workspace.id);
+                            root.activeWorkspaceIdByScreenChanged();
+                        }
+                    }
+                    break;
+
+                // Window was focused in a workspace
+                case "WorkspaceActiveWindowChanged":
+                    root.activeWindowIdByWorkspaceId.set(event.workspace_id, event.active_window_id);
+                    root.activeWindowIdByWorkspaceIdChanged();
+                    break;
+
+                // User switched to a workspace and it's now active on a screen
+                case "WorkspaceActivated":
+                    const output = root.workspaceById.get(event.id)?.screenName;
+                    root.activeWorkspaceIdByScreen.set(output, event.id);
+                    root.activeWorkspaceIdByScreenChanged();
+                    break;
                 }
-                break;
 
-            // Window was focused in a workspace
-            case "WorkspaceActiveWindowChanged":
-                root.activeWindowIdByWorkspaceId.set(event.workspace_id, event.active_window_id);
-                root.activeWindowIdByWorkspaceIdChanged();
-                break;
+                function trackedWindowFields(window: var): var {
+                    return {
+                        id: window.id,
+                        title: window.title,
+                        appId: window.app_id,
+                        workspaceId: window.workspace_id,
+                        order: window.layout?.pos_in_scrolling_layout?.[0] ?? 0
+                    };
+                }
 
-            // User switched to a workspace and it's now active on a screen
-            case "WorkspaceActivated":
-                const output = root.workspaceById.get(event.id)?.screenName;
-                root.activeWorkspaceIdByScreen.set(output, event.id);
-                root.activeWorkspaceIdByScreenChanged();
-                break;
-            }
-
-            function trackedWindowFields(window: var): var {
-                return {
-                    id: window.id,
-                    title: window.title,
-                    appId: window.app_id,
-                    workspaceId: window.workspace_id,
-                    order: window.layout?.pos_in_scrolling_layout?.[0] ?? 0
-                };
-            }
-
-            function trackedWorkspaceFields(workspace: var): var {
-                return {
-                    id: workspace.id,
-                    screenName: workspace.output
-                };
+                function trackedWorkspaceFields(workspace: var): var {
+                    return {
+                        id: workspace.id,
+                        screenName: workspace.output
+                    };
+                }
             }
         }
     }
@@ -144,7 +144,7 @@ Singleton {
     }
 
     Timer {
-        id: ecentsReconnectTimer
+        id: eventsReconnectTimer
         interval: 1000
         onTriggered: eventsSocket.connected = true
     }

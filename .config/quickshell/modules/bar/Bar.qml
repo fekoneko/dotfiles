@@ -1,7 +1,8 @@
 import Quickshell
-import Quickshell.Widgets
+import QtQuick
 import QtQuick.Layouts
 import qs.themes
+import qs.services
 
 Variants {
     model: Quickshell.screens
@@ -11,6 +12,7 @@ Variants {
         screen: modelData
         color: "transparent"
         implicitHeight: BarTheme.height
+        margins.top: IpcService.barCollapsed && !hoverHandler.hovered ? -implicitHeight + 5 : 0 // qmllint disable
 
         required property ShellScreen modelData
 
@@ -20,46 +22,62 @@ Variants {
             right: true
         }
 
-        MarginWrapperManager {
-            leftMargin: 1
-            rightMargin: 1
+        Loader {
+            id: loader
+            anchors.fill: parent
+
+            sourceComponent: RowLayout {
+                uniformCellSizes: true
+                height: BarTheme.height
+
+                FlexboxLayout {
+                    Layout.fillWidth: true
+                    justifyContent: FlexboxLayout.JustifyStart
+                    alignItems: FlexboxLayout.AlignCenter
+
+                    BatteryWidget {}
+                    CpuWidget {}
+                    MemoryWidget {}
+                    TaskbarWidget {}
+                    TrayWidget {}
+                }
+
+                FlexboxLayout {
+                    Layout.fillWidth: true
+                    justifyContent: FlexboxLayout.JustifyCenter
+                    alignItems: FlexboxLayout.AlignCenter
+
+                    WindowTitleWidget {}
+                }
+
+                FlexboxLayout {
+                    Layout.fillWidth: true
+                    justifyContent: FlexboxLayout.JustifyEnd
+                    alignItems: FlexboxLayout.AlignCenter
+
+                    AnkiWidget {}
+                    NetworkWidget {}
+                    BluetoothWidget {}
+                    MicrophoneWidget {}
+                    VolumeWidget {}
+                    BrightnessWidget {}
+                    ClockWidget {}
+                }
+            }
         }
 
-        RowLayout {
-            uniformCellSizes: true
+        HoverHandler {
+            id: hoverHandler
+        }
 
-            FlexboxLayout {
-                Layout.fillWidth: true
-                justifyContent: FlexboxLayout.JustifyStart
-                alignItems: FlexboxLayout.AlignCenter
+        Behavior on margins.top {
+            NumberAnimation {
+                duration: BarTheme.animationDuration
 
-                BatteryWidget {}
-                CpuWidget {}
-                MemoryWidget {}
-                TaskbarWidget {}
-                TrayWidget {}
-            }
-
-            FlexboxLayout {
-                Layout.fillWidth: true
-                justifyContent: FlexboxLayout.JustifyCenter
-                alignItems: FlexboxLayout.AlignCenter
-
-                WindowTitleWidget {}
-            }
-
-            FlexboxLayout {
-                Layout.fillWidth: true
-                justifyContent: FlexboxLayout.JustifyEnd
-                alignItems: FlexboxLayout.AlignCenter
-
-                AnkiWidget {}
-                NetworkWidget {}
-                BluetoothWidget {}
-                MicrophoneWidget {}
-                VolumeWidget {}
-                BrightnessWidget {}
-                ClockWidget {}
+                onRunningChanged: {
+                    if (barWindow.margins.top !== 0) // qmllint disable unqualified
+                        loader.active = running; // qmllint disable unqualified
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ grim -g "$area" screen-ocr.png || exit 1
 
 tesseract screen-ocr.png screen-ocr -l "${language:-eng}"; status=$?
 
-if [[ $language == "jpn" ]] || [[ $language == "jpn_vert" ]]
+if [[ $language == "jpn" || $language == "jpn_vert" ]]
   then sed 's/ //g' screen-ocr.txt | wl-copy
   else wl-copy < screen-ocr.txt
 fi

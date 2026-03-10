@@ -17,5 +17,5 @@ Singleton {
     readonly property real bgPressedOpacity: 0.2
     readonly property real bgActiveOpacity: 0.1
 
-    readonly property real animationFast: 100
+    readonly property real animationDuration: 100
 }

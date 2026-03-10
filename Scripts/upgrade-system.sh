@@ -37,7 +37,7 @@ esac
 echo $'\nPlease check the news, could anything break?'
 nohup zen-browser --new-tab https://archlinux.org/news/ &> /dev/null
 read -rep 'Proceed? [Y/n] ' choice
-case "$choice" in y|Y|'') ;; *) exit 1;; esac
+case "$choice" in y|Y|'') ;; *) exit 1 ;; esac
 
 command='paru -Syu --disable-download-timeout'
 log_command 'Updating system packages' "$command"
@@ -47,8 +47,8 @@ command='flatpak update'
 log_command 'Updating flatpak packages' "$command"
 eval "$command" || flatpak_error
 
-command='flatpak remove --unused'
-log_command 'Removing unused flatpak packages' "$command"
+command='flatpak uninstall --unused'
+log_command 'Uninstalling unused flatpak packages' "$command"
 eval "$command" || flatpak_unused_error
 
 command='sudo npm update -g'

@@ -52,7 +52,7 @@ Rectangle {
 
         Behavior on opacity {
             NumberAnimation {
-                duration: BarTheme.animationFast
+                duration: BarTheme.animationDuration
             }
         }
     }

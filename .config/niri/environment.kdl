@@ -15,4 +15,7 @@ environment {
     // GTK_THEME "Adwaita:dark";                                  // Force GTK4 dark theme if needed
     // XCURSOR_PATH "$XCURSOR_PATH:$HOME/.local/share/icons";     // Breaks cursor in GTK3 apps
     // SAL_USE_VCLPLUGIN "gtk4";                                  // Use GTK4 for LibreOffice (broken)
+
+    ///// Shell IPC /////
+    QUICKSHELL_SOCKET "/run/user/1000/quickshell.sock";
 }
