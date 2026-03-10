@@ -7,8 +7,8 @@ import qs.themes
 PanelWindow { // qmllint disable uncreatable-type
     id: root
     color: "transparent"
-    implicitWidth: floatingClockText.contentWidth + 26
-    implicitHeight: floatingClockText.contentHeight + 20
+    implicitWidth: text.contentWidth + 26
+    implicitHeight: text.contentHeight + 20
     margins.right: 5 // qmllint disable
 
     anchors {
@@ -19,6 +19,7 @@ PanelWindow { // qmllint disable uncreatable-type
     mask: Region {}
 
     Rectangle {
+        id: inner
         color: "transparent"
         anchors.fill: parent
         anchors.margins: 8
@@ -42,7 +43,7 @@ PanelWindow { // qmllint disable uncreatable-type
         }
 
         Text {
-            id: floatingClockText
+            id: text
             anchors.fill: parent
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
@@ -58,7 +59,7 @@ PanelWindow { // qmllint disable uncreatable-type
                 duration: BarTheme.animationDuration
 
                 onRunningChanged: {
-                    if (opacity === 0) // qmllint disable unqualified
+                    if (inner.opacity === 0)
                         root.visible = running;
                 }
             }

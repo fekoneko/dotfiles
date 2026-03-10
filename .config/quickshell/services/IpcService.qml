@@ -11,7 +11,7 @@ Singleton {
     readonly property string socketPath: {
         return Quickshell.env("QUICKSHELL_SOCKET") || (Quickshell.env("XDG_RUNTIME_DIR") + "/quickshell.sock");
     }
-    property bool barCollapsed: false
+    property bool barCollapsed: true
 
     SocketServer {
         active: true
