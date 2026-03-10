@@ -66,6 +66,10 @@ Variants {
             }
         }
 
+        FloatingClock {
+            visible: !loader.active
+        }
+
         HoverHandler {
             id: hoverHandler
         }
