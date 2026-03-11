@@ -3,63 +3,54 @@ import QtQuick
 import QtQuick.Layouts
 import qs.themes
 
-Scope {
-    id: root
+PanelWindow { // qmllint disable uncreatable-type
+    id: floatingBarWindow
+    implicitHeight: FloatingBarTheme.height + 16
+    color: "transparent"
 
-    property alias screen: floatingBarWindow.screen
-    property bool collapsed: false
+    exclusionMode: ExclusionMode.Normal
+    exclusiveZone: 0
+    mask: Region {}
 
-    PanelWindow { // qmllint disable uncreatable-type
-        id: floatingBarWindow
-        implicitHeight: FloatingBarTheme.height + 16
-        color: "transparent"
+    anchors {
+        top: true
+        left: true
+        right: true
+    }
 
-        exclusionMode: ExclusionMode.Normal
-        exclusiveZone: 0
-        mask: Region {}
+    margins { // qmllint disable unqualified unresolved-type
+        top: 2  // qmllint disable missing-property
+        left: 6  // qmllint disable missing-property
+        right: 6  // qmllint disable missing-property
+    }
 
-        anchors {
-            top: true
-            left: true
-            right: true
-        }
+    Loader {
+        id: loader
+        anchors.fill: parent
+        opacity: !barWindow.collapsed ? 0 : 1 // qmllint disable unqualified
 
-        margins { // qmllint disable unqualified unresolved-type
-            top: 1  // qmllint disable missing-property
-            left: 5  // qmllint disable missing-property
-            right: 5  // qmllint disable missing-property
-        }
-
-        Loader {
-            id: loader
+        sourceComponent: FlexboxLayout {
             anchors.fill: parent
             anchors.margins: 8
-            opacity: root.collapsed ? 0 : 1
+            justifyContent: FlexboxLayout.JustifyEnd
+            alignItems: FlexboxLayout.AlignCenter
+            gap: 6
 
-            sourceComponent: FlexboxLayout {
-                anchors.fill: parent
-                justifyContent: FlexboxLayout.JustifyEnd
-                alignItems: FlexboxLayout.AlignCenter
-                gap: 6
+            FloatingNetworkWidget {}
+            FloatingBluetoothWidget {}
+            FloatingMicrophoneWidget {}
+            FloatingVolumeWidget {}
+            FloatingBrightnessWidget {}
+            FloatingClockWidget {}
+        }
 
-                FloatingNetworkWidget {}
-                FloatingBluetoothWidget {}
-                FloatingMicrophoneWidget {}
-                FloatingVolumeWidget {}
-                FloatingBrightnessWidget {}
-                FloatingClockWidget {}
-            }
+        Behavior on opacity {
+            NumberAnimation {
+                duration: FloatingBarTheme.animationDuration
 
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: FloatingBarTheme.animationDuration
-
-                    onRunningChanged: {
-                        if (loader.opacity === 0) {
-                            loader.active = running;
-                            floatingBarWindow.visible = running;
-                        }
-                    }
+                onRunningChanged: {
+                    if (loader.opacity === 0)
+                        loader.active = running;
                 }
             }
         }

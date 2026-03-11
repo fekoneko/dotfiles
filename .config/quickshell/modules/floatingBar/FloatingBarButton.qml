@@ -26,12 +26,11 @@ Loader {
         implicitWidth: {
             const contentWidth = iconImage.implicitSize + textItem.contentWidth;
             const gap = iconImage.implicitSize && loader.text ? 5 : 0;
-            const paddings = 10;
+            const paddings = 14;
             return contentWidth + gap + paddings;
         }
         implicitHeight: FloatingBarTheme.height
         color: "transparent"
-        opacity: FloatingBarTheme.bgOpacity
 
         RectangularShadow {
             anchors.fill: parent
@@ -46,13 +45,13 @@ Loader {
             color: FloatingBarTheme.bgColor
             opacity: FloatingBarTheme.bgOpacity
             border.color: FloatingBarTheme.bdColor
-            border.width: 1
+            border.width: 1.5
             radius: 4
         }
 
         FlexboxLayout {
             anchors.fill: parent
-            anchors.leftMargin: 5
+            anchors.leftMargin: 7
             alignItems: FlexboxLayout.AlignCenter
             gap: 5
 

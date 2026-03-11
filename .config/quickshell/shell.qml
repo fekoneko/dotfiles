@@ -15,8 +15,8 @@ Variants {
         }
 
         FloatingBar {
+            id: floatingBarWindow
             screen: barScope.modelData
-            collapsed: !barWindow.collapsed
         }
     }
 }
