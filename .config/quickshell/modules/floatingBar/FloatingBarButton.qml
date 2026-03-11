@@ -79,8 +79,15 @@ Loader {
 
     Timer {
         id: showTimer
-        interval: 1000
+        interval: blockShowTimer.running ? 0 : 1000
         onRunningChanged: loader.opacity = running ? 1 : 0
+    }
+
+    Timer {
+        // Block showing right after component creation even if change events are emitted
+        id: blockShowTimer
+        interval: 100
+        running: true
     }
 
     Behavior on opacity {

@@ -1,4 +1,3 @@
-import Quickshell.Io
 import QtQuick
 import qs.services
 
@@ -6,18 +5,12 @@ Repeater {
     // Use index as a key to avoid needlessly recreating components
     model: NetworkService.connections.map((_, index) => index)
 
-    BarButton {
+    FloatingBarButton {
         id: barButton
         icon: connection.icon
-        onMainAction: NetworkService.toggleConnection(connection)
-        onSecondaryAction: process.startDetached()
+        showOnChange: true
 
         required property var modelData
         property var connection: NetworkService.connections[modelData]
-
-        Process {
-            id: process
-            command: ["kitty", "-e", "nmtui"]
-        }
     }
 }

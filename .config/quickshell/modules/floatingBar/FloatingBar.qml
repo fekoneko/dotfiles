@@ -42,6 +42,9 @@ Scope {
                 alignItems: FlexboxLayout.AlignCenter
                 gap: 6
 
+                FloatingNetworkWidget {}
+                FloatingBluetoothWidget {}
+                FloatingMicrophoneWidget {}
                 FloatingVolumeWidget {}
                 FloatingBrightnessWidget {}
                 FloatingClockWidget {}
