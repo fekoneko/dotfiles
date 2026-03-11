@@ -64,12 +64,13 @@ Rectangle {
 
     FlexboxLayout {
         anchors.fill: parent
-        anchors.leftMargin: root.icon ? 7 : 2
+        anchors.leftMargin: 7
         alignItems: FlexboxLayout.AlignCenter
         gap: 5
 
         IconImage {
             id: iconImage
+            visible: !!root.icon
             source: root.icon
             opacity: root.fgOpacity
             implicitSize: root.icon ? 12 : 0
@@ -77,6 +78,7 @@ Rectangle {
 
         Text {
             id: textItem
+            visible: !!root.text
             textFormat: Text.PlainText
             color: root.fgColor
             opacity: root.fgOpacity

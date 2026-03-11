@@ -10,6 +10,7 @@ Loader {
     id: loader
     opacity: showOnChange ? 0 : 1
     active: !showOnChange
+    visible: active
 
     property bool showOnChange: false
     property string icon
@@ -51,12 +52,13 @@ Loader {
 
         FlexboxLayout {
             anchors.fill: parent
-            anchors.leftMargin: loader.icon ? 5 : 0
+            anchors.leftMargin: 5
             alignItems: FlexboxLayout.AlignCenter
             gap: 5
 
             IconImage {
                 id: iconImage
+                visible: !!loader.icon
                 implicitSize: loader.iconSize
                 source: loader.icon
                 opacity: loader.fgOpacity
@@ -64,6 +66,7 @@ Loader {
 
             Text {
                 id: textItem
+                visible: !!loader.text
                 text: loader.text
                 textFormat: Text.PlainText
                 color: loader.fgColor
