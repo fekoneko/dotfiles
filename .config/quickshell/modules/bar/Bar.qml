@@ -1,32 +1,31 @@
+pragma ComponentBehavior: Bound
+
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.services
 import qs.themes
 
-Variants {
-    model: Quickshell.screens
+Scope {
+    property alias screen: barWindow.screen
+
+    readonly property bool collapsed: {
+        const collapsed = IpcService.barCollapsed;
+        const hovered = hoverHandler.hovered;
+        const hasActiveWindow = !!NiriService.activeWindowByScreen(screen.name);
+        return collapsed && !hovered && hasActiveWindow;
+    }
 
     PanelWindow { // qmllint disable uncreatable-type
         id: barWindow
-        screen: modelData
         implicitHeight: BarTheme.height
-        margins.top: isCollapsed ? 5 - implicitHeight : 0 // qmllint disable
+        margins.top: collapsed ? 5 - implicitHeight : 0 // qmllint disable
         color: "transparent"
 
         anchors {
             top: true
             left: true
             right: true
-        }
-
-        required property ShellScreen modelData
-
-        readonly property bool isCollapsed: {
-            const isCollapsed = IpcService.barCollapsed;
-            const isHovered = hoverHandler.hovered;
-            const hasActiveWindow = !!NiriService.activeWindowByScreen(modelData.name);
-            return isCollapsed && !isHovered && hasActiveWindow;
         }
 
         Loader {
@@ -73,8 +72,6 @@ Variants {
             }
         }
 
-        FloatingClock {}
-
         HoverHandler {
             id: hoverHandler
         }
@@ -84,7 +81,7 @@ Variants {
                 duration: BarTheme.animationDuration
 
                 onRunningChanged: {
-                    if (margins.top < 0) // qmllint disable
+                    if (barWindow.margins.top < 0) // qmllint disable unqualified
                         loader.active = running; // qmllint disable unqualified
                 }
             }

@@ -5,9 +5,14 @@ import qs.themes
 
 Rectangle {
     id: root
-    color: "transparent"
-    implicitWidth: iconImage.implicitSize + textItem.contentWidth + 14 + (iconImage.implicitSize && text ? 5 : 0)
+    implicitWidth: {
+        const contentWidth = iconImage.implicitSize + textItem.contentWidth;
+        const gap = iconImage.implicitSize && text ? 5 : 0;
+        const paddings = 14;
+        return contentWidth + gap + paddings;
+    }
     implicitHeight: BarTheme.height
+    color: "transparent"
 
     property bool active: false
     property string icon
@@ -65,7 +70,6 @@ Rectangle {
 
         IconImage {
             id: iconImage
-            enabled: !!root.icon
             source: root.icon
             opacity: root.fgOpacity
             implicitSize: root.icon ? 12 : 0
@@ -73,7 +77,6 @@ Rectangle {
 
         Text {
             id: textItem
-            enabled: !!root.text
             textFormat: Text.PlainText
             color: root.fgColor
             opacity: root.fgOpacity
