@@ -10,9 +10,9 @@ Variants {
     PanelWindow { // qmllint disable uncreatable-type
         id: barWindow
         screen: modelData
-        color: "transparent"
         implicitHeight: BarTheme.height
         margins.top: isCollapsed ? 5 - implicitHeight : 0 // qmllint disable
+        color: "transparent"
 
         anchors {
             top: true

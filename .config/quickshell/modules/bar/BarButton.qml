@@ -74,6 +74,7 @@ Rectangle {
         Text {
             id: textItem
             enabled: !!root.text
+            textFormat: Text.PlainText
             color: root.fgColor
             opacity: root.fgOpacity
             font.pixelSize: BarTheme.fontSize

@@ -6,10 +6,11 @@ import qs.themes
 
 PanelWindow { // qmllint disable uncreatable-type
     id: root
-    color: "transparent"
+    screen: barWindow.screen // qmllint disable unqualified
     implicitWidth: text.contentWidth + 26
     implicitHeight: text.contentHeight + 20
     margins.right: 5 // qmllint disable
+    color: "transparent"
 
     anchors {
         top: true
@@ -48,6 +49,7 @@ PanelWindow { // qmllint disable uncreatable-type
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             text: TimeService.formattedTime
+            textFormat: Text.PlainText
             color: BarTheme.floatingFgColor
             opacity: BarTheme.floatingFgOpacity
             font.pixelSize: BarTheme.fontSize

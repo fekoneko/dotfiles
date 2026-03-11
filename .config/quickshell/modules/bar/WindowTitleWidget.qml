@@ -11,6 +11,7 @@ Rectangle {
         anchors.centerIn: parent
         horizontalAlignment: Text.AlignHCenter
         text: NiriService.activeWindowByScreen(barWindow.screen.name)?.title ?? "" // qmllint disable unqualified
+        textFormat: Text.PlainText
         color: BarTheme.fgColor
         opacity: BarTheme.fgSecondaryOpacity
         font.pixelSize: BarTheme.fontSize
