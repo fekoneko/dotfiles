@@ -106,7 +106,7 @@ binds {
 
     ///// Shell /////
 
-    Mod+P                          { spawn "~/Scripts/shell-ipc.sh" "toggle_bar"                          ; }
+    Mod+P                          { spawn "quickshell" "ipc" "call" "bar" "toggle"                       ; }
     Mod+X                          { spawn "makoctl" "dismiss" "--all"                                    ; }
     Mod+Shift+X                    { spawn "makoctl" "mode" "-t" "do-not-disturb"                         ; }
     Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"           ; }
