@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import qs.services
+import qs.themes
 
 Repeater {
     id: root
@@ -19,7 +20,7 @@ Repeater {
     BarButton {
         id: barButton
         active: modelData.id === root.activeWindowId
-        iconSize: 15
+        iconSize: BarTheme.taskbarIconSize
         onMainAction: NiriService.focusWindow(modelData.id)
         onSecondaryAction: NiriService.focusWindow(modelData.id)
 

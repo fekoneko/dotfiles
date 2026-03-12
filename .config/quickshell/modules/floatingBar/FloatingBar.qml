@@ -10,7 +10,9 @@ PanelWindow { // qmllint disable uncreatable-type
 
     exclusionMode: ExclusionMode.Normal
     exclusiveZone: 0
-    mask: Region {}
+    mask: Region {
+        item: notificationsWidget
+    }
 
     anchors {
         top: true
@@ -22,6 +24,18 @@ PanelWindow { // qmllint disable uncreatable-type
         top: 2  // qmllint disable missing-property
         left: 6  // qmllint disable missing-property
         right: 6  // qmllint disable missing-property
+    }
+
+    FlexboxLayout {
+        anchors.fill: parent
+        anchors.margins: 8
+        justifyContent: FlexboxLayout.JustifyStart
+        alignItems: FlexboxLayout.AlignCenter
+        gap: 6
+
+        FloatingNotificationsWidget {
+            id: notificationsWidget
+        }
     }
 
     Loader {

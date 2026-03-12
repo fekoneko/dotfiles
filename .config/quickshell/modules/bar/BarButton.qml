@@ -6,8 +6,8 @@ import qs.themes
 Rectangle {
     id: root
     implicitWidth: {
-        const contentWidth = iconImage.implicitSize + textItem.contentWidth;
-        const gap = iconImage.implicitSize && text ? 5 : 0;
+        let contentWidth = (icon ? iconImage.implicitSize : 0) + (text ? textItem.contentWidth : 0);
+        const gap = icon && text ? 5 : 0;
         const paddings = 14;
         return contentWidth + gap + paddings;
     }
@@ -20,6 +20,7 @@ Rectangle {
     property alias text: textItem.text
     property color fgColor: BarTheme.fgColor
     property real fgOpacity: BarTheme.fgPrimaryOpacity
+    property alias maxTextWidth: textWrapper.implicitWidth
 
     signal mainAction
     signal secondaryAction
@@ -73,17 +74,27 @@ Rectangle {
             visible: !!root.icon
             source: root.icon
             opacity: root.fgOpacity
-            implicitSize: root.icon ? 12 : 0
+            implicitSize: root.icon ? BarTheme.iconSize : 0
         }
 
-        Text {
-            id: textItem
+        Rectangle {
+            id: textWrapper
+            implicitWidth: 150
             visible: !!root.text
-            textFormat: Text.PlainText
-            color: root.fgColor
-            opacity: root.fgOpacity
-            font.pixelSize: BarTheme.fontSize
-            font.weight: Font.Bold
+            color: "transparent"
+
+            Text {
+                id: textItem
+                anchors.centerIn: parent
+                textFormat: Text.PlainText
+                maximumLineCount: 1
+                color: root.fgColor
+                opacity: root.fgOpacity
+                font.pixelSize: BarTheme.fontSize
+                font.weight: Font.Bold
+                elide: Text.ElideRight
+                width: parent.width
+            }
         }
     }
 }

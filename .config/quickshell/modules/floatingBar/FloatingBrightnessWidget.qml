@@ -1,6 +1,6 @@
 import qs.services
 
-FloatingBarButton {
+FloatingBarBlock {
     icon: BrightnessService.icon
     text: BrightnessService.formattedBrightness
     showOnChange: true
