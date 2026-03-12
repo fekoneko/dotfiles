@@ -21,7 +21,7 @@ Singleton {
             type: "wireguard",
             connected: "disconnected",
             connectionId: "be6be9d7-5397-4be6-a9ac-0fb6d79c8b65",
-            icon: "file://" + Quickshell.shellPath("assets/icons/network-wireguard-disconnected.svg")
+            icon: Quickshell.iconPath(Quickshell.shellPath("assets/icons/network-wireguard-disconnected.svg"))
         })
 
     Process {
@@ -72,7 +72,7 @@ Singleton {
                     else
                         status = "disabled";
 
-                    const icon = "file://" + Quickshell.shellPath(`assets/icons/network-${type}-${status}.svg`);
+                    const icon = Quickshell.iconPath(Quickshell.shellPath(`assets/icons/network-${type}-${status}.svg`));
 
                     connections.push({
                         device,

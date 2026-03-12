@@ -23,7 +23,7 @@ Singleton {
         else
             icon = "assets/icons/bluetooth-disconnected.svg";
 
-        return "file://" + Quickshell.shellPath(icon);
+        return Quickshell.iconPath(Quickshell.shellPath(icon));
     }
 
     function toggle(): void {

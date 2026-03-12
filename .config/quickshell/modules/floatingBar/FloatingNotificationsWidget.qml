@@ -14,14 +14,11 @@ FlexboxLayout {
     readonly property Notification notification: {
         return NotificationsService.notifications[NotificationsService.notifications.length - 1] ?? null;
     }
-    readonly property string defaultIcon: {
-        return "file://" + Quickshell.shellPath("assets/icons/notification-placeholder.svg");
-    }
     readonly property NotificationAction action: notification?.actions[0] ?? null // qmllint disable unresolved-type
 
     // Store displayed fields separately, because Notification struct
     // will be destroyed before fadeOutAnimation finishes
-    property var displayedNotification: null // { summary, body, image } | null
+    property var displayedNotification: null // { summary, body, image, appIcon } | null
 
     onNotificationChanged: {
         if (notification) {
@@ -34,7 +31,8 @@ FlexboxLayout {
             displayedNotification = {
                 summary: notification.summary,
                 body: notification.body,
-                image: notification.image
+                image: notification.image,
+                appIcon: notification.appIcon
             };
         } else if (displayedNotification) {
             fadeOutAnimation.restart();
@@ -44,13 +42,18 @@ FlexboxLayout {
 
     FloatingBarButton {
         id: button
-        icon: root.displayedNotification?.image || root.defaultIcon
-        iconSize: root.displayedNotification?.image ? FloatingBarTheme.notificationIconSize : FloatingBarTheme.iconSize
+        icon: {
+            let icon = Quickshell.iconPath(root.displayedNotification?.image, true);
+            icon = icon || Quickshell.iconPath(root.displayedNotification?.appIcon, true);
+            icon = icon || Quickshell.iconPath(Quickshell.shellPath("assets/icons/notification-placeholder.svg"));
+            return icon;
+        }
+        iconSize: FloatingBarTheme.notificationIconSize
         text: root.displayedNotification?.summary ?? ""
         secondaryText: root.displayedNotification?.body ?? ""
         hoverText: root.action ? root.action.text + " | Dismiss" : "Dismiss"
         maxTextWidth: FloatingBarTheme.maxNotificationWidth
-        leftPadding: root.displayedNotification?.image ? 2.5 : 7
+        leftPadding: 3.5
         actionsEnabled: !!root.displayedNotification
 
         onMainAction: root.action ? root.action.invoke() : root.notification?.dismiss()

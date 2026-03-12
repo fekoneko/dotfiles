@@ -19,7 +19,7 @@ Singleton {
         } else {
             icon = "assets/icons/brightness-high.svg";
         }
-        return "file://" + Quickshell.shellPath(icon);
+        return Quickshell.iconPath(Quickshell.shellPath(icon));
     }
 
     Process {

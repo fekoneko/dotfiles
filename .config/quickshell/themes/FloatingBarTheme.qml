@@ -7,7 +7,7 @@ Singleton {
     readonly property real height: 21
     readonly property real fontSize: 12
     readonly property real iconSize: 11
-    readonly property real notificationIconSize: 17
+    readonly property real notificationIconSize: 15
     readonly property real maxNotificationWidth: 350
 
     readonly property color fgColor: "#ffffff"

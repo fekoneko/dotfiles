@@ -25,10 +25,8 @@ Repeater {
         onSecondaryAction: NiriService.focusWindow(modelData.id)
 
         icon: {
-            if (desktopEntry?.icon)
-                return Quickshell.iconPath(desktopEntry?.icon);
-
-            return "file://" + Quickshell.shellPath("assets/icons/taskbar-placeholder.svg");
+            const fallbackIcon = Quickshell.shellPath("assets/icons/taskbar-placeholder.svg");
+            Quickshell.iconPath(desktopEntry?.icon, fallbackIcon);
         }
 
         required property var modelData

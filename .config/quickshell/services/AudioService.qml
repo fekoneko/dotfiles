@@ -23,7 +23,7 @@ Singleton {
         } else {
             icon = "assets/icons/volume-overamplified.svg";
         }
-        return "file://" + Quickshell.shellPath(icon);
+        return Quickshell.iconPath(Quickshell.shellPath(icon));
     }
 
     readonly property string microphoneIcon: {
@@ -33,7 +33,7 @@ Singleton {
         } else {
             iconPath = "assets/icons/microphone.svg";
         }
-        return "file://" + Quickshell.shellPath(iconPath);
+        return Quickshell.iconPath(Quickshell.shellPath(iconPath));
     }
 
     function toggleVolume(): void {

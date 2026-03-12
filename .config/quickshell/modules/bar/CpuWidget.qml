@@ -4,7 +4,7 @@ import QtQuick
 import qs.services
 
 BarButton {
-    icon: "file://" + Quickshell.shellPath("assets/icons/cpu.svg")
+    icon: Quickshell.iconPath(Quickshell.shellPath("assets/icons/cpu.svg"))
     text: ResoursesService.formattedCpuUsage
     onMainAction: process.startDetached()
     onSecondaryAction: process.startDetached()

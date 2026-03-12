@@ -12,6 +12,6 @@ Singleton {
     readonly property string icon: {
         const roundedPercentage = Math.round(percentage / 10) * 10;
         const iconPath = `assets/icons/battery-${onBattery ? "" : "charging-"}${roundedPercentage}.svg`;
-        return "file://" + Quickshell.shellPath(iconPath);
+        return Quickshell.iconPath(Quickshell.shellPath(iconPath));
     }
 }
