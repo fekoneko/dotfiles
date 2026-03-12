@@ -93,13 +93,13 @@ Loader {
 
             Behavior on color {
                 ColorAnimation {
-                    duration: FloatingBarTheme.animationDuration
+                    duration: FloatingBarTheme.animationDurationShort
                 }
             }
 
             Behavior on opacity {
                 NumberAnimation {
-                    duration: FloatingBarTheme.animationDuration
+                    duration: FloatingBarTheme.animationDurationShort
                 }
             }
         }
@@ -174,7 +174,7 @@ Loader {
 
                     Behavior on opacity {
                         NumberAnimation {
-                            duration: FloatingBarTheme.animationDuration
+                            duration: FloatingBarTheme.animationDurationShort
                         }
                     }
                 }
@@ -198,7 +198,7 @@ Loader {
 
                     Behavior on opacity {
                         NumberAnimation {
-                            duration: FloatingBarTheme.animationDuration
+                            duration: FloatingBarTheme.animationDurationShort
                         }
                     }
                 }
@@ -221,7 +221,7 @@ Loader {
 
     Behavior on opacity {
         NumberAnimation {
-            duration: FloatingBarTheme.animationDuration
+            duration: FloatingBarTheme.animationDurationShort
 
             onRunningChanged: {
                 if (root.opacity === 0)

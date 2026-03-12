@@ -23,5 +23,6 @@ Singleton {
     readonly property real bgPressedOpacity: 1
     readonly property real shadowOpacity: 0.25
 
-    readonly property real animationDuration: 100
+    readonly property real animationDurationShort: 100
+    readonly property real animationDurationLong: 150
 }

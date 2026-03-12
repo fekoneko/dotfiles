@@ -60,7 +60,7 @@ PanelWindow { // qmllint disable uncreatable-type
 
         Behavior on opacity {
             NumberAnimation {
-                duration: FloatingBarTheme.animationDuration
+                duration: FloatingBarTheme.animationDurationShort
 
                 onRunningChanged: {
                     if (loader.opacity === 0)
