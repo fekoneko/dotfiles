@@ -19,4 +19,8 @@ Singleton {
             root.notificationsChanged();
         }
     }
+
+    function clear(): void {
+        notifications.forEach(n => Qt.callLater(() => n.dismiss()));
+    }
 }

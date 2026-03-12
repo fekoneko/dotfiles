@@ -1,8 +1,8 @@
 pragma Singleton
-pragma ComponentBehavior: Bound
 
 import Quickshell
 import Quickshell.Io
+import qs.services
 
 Singleton {
     id: root
@@ -25,6 +25,15 @@ Singleton {
         // $ quickshell ipc call bar toggle
         function toggle(): void {
             root.barCollapsed = !root.barCollapsed;
+        }
+    }
+
+    IpcHandler {
+        target: "notifications"
+
+        // $ quickshell ipc call notifications clear
+        function clear(): void {
+            NotificationsService.clear();
         }
     }
 }

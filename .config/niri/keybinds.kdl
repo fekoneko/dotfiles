@@ -107,8 +107,7 @@ binds {
     ///// Shell /////
 
     Mod+P                          { spawn "quickshell" "ipc" "call" "bar" "toggle"                       ; }
-    Mod+X                          { spawn "makoctl" "dismiss" "--all"                                    ; }
-    Mod+Shift+X                    { spawn "makoctl" "mode" "-t" "do-not-disturb"                         ; }
+    Mod+X                          { spawn "quickshell" "ipc" "call" "notifications" "clear"              ; }
     Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"           ; }
     Mod+Tab                        { spawn "walker"                                                       ; }
     Mod+V                          { spawn "walker" "--provider" "clipboard"                              ; }

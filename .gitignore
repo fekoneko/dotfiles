@@ -36,11 +36,6 @@
 !/.config/quickshell/**/*
 /.config/quickshell/.qmlls.ini
 
-# waybar
-!/.config/waybar/
-!/.config/waybar/config
-!/.config/waybar/style.css
-
 # walker
 !/.config/walker/
 !/.config/walker/config.toml
@@ -53,10 +48,6 @@
 !/.config/elephant/menus/
 !/.config/elephant/menus/*.toml
 !/.config/elephant/menus/*.lua
-
-# mako
-!/.config/mako/
-!/.config/mako/config
 
 # batsignal
 !/.config/batsignal
