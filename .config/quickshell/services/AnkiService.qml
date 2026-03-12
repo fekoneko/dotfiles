@@ -24,10 +24,6 @@ Singleton {
         }
     }
 
-    Process {
-        id: actionProcess
-    }
-
     Timer {
         id: randomWordTimer
         interval: 3_600_000
@@ -42,7 +38,6 @@ Singleton {
     }
 
     function showBrowser(query: string): void {
-        actionProcess.command = [Quickshell.shellPath("assets/scripts/show-anki-browser.sh"), query];
-        actionProcess.startDetached();
+        Quickshell.execDetached([Quickshell.shellPath("assets/scripts/show-anki-browser.sh"), query]);
     }
 }

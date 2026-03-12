@@ -92,10 +92,6 @@ Singleton {
         }
     }
 
-    Process {
-        id: actionProcess
-    }
-
     Timer {
         id: reconnectTimer
         interval: 1000
@@ -112,23 +108,19 @@ Singleton {
     }
 
     function connect(connectionId: string): void {
-        actionProcess.command = ["nmcli", "connection", "up", connectionId];
-        actionProcess.startDetached();
+        Quickshell.execDetached(["nmcli", "connection", "up", connectionId]);
     }
 
     function disconnect(connectionId: string): void {
-        actionProcess.command = ["nmcli", "connection", "down", connectionId];
-        actionProcess.startDetached();
+        Quickshell.execDetached(["nmcli", "connection", "down", connectionId]);
     }
 
     function enableWifi(): void {
-        actionProcess.command = ["nmcli", "radio", "wifi", "on"];
-        actionProcess.startDetached();
+        Quickshell.execDetached(["nmcli", "radio", "wifi", "on"]);
     }
 
     function disableWifi(): void {
-        actionProcess.command = ["nmcli", "radio", "wifi", "off"];
-        actionProcess.startDetached();
+        Quickshell.execDetached(["nmcli", "radio", "wifi", "off"]);
     }
 
     function toggleConnection(connection: var): void {

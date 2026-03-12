@@ -18,7 +18,7 @@ FlexboxLayout {
 
     // Store displayed fields separately, because Notification struct
     // will be destroyed before fadeOutAnimation finishes
-    property var displayedNotification: null // { summary, body, image, appIcon } | null
+    property var displayedNotification: null // { summary, body, appIcon } | null
 
     onNotificationChanged: {
         if (notification) {
@@ -31,7 +31,6 @@ FlexboxLayout {
             displayedNotification = {
                 summary: notification.summary,
                 body: notification.body,
-                image: notification.image,
                 appIcon: notification.appIcon
             };
         } else if (displayedNotification) {
@@ -42,12 +41,6 @@ FlexboxLayout {
 
     FloatingBarButton {
         id: button
-        icon: {
-            let icon = Quickshell.iconPath(root.displayedNotification?.image, true);
-            icon = icon || Quickshell.iconPath(root.displayedNotification?.appIcon, true);
-            icon = icon || Quickshell.iconPath(Quickshell.shellPath("assets/icons/notification-placeholder.svg"));
-            return icon;
-        }
         iconSize: FloatingBarTheme.notificationIconSize
         text: root.displayedNotification?.summary ?? ""
         secondaryText: root.displayedNotification?.body ?? ""
@@ -55,6 +48,11 @@ FlexboxLayout {
         maxTextWidth: FloatingBarTheme.maxNotificationWidth
         leftPadding: 3.5
         actionsEnabled: !!root.displayedNotification
+
+        icon: {
+            const fallbackIcon = Quickshell.shellPath("assets/icons/notification-placeholder.svg");
+            return Quickshell.iconPath(root.displayedNotification?.appIcon, fallbackIcon);
+        }
 
         onMainAction: root.action ? root.action.invoke() : root.notification?.dismiss()
         onSecondaryAction: root.notification?.dismiss()
