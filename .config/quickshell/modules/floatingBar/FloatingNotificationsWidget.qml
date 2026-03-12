@@ -62,50 +62,48 @@ FlexboxLayout {
             origin.y: root.height / 2
         }
 
-        ParallelAnimation {
+        SequentialAnimation {
             id: popInAnimation
 
-            NumberAnimation {
-                target: button
-                property: "opacity"
-                from: 0
-                to: 1
-                duration: FloatingBarTheme.animationDurationLong
-            }
-
-            SequentialAnimation {
-                ParallelAnimation {
-                    NumberAnimation {
-                        target: scale
-                        property: "xScale"
-                        from: 0.75
-                        to: 1.05
-                        duration: FloatingBarTheme.animationDurationLong * 0.5
-                    }
-
-                    NumberAnimation {
-                        target: scale
-                        property: "yScale"
-                        from: 0.75
-                        to: 1.05
-                        duration: FloatingBarTheme.animationDurationLong * 0.5
-                    }
+            ParallelAnimation {
+                NumberAnimation {
+                    target: button
+                    property: "opacity"
+                    from: 0
+                    to: 1
+                    duration: FloatingBarTheme.animationDurationLong
                 }
 
-                ParallelAnimation {
-                    NumberAnimation {
-                        target: scale
-                        property: "xScale"
-                        to: 1
-                        duration: FloatingBarTheme.animationDurationLong * 0.5
-                    }
+                NumberAnimation {
+                    target: scale
+                    property: "xScale"
+                    from: 0.9
+                    to: 1.035
+                    duration: FloatingBarTheme.animationDurationLong
+                }
 
-                    NumberAnimation {
-                        target: scale
-                        property: "yScale"
-                        to: 1
-                        duration: FloatingBarTheme.animationDurationLong * 0.5
-                    }
+                NumberAnimation {
+                    target: scale
+                    property: "yScale"
+                    from: 0.9
+                    to: 1.035
+                    duration: FloatingBarTheme.animationDurationLong
+                }
+            }
+
+            ParallelAnimation {
+                NumberAnimation {
+                    target: scale
+                    property: "xScale"
+                    to: 1
+                    duration: FloatingBarTheme.animationDurationLong
+                }
+
+                NumberAnimation {
+                    target: scale
+                    property: "yScale"
+                    to: 1
+                    duration: FloatingBarTheme.animationDurationLong
                 }
             }
         }
@@ -117,14 +115,14 @@ FlexboxLayout {
                 NumberAnimation {
                     target: scale
                     property: "xScale"
-                    to: 1.05
+                    to: 1.035
                     duration: FloatingBarTheme.animationDurationShort
                 }
 
                 NumberAnimation {
                     target: scale
                     property: "yScale"
-                    to: 1.05
+                    to: 1.035
                     duration: FloatingBarTheme.animationDurationShort
                 }
             }
@@ -165,14 +163,14 @@ FlexboxLayout {
                 NumberAnimation {
                     target: scale
                     property: "xScale"
-                    to: 0.75
+                    to: 0.9
                     duration: FloatingBarTheme.animationDurationLong
                 }
 
                 NumberAnimation {
                     target: scale
                     property: "yScale"
-                    to: 0.75
+                    to: 0.9
                     duration: FloatingBarTheme.animationDurationLong
                 }
             }
