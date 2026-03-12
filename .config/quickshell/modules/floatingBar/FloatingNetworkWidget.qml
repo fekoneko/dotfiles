@@ -5,7 +5,7 @@ Repeater {
     // Use device as a key to avoid needlessly recreating components
     model: NetworkService.connections.map(c => c.device)
 
-    FloatingBarBlock {
+    FloatingBarButton {
         id: barButton
         icon: connection.icon
         showOnChange: true

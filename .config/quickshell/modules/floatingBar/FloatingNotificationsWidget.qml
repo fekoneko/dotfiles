@@ -11,23 +11,29 @@ FlexboxLayout {
     alignItems: FlexboxLayout.AlignCenter
     gap: 6
 
-    readonly property Notification lastNotification: {
+    readonly property Notification notification: {
         return NotificationsService.notifications[NotificationsService.notifications.length - 1] ?? null;
     }
-    readonly property string defaultNotificationIcon: {
+    readonly property string defaultIcon: {
         return "file://" + Quickshell.shellPath("assets/icons/notification-placeholder.svg");
     }
+    readonly property NotificationAction action: notification?.actions[0] ?? null // qmllint disable unresolved-type
 
-    FloatingBarBlock {
-        icon: root.lastNotification?.image || root.defaultNotificationIcon
-        iconSize: root.lastNotification?.image ? FloatingBarTheme.notificationIconSize : FloatingBarTheme.iconSize
-        text: root.lastNotification?.summary ?? ""
-        secondaryText: root.lastNotification?.body ?? ""
+    FloatingBarButton {
+        icon: root.notification?.image || root.defaultIcon
+        iconSize: root.notification?.image ? FloatingBarTheme.notificationIconSize : FloatingBarTheme.iconSize
+        text: root.notification?.summary ?? ""
+        secondaryText: root.notification?.body ?? ""
+        hoverText: root.action ? root.action.text + " | Dismiss" : "Dismiss"
         maxTextWidth: FloatingBarTheme.maxNotificationWidth
-        paddingLeft: root.lastNotification?.image ? 2.5 : 7
+        leftPadding: root.notification?.image ? 2.5 : 7
+        actionsEnabled: true
+
+        onMainAction: root.action ? root.action.invoke() : root.notification?.dismiss()
+        onSecondaryAction: root.notification?.dismiss()
     }
 
-    FloatingBarBlock {
+    FloatingBarButton {
         visible: NotificationsService.notifications.length > 1
         text: "+" + (NotificationsService.notifications.length - 1)
     }

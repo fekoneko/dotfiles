@@ -1,6 +1,6 @@
 import qs.services
 
-FloatingBarBlock {
+FloatingBarButton {
     icon: BluetoothService.icon
     showOnChange: true
 }

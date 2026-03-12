@@ -1,5 +1,5 @@
 import qs.services
 
-FloatingBarBlock {
+FloatingBarButton {
     text: TimeService.formattedTime
 }

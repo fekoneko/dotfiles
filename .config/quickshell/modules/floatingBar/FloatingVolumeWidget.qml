@@ -1,6 +1,6 @@
 import qs.services
 
-FloatingBarBlock {
+FloatingBarButton {
     icon: AudioService.volumeIcon
     text: AudioService.muted ? null : AudioService.formattedVolume
     showOnChange: true

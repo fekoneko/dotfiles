@@ -12,6 +12,7 @@ Singleton {
     NotificationServer {
         id: server
         imageSupported: true
+        actionsSupported: true
 
         onNotification: notification => {
             notification.tracked = true;
