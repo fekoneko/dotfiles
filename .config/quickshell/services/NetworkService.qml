@@ -3,6 +3,7 @@ pragma Singleton
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import qs.utils
 
 Singleton {
     id: root
@@ -21,7 +22,7 @@ Singleton {
             type: "wireguard",
             connected: "disconnected",
             connectionId: "be6be9d7-5397-4be6-a9ac-0fb6d79c8b65",
-            icon: Quickshell.iconPath(Quickshell.shellPath("assets/icons/network-wireguard-disconnected.svg"))
+            icon: Icons.assetIconUrl("network-wireguard-disconnected")
         })
 
     Process {
@@ -72,7 +73,7 @@ Singleton {
                     else
                         status = "disabled";
 
-                    const icon = Quickshell.iconPath(Quickshell.shellPath(`assets/icons/network-${type}-${status}.svg`));
+                    const icon = Icons.assetIconUrl(`network-${type}-${status}`);
 
                     connections.push({
                         device,

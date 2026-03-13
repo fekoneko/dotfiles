@@ -4,6 +4,7 @@ import Quickshell
 import QtQuick
 import qs.services
 import qs.themes
+import qs.utils
 
 Repeater {
     id: root
@@ -25,19 +26,11 @@ Repeater {
         onSecondaryAction: NiriService.focusWindow(modelData.id)
 
         icon: {
-            const fallbackIcon = Quickshell.shellPath("assets/icons/taskbar-placeholder.svg");
-            Quickshell.iconPath(desktopEntry?.icon, fallbackIcon);
+            const fallback = Icons.assetPath("taskbar-fallback");
+            return Icons.appIconUrl(barButton.modelData.appId, fallback); // qmllint disable use-proper-function
         }
 
         required property var modelData
         property DesktopEntry desktopEntry: DesktopEntries.byId(barButton.modelData.appId)
-
-        Connections {
-            target: DesktopEntries.applications
-
-            function onValuesChanged(): void {
-                barButton.desktopEntry = DesktopEntries.byId(barButton.modelData.appId);
-            }
-        }
     }
 }

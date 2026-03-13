@@ -1,10 +1,10 @@
-import Quickshell
 import Quickshell.Io
 import QtQuick
 import qs.services
+import qs.utils
 
 BarButton {
-    icon: Quickshell.iconPath(Quickshell.shellPath("assets/icons/cpu.svg"))
+    icon: Icons.assetIconUrl("cpu")
     text: ResoursesService.formattedCpuUsage
     onMainAction: process.startDetached()
     onSecondaryAction: process.startDetached()

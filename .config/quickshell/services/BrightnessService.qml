@@ -3,6 +3,7 @@ pragma Singleton
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import qs.utils
 
 Singleton {
     id: root
@@ -11,15 +12,12 @@ Singleton {
     readonly property string formattedBrightness: Math.round(brightness) + "%"
 
     readonly property string icon: {
-        let icon;
-        if (brightness <= 100 / 3) {
-            icon = "assets/icons/brightness-low.svg";
-        } else if (brightness <= 200 / 3) {
-            icon = "assets/icons/brightness-medium.svg";
-        } else {
-            icon = "assets/icons/brightness-high.svg";
-        }
-        return Quickshell.iconPath(Quickshell.shellPath(icon));
+        if (brightness <= 100 / 3)
+            return Icons.assetIconUrl("brightness-low");
+        else if (brightness <= 200 / 3)
+            return Icons.assetIconUrl("brightness-medium");
+        else
+            return Icons.assetIconUrl("brightness-high");
     }
 
     Process {

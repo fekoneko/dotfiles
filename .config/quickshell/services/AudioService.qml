@@ -3,6 +3,7 @@ pragma Singleton
 import Quickshell
 import Quickshell.Services.Pipewire
 import QtQuick
+import qs.utils
 
 Singleton {
     readonly property real volume: (Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100
@@ -11,29 +12,23 @@ Singleton {
     readonly property bool microphoneMuted: Pipewire.defaultAudioSource?.audio.muted ?? false
 
     readonly property string volumeIcon: {
-        let icon;
-        if (muted) {
-            icon = "assets/icons/volume-muted.svg";
-        } else if (volume <= 100 / 3) {
-            icon = "assets/icons/volume-low.svg";
-        } else if (volume <= 200 / 3) {
-            icon = "assets/icons/volume-medium.svg";
-        } else if (volume <= 100) {
-            icon = "assets/icons/volume-high.svg";
-        } else {
-            icon = "assets/icons/volume-overamplified.svg";
-        }
-        return Quickshell.iconPath(Quickshell.shellPath(icon));
+        if (muted)
+            return Icons.assetIconUrl("volume-muted");
+        else if (volume <= 100 / 3)
+            return Icons.assetIconUrl("volume-low");
+        else if (volume <= 200 / 3)
+            return Icons.assetIconUrl("volume-medium");
+        else if (volume <= 100)
+            return Icons.assetIconUrl("volume-high");
+        else
+            return Icons.assetIconUrl("volume-overamplified");
     }
 
     readonly property string microphoneIcon: {
-        let iconPath;
-        if (microphoneMuted) {
-            iconPath = "assets/icons/microphone-muted.svg";
-        } else {
-            iconPath = "assets/icons/microphone.svg";
-        }
-        return Quickshell.iconPath(Quickshell.shellPath(iconPath));
+        if (microphoneMuted)
+            return Icons.assetIconUrl("microphone-muted");
+        else
+            return Icons.assetIconUrl("microphone");
     }
 
     function toggleVolume(): void {

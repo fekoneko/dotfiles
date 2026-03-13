@@ -4,6 +4,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.services
 import qs.themes
+import qs.utils
 
 FlexboxLayout {
     id: root
@@ -50,8 +51,8 @@ FlexboxLayout {
         actionsEnabled: !!root.displayedNotification
 
         icon: {
-            const fallbackIcon = Quickshell.shellPath("assets/icons/notification-placeholder.svg");
-            return Quickshell.iconPath(root.displayedNotification?.appIcon, fallbackIcon);
+            const fallback = Icons.assetPath("notification-fallback");
+            return Quickshell.iconPath(root.displayedNotification?.appIcon, fallback);
         }
 
         onMainAction: root.action ? root.action.invoke() : root.notification?.dismiss()

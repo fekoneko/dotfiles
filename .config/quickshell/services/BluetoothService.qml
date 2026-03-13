@@ -6,6 +6,7 @@ pragma Singleton
 import Quickshell
 import Quickshell.Bluetooth
 import QtQuick
+import qs.utils
 
 Singleton {
     id: root
@@ -15,15 +16,12 @@ Singleton {
 
     readonly property string icon: {
         const adapter = Bluetooth.defaultAdapter;
-        let icon;
         if (!adapter?.enabled)
-            icon = "assets/icons/bluetooth-disabled.svg";
+            return Icons.assetIconUrl("bluetooth-disabled");
         else if (connected)
-            icon = "assets/icons/bluetooth-connected.svg";
+            return Icons.assetIconUrl("bluetooth-connected");
         else
-            icon = "assets/icons/bluetooth-disconnected.svg";
-
-        return Quickshell.iconPath(Quickshell.shellPath(icon));
+            return Icons.assetIconUrl("bluetooth-disconnected");
     }
 
     function toggle(): void {
