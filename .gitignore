@@ -97,6 +97,13 @@
 # krita shortcuts
 !/.config/kritashortcutsrc
 
+# zen custom css
+!/.config/zen/
+!/.config/zen/fekoneko/
+!/.config/zen/fekoneko/chrome/
+!/.config/zen/fekoneko/chrome/userChrome.css
+!/.config/zen/fekoneko/chrome/userContent.css
+
 # ---------------- ~/.local/share ----------------
 
 !/.local/
@@ -149,14 +156,6 @@
 
 # discord patch
 !/.local/share/applications/discord.desktop
-
-# -------------------- ~/.zen ---------------------
-
-!/.zen/
-!/.zen/fekoneko/
-!/.zen/fekoneko/chrome/
-!/.zen/fekoneko/chrome/userChrome.css
-!/.zen/fekoneko/chrome/userContent.css
 
 # ------------------- ~/Scripts -------------------
 
