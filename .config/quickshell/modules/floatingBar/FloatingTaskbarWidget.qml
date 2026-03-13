@@ -45,25 +45,46 @@ Loader {
         }
     }
 
+    function show(): void {
+        if (!blockShowTimer.running)
+            showTimer.restart();
+    }
+
     Connections {
         target: NiriService
 
         function onEventWindowLayoutsChanged() {
-            showTimer.restart();
+            root.show();
         }
 
         function onEventWorkspaceActiveWindowChanged() {
-            showTimer.restart();
+            root.show();
         }
 
         function onEventWorkspaceActivated() {
-            showTimer.restart();
+            root.show();
+        }
+    }
+
+    Connections {
+        target: IpcService
+
+        // Toggling bar triggers Niri layout change event, but taskbar should stay hidden.
+        function onBarExpandedChanged() {
+            blockShowTimer.restart();
         }
     }
 
     Timer {
         id: showTimer
         interval: 500
+    }
+
+    Timer {
+        id: blockShowTimer
+        interval: 100
+        running: true
+        onRunningChanged: running && showTimer.stop()
     }
 
     Behavior on opacity {
