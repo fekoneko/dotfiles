@@ -12,6 +12,7 @@ Singleton {
     property var workspaceById: new Map()               // Map<workspaceId, { id, screenName }>
     property var activeWindowIdByWorkspaceId: new Map() // Map<workspaceId, windowId>
     property var activeWorkspaceIdByScreen: new Map()   // Map<screenName, workspaceId>
+    property var overviewOpened: false
 
     Socket {
         id: eventsSocket
@@ -105,6 +106,10 @@ Singleton {
                     root.activeWorkspaceIdByScreen.set(output, event.id);
                     root.activeWorkspaceIdByScreenChanged();
                     break;
+
+                // Overview mode was toggled
+                case "OverviewOpenedOrClosed":
+                    root.overviewOpened = event.is_open;
                 }
 
                 function trackedWindowFields(window: var): var {

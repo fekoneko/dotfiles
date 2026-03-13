@@ -13,8 +13,8 @@ PanelWindow { // qmllint disable uncreatable-type
     readonly property bool collapsed: {
         const collapsed = IpcService.barCollapsed;
         const hovered = hoverHandler.hovered;
-        const hasActiveWindow = !!NiriService.activeWindowByScreen(screen.name);
-        return collapsed && !hovered && hasActiveWindow;
+        const hasActiveWindow = () => !!NiriService.activeWindowByScreen(screen.name);
+        return collapsed && !hovered && !NiriService.overviewOpened && hasActiveWindow();
     }
 
     anchors {
