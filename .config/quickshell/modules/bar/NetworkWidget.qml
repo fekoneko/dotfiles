@@ -12,7 +12,7 @@ Repeater {
         onMainAction: NetworkService.toggleConnection(connection)
         onSecondaryAction: process.startDetached()
 
-        required property var modelData
+        required property string modelData
         property var connection: NetworkService.connections.find(c => c.device === modelData)
 
         Process {

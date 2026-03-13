@@ -12,7 +12,7 @@ Singleton {
     property var workspaceById: new Map()               // Map<workspaceId, { id, screenName }>
     property var activeWindowIdByWorkspaceId: new Map() // Map<workspaceId, windowId>
     property var activeWorkspaceIdByScreen: new Map()   // Map<screenName, workspaceId>
-    property var overviewOpened: false
+    property bool overviewOpened: false
 
     signal eventWindowsChanged
     signal eventWindowOpenedOrChanged

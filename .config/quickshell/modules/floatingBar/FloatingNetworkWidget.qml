@@ -10,7 +10,7 @@ Repeater {
         icon: connection.icon
         showOnChange: true
 
-        required property var modelData
+        required property string modelData
         property var connection: NetworkService.connections.find(c => c.device === modelData)
     }
 }

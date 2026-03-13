@@ -6,10 +6,6 @@ layout {
     default-column-width { proportion 1.0; }
     tab-indicator { gap 2; }
 
-    struts {
-        top -5
-    }
-
     focus-ring {
         width 1.5
         active-color "#5e6775"

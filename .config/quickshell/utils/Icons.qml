@@ -26,6 +26,10 @@ Singleton {
 
     readonly property list<var> problematicAppIcons: [
         {
+            appId: /^org.kde.krita/,
+            icon: "org.kde.krita"
+        },
+        {
             appId: /^veracrypt$/,
             icon: "veracrypt"
         },

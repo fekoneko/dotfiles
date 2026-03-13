@@ -8,8 +8,7 @@ PanelWindow { // qmllint disable uncreatable-type
     implicitHeight: FloatingBarTheme.height + 16
     color: "transparent"
 
-    exclusionMode: ExclusionMode.Normal
-    exclusiveZone: 0
+    exclusionMode: ExclusionMode.Ignore
     mask: Region {
         item: notificationsWidget.visible ? notificationsWidget : null
     }
@@ -21,7 +20,7 @@ PanelWindow { // qmllint disable uncreatable-type
     }
 
     margins { // qmllint disable unqualified unresolved-type
-        top: 2  // qmllint disable missing-property
+        top: barWindow.revealed ? BarTheme.height + 1 : 6  // qmllint disable unqualified missing-property
         left: 6  // qmllint disable missing-property
         right: 6  // qmllint disable missing-property
     }
@@ -41,7 +40,7 @@ PanelWindow { // qmllint disable uncreatable-type
     Loader {
         id: centerLoader
         anchors.fill: parent
-        opacity: !barWindow.collapsed ? 0 : 1 // qmllint disable unqualified
+        opacity: barWindow.revealed ? 0 : 1 // qmllint disable unqualified
 
         sourceComponent: FlexboxLayout {
             anchors.fill: parent
@@ -71,7 +70,7 @@ PanelWindow { // qmllint disable uncreatable-type
     Loader {
         id: rightLoader
         anchors.fill: parent
-        opacity: !barWindow.collapsed ? 0 : 1 // qmllint disable unqualified
+        opacity: barWindow.revealed ? 0 : 1 // qmllint disable unqualified
 
         sourceComponent: FlexboxLayout {
             anchors.fill: parent
@@ -97,6 +96,12 @@ PanelWindow { // qmllint disable uncreatable-type
                         rightLoader.active = running;
                 }
             }
+        }
+    }
+
+    Behavior on margins.top {
+        NumberAnimation {
+            duration: FloatingBarTheme.animationDurationShort
         }
     }
 }

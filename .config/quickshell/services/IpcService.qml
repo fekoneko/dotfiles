@@ -7,24 +7,24 @@ import qs.services
 Singleton {
     id: root
 
-    property bool barCollapsed: true
+    property bool barExpanded: false
 
     IpcHandler {
         target: "bar"
 
         // $ quickshell ipc call bar expand
         function expand(): void {
-            root.barCollapsed = false;
+            root.barExpanded = true;
         }
 
         // $ quickshell ipc call bar collapse
         function collapse(): void {
-            root.barCollapsed = true;
+            root.barExpanded = false;
         }
 
         // $ quickshell ipc call bar toggle
         function toggle(): void {
-            root.barCollapsed = !root.barCollapsed;
+            root.barExpanded = !root.barExpanded;
         }
     }
 

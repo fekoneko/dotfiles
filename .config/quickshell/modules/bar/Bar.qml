@@ -7,14 +7,29 @@ import qs.themes
 PanelWindow { // qmllint disable uncreatable-type
     id: barWindow
     implicitHeight: BarTheme.height
-    margins.top: collapsed ? 5 - implicitHeight : 0 // qmllint disable
     color: "transparent"
 
-    readonly property bool collapsed: {
-        const collapsed = IpcService.barCollapsed;
-        const hovered = hoverHandler.hovered;
-        const hasActiveWindow = () => !!NiriService.activeWindowByScreen(screen.name);
-        return collapsed && !hovered && !NiriService.overviewOpened && hasActiveWindow();
+    exclusionMode: ExclusionMode.Normal
+    exclusiveZone: IpcService.barExpanded ? BarTheme.height - 5 : 0
+    mask: Region {
+        item: loader
+    }
+
+    readonly property bool hasActiveWindow: !!NiriService.activeWindowByScreen(screen.name)
+
+    readonly property bool revealed: {
+        return IpcService.barExpanded //
+        || hoverHandler.hovered       //
+        || NiriService.overviewOpened //
+        || !hasActiveWindow;          //
+    }
+
+    readonly property bool withBackdrop: {
+        return NiriService.overviewOpened                           //
+        || (hoverHandler.hovered                                    //
+            && !IpcService.barExpanded                              //
+            && hasActiveWindow                                      //
+            && (yAnimation.running || loader.y === 0));             //
     }
 
     anchors {
@@ -25,7 +40,10 @@ PanelWindow { // qmllint disable uncreatable-type
 
     Loader {
         id: loader
-        anchors.fill: parent
+        x: 0
+        y: barWindow.revealed ? 0 : 5 - barWindow.height
+        width: barWindow.width
+        height: barWindow.height
 
         sourceComponent: RowLayout {
             uniformCellSizes: true
@@ -65,20 +83,28 @@ PanelWindow { // qmllint disable uncreatable-type
                 ClockWidget {}
             }
         }
+
+        Rectangle {
+            anchors.fill: parent
+            visible: barWindow.withBackdrop
+            color: BarTheme.backdropColor
+            opacity: BarTheme.backdropOpacity
+        }
+
+        Behavior on y {
+            NumberAnimation {
+                id: yAnimation
+                duration: BarTheme.animationDuration
+
+                onRunningChanged: {
+                    if (loader.y < 0) // qmllint disable unqualified
+                        loader.active = running; // qmllint disable unqualified
+                }
+            }
+        }
     }
 
     HoverHandler {
         id: hoverHandler
-    }
-
-    Behavior on margins.top {
-        NumberAnimation {
-            duration: BarTheme.animationDuration
-
-            onRunningChanged: {
-                if (barWindow.margins.top < 0) // qmllint disable unqualified
-                    loader.active = running; // qmllint disable unqualified
-            }
-        }
     }
 }
