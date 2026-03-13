@@ -14,6 +14,15 @@ Singleton {
     property var activeWorkspaceIdByScreen: new Map()   // Map<screenName, workspaceId>
     property var overviewOpened: false
 
+    signal eventWindowsChanged
+    signal eventWindowOpenedOrChanged
+    signal eventWindowLayoutsChanged
+    signal eventWindowClosed
+    signal eventWorkspacesChanged
+    signal eventWorkspaceActiveWindowChanged
+    signal eventWorkspaceActivated
+    signal eventOverviewOpenedOrClosed
+
     Socket {
         id: eventsSocket
         path: root.socketPath
@@ -52,12 +61,14 @@ Singleton {
                         root.windowById.set(window.id, trackedWindowFields(window));
                         root.windowByIdChanged();
                     }
+                    root.eventWindowsChanged();
                     break;
 
                 // Window was opened or changed
                 case "WindowOpenedOrChanged":
                     root.windowById.set(event.window.id, trackedWindowFields(event.window));
                     root.windowByIdChanged();
+                    root.eventWindowOpenedOrChanged();
                     break;
 
                 // Windows were rearranged
@@ -69,12 +80,14 @@ Singleton {
                             root.windowByIdChanged();
                         }
                     }
+                    root.eventWindowLayoutsChanged();
                     break;
 
                 // Window was closed
                 case "WindowClosed":
                     root.windowById.delete(event.id);
                     root.windowByIdChanged();
+                    root.eventWindowClosed();
                     break;
 
                 // Reports all initial workspaces
@@ -92,12 +105,14 @@ Singleton {
                             root.activeWorkspaceIdByScreenChanged();
                         }
                     }
+                    root.eventWorkspacesChanged();
                     break;
 
                 // Window was focused in a workspace
                 case "WorkspaceActiveWindowChanged":
                     root.activeWindowIdByWorkspaceId.set(event.workspace_id, event.active_window_id);
                     root.activeWindowIdByWorkspaceIdChanged();
+                    root.eventWorkspaceActiveWindowChanged();
                     break;
 
                 // User switched to a workspace and it's now active on a screen
@@ -105,11 +120,14 @@ Singleton {
                     const output = root.workspaceById.get(event.id)?.screenName;
                     root.activeWorkspaceIdByScreen.set(output, event.id);
                     root.activeWorkspaceIdByScreenChanged();
+                    root.eventWorkspaceActivated();
                     break;
 
                 // Overview mode was toggled
                 case "OverviewOpenedOrClosed":
                     root.overviewOpened = event.is_open;
+                    root.eventOverviewOpenedOrClosed();
+                    break;
                 }
 
                 function trackedWindowFields(window: var): var {

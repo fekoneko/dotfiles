@@ -19,18 +19,17 @@ Repeater {
     }
 
     BarButton {
-        id: barButton
-        active: modelData.id === root.activeWindowId
+        id: button
+        selected: modelData.id === root.activeWindowId
         iconSize: BarTheme.taskbarIconSize
         onMainAction: NiriService.focusWindow(modelData.id)
         onSecondaryAction: NiriService.focusWindow(modelData.id)
 
         icon: {
             const fallback = Icons.assetPath("taskbar-fallback");
-            return Icons.appIconUrl(barButton.modelData.appId, fallback); // qmllint disable use-proper-function
+            return Icons.appIconUrl(button.modelData.appId, fallback); // qmllint disable use-proper-function
         }
 
         required property var modelData
-        property DesktopEntry desktopEntry: DesktopEntries.byId(barButton.modelData.appId)
     }
 }

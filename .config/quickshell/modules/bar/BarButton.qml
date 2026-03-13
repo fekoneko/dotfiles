@@ -14,7 +14,7 @@ Rectangle {
     implicitHeight: BarTheme.height
     color: "transparent"
 
-    property bool active: false
+    property bool selected: false
     property string icon
     property alias iconSize: iconImage.implicitSize
     property alias text: textItem.text
@@ -48,8 +48,8 @@ Rectangle {
         opacity: {
             if (mainTapHandler.pressed || secondaryTapHandler.pressed)
                 return BarTheme.bgPressedOpacity;
-            if (root.active)
-                return BarTheme.bgActiveOpacity;
+            if (root.selected)
+                return BarTheme.bgSelectedOpacity;
             if (hoverHandler.hovered)
                 return BarTheme.bgHoverOpacity;
             return 0;

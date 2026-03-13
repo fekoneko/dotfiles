@@ -39,7 +39,37 @@ PanelWindow { // qmllint disable uncreatable-type
     }
 
     Loader {
-        id: loader
+        id: centerLoader
+        anchors.fill: parent
+        opacity: !barWindow.collapsed ? 0 : 1 // qmllint disable unqualified
+
+        sourceComponent: FlexboxLayout {
+            anchors.fill: parent
+            anchors.margins: 8
+            justifyContent: FlexboxLayout.JustifyCenter
+            alignItems: FlexboxLayout.AlignCenter
+            gap: 6
+
+            FloatingTaskbarWidget {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+        }
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: FloatingBarTheme.animationDurationShort
+
+                onRunningChanged: {
+                    if (centerLoader.opacity === 0)
+                        centerLoader.active = running;
+                }
+            }
+        }
+    }
+
+    Loader {
+        id: rightLoader
         anchors.fill: parent
         opacity: !barWindow.collapsed ? 0 : 1 // qmllint disable unqualified
 
@@ -63,8 +93,8 @@ PanelWindow { // qmllint disable uncreatable-type
                 duration: FloatingBarTheme.animationDurationShort
 
                 onRunningChanged: {
-                    if (loader.opacity === 0)
-                        loader.active = running;
+                    if (rightLoader.opacity === 0)
+                        rightLoader.active = running;
                 }
             }
         }

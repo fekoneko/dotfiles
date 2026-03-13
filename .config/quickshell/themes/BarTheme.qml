@@ -22,7 +22,7 @@ Singleton {
     readonly property real fgSecondaryOpacity: 0.6
     readonly property real bgHoverOpacity: 0.1
     readonly property real bgPressedOpacity: 0.2
-    readonly property real bgActiveOpacity: 0.1
+    readonly property real bgSelectedOpacity: 0.1
     readonly property real floatingFgOpacity: 0.75
     readonly property real floatingBgOpacity: 0.825
     readonly property real shadowOpacity: 0.25

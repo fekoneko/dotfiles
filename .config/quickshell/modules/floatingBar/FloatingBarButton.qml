@@ -8,11 +8,13 @@ import qs.themes
 
 Loader {
     id: root
-    opacity: showOnChange ? 0 : 1
+    opacity: showOnChange ? 0 : maxOpacity
     active: !showOnChange
     visible: active
 
+    property bool selected: false
     property bool showOnChange: false
+    property real showTimeout: 1000
     property string icon
     property real iconSize: root.icon ? FloatingBarTheme.iconSize : 0
     property string text
@@ -21,13 +23,18 @@ Loader {
     property real maxTextWidth: 150
     property real leftPadding: 7
     property real rightPadding: 7
+    property real maxOpacity: 1
     property bool actionsEnabled: false
 
-    onTextChanged: showOnChange && showTimer.restart()
-    onIconChanged: showOnChange && showTimer.restart()
+    onTextChanged: showOnChange && brieflyShow()
+    onIconChanged: showOnChange && brieflyShow()
 
     signal mainAction
     signal secondaryAction
+
+    function brieflyShow() {
+        showTimer.restart();
+    }
 
     sourceComponent: Rectangle {
         implicitHeight: FloatingBarTheme.height
@@ -76,6 +83,8 @@ Loader {
             color: {
                 if (mainTapHandler.pressed || secondaryTapHandler.pressed)
                     return FloatingBarTheme.bgPressedColor;
+                if (root.selected)
+                    return FloatingBarTheme.bgSelectedColor;
                 if (hoverHandler.hovered)
                     return FloatingBarTheme.bgHoverColor;
                 return FloatingBarTheme.bgColor;
@@ -83,6 +92,8 @@ Loader {
             opacity: {
                 if (mainTapHandler.pressed || secondaryTapHandler.pressed)
                     return FloatingBarTheme.bgPressedOpacity;
+                if (root.selected)
+                    return FloatingBarTheme.bgSelectedOpacity;
                 if (hoverHandler.hovered)
                     return FloatingBarTheme.bgHoverOpacity;
                 return FloatingBarTheme.bgOpacity;
@@ -208,8 +219,8 @@ Loader {
 
     Timer {
         id: showTimer
-        interval: blockShowTimer.running ? 0 : 1000
-        onRunningChanged: root.opacity = running ? 1 : 0
+        interval: blockShowTimer.running ? 0 : root.showTimeout
+        onRunningChanged: root.opacity = running ? root.maxOpacity : 0
     }
 
     Timer {
