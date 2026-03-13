@@ -11,7 +11,7 @@ PanelWindow { // qmllint disable uncreatable-type
     exclusionMode: ExclusionMode.Normal
     exclusiveZone: 0
     mask: Region {
-        item: notificationsWidget
+        item: notificationsWidget.visible ? notificationsWidget : null
     }
 
     anchors {
