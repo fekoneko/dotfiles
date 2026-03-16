@@ -23,6 +23,9 @@ shopt -s globstar nullglob
 # Correct cd spelling
 shopt -s cdspell autocd
 
+# Enable globbing dotfiles
+shopt -s dotglob
+
 # Fancy prompt if not in tty
 if [[ $TERM == 'linux' ]]
   then PS1='\n\[\e[96;1m\]\u@\h\[\e[0m\] \W $ '
