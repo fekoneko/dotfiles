@@ -22,36 +22,28 @@ Singleton {
     property bool lowNotified: false
     property bool criticalNotified: false
 
-    onPercentageChanged: {
-        if (onBattery)
-            percentageHooks();
-    }
-
-    onOnBatteryChanged: {
-        if (onBattery)
-            percentageHooks();
-        else
-            resetPercentageHooks();
-    }
+    onPercentageChanged: percentageHooks()
+    onOnBatteryChanged: percentageHooks()
 
     function percentageHooks() {
-        if (percentage <= 5 && !criticalNotified) {
-            criticalNotificationProcess.show();
-            criticalNotified = true;
-        } else if (percentage <= 15 && !lowNotified) {
-            lowNotificationProcess.show();
-            lowNotified = true;
+        if (onBattery) {
+            if (percentage <= 5 && !criticalNotified) {
+                criticalNotificationProcess.show();
+                criticalNotified = true;
+            } else if (percentage <= 15 && !lowNotified) {
+                lowNotificationProcess.show();
+                lowNotified = true;
+            }
+
+            if (percentage <= 3)
+                Quickshell.execDetached(["systemctl", "suspend"]);
+        } else {
+            lowNotificationProcess.hide();
+            lowNotified = false;
+
+            criticalNotificationProcess.hide();
+            criticalNotified = false;
         }
-
-        if (percentage <= 3)
-            Quickshell.execDetached(["systemctl", "suspend"]);
-    }
-
-    function resetPercentageHooks() {
-        lowNotificationProcess.hide();
-        criticalNotificationProcess.hide();
-        lowNotified = false;
-        criticalNotified = false;
     }
 
     Process {

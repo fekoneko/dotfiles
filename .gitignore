@@ -97,7 +97,6 @@
 !/.config/zen/fekoneko/
 !/.config/zen/fekoneko/chrome/
 !/.config/zen/fekoneko/chrome/userChrome.css
-!/.config/zen/fekoneko/chrome/userContent.css
 
 # ---------------- ~/.local/share ----------------
 
@@ -156,6 +155,3 @@
 
 !/Scripts/
 !/Scripts/**/*
-
-# private configuration
-/Scripts/**/*.conf
