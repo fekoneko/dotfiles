@@ -45,13 +45,13 @@ FlexboxLayout {
         iconSize: FloatingBarTheme.notificationIconSize
         text: root.displayedNotification?.summary ?? ""
         secondaryText: root.displayedNotification?.body ?? ""
-        hoverText: root.action ? root.action.text + " | Dismiss" : "Dismiss"
+        hoverText: root.action ? (root.action.text || "Activate") + " | Dismiss" : "Dismiss"
         maxTextWidth: FloatingBarTheme.maxNotificationWidth
         leftPadding: 3.5
         actionsEnabled: !!root.displayedNotification
 
         icon: {
-            const fallback = Icons.assetPath("notification-fallback");
+            const fallback = Icons.assetIconPath("notification-fallback");
             return Quickshell.iconPath(root.displayedNotification?.appIcon, fallback);
         }
 

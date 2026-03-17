@@ -7,13 +7,13 @@ Singleton {
     id: root
 
     // Resolve icon asset path without file:// protocol prefix.
-    function assetPath(icon: string): string {
+    function assetIconPath(icon: string): string {
         return Quickshell.shellPath("assets/icons/" + icon + ".svg");
     }
 
     // Resolve icon asset URL. Contains file:// protocol prefix - ready to be used in Image source field.
     function assetIconUrl(icon: string, nothingOrFallbackOrCheck: var): string {
-        return Quickshell.iconPath(assetPath(icon), nothingOrFallbackOrCheck);
+        return Quickshell.iconPath(assetIconPath(icon), nothingOrFallbackOrCheck);
     }
 
     // Resolve app icon URL. Contains file:// protocol prefix - ready to be used in Image source field.

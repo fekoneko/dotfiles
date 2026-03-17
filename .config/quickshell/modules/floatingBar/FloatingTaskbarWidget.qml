@@ -36,7 +36,7 @@ Loader {
                 maxOpacity: selected ? FloatingBarTheme.taskbarSelectedOpacity : FloatingBarTheme.taskbarOpacity
 
                 icon: {
-                    const fallback = Icons.assetPath("taskbar-fallback");
+                    const fallback = Icons.assetIconPath("taskbar-fallback");
                     return Icons.appIconUrl(button.modelData.appId, fallback); // qmllint disable use-proper-function
                 }
 

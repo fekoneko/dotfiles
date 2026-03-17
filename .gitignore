@@ -48,10 +48,6 @@
 !/.config/elephant/menus/*.toml
 !/.config/elephant/menus/*.lua
 
-# batsignal
-!/.config/batsignal
-!/.config/batsignal-icon.svg
-
 # wl-kbptr
 !/.config/wl-kbptr/
 !/.config/wl-kbptr/config
