@@ -6,7 +6,7 @@ environment {
     ///// Input method /////
     QT_IM_MODULES "wayland;fcitx;ibus";                           // Prioritize wayland IM module for Qt
     XMODIFIERS "@im=fcitx";                                       // Tell XWayland apps to use fcitx
-    GTK_IM_MODULE "fcitx";                                        // Use fcitx IM module for GTK - wayland one would be
+    // GTK_IM_MODULE "fcitx";                                     // Use fcitx IM module for GTK - wayland one would be
                                                                   // better, but it breaks inputs inside popovers which
                                                                   // appear in a lot of libadwaita apps:
                                                                   // e.g.: Nautilus, Foliate, Calendar, Weather, etc.

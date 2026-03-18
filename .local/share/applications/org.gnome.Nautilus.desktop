@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Nautilus
-Exec=/usr/bin/nautilus --new-window %U
+Exec=env GTK_IM_MODULE=fcitx /usr/bin/nautilus --new-window %U
 Icon=org.gnome.Nautilus
 Terminal=false
 Type=Application
