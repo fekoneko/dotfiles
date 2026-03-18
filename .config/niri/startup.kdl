@@ -14,6 +14,9 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "sans-serif 10"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "monospace 10"
 
+///// Celcies units in calendar /////
+spawn-at-startup "gsettings" "set" "org.gnome.GWeather4" "temperature-unit" "centigrade"
+
 ///// Wallpaper /////
 spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
 

@@ -130,9 +130,6 @@
 # nautilus patch
 !/.local/bin/nautilus
 
-# foliate patch
-!/.local/bin/foliate
-
 # timeshift patch
 !/.local/bin/timeshift-launcher
 

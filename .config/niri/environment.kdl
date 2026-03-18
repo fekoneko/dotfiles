@@ -4,15 +4,18 @@ environment {
     QT_QPA_PLATFORM "wayland";                                    // Use Wayland for Krita 6.0
 
     ///// Input method /////
-    QT_IM_MODULES "wayland;fcitx;ibus";                           // Prioritize wayland IM modile (Qt)
+    QT_IM_MODULES "wayland;fcitx;ibus";                           // Prioritize wayland IM module for Qt
     XMODIFIERS "@im=fcitx";                                       // Tell XWayland apps to use fcitx
-    // GTK_IM_MODULE "fcitx";                                     // Use fcitx module if needed (GTK)
-    // QT_IM_MODULE "fcitx";                                      // Use fcitx module if needed (Qt)
+    GTK_IM_MODULE "fcitx";                                        // Use fcitx IM module for GTK - wayland one would be
+                                                                  // better, but it breaks inputs inside popovers which
+                                                                  // appear in a lot of libadwaita apps:
+                                                                  // e.g.: Nautilus, Foliate, Calendar, Weather, etc.
+    // QT_IM_MODULE "fcitx";                                      // Use fcitx IM module for Qt if wayland one is broken
 
     ///// Theme /////
     QT_STYLE_OVERRIDE "Adwaita-Dark";                             // Match GTK4 theme in Qt
     GTK2_RC_FILES "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc"; // Theme for GTK2
-    // GTK_THEME "Adwaita:dark";                                  // Force GTK4 dark theme if needed
+    // GTK_THEME "Adwaita:dark";                                  // Force GTK4 dark (non-libadwaita) theme if needed
     // XCURSOR_PATH "$XCURSOR_PATH:$HOME/.local/share/icons";     // Breaks cursor in GTK3 apps
     // SAL_USE_VCLPLUGIN "gtk4";                                  // Use GTK4 for LibreOffice (broken)
 }
