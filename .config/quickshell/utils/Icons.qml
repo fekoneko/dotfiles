@@ -37,6 +37,10 @@ Singleton {
             appId: /^com.transmissionbt.transmission/,
             icon: "transmission-gtk"
         },
+        {
+            appId: /^evolution-alarm-notify$/,
+            icon: "org.gnome.Evolution-alarm-notify"
+        },
     ]
 
     Connections {

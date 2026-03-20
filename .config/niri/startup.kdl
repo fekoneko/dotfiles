@@ -5,7 +5,7 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 ///// Preload Walker right away, so that it pops up faster /////
 spawn-at-startup "walker" "--gapplication-service"
 
-///// Cursor theme /////
+///// Cursor theme for GTK /////
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Classic"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
 
@@ -14,7 +14,8 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "sans-serif 10"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "monospace 10"
 
-///// Celcies units in calendar /////
+///// Units and time format for GTK /////
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "clock-format" "24h"
 spawn-at-startup "gsettings" "set" "org.gnome.GWeather4" "temperature-unit" "centigrade"
 
 ///// Wallpaper /////

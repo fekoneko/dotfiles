@@ -12,7 +12,6 @@ output="$(printf '%s' "$selected_option" | sed -n 's/     (.*)$//p')"
 filename=$(date '+%F_%T.mp4')
 
 wf-recorder \
-	--audio \
 	--codec h264_vaapi \
 	--file "$HOME/Videos/$filename" \
-	--output "$output" >/dev/null 2>&1 &
+	--output "$output"

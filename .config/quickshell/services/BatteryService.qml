@@ -26,6 +26,9 @@ Singleton {
     onOnBatteryChanged: percentageHooks()
 
     function percentageHooks() {
+        if (!percentage)
+            return;
+
         if (onBattery) {
             if (percentage <= 5 && !criticalNotified) {
                 criticalNotificationProcess.show();
