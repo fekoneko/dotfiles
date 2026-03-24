@@ -5,12 +5,6 @@ layer-rule {
     place-within-backdrop true
 }
 
-///// Block out notifications from screencast (but not screencapture) /////
-layer-rule {
-    match namespace="notifications"
-    block-out-from "screencast"
-}
-
 ///// Global window rules /////
 window-rule {
     geometry-corner-radius 5
