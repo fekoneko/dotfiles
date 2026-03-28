@@ -35,9 +35,16 @@
   "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
   "[python]": { "editor.tabSize": 4 },
   "[kdl]": { "editor.tabSize": 4 },
-  "[qml]": { "editor.tabSize": 4 },
+  "[qml]": {
+    "editor.defaultFormatter": "theqtcompany.qt-qml",
+    "editor.tabSize": 4,
+  },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4,
+  },
+  "[rhai]": {
+    "editor.defaultFormatter": "rhaiscript.vscode-rhai",
     "editor.tabSize": 4,
   },
   "[go]": {

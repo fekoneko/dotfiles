@@ -1,5 +1,6 @@
 ///// Laptop monitor /////
 output "eDP-1" {
+    mode "2880x1800@120.000"
     scale 1.875
     position x=0 y=0
     focus-at-startup
