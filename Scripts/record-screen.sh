@@ -8,10 +8,12 @@ if [ "$(printf '%s\n' "$options" | wc -l)" -gt 1 ]
 fi
 [ -z "$selected_option" ] && exit 1
 
+source="$(pactl get-default-sink).monitor"
 output="$(printf '%s' "$selected_option" | sed -n 's/     (.*)$//p')"
 filename=$(date '+%F_%T.mp4')
 
 wf-recorder \
 	--codec h264_vaapi \
-	--file "$HOME/Videos/$filename" \
-	--output "$output"
+	--audio="$source" \
+	--output "$output" \
+	--file "$HOME/Videos/$filename"
