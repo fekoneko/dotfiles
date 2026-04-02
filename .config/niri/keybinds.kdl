@@ -97,7 +97,7 @@ binds {
     Mod+Z                          { spawn "gtk-launch" "zen"                                             ; }
     Mod+G                          { spawn "gtk-launch" "com.github.neithern.g4music"                     ; }
     Mod+A                          { spawn "gtk-launch" "anki"                                            ; }
-    Mod+K                          { spawn "gtk-launch" "krita-beta"                                      ; }
+    Mod+K                          { spawn "gtk-launch" "org.kde.krita"                                   ; }
     Mod+O                          { spawn "gtk-launch" "obsidian"                                        ; }
     Mod+U                          { spawn "gtk-launch" "chromium"                                        ; }
     Mod+M                          { spawn "gtk-launch" "org.gnome.Geary"                                 ; }

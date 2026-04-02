@@ -77,6 +77,7 @@ PanelWindow { // qmllint disable uncreatable-type
                 AnkiWidget {}
                 NetworkWidget {}
                 BluetoothWidget {}
+                DndWidget {}
                 MicrophoneWidget {}
                 VolumeWidget {}
                 BrightnessWidget {}

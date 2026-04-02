@@ -8,7 +8,7 @@ import qs.utils
 
 FlexboxLayout {
     id: root
-    visible: !!displayedNotification
+    visible: !NotificationsService.dnd && !!displayedNotification
     alignItems: FlexboxLayout.AlignCenter
     gap: 6
 
