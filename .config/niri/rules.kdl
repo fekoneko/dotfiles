@@ -46,7 +46,7 @@ window-rule {
     match app-id="^veracrypt$" title="^Enter password for"
     match app-id="^zen$" title="^Picture-in-Picture$"                        // Zen Picture-in-Picture overlays
     match app-id="^org.gnome.Geary$" title="^Untrusted Connection$"          // Geary untrusted connection popups
-    match app-id="^org.kde.krita$" title="[^ *] — Krita$"                    // Some Krita windows
+    match app-id="^org.kde.krita$" title="[^ *] [—–] Krita$"                 // Some Krita windows
 
     open-floating true
 }

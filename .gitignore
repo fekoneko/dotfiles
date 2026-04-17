@@ -114,8 +114,11 @@
 !/.local/share/krita/color-schemes/fekoneko-theme.colors
 !/.local/share/krita/input/
 !/.local/share/krita/input/fekoneko input profile.profile
+!/.local/share/krita/brushes/
+!/.local/share/krita/brushes/fekoneko_angled_brushtip.gbr
 !/.local/share/krita/paintoppresets/
 !/.local/share/krita/paintoppresets/fekoneko_fun_brush.kpp
+!/.local/share/krita/paintoppresets/fekoneko_angled_brush.kpp
 
 # dbus service overrides
 !/.local/share/dbus-1/
