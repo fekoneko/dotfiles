@@ -16,7 +16,7 @@ export PATH="$HOME/.bun/bin:$PATH"
 
 # PNPM
 export PNPM_HOME="$HOME/.pnpm"
-export PATH="$HOME/.pnpm:$PATH"
+export PATH="$HOME/.pnpm/bin:$PATH"
 
 # Only NPM packages are global for all users (/usr/lib)
 
