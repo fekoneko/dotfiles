@@ -28,8 +28,8 @@ shopt -s dotglob
 
 # Fancy prompt if not in tty
 if [[ $TERM == 'linux' ]]
-  then PS1='\n\[\e[96;1m\]\u@\h\[\e[0m\] \W $ '
-  else PS1='\n\[\e[30;44;1m\] \u@\h\[\e[0m\]\[\e[34m\]\[\e[0m\] \W \[\e[1m\]\$\[\e[0m\] '
+  then PS1='\n\[\e[96;1m\]\u\[\e[0m\] \W $ '
+  else PS1='\n\[\e[30;44;1m\] \W \[\e[0m\]\[\e[34m\]\[\e[0m\] \[\e[1m\]\$\[\e[0m\] '
 fi
 
 # Set default editor
