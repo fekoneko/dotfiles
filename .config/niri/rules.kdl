@@ -59,3 +59,13 @@ window-rule {
     default-column-width { fixed 900; }
     default-window-height { fixed 600; }
 }
+
+///// Floating 250 x 150 in the corner /////
+window-rule {
+    match app-id="^XEyes$" title="^xeyes$"                                   // XEyes (wayland test)
+
+    open-floating true
+    default-column-width { fixed 250; }
+    default-window-height { fixed 150; }
+    default-floating-position x=12 y=12
+}
