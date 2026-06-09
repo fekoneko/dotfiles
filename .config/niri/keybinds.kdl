@@ -180,5 +180,5 @@ binds {
 
     ///// Microsoft yells when I press the Copilot button /////
     // `leftmeta+leftshift+f23 = finance` is remapped using keyd so that this works
-    XF86Finance                    { spawn "~/Scripts/microsoft-yell.sh"                                  ; }
+    XF86Finance                    allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"           ; }
 }

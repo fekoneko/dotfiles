@@ -3,7 +3,7 @@
 screen_width="${WIDTH:-1920}"
 screen_height="${HEIGHT:-1200}"
 
-exec gamescope \
+exec systemd-inhibit gamescope \
   --fullscreen \
   --nested-width "$screen_width" \
   --nested-height "$screen_height" \
