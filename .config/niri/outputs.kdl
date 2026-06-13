@@ -6,12 +6,12 @@ output "eDP-1" {
     focus-at-startup
 }
 
-///// Second monitor at work /////
-output "Philips Consumer Electronics Company PHL 240V5A UK01625003096" {
-    position x=1536 y=-120
+///// GAOMON tablet screen /////
+output "PNP(GAM) PD2200 0x00000001" {
+    position x=0 y=960
 }
 
-///// Drawing tablet screen /////
-output "PNP(GAM) PD2200 0x00000001" {
+///// Wacom tablet screen /////
+output "Wacom Tech Wacom DTH135 6BH01H1000364" {
     position x=0 y=960
 }
