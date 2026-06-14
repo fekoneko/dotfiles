@@ -89,9 +89,6 @@
 !/.config/com.github.johnfactotum.Foliate/
 !/.config/com.github.johnfactotum.Foliate/user-stylesheet.css
 
-# krita shortcuts
-!/.config/kritashortcutsrc
-
 # zen custom css
 !/.config/zen/
 !/.config/zen/fekoneko/
@@ -113,7 +110,9 @@
 !/.local/share/krita/color-schemes
 !/.local/share/krita/color-schemes/fekoneko-theme.colors
 !/.local/share/krita/input/
-!/.local/share/krita/input/fekoneko input profile.profile
+!/.local/share/krita/input/fekonekoinputprofile.profile
+!/.local/share/krita/shortcuts/
+!/.local/share/krita/shortcuts/fekoneko shortcuts.shortcuts
 !/.local/share/krita/brushes/
 !/.local/share/krita/brushes/fekoneko_angled_brushtip.gbr
 !/.local/share/krita/paintoppresets/
