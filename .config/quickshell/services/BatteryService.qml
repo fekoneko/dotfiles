@@ -9,6 +9,10 @@ import qs.utils
 Singleton {
     id: root
 
+    readonly property real lowThreshold: 15
+    readonly property real criticalThreshold: 5
+    readonly property real suspendThreshold: 3
+
     readonly property bool onBattery: UPower.onBattery
     readonly property real percentage: UPower.displayDevice.percentage * 100
     readonly property string formattedPercentage: Math.round(percentage) + "%"
@@ -30,15 +34,15 @@ Singleton {
             return;
 
         if (onBattery) {
-            if (percentage <= 5 && !criticalNotified) {
+            if (percentage <= criticalThreshold && !criticalNotified) {
                 criticalNotificationProcess.show();
                 criticalNotified = true;
-            } else if (percentage <= 15 && !lowNotified) {
+            } else if (percentage <= lowThreshold && !lowNotified) {
                 lowNotificationProcess.show();
                 lowNotified = true;
             }
 
-            if (percentage <= 3)
+            if (percentage <= suspendThreshold)
                 Quickshell.execDetached(["systemctl", "suspend"]);
         } else {
             lowNotificationProcess.hide();
@@ -55,7 +59,7 @@ Singleton {
         function show() {
             const icon = Icons.assetIconPath("battery-10");
             const summary = "Battery is low";
-            const body = "Battery level: " + root.formattedPercentage;
+            const body = `Less than ${root.lowThreshold}% remaining`;
             command = ["notify-send", "--wait", "--app-icon", icon, summary, body];
             running = true;
         }
@@ -71,7 +75,7 @@ Singleton {
         function show() {
             const icon = Icons.assetIconPath("battery-0");
             const summary = "Battery is critically low";
-            const body = "Battery level: " + root.formattedPercentage;
+            const body = `Less than ${root.criticalThreshold}% remaining`;
             command = ["notify-send", "--wait", "--app-icon", icon, summary, body];
             running = true;
         }
