@@ -2,11 +2,11 @@
 # Print random word from Anki database
 # Usage: random-anki-word.py
 
+import sys
 import os
 import re
 import random
 import time
-
 from html.parser import HTMLParser
 from anki.collection import Collection
 
@@ -26,7 +26,7 @@ class HTMLTextExtractor(HTMLParser):
         return ''.join(self.result)
 
 def html_to_text(html):
-    prepared_html = re.sub('<rt>[\\w\\W]*<\\/rt>', '', html)
+    prepared_html = re.sub(r'<rt>[\w\W]*<\/rt>', '', html)
     html_text_extractor = HTMLTextExtractor()
     html_text_extractor.feed(prepared_html)
     return html_text_extractor.get_text()
@@ -44,8 +44,10 @@ while True:
         random_note_id = random.choice(note_ids)
         print(get_field_by_note_id(random_note_id))
         break
+
     except Exception as e:
         if retries >= 3:
-            exit(e)
+            print(e, file=sys.stderr)
+            exit(1)
         retries += 1
         time.sleep(retries ** 2)

@@ -1,14 +1,9 @@
-import Quickshell.Io
+import Quickshell
 import QtQuick
 import qs.services
 
 BarButton {
     icon: AudioService.microphoneIcon
     onMainAction: AudioService.toggleMicrophone()
-    onSecondaryAction: process.startDetached()
-
-    Process {
-        id: process
-        command: ["pavucontrol"]
-    }
+    onSecondaryAction: Quickshell.execDetached("pavucontrol")
 }

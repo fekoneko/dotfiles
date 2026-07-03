@@ -1,14 +1,9 @@
-import Quickshell.Io
+import Quickshell
 import QtQuick
 import qs.services
 
 BarButton {
     text: TimeService.formattedTime
-    onMainAction: process.startDetached()
-    onSecondaryAction: process.startDetached()
-
-    Process {
-        id: process
-        command: ["gnome-calendar"]
-    }
+    onMainAction: Quickshell.execDetached("gnome-calendar")
+    onSecondaryAction: Quickshell.execDetached("gnome-calendar")
 }

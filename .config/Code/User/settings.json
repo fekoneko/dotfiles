@@ -35,6 +35,7 @@
   "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
   "[python]": { "editor.tabSize": 4 },
   "[shellscript]": { "editor.tabSize": 4 },
+  "[powershell]": { "editor.tabSize": 4 },
   "[kdl]": { "editor.tabSize": 4 },
   "[qml]": {
     "editor.defaultFormatter": "theqtcompany.qt-qml",
@@ -193,4 +194,5 @@
   "Lua.completion.enable": true,
   "Lua.signatureHelp.enable": true,
   "Lua.hover.enable": true,
+  "python.analysis.typeCheckingMode": "standard",
 }

@@ -3,6 +3,9 @@
 # ~/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
 
+# Set default editor
+export EDITOR='nano'
+
 # Go
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"

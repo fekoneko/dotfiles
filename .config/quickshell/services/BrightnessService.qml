@@ -50,16 +50,6 @@ Singleton {
         }
     }
 
-    Process {
-        id: increaseProcess
-        command: ["brightnessctl", "-c", "backlight", "s", "+5%"]
-    }
-
-    Process {
-        id: decreaseProcess
-        command: ["brightnessctl", "-c", "backlight", "s", "5%-"]
-    }
-
     Timer {
         id: reconnectTimer
         interval: 1000
@@ -70,10 +60,10 @@ Singleton {
     }
 
     function increaseBrightness(): void {
-        increaseProcess.startDetached();
+        Quickshell.execDetached(["brightnessctl", "-c", "backlight", "s", "5%+"]);
     }
 
     function decreaseBrightness(): void {
-        decreaseProcess.startDetached();
+        Quickshell.execDetached(["brightnessctl", "-c", "backlight", "s", "5%-"]);
     }
 }

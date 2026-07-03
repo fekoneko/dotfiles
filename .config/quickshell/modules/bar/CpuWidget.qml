@@ -1,4 +1,4 @@
-import Quickshell.Io
+import Quickshell
 import QtQuick
 import qs.services
 import qs.utils
@@ -6,11 +6,6 @@ import qs.utils
 BarButton {
     icon: Icons.assetIconUrl("cpu")
     text: ResoursesService.formattedCpuUsage
-    onMainAction: process.startDetached()
-    onSecondaryAction: process.startDetached()
-
-    Process {
-        id: process
-        command: ["missioncenter"]
-    }
+    onMainAction: Quickshell.execDetached("missioncenter")
+    onSecondaryAction: Quickshell.execDetached("missioncenter")
 }

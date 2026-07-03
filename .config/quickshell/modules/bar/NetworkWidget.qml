@@ -1,4 +1,4 @@
-import Quickshell.Io
+import Quickshell
 import QtQuick
 import qs.services
 
@@ -10,14 +10,17 @@ Repeater {
         id: barButton
         icon: connection.icon
         onMainAction: NetworkService.toggleConnection(connection)
-        onSecondaryAction: process.startDetached()
+
+        onSecondaryAction: {
+            if (connection.type === "wireguard") {
+                const scriptPath = Quickshell.shellPath("assets/scripts/set-wg-ignored-ips.sh");
+                Quickshell.execDetached(["kitty", "-e", scriptPath]);
+            } else {
+                Quickshell.execDetached(["kitty", "-e", "nmtui"]);
+            }
+        }
 
         required property string modelData
         property var connection: NetworkService.connections.find(c => c.device === modelData)
-
-        Process {
-            id: process
-            command: ["kitty", "-e", "nmtui"]
-        }
     }
 }

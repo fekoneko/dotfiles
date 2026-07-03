@@ -1,4 +1,3 @@
-import Quickshell.Io
 import QtQuick
 import qs.services
 import qs.themes
@@ -9,9 +8,4 @@ BarButton {
     maxTextWidth: BarTheme.maxAnkiWidth
     onMainAction: AnkiService.showBrowser(AnkiService.randomWord)
     onSecondaryAction: AnkiService.refreshRandomWord()
-
-    Process {
-        id: process
-        command: ["anki"]
-    }
 }
