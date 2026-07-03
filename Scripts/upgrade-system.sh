@@ -4,11 +4,11 @@
 log_command() { echo $'\n'"$1:"$'\n'"$ $2"; }
 
 paru_error() {
-  command='sudo pacman -Sy --needed archlinux-keyring && pacman -Su'
-  log_command 'Failed to update packages, try updating the keyring first' "$command" >&2
-  command='sudo npm --global remove node-gyp'
-  log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command" >&2
-  exit 1
+    command='sudo pacman -Sy --needed archlinux-keyring'
+    log_command 'Failed to update packages, try updating the keyring first' "$command" >&2
+    command='sudo npm --global remove node-gyp'
+    log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command" >&2
+    exit 1
 }
 
 timeshift_error()      { echo $'\nFailed to create timeshift snapshot'      >&2; exit 1; }
@@ -29,9 +29,9 @@ echo
 
 read -rep 'Create timeshift snapshot? [Y/n] ' choice
 case "$choice" in y|Y|'')
-  command="sudo timeshift --create --comments 'before upgrade'"
-  log_command 'Creating timeshift snapshot' "$command"
-  eval "$command" || timeshift_error
+    command="sudo timeshift --create --comments 'before upgrade'"
+    log_command 'Creating timeshift snapshot' "$command"
+    eval "$command" || timeshift_error
 esac
 
 echo $'\nPlease check the news, could anything break?'
@@ -76,14 +76,14 @@ log_command 'Updating rust' "$command"
 eval "$command" || rust_error
 
 cargo_packages="$(jq -r '.installs | keys[] | split(" ")[0]' \
-  < "$CARGO_HOME/.crates2.json")" || cargo_error
+    < "$CARGO_HOME/.crates2.json")" || cargo_error
 
 if [[ -n "$cargo_packages" ]]; then
-  command="cargo install --locked ${cargo_packages/$'\n'/' '}"
-  log_command 'Updating cargo binaries' "$command"
-  eval "$command" || cargo_error
+    command="cargo install --locked ${cargo_packages/$'\n'/' '}"
+    log_command 'Updating cargo binaries' "$command"
+    eval "$command" || cargo_error
 else
-  echo $'\nNo cargo binaries to update'
+    echo $'\nNo cargo binaries to update'
 fi
 
 echo

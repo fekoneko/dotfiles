@@ -34,6 +34,7 @@
   "[graphql]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
   "[python]": { "editor.tabSize": 4 },
+  "[shellscript]": { "editor.tabSize": 4 },
   "[kdl]": { "editor.tabSize": 4 },
   "[qml]": {
     "editor.defaultFormatter": "theqtcompany.qt-qml",
@@ -53,7 +54,6 @@
     "editor.insertSpaces": false,
   },
   "[blueprint]": {
-    "editor.tabSize": 2,
     "editor.insertSpaces": false,
   },
   "svelte.enable-ts-plugin": true,
