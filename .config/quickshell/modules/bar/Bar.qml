@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 import qs.services
@@ -8,6 +9,10 @@ PanelWindow { // qmllint disable uncreatable-type
     id: barWindow
     implicitHeight: BarTheme.height
     color: "transparent"
+
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.namespace: "bar"
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
     exclusionMode: ExclusionMode.Normal
     exclusiveZone: IpcService.barExpanded ? BarTheme.height - 5 : 0

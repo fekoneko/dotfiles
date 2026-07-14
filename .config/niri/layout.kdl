@@ -7,8 +7,13 @@ layout {
     tab-indicator { gap 2; }
 
     focus-ring {
+        off
+    }
+
+    border {
+        on
         width 1.5
-        active-color "#5e6775"
+        active-color "#27282c"
         inactive-color "#27282c"
         urgent-color "#27282c"
     }

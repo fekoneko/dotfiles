@@ -1,7 +1,8 @@
 ///// Show wallpaper within backdrop /////
 layer-rule {
-    match namespace="wallpaper"
+    match namespace="^wallpaper$"
     match at-startup=true
+
     place-within-backdrop true
 }
 
@@ -13,6 +14,36 @@ window-rule {
     open-maximized true
     draw-border-with-background false
     open-maximized-to-edges false
+}
+
+///// Change border on focused windows /////
+window-rule {
+    match is-focused=true
+
+    border {
+        width 1.5
+        active-color "#5e6775"
+        inactive-color "#5e6775"
+        urgent-color "#5e6775"
+    }
+}
+
+///// Switch to non-xray blur for floating windows /////
+window-rule {
+    match is-floating=true
+
+    background-effect {
+        xray false
+    }
+}
+
+///// With blur /////
+window-rule {
+    match app-id="^kitty$"                                                   // Terminal
+
+    background-effect {
+        blur true
+    }
 }
 
 ///// Tiled full width /////
@@ -37,7 +68,7 @@ window-rule {
     match app-id="^timeshift-gtk$" title="^Restore Snapshot$"                // Timeshift restore snapshot window
     match app-id="^evolution-alarm-notify$" title="^Reminders$"              // Evolution calendar event reminders
     match app-id="^net.lutris.Lutris$" title="^Add games to Lutris$"         // Some Lutris dialogs
-    match app-id="^net.lutris.Lutris$" title="^Configure "
+    match app-id="^net.lutris.Lutris$" title="^Configure "                   // ...
 
     default-column-width { proportion 0.5; }
     open-floating false
@@ -47,7 +78,7 @@ window-rule {
 ///// Floating /////
 window-rule {
     match app-id="^veracrypt$" title="^Administrator privileges required$"   // VeraCrypt password prompts
-    match app-id="^veracrypt$" title="^Enter password for"
+    match app-id="^veracrypt$" title="^Enter password for"                   // ...
     match app-id="^zen$" title="^Picture-in-Picture$"                        // Zen Picture-in-Picture overlays
     match app-id="^org.gnome.Geary$" title="^Untrusted Connection$"          // Geary untrusted connection popups
     match app-id="^org.kde.krita$" title="[^ *] [—–] Krita$"                 // Some Krita windows

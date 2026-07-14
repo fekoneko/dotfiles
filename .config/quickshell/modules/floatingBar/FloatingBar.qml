@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 import qs.themes
@@ -7,6 +8,10 @@ PanelWindow { // qmllint disable uncreatable-type
     id: floatingBarWindow
     implicitHeight: FloatingBarTheme.height + 16
     color: "transparent"
+
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.namespace: "floating-bar"
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
     exclusionMode: ExclusionMode.Ignore
     mask: Region {
