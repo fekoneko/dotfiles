@@ -6,7 +6,7 @@ I use Arch with Niri and a custom Quickshell! Here are some of my config files a
 
 ![Screenshot 1](https://github.com/user-attachments/assets/af2d038a-a25e-4b0a-bbda-8cfad2538071)
 
-> Illustration and characters by [POP](https://www.pixiv.net/artworks/120467610)!
+> Illustration and characters by [POP](https://www.pixiv.net/users/41477)!
 
 ![Screenshot 2](https://github.com/user-attachments/assets/05c6c957-da20-4c75-8801-95aec55fdbee)
 
