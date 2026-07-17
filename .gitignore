@@ -80,10 +80,12 @@
 # gtk3
 !/.config/gtk-3.0/
 !/.config/gtk-3.0/settings.ini
+!/.config/gtk-3.0/gtk.css
 
 # gtk4
 !/.config/gtk-4.0/
 !/.config/gtk-4.0/settings.ini
+!/.config/gtk-4.0/gtk.css
 
 # foliate
 !/.config/com.github.johnfactotum.Foliate/
@@ -94,6 +96,7 @@
 !/.config/zen/fekoneko/
 !/.config/zen/fekoneko/chrome/
 !/.config/zen/fekoneko/chrome/userChrome.css
+!/.config/zen/fekoneko/chrome/userContent.css
 
 # ---------------- ~/.local/share ----------------
 

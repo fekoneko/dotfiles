@@ -22,28 +22,17 @@ window-rule {
 
     border {
         width 1.5
-        active-color "#5e6775"
-        inactive-color "#5e6775"
+        active-color "#a09bc2"
+        inactive-color "#00000059"
         urgent-color "#5e6775"
     }
 }
 
-///// Switch to non-xray blur for floating windows /////
+///// Avoid artifacts with opacity /////
 window-rule {
-    match is-floating=true
+    match app-id="^zen$"                                                     // Zen Browser
 
-    background-effect {
-        xray false
-    }
-}
-
-///// With blur /////
-window-rule {
-    match app-id="^kitty$"                                                   // Terminal
-
-    background-effect {
-        blur true
-    }
+    opacity 0.999
 }
 
 ///// Tiled full width /////
@@ -57,9 +46,9 @@ window-rule {
 
 ///// Tiled half width /////
 window-rule {
-    match app-id="^kitty$"                                                   // Terminal
-    match app-id="^org.gnome.Nautilus$" title=".+"                           // File manager
-    match app-id="^org.gnome.FileRoller$"                                    // Archive manager
+    match app-id="^kitty$"                                                   // Kitty
+    match app-id="^org.gnome.Nautilus$" title=".+"                           // Nautilus
+    match app-id="^org.gnome.FileRoller$"                                    // File Roller
     match app-id="^org.x.GnomeOnlineAccountsGtk$"                            // Gnome Online Accounts
     match app-id="^anki$" title="^Edit|^Add|^Statistics"                     // Anki add / edit note, add-ons, stats
     match app-id="^org.prismlauncher.PrismLauncher$" title="^Prism Launcher" // Prism Launcher
@@ -97,7 +86,7 @@ window-rule {
 
 ///// Floating 250 x 150 in the corner /////
 window-rule {
-    match app-id="^XEyes$" title="^xeyes$"                                   // XEyes (wayland test)
+    match app-id="^XEyes$" title="^xeyes$"                                   // XEyes
 
     open-floating true
     default-column-width { fixed 250; }

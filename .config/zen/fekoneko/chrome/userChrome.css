@@ -3,7 +3,7 @@
 }
 
 browser {
-  background-color: #2e2e32 !important;
+  background-color: transparent !important;
 }
 
 findbar {
@@ -11,14 +11,14 @@ findbar {
 }
 
 #zen-browser-background {
-  --zen-main-browser-background: #1d1d20 !important;
-  --zen-main-browser-background-old: #1d1d20 !important;
-  opacity: 1 !important;
+  --zen-main-browser-background: #1c1c20 !important;
+  --zen-main-browser-background-old: #1c1c20 !important;
+  opacity: 0.93 !important;
 }
 
 #zen-toolbar-background {
-  --zen-main-browser-background-toolbar: #1d1d20 !important;
-  --zen-main-browser-background-toolbar-old: #1d1d20 !important;
+  --zen-main-browser-background-toolbar: #1c1c20 !important;
+  --zen-main-browser-background-toolbar-old: #1c1c20 !important;
   border-color: #2e2e32 !important;
 }
 

@@ -1,0 +1,60 @@
+window,
+window.view.view.view {
+  background-color: #1c1c21ed;
+}
+
+headerbar,
+headerbar.view.view.view {
+  background-color: transparent;
+}
+
+.sidebar-pane,
+.sidebar-pane.view.view.view {
+  background-color: #2e2e32aa;
+}
+
+.view {
+  background-color: #1d1d2033;
+}
+
+/* File Roller */
+window > grid.horizontal > stack > paned.horizontal > box.vertical > scrolledwindow treeview.view {
+  background-color: transparent;
+}
+
+/* Gnome Calendar */
+.header.heading.horizontal.month-header.view,
+stack.view {
+  background-color: transparent;
+  background-color: transparent;
+}
+
+/* Nautilus */
+.nautilus-window .view,
+.nautilus-file-chooser .view {
+  background-color: transparent;
+}
+
+/* Gapless */
+.navigation-sidebar.view {
+  background-color: transparent;
+}
+
+/* Gnome Online Accounts GTK */
+window
+  > overlay
+  > scrolledwindow
+  > viewport
+  > grid.vertical
+  > box.vertical
+  > frame
+  > list.separators {
+  background-color: #1d1d2033;
+}
+
+/* Transmission */
+window > box.vertical > box.horizontal.toolbar,
+notebook.frame > header,
+notebook.frame > stack {
+  background-color: transparent;
+}

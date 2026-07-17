@@ -11,7 +11,7 @@ Singleton {
     readonly property real maxWindowTitleWidth: 500
     readonly property real maxAnkiWidth: 150
 
-    readonly property color backdropColor: "#09090d"
+    readonly property color backdropColor: '#23202c'
     readonly property color fgColor: "#ffffff"
     readonly property color bgColor: "#ffffff"
     readonly property color shadowColor: "#000000"

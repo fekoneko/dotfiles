@@ -1,0 +1,52 @@
+@-moz-document domain(web.telegram.org) {
+  :root {
+    background: #eeffdd09 !important;
+  }
+
+  body,
+  #Main > :first-child {
+    background: transparent !important;
+  }
+
+  body::before,
+  #Main > :first-child::after {
+    display: none !important;
+  }
+}
+
+@-moz-document domain(youtube.com) {
+  :root:root,
+  ytd-app {
+    background: transparent !important;
+  }
+
+  #frosted-glass {
+    background: #222226 !important;
+  }
+
+  ytd-mini-guide-renderer,
+  tp-yt-app-drawer {
+    background: linear-gradient(#222226 5rem, transparent 20rem) !important;
+  }
+
+  .ytSearchboxComponentInputBox {
+    background: #00000022 !important;
+  }
+}
+
+@-moz-document domain(pixiv.net) {
+  :root {
+    background: #88ff0003 !important;
+  }
+
+  body,
+  .bg-background1,
+  .bg-background2,
+  .__top_side_menu_body > * {
+    background: transparent !important;
+  }
+
+  .h-\[var\(--responsive-header-height\)\] {
+    background: #1f1f1f !important;
+  }
+}

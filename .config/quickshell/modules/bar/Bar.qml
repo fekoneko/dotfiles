@@ -29,14 +29,6 @@ PanelWindow { // qmllint disable uncreatable-type
         || !hasActiveWindow;          //
     }
 
-    readonly property bool withBackdrop: {
-        return NiriService.overviewOpened                           //
-        || (hoverHandler.hovered                                    //
-            && !IpcService.barExpanded                              //
-            && hasActiveWindow                                      //
-            && (yAnimation.running || loader.y === 0));             //
-    }
-
     anchors {
         top: true
         left: true
@@ -92,9 +84,14 @@ PanelWindow { // qmllint disable uncreatable-type
 
         Rectangle {
             anchors.fill: parent
-            visible: barWindow.withBackdrop
             color: BarTheme.backdropColor
-            opacity: BarTheme.backdropOpacity
+            opacity: barWindow.revealed ? BarTheme.backdropOpacity : 0
+
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: BarTheme.animationDuration
+                }
+            }
         }
 
         Behavior on y {
