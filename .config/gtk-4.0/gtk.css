@@ -1,6 +1,6 @@
 window,
 window.view.view.view {
-  background-color: #1c1c21ed;
+  background-color: #1c1c1feb;
 }
 
 headerbar,
@@ -14,7 +14,7 @@ headerbar.view.view.view {
 }
 
 .view {
-  background-color: #1d1d2033;
+  background-color: #1b1b2033;
 }
 
 /* File Roller */
@@ -49,7 +49,7 @@ window
   > box.vertical
   > frame
   > list.separators {
-  background-color: #1d1d2033;
+  background-color: #1b1b2033;
 }
 
 /* Transmission */
