@@ -21,6 +21,16 @@ headerbar.view.view.view {
 window > grid.horizontal > stack > paned.horizontal > box.vertical > scrolledwindow treeview.view {
   background-color: transparent;
 }
+window
+  > grid.horizontal
+  > stack
+  > paned.horizontal
+  > box.vertical
+  > scrolledwindow
+  treeview.view
+  :selected {
+  background-color: #403f43;
+}
 
 /* Gnome Calendar */
 .header.heading.horizontal.month-header.view,

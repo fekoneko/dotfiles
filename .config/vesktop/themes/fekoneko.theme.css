@@ -1,0 +1,61 @@
+/**
+ * @name fekoneko theme
+ * @author fekoneko
+ * @version 1.0.0
+ * @description fekoneko personal theme
+*/
+
+body,
+#app-mount,
+[class^='app'],
+[class^='sidebarList'],
+[class^='sidebarList'] > nav,
+[class^='sidebarList'] > nav > :last-child,
+[class^='tabBody'],
+[class^='chat'],
+main {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+[class^='app'] > [class^='bg'] {
+  background: #1c1c1feb !important;
+  backdrop-filter: none !important;
+}
+
+nav[aria-label='Servers sidebar'],
+[class^='sidebarList'] > nav > :first-child,
+[class^='subtitleContainer'] > *,
+[class^='nowPlayingColumn'],
+[class^='members'],
+main > :first-child {
+  border: none !important;
+  background: #1a1a1e !important;
+  backdrop-filter: none !important;
+}
+
+div[class^='sidebarList'] {
+  border: none;
+  border-radius: 0 !important;
+}
+
+div[class^='sidebar']::after {
+  display: none;
+}
+
+nav[aria-label='Servers sidebar'] {
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+}
+
+[class^='base'][data-fullscreen] {
+  margin-top: -2rem;
+
+  > :first-child {
+    display: none;
+  }
+}
+
+nav[aria-label='Servers sidebar'] {
+  padding-top: 0.5rem;
+}

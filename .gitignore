@@ -98,6 +98,14 @@
 !/.config/zen/fekoneko/chrome/userChrome.css
 !/.config/zen/fekoneko/chrome/userContent.css
 
+# vesktop
+!/.config/vesktop/
+!/.config/vesktop/settings.json
+!/.config/vesktop/settings/
+!/.config/vesktop/settings/settings.json
+!/.config/vesktop/themes/
+!/.config/vesktop/themes/**/*
+
 # ---------------- ~/.local/share ----------------
 
 !/.local/
@@ -141,9 +149,6 @@
 # timeshift patch
 !/.local/bin/timeshift-launcher
 
-# discord patch
-!/.local/bin/discord
-
 # ---------- ~/.local/share/applications ----------
 
 !/.local/
@@ -152,9 +157,6 @@
 
 # nautilus patch
 !/.local/share/applications/org.gnome.Nautilus.desktop
-
-# discord patch
-!/.local/share/applications/discord.desktop
 
 # ------------------- ~/Scripts -------------------
 
