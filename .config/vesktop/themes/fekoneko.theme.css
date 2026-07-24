@@ -19,7 +19,7 @@ main {
 }
 
 [class^='app'] > [class^='bg'] {
-  background: #1c1c1feb !important;
+  background: #0c0c0ceb !important;
   backdrop-filter: none !important;
 }
 
@@ -29,7 +29,6 @@ nav[aria-label='Servers sidebar'],
 [class^='nowPlayingColumn'],
 [class^='members'],
 main > :first-child {
-  border: none !important;
   background: #1a1a1e !important;
   backdrop-filter: none !important;
 }
