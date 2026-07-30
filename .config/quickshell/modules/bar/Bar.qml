@@ -29,6 +29,10 @@ PanelWindow { // qmllint disable uncreatable-type
         || !hasActiveWindow;          //
     }
 
+    readonly property bool panelMode: {
+        return IpcService.barExpanded || (!NiriService.overviewOpened && !hasActiveWindow);
+    }
+
     anchors {
         top: true
         left: true
@@ -84,12 +88,41 @@ PanelWindow { // qmllint disable uncreatable-type
 
         Rectangle {
             anchors.fill: parent
-            color: BarTheme.backdropColor
-            opacity: barWindow.revealed ? BarTheme.backdropOpacity : 0
+            color: "transparent"
 
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: BarTheme.animationDuration
+            Rectangle {
+                anchors.fill: parent
+                opacity: barWindow.revealed && barWindow.panelMode ? BarTheme.panelOpacity : 0
+
+                gradient: Gradient {
+                    stops: [
+                        GradientStop {
+                            color: BarTheme.panelColor
+                            position: 0
+                        },
+                        GradientStop {
+                            color: "transparent"
+                            position: 1
+                        }
+                    ]
+                }
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: BarTheme.animationDuration
+                    }
+                }
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                color: BarTheme.overlayColor
+                opacity: barWindow.revealed && !barWindow.panelMode ? BarTheme.overlayOpacity : 0
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: BarTheme.animationDuration
+                    }
                 }
             }
         }
