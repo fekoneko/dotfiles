@@ -29,7 +29,7 @@
 # niri
 !/.config/niri/
 !/.config/niri/**/*.kdl
-!/.config/niri/blur-state.kdl
+/.config/niri/blur-state.kdl
 
 # quickshell
 !/.config/quickshell/
