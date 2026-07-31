@@ -28,7 +28,41 @@ window-rule {
     }
 }
 
-///// Avoid artifacts with opacity /////
+///// With blur /////
+window-rule {
+    exclude app-id="^anki$"                                                  // Not Anki
+    exclude app-id="^timeshift-gtk$"                                         // Not Timeshift
+    exclude app-id="^org.kde.krita$"                                         // Not Krita
+    exclude app-id="^net.drawpile.drawpile$"                                 // Not Drawpile
+    exclude app-id="^io.github.celluloid_player.Celluloid$"                  // Not Celluloid
+    exclude app-id="^mpv$"                                                   // Not MPV
+    exclude app-id="^chromium$"                                              // Not Chromium
+    exclude app-id="^org.gnome.DiskUtility$"                                 // Not Gnome Disks
+    exclude app-id="^org.gnome.Geary$"                                       // Not Geary
+    exclude app-id="^virt-manager$"                                          // Not Virt Manager
+    exclude app-id="^tlpui$"                                                 // Not TLP UI
+    exclude app-id="^libreoffice"                                            // Not LibreOffice
+    exclude app-id="^net.lutris.Lutris$"                                     // Not Lutris
+    exclude app-id="\\.exe$"                                                 // Not Wine apps
+    exclude app-id="^org.prismlauncher.PrismLauncher$"                       // Not Prism Launcher
+    exclude app-id="^steam$"                                                 // Not Steam
+    exclude app-id="^gamescope$"                                             // Not Gamescope
+
+    background-effect {
+        blur true
+    }
+}
+
+///// Switch to non-xray blur for floating windows /////
+window-rule {
+    match is-floating=true
+
+    background-effect {
+        xray false
+    }
+}
+
+///// Fix window transparency /////
 window-rule {
     match app-id="^zen$"                                                     // Zen Browser
     match app-id="^obsidian$"                                                // Obsidian

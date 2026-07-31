@@ -149,6 +149,8 @@ binds {
     ///// Lock screen and toggling monitors /////
 
     Mod+L                          { spawn "~/Scripts/lock-screen.sh"                                     ; }
+    Mod+Ctrl+L                     { power-off-monitors                                                   ; }
+    Mod+Alt+L                      { power-off-monitors                                                   ; }
     Mod+Shift+L                    allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"      ; }
 
     ///// Screenshots and color picker /////
@@ -178,7 +180,7 @@ binds {
     ///// An escape hatch if some application steals control from Niri /////
     Mod+Shift+Escape               allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit             ; }
 
-    ///// Microsoft yells when I press the Copilot button /////
-    // `leftmeta+leftshift+f23 = finance` is remapped using keyd so that this works
+    ///// Microsoft yells when Copilot button is pressed /////
+    // `leftmeta+leftshift+f23 = finance` is remapped with keyd
     XF86Finance                    allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"           ; }
 }

@@ -11,14 +11,14 @@ findbar {
 }
 
 #zen-browser-background {
-  --zen-main-browser-background: #1c1c1f !important;
-  --zen-main-browser-background-old: #1c1c1f !important;
+  --zen-main-browser-background: #1c1c1e !important;
+  --zen-main-browser-background-old: #1c1c1e !important;
   opacity: 0.92 !important;
 }
 
 #zen-toolbar-background {
-  --zen-main-browser-background-toolbar: #1c1c1f !important;
-  --zen-main-browser-background-toolbar-old: #1c1c1f !important;
+  --zen-main-browser-background-toolbar: #1c1c1e !important;
+  --zen-main-browser-background-toolbar-old: #1c1c1e !important;
   border-color: #2e2e32 !important;
 }
 
