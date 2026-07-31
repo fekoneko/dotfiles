@@ -31,8 +31,10 @@ window-rule {
 ///// Avoid artifacts with opacity /////
 window-rule {
     match app-id="^zen$"                                                     // Zen Browser
+    match app-id="^obsidian$"                                                // Obsidian
+    match app-id="^code$"                                                    // VS Code
 
-    opacity 0.999
+    opacity 0.9999999
 }
 
 ///// Tiled full width /////

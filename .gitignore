@@ -74,6 +74,7 @@
 !/.config/Code/User/
 !/.config/Code/User/settings.json
 !/.config/Code/User/keybindings.json
+!/.config/Code/User/custom-style.css
 !/.config/Code/User/snippets/
 !/.config/Code/User/snippets/**/*
 
