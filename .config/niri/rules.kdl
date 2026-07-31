@@ -28,28 +28,28 @@ window-rule {
     }
 }
 
-///// With blur /////
+///// Disable blur for non-transparent apps /////
 window-rule {
-    exclude app-id="^anki$"                                                  // Not Anki
-    exclude app-id="^timeshift-gtk$"                                         // Not Timeshift
-    exclude app-id="^org.kde.krita$"                                         // Not Krita
-    exclude app-id="^net.drawpile.drawpile$"                                 // Not Drawpile
-    exclude app-id="^io.github.celluloid_player.Celluloid$"                  // Not Celluloid
-    exclude app-id="^mpv$"                                                   // Not MPV
-    exclude app-id="^chromium$"                                              // Not Chromium
-    exclude app-id="^org.gnome.DiskUtility$"                                 // Not Gnome Disks
-    exclude app-id="^org.gnome.Geary$"                                       // Not Geary
-    exclude app-id="^virt-manager$"                                          // Not Virt Manager
-    exclude app-id="^tlpui$"                                                 // Not TLP UI
-    exclude app-id="^libreoffice"                                            // Not LibreOffice
-    exclude app-id="^net.lutris.Lutris$"                                     // Not Lutris
-    exclude app-id="\\.exe$"                                                 // Not Wine apps
-    exclude app-id="^org.prismlauncher.PrismLauncher$"                       // Not Prism Launcher
-    exclude app-id="^steam$"                                                 // Not Steam
-    exclude app-id="^gamescope$"                                             // Not Gamescope
+    match app-id="^anki$"                                                  // Anki
+    match app-id="^timeshift-gtk$"                                         // Timeshift
+    match app-id="^org.kde.krita$"                                         // Krita
+    match app-id="^net.drawpile.drawpile$"                                 // Drawpile
+    match app-id="^io.github.celluloid_player.Celluloid$"                  // Celluloid
+    match app-id="^mpv$"                                                   // MPV
+    match app-id="^chromium$"                                              // Chromium
+    match app-id="^org.gnome.DiskUtility$"                                 // Gnome Disks
+    match app-id="^org.gnome.Geary$"                                       // Geary
+    match app-id="^virt-manager$"                                          // Virt Manager
+    match app-id="^tlpui$"                                                 // TLP UI
+    match app-id="^libreoffice"                                            // LibreOffice
+    match app-id="^net.lutris.Lutris$"                                     // Lutris
+    match app-id="\\.exe$"                                                 // Wine apps
+    match app-id="^org.prismlauncher.PrismLauncher$"                       // Prism Launcher
+    match app-id="^steam$"                                                 // Steam
+    match app-id="^gamescope$"                                             // Gamescope
 
     background-effect {
-        blur true
+        blur false
     }
 }
 

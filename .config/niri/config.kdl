@@ -1,3 +1,6 @@
+///// Blur can be enabled or disabled with a keybind /////
+include "blur-state.kdl"
+
 include "environment.kdl"
 include "startup.kdl"
 include "outputs.kdl"

@@ -113,6 +113,7 @@ binds {
     Mod+V                          { spawn "walker" "--provider" "clipboard"                              ; }
     Mod+Period                     { spawn "walker" "--provider" "symbols"                                ; }
     Mod+Alt+Space                  { spawn-sh "walker -dIp 'Quick input' --height 50 | wl-copy"           ; }
+    Mod+Slash                      { spawn "~/Scripts/toggle-blur.sh"                                     ; }
 
     ///// Control pointer with keyboard /////
 
