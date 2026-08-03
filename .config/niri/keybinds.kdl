@@ -149,7 +149,7 @@ binds {
 
     ///// Lock screen and toggling monitors /////
 
-    Mod+L                          { spawn "~/Scripts/lock-screen.sh"                                     ; }
+    Mod+L                          { spawn "hyprlock"                                                     ; }
     Mod+Ctrl+L                     { power-off-monitors                                                   ; }
     Mod+Alt+L                      { power-off-monitors                                                   ; }
     Mod+Shift+L                    allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"      ; }

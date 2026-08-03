@@ -13,7 +13,6 @@
 # theming
 !/.face
 !/.wallpaper
-!/.lock-wallpaper
 
 # gtk2
 !/.gtkrc-2.0
@@ -53,11 +52,9 @@
 !/.config/wl-kbptr/
 !/.config/wl-kbptr/config
 
-# gtklock
-!/.config/gtklock/
-!/.config/gtklock/config.ini
-!/.config/gtklock/style.css
-!/.config/gtklock/layout.ui
+# hyprlock
+!/.config/hypr/
+!/.config/hypr/hyprlock.conf
 
 # kitty
 !/.config/kitty/

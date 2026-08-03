@@ -34,6 +34,7 @@
   "[graphql]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
   "[python]": { "editor.tabSize": 4 },
+  "[properties]": { "editor.tabSize": 4 },
   "[shellscript]": { "editor.tabSize": 4 },
   "[powershell]": { "editor.tabSize": 4 },
   "[kdl]": { "editor.tabSize": 4 },
