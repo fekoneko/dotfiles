@@ -30,8 +30,5 @@ spawn-at-startup "fcitx5"
 ///// Persistent clipboard /////
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
 
-///// Lock after 10 minutes of inactivity /////
-spawn-at-startup "swayidle" "-w"                                                                            \
-    "timeout" "600" "~/Scripts/lock-screen.sh"                                                              \
-    "timeout" "570" "niri msg action power-off-monitors"                                                    \
-    "before-sleep" "~/Scripts/lock-screen.sh"
+///// Lock after certain period of inactivity /////
+spawn-at-startup "hypridle"

@@ -52,9 +52,9 @@
 !/.config/wl-kbptr/
 !/.config/wl-kbptr/config
 
-# hyprlock
+# hypr stuff
 !/.config/hypr/
-!/.config/hypr/hyprlock.conf
+!/.config/hypr/*.conf
 
 # kitty
 !/.config/kitty/
