@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# shellcheck disable=SC1091
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -37,6 +38,10 @@ if [[ $TERM == 'xterm-kitty' ]]
   then fastfetch
   else fastfetch --logo ~/.config/fastfetch/logo.txt --logo-color-1 1
 fi
+
+# fzf
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
 
 # Aliases
 
