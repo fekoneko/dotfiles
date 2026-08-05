@@ -2,9 +2,6 @@
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
-///// Preload Walker right away, so that it pops up faster /////
-spawn-at-startup "walker" "--gapplication-service"
-
 ///// Cursor theme for GTK /////
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Classic"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "22"
@@ -18,17 +15,20 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "clock-format" "24h"
 spawn-at-startup "gsettings" "set" "org.gnome.GWeather4" "temperature-unit" "centigrade"
 
+///// Shell /////
+spawn-at-startup "quickshell"
+
 ///// Wallpaper /////
 spawn-at-startup "swaybg" "--image" "/home/fekoneko/.wallpaper" "--mode" "fill"
 
-///// Shell /////
-spawn-at-startup "quickshell"
+///// Preload Walker right away, so that it pops up faster /////
+spawn-at-startup "walker" "--gapplication-service"
+
+///// Lock after certain period of inactivity /////
+spawn-at-startup "hypridle"
 
 ///// Input method /////
 spawn-at-startup "fcitx5"
 
 ///// Persistent clipboard /////
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
-
-///// Lock after certain period of inactivity /////
-spawn-at-startup "hypridle"

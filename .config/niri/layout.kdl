@@ -6,9 +6,7 @@ layout {
     default-column-width { proportion 1.0; }
     tab-indicator { gap 2; }
 
-    focus-ring {
-        off
-    }
+    focus-ring { off; }
 
     border {
         on

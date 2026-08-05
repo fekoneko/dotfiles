@@ -6,12 +6,12 @@ output "eDP-1" {
     focus-at-startup
 }
 
-///// GAOMON tablet screen /////
-output "PNP(GAM) PD2200 0x00000001" {
+///// Wacom tablet screen /////
+output "Wacom Tech Wacom DTH135 6BH01H1000364" {
     position x=0 y=960
 }
 
-///// Wacom tablet screen /////
-output "Wacom Tech Wacom DTH135 6BH01H1000364" {
+///// GAOMON tablet screen /////
+output "PNP(GAM) PD2200 0x00000001" {
     position x=0 y=960
 }

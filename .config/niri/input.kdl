@@ -17,8 +17,8 @@ input {
     }
 
     tablet {
-        // map-to-output "PNP(GAM) PD2200 0x00000001"         // GAOMON tablet screen
         map-to-output "Wacom Tech Wacom DTH135 6BH01H1000364" // Wacom tablet screen
+        // map-to-output "PNP(GAM) PD2200 0x00000001"         // GAOMON tablet screen
     }
 
     touch {

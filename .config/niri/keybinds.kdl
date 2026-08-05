@@ -1,187 +1,187 @@
+screenshot-path null
+
 hotkey-overlay {
     skip-at-startup
     hide-not-bound
 }
-screenshot-path null
 
 binds {
     ///// Fn buttons /////
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh                                                  \
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh \
         "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ --limit 1.5"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh                                                  \
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh \
                     "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
 
-    XF86AudioMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"  ; }
+    XF86AudioMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute   allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"                         ; }
-    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"                           ; }
-    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"                               ; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
 
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"                      ; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"                      ; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
 
     ///// Windows /////
 
-    Mod+Backslash                  { toggle-overview                                                      ; }
-    Mod+W                          { close-window                                                         ; }
-    Mod+Q                          { close-window                                                         ; }
-    Alt+F4                         { close-window                                                         ; }
+    Mod+Backslash                  { toggle-overview; }
+    Mod+W                          { close-window; }
+    Mod+Q                          { close-window; }
+    Alt+F4                         { close-window; }
 
-    Mod+Left                       { focus-column-left                                                    ; }
-    Mod+Right                      { focus-column-right                                                   ; }
-    Mod+Page_Up                    { focus-window-up                                                      ; }
-    Mod+Page_Down                  { focus-window-down                                                    ; }
-    Mod+Home                       { focus-column-first                                                   ; }
-    Mod+End                        { focus-column-last                                                    ; }
-    Mod+WheelScrollLeft            { focus-column-left                                                    ; }
-    Mod+WheelScrollRight           { focus-column-right                                                   ; }
-    Mod+WheelScrollUp              { focus-column-left                                                    ; }
-    Mod+WheelScrollDown            { focus-column-right                                                   ; }
+    Mod+Left                       { focus-column-left; }
+    Mod+Right                      { focus-column-right; }
+    Mod+Page_Up                    { focus-window-up; }
+    Mod+Page_Down                  { focus-window-down; }
+    Mod+Home                       { focus-column-first; }
+    Mod+End                        { focus-column-last; }
+    Mod+WheelScrollLeft            { focus-column-left; }
+    Mod+WheelScrollRight           { focus-column-right; }
+    Mod+WheelScrollUp              { focus-column-left; }
+    Mod+WheelScrollDown            { focus-column-right; }
 
-    Mod+Ctrl+Left                  { move-column-left                                                     ; }
-    Mod+Ctrl+Right                 { move-column-right                                                    ; }
-    Mod+Ctrl+Page_Up               { move-window-up                                                       ; }
-    Mod+Ctrl+Page_Down             { move-window-down                                                     ; }
-    Mod+Ctrl+Home                  { move-column-to-first                                                 ; }
-    Mod+Ctrl+End                   { move-column-to-last                                                  ; }
-    Mod+Ctrl+WheelScrollLeft       { move-column-left                                                     ; }
-    Mod+Ctrl+WheelScrollRight      { move-column-right                                                    ; }
-    Mod+Ctrl+WheelScrollUp         { move-column-left                                                     ; }
-    Mod+Ctrl+WheelScrollDown       { move-column-right                                                    ; }
+    Mod+Ctrl+Left                  { move-column-left; }
+    Mod+Ctrl+Right                 { move-column-right; }
+    Mod+Ctrl+Page_Up               { move-window-up; }
+    Mod+Ctrl+Page_Down             { move-window-down; }
+    Mod+Ctrl+Home                  { move-column-to-first; }
+    Mod+Ctrl+End                   { move-column-to-last; }
+    Mod+Ctrl+WheelScrollLeft       { move-column-left; }
+    Mod+Ctrl+WheelScrollRight      { move-column-right; }
+    Mod+Ctrl+WheelScrollUp         { move-column-left; }
+    Mod+Ctrl+WheelScrollDown       { move-column-right; }
 
-    Mod+BracketLeft                { consume-or-expel-window-left                                         ; }
-    Mod+BracketRight               { consume-or-expel-window-right                                        ; }
+    Mod+BracketLeft                { consume-or-expel-window-left; }
+    Mod+BracketRight               { consume-or-expel-window-right; }
 
-    Mod+R                          { switch-preset-column-width                                           ; }
-    Mod+F                          { fullscreen-window                                                    ; }
-    Mod+Minus                      { set-column-width "-10%"                                              ; }
-    Mod+Equal                      { set-column-width "+10%"                                              ; }
-    Mod+Shift+Minus                { set-window-height "-10%"                                             ; }
-    Mod+Shift+Equal                { set-window-height "+10%"                                             ; }
+    Mod+R                          { switch-preset-column-width; }
+    Mod+F                          { fullscreen-window; }
+    Mod+Minus                      { set-column-width "-10%"; }
+    Mod+Equal                      { set-column-width "+10%"; }
+    Mod+Shift+Minus                { set-window-height "-10%"; }
+    Mod+Shift+Equal                { set-window-height "+10%"; }
 
-    Mod+D                          { toggle-window-floating                                               ; }
-    Mod+Shift+D                    { switch-focus-between-floating-and-tiling                             ; }
+    Mod+D                          { toggle-window-floating; }
+    Mod+Shift+D                    { switch-focus-between-floating-and-tiling; }
 
     ///// Workspaces /////
 
-    Mod+Up                         { focus-workspace-up                                                   ; }
-    Mod+Down                       { focus-workspace-down                                                 ; }
-    Mod+Shift+WheelScrollUp        { focus-workspace-up                                                   ; }
-    Mod+Shift+WheelScrollDown      { focus-workspace-down                                                 ; }
+    Mod+Up                         { focus-workspace-up; }
+    Mod+Down                       { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp        { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown      { focus-workspace-down; }
 
-    Mod+Ctrl+Up                    { move-column-to-workspace-up                                          ; }
-    Mod+Ctrl+Down                  { move-column-to-workspace-down                                        ; }
-    Mod+Shift+Ctrl+WheelScrollUp   { move-column-to-workspace-up                                          ; }
-    Mod+Shift+Ctrl+WheelScrollDown { move-column-to-workspace-down                                        ; }
+    Mod+Ctrl+Up                    { move-column-to-workspace-up; }
+    Mod+Ctrl+Down                  { move-column-to-workspace-down; }
+    Mod+Shift+Ctrl+WheelScrollUp   { move-column-to-workspace-up; }
+    Mod+Shift+Ctrl+WheelScrollDown { move-column-to-workspace-down; }
 
     ///// Monitors /////
 
-    Mod+Shift+Left                 { focus-monitor-left                                                   ; }
-    Mod+Shift+Right                { focus-monitor-right                                                  ; }
-    Mod+Shift+Up                   { focus-monitor-up                                                     ; }
-    Mod+Shift+Down                 { focus-monitor-down                                                   ; }
+    Mod+Shift+Left                 { focus-monitor-left; }
+    Mod+Shift+Right                { focus-monitor-right; }
+    Mod+Shift+Up                   { focus-monitor-up; }
+    Mod+Shift+Down                 { focus-monitor-down; }
 
-    Mod+Shift+Ctrl+Left            { move-column-to-monitor-left                                          ; }
-    Mod+Shift+Ctrl+Right           { move-column-to-monitor-right                                         ; }
-    Mod+Shift+Ctrl+Up              { move-column-to-monitor-up                                            ; }
-    Mod+Shift+Ctrl+Down            { move-column-to-monitor-down                                          ; }
-
-    ///// Applications /////
-
-    Ctrl+Shift+Escape              { spawn "gtk-launch" "io.missioncenter.MissionCenter"                  ; }
-    Mod+T                          { spawn "kitty"                                                        ; }
-    Mod+E                          { spawn "gtk-launch" "org.gnome.Nautilus"                              ; }
-    Mod+C                          { spawn "gtk-launch" "code"                                            ; }
-    Mod+Z                          { spawn "gtk-launch" "zen"                                             ; }
-    Mod+G                          { spawn "gtk-launch" "com.github.neithern.g4music"                     ; }
-    Mod+A                          { spawn "gtk-launch" "anki"                                            ; }
-    Mod+K                          { spawn "gtk-launch" "org.kde.krita"                                   ; }
-    Mod+O                          { spawn "gtk-launch" "obsidian"                                        ; }
-    Mod+U                          { spawn "gtk-launch" "chromium"                                        ; }
-    Mod+M                          { spawn "gtk-launch" "org.gnome.Geary"                                 ; }
-    Mod+B                          { spawn "kitty" "-e" "bluetui"                                         ; }
-    Mod+N                          { spawn "kitty" "-e" "nmtui"                                           ; }
-
-    ///// Shell /////
-
-    Mod+P                          { spawn "quickshell" "ipc" "call" "bar" "toggle"                       ; }
-    Mod+X                          { spawn "quickshell" "ipc" "call" "notifications" "clear"              ; }
-    Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"           ; }
-    Mod+Tab                        { spawn "walker"                                                       ; }
-    Mod+V                          { spawn "walker" "--provider" "clipboard"                              ; }
-    Mod+Period                     { spawn "walker" "--provider" "symbols"                                ; }
-    Mod+Alt+Space                  { spawn-sh "walker -dIp 'Quick input' --height 50 | wl-copy"           ; }
-    Mod+Slash                      { spawn "~/Scripts/toggle-blur.sh"                                     ; }
+    Mod+Shift+Ctrl+Left            { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Right           { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Up              { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Down            { move-column-to-monitor-down; }
 
     ///// Control pointer with keyboard /////
 
-    Mod+Alt+Left                   { spawn "wlrctl" "pointer" "move" "-10" "0"                            ; }
-    Mod+Alt+Right                  { spawn "wlrctl" "pointer" "move" "10" "0"                             ; }
-    Mod+Alt+Up                     { spawn "wlrctl" "pointer" "move" "0" "-10"                            ; }
-    Mod+Alt+Down                   { spawn "wlrctl" "pointer" "move" "0" "10"                             ; }
+    Mod+Alt+Left                   { spawn "wlrctl" "pointer" "move" "-10" "0"; }
+    Mod+Alt+Right                  { spawn "wlrctl" "pointer" "move" "10" "0"; }
+    Mod+Alt+Up                     { spawn "wlrctl" "pointer" "move" "0" "-10"; }
+    Mod+Alt+Down                   { spawn "wlrctl" "pointer" "move" "0" "10"; }
 
-    Mod+Alt+Shift+Left             { spawn "wlrctl" "pointer" "move" "-80" "0"                            ; }
-    Mod+Alt+Shift+Right            { spawn "wlrctl" "pointer" "move" "80" "0"                             ; }
-    Mod+Alt+Shift+Up               { spawn "wlrctl" "pointer" "move" "0" "-80"                            ; }
-    Mod+Alt+Shift+Down             { spawn "wlrctl" "pointer" "move" "0" "80"                             ; }
+    Mod+Alt+Shift+Left             { spawn "wlrctl" "pointer" "move" "-80" "0"; }
+    Mod+Alt+Shift+Right            { spawn "wlrctl" "pointer" "move" "80" "0"; }
+    Mod+Alt+Shift+Up               { spawn "wlrctl" "pointer" "move" "0" "-80"; }
+    Mod+Alt+Shift+Down             { spawn "wlrctl" "pointer" "move" "0" "80"; }
 
-    Mod+Alt+Prior                  { spawn "wlrctl" "pointer" "scroll" "-10" "0"                          ; }
-    Mod+Alt+Next                   { spawn "wlrctl" "pointer" "scroll" "10" "0"                           ; }
-    Mod+Alt+Home                   { spawn "wlrctl" "pointer" "scroll" "0" "-10"                          ; }
-    Mod+Alt+End                    { spawn "wlrctl" "pointer" "scroll" "0" "10"                           ; }
+    Mod+Alt+Prior                  { spawn "wlrctl" "pointer" "scroll" "-10" "0"; }
+    Mod+Alt+Next                   { spawn "wlrctl" "pointer" "scroll" "10" "0"; }
+    Mod+Alt+Home                   { spawn "wlrctl" "pointer" "scroll" "0" "-10"; }
+    Mod+Alt+End                    { spawn "wlrctl" "pointer" "scroll" "0" "10"; }
 
-    Print                          { spawn "wlrctl" "pointer" "click" "left"                              ; }
-    Shift+Print                    { spawn "wlrctl" "pointer" "click" "right"                             ; }
-    Ctrl+Print                     { spawn "wlrctl" "pointer" "click" "right"                             ; }
-    Ctrl+Shift+Print               { spawn "wlrctl" "pointer" "click" "middle"                            ; }
-    Alt+Print                      { spawn "wlrctl" "pointer" "click" "middle"                            ; }
+    Print                          { spawn "wlrctl" "pointer" "click" "left"; }
+    Shift+Print                    { spawn "wlrctl" "pointer" "click" "right"; }
+    Ctrl+Print                     { spawn "wlrctl" "pointer" "click" "right"; }
+    Ctrl+Shift+Print               { spawn "wlrctl" "pointer" "click" "middle"; }
+    Alt+Print                      { spawn "wlrctl" "pointer" "click" "middle"; }
 
-    Mod+Return                     { spawn "wl-kbptr" "-o" "modes=floating,click"                           \
-                                                      "-o" "mode_floating.source=detect"                  ; }
-    Mod+Alt+Return                 { spawn "wl-kbptr" "-o" "modes=split,click"                            ; }
+    Mod+Return                     { spawn "wl-kbptr" "-o" "modes=floating,click" \
+                                                      "-o" "mode_floating.source=detect"; }
+    Mod+Alt+Return                 { spawn "wl-kbptr" "-o" "modes=split,click"; }
 
-    ///// Veracrypt /////
+    ///// Launch applications /////
 
-    Mod+Grave                      { spawn "veracrypt" "--auto-mount=favorites"                           ; }
-    Mod+Shift+Grave                { spawn "veracrypt" "--unmount"                                        ; }
+    Ctrl+Shift+Escape              { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
+    Mod+T                          { spawn "kitty"; }
+    Mod+E                          { spawn "gtk-launch" "org.gnome.Nautilus"; }
+    Mod+C                          { spawn "gtk-launch" "code"; }
+    Mod+Z                          { spawn "gtk-launch" "zen"; }
+    Mod+G                          { spawn "gtk-launch" "com.github.neithern.g4music"; }
+    Mod+A                          { spawn "gtk-launch" "anki"; }
+    Mod+K                          { spawn "gtk-launch" "org.kde.krita"; }
+    Mod+O                          { spawn "gtk-launch" "obsidian"; }
+    Mod+U                          { spawn "gtk-launch" "chromium"; }
+    Mod+M                          { spawn "gtk-launch" "org.gnome.Geary"; }
+    Mod+B                          { spawn "kitty" "-e" "bluetui"; }
+    Mod+N                          { spawn "kitty" "-e" "nmtui"; }
 
-    ///// Lock screen and toggling monitors /////
+    ///// Shell /////
 
-    Mod+L                          { spawn "hyprlock"                                                     ; }
-    Mod+Ctrl+L                     { power-off-monitors                                                   ; }
-    Mod+Alt+L                      { power-off-monitors                                                   ; }
-    Mod+Shift+L                    allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"      ; }
+    Mod+P                          { spawn "quickshell" "ipc" "call" "bar" "toggle"; }
+    Mod+X                          { spawn "quickshell" "ipc" "call" "notifications" "clear"; }
+    Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    Mod+Tab                        { spawn "walker"; }
+    Mod+V                          { spawn "walker" "--provider" "clipboard"; }
+    Mod+Period                     { spawn "walker" "--provider" "symbols"; }
+    Mod+Alt+Space                  { spawn-sh "walker -dIp 'Quick input' --height 50 | wl-copy"; }
+    Mod+Slash                      { spawn "~/Scripts/toggle-blur.sh"; }
+
+    ///// Lock screen and toggle monitors /////
+
+    Mod+L                          { spawn "hyprlock"; }
+    Mod+Ctrl+L                     { power-off-monitors; }
+    Mod+Alt+L                      { power-off-monitors; }
+    Mod+Shift+L                    allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"; }
 
     ///// Screenshots and color picker /////
 
-    Mod+S                          { screenshot-screen                                                    ; }
-    Mod+Shift+S                    { screenshot                                                           ; }
-    Mod+Ctrl+Shift+S               { screenshot-window                                                    ; }
-    Mod+I                          { spawn "~/Scripts/pick-color.sh"                                      ; }
+    Mod+S                          { screenshot-screen; }
+    Mod+Shift+S                    { screenshot; }
+    Mod+Ctrl+Shift+S               { screenshot-window; }
+    Mod+I                          { spawn "~/Scripts/pick-color.sh"; }
 
     ///// Text recognition (OCR) /////
 
-    Mod+Alt+E                      { spawn "~/Scripts/ocr.sh" "eng"                                       ; }
-    Mod+Ctrl+E                     { spawn "~/Scripts/ocr.sh" "eng"                                       ; }
+    Mod+Alt+E                      { spawn "~/Scripts/ocr.sh" "eng"; }
+    Mod+Ctrl+E                     { spawn "~/Scripts/ocr.sh" "eng"; }
 
-    Mod+Alt+R                      { spawn "~/Scripts/ocr.sh" "rus"                                       ; }
-    Mod+Ctrl+R                     { spawn "~/Scripts/ocr.sh" "rus"                                       ; }
+    Mod+Alt+R                      { spawn "~/Scripts/ocr.sh" "rus"; }
+    Mod+Ctrl+R                     { spawn "~/Scripts/ocr.sh" "rus"; }
 
-    Mod+Alt+J                      { spawn "~/Scripts/ocr.sh" "jpn"                                       ; }
-    Mod+Ctrl+J                     { spawn "~/Scripts/ocr.sh" "jpn"                                       ; }
-    Mod+J                          { spawn "~/Scripts/ocr.sh" "jpn"                                       ; }
+    Mod+Alt+J                      { spawn "~/Scripts/ocr.sh" "jpn"; }
+    Mod+Ctrl+J                     { spawn "~/Scripts/ocr.sh" "jpn"; }
+    Mod+J                          { spawn "~/Scripts/ocr.sh" "jpn"; }
 
-    Mod+Alt+Shift+J                { spawn "~/Scripts/ocr.sh" "jpn_vert"                                  ; }
-    Mod+Ctrl+Shift+J               { spawn "~/Scripts/ocr.sh" "jpn_vert"                                  ; }
-    Mod+Shift+J                    { spawn "~/Scripts/ocr.sh" "jpn_vert"                                  ; }
-    Mod+1                          { spawn "~/Scripts/ocr.sh" "jpn_vert"                                  ; }
+    Mod+Alt+Shift+J                { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
+    Mod+Ctrl+Shift+J               { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
+    Mod+Shift+J                    { spawn "~/Scripts/ocr.sh" "jpn_vert"; }
+
+    ///// Veracrypt /////
+
+    Mod+Grave                      { spawn "veracrypt" "--auto-mount=favorites"; }
+    Mod+Shift+Grave                { spawn "veracrypt" "--unmount"; }
 
     ///// An escape hatch if some application steals control from Niri /////
-    Mod+Shift+Escape               allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit             ; }
+    Mod+Shift+Escape               allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     ///// Microsoft yells when Copilot button is pressed /////
     // `leftmeta+leftshift+f23 = finance` is remapped with keyd
-    XF86Finance                    allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"           ; }
+    XF86Finance                    allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"; }
 }
