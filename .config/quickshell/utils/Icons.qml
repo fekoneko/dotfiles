@@ -38,6 +38,10 @@ Singleton {
             icon: "transmission-gtk"
         },
         {
+            appId: /^md.Obsidian$/,
+            icon: "obsidian"
+        },
+        {
             appId: /^evolution-alarm-notify$/,
             icon: "org.gnome.Evolution-alarm-notify"
         },

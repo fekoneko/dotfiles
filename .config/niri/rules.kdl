@@ -65,7 +65,7 @@ window-rule {
 ///// Fix window transparency /////
 window-rule {
     match app-id="^zen$"                                                     // Zen Browser
-    match app-id="^obsidian$"                                                // Obsidian
+    match app-id="^md.Obsidian$"                                             // Obsidian
     match app-id="^code$"                                                    // VS Code
 
     opacity 0.9999999
