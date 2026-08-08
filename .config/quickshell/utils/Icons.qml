@@ -19,19 +19,21 @@ Singleton {
     // Resolve app icon URL. Contains file:// protocol prefix - ready to be used in Image source field.
     // Will automatically bind to DesktopEntries.applications.values changes.
     readonly property var appIconUrl: (appId, nothingOrFallbackOrCheck) => {
-        let icon = problematicAppIcons.find(entry => entry.appId.test(appId))?.icon;
-        icon = icon || DesktopEntries.byId(appId)?.icon;
+        let icon = problematicAppIcons.find(entry => entry.appId.test(appId));
+        if (icon && typeof icon.icon === "function") {
+            icon = icon.icon(...icon.appId.exec(appId));
+        } else if (icon) {
+            icon = icon.icon;
+        } else {
+            icon = DesktopEntries.byId(appId)?.icon;
+        }
         return Quickshell.iconPath(icon, nothingOrFallbackOrCheck);
     }
 
     readonly property list<var> problematicAppIcons: [
         {
-            appId: /^org.kde.krita$/,
-            icon: "krita"
-        },
-        {
             appId: /^veracrypt$/,
-            icon: "veracrypt"
+            icon: "/usr/share/icons/hicolor/128x128/apps/veracrypt.xpm"
         },
         {
             appId: /^com.transmissionbt.transmission/,
@@ -44,6 +46,10 @@ Singleton {
         {
             appId: /^evolution-alarm-notify$/,
             icon: "org.gnome.Evolution-alarm-notify"
+        },
+        {
+            appId: /^steam_app_(\d+)$/,
+            icon: (_, id) => `steam_icon_${id}`
         },
     ]
 
