@@ -20,7 +20,11 @@
     background: transparent !important;
   }
 
-  #frosted-glass {
+  ytd-masthead,
+  #chips-content,
+  #contentContainer #page-header-container,
+  #contentContainer #page-header,
+  #contentContainer #tabs-inner-container {
     background: #222226 !important;
   }
 
@@ -31,6 +35,14 @@
 
   .ytSearchboxComponentInputBox {
     background: #00000022 !important;
+  }
+
+  #right-arrow.ytd-feed-filter-chip-bar-renderer::before {
+    background: linear-gradient(to left, #222226 20%, rgba(33, 33, 33, 0) 80%) !important;
+  }
+
+  #right-arrow-button.ytd-feed-filter-chip-bar-renderer {
+    background: #222226 !important;
   }
 }
 
