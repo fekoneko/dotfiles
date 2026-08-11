@@ -1,6 +1,6 @@
 @-moz-document domain(web.telegram.org) {
   :root {
-    background: #eeffdd08 !important;
+    background: #eeffdd04 !important;
   }
 
   body,
@@ -9,8 +9,8 @@
   }
 
   body::before,
-  #Main > :first-child::after {
-    display: none !important;
+  #Main > :first-child {
+    opacity: 0.75 !important;
   }
 }
 
