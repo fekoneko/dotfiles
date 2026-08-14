@@ -129,6 +129,8 @@ binds {
     Mod+O                          { spawn "gtk-launch" "obsidian"; }
     Mod+U                          { spawn "gtk-launch" "chromium"; }
     Mod+M                          { spawn "gtk-launch" "org.gnome.Geary"; }
+    Mod+Y                          { spawn "gtk-launch" "vesktop"; }
+    Mod+H                          { spawn "gtk-launch" "org.pulseaudio.pavucontrol"; }
     Mod+B                          { spawn "kitty" "-e" "bluetui"; }
     Mod+N                          { spawn "kitty" "-e" "nmtui"; }
 

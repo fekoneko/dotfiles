@@ -4,10 +4,14 @@
 log_command() { echo $'\n'"$1:"$'\n'"$ $2"; }
 
 paru_error() {
+    echo $'\nFailed to update system packages' >&2
+    echo $'Some troubleshooting commands:'
     command='sudo pacman -Sy --needed archlinux-keyring'
-    log_command 'Failed to update packages, try updating the keyring first' "$command" >&2
+    log_command 'Update the keyring' "$command" >&2
+    command='sudo systemctl start reflector.service'
+    log_command 'Update the mirrorlist' "$command" >&2
     command='sudo npm --global remove node-gyp'
-    log_command 'In case of /usr/lib/node_modules conflict, try removing the corresponding npm package' "$command" >&2
+    log_command 'Remove an npm package (if file conflicts in /usr/lib/node_modules)' "$command" >&2
     exit 1
 }
 
