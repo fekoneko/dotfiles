@@ -145,12 +145,6 @@
 !/.local/
 !/.local/bin/
 
-# nautilus patch
-!/.local/bin/nautilus
-
-# foliate patch
-!/.local/bin/foliate
-
 # timeshift patch
 !/.local/bin/timeshift-launcher
 
@@ -159,9 +153,6 @@
 !/.local/
 !/.local/share/
 !/.local/share/applications/
-
-# nautilus patch
-!/.local/share/applications/org.gnome.Nautilus.desktop
 
 # ------------------- ~/Scripts -------------------
 

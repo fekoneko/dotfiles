@@ -130,7 +130,7 @@ binds {
 
     Ctrl+Shift+Escape              { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
     Mod+T                          { spawn "kitty"; }
-    Mod+E                          { spawn "gtk-launch" "org.gnome.Nautilus"; }
+    Mod+E                          { spawn "nautilus" "--new-window"; }
     Mod+C                          { spawn "gtk-launch" "code"; }
     Mod+Z                          { spawn "gtk-launch" "zen"; }
     Mod+G                          { spawn "gtk-launch" "com.github.neithern.g4music"; }
