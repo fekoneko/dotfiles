@@ -8,7 +8,7 @@ cursor {
 input {
     keyboard {
         numlock
-        xkb { layout "us, ru"; }
+        xkb { layout "us, ru, jp"; }
     }
 
     touchpad {

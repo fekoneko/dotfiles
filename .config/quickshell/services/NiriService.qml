@@ -13,6 +13,7 @@ Singleton {
     property var activeWindowIdByWorkspaceId: new Map() // Map<workspaceId, windowId>
     property var activeWorkspaceIdByScreen: new Map()   // Map<screenName, workspaceId>
     property bool overviewOpened: false
+    property int keyboardLayout: 0
 
     signal eventWindowsChanged
     signal eventWindowOpenedOrChanged
@@ -127,6 +128,11 @@ Singleton {
                 case "OverviewOpenedOrClosed":
                     root.overviewOpened = event.is_open;
                     root.eventOverviewOpenedOrClosed();
+                    break;
+
+                // Keyboard layout switched
+                case "KeyboardLayoutSwitched":
+                    root.keyboardLayout = event.idx;
                     break;
                 }
 

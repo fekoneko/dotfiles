@@ -48,6 +48,12 @@
 !/.config/elephant/menus/*.toml
 !/.config/elephant/menus/*.lua
 
+# fcitx5
+!/.config/fcitx5/
+!/.config/fcitx5/config
+!/.config/fcitx5/conf/
+!/.config/fcitx5/conf/*.conf
+
 # wl-kbptr
 !/.config/wl-kbptr/
 !/.config/wl-kbptr/config

@@ -1,0 +1,83 @@
+[Hotkey]
+# Toggle Input Method
+TriggerKeys=
+# Enumerate when holding modifier of Toggle key
+EnumerateWithTriggerKeys=True
+# Activate Input Method
+ActivateKeys=
+# Deactivate Input Method
+DeactivateKeys=
+# Temporarily Toggle Input Method
+AltTriggerKeys=
+# Enumerate Input Method Forward
+EnumerateForwardKeys=
+# Enumerate Input Method Backward
+EnumerateBackwardKeys=
+# Skip first input method while enumerating
+EnumerateSkipFirst=False
+# Enumerate Input Method Group Forward
+EnumerateGroupForwardKeys=
+# Enumerate Input Method Group Backward
+EnumerateGroupBackwardKeys=
+# Toggle embedded preedit
+TogglePreedit=
+# Time limit in milliseconds for triggering modifier key shortcuts
+ModifierOnlyKeyTimeout=250
+
+[Hotkey/PrevPage]
+0=Left
+
+[Hotkey/NextPage]
+0=Right
+
+[Hotkey/PrevCandidate]
+0=Shift+Tab
+1=Up
+
+[Hotkey/NextCandidate]
+0=Tab
+1=Down
+
+[Behavior]
+# Activate input method by default
+ActiveByDefault=False
+# Reset state on Focus In
+resetStateWhenFocusIn=No
+# Share Input State
+ShareInputState=All
+# Show preedit in application
+PreeditEnabledByDefault=True
+# Show Input Method Information when switch input method
+ShowInputMethodInformation=False
+# Show Input Method Information when changing focus
+showInputMethodInformationWhenFocusIn=False
+# Show compact input method information
+CompactInputMethodInformation=True
+# Show first input method information
+ShowFirstInputMethodInformation=True
+# Default Candidates per page
+DefaultPageSize=5
+# Override XKB Option
+OverrideXkbOption=False
+# Custom XKB Option
+CustomXkbOption=
+# Force Enabled Addons
+EnabledAddons=
+# Preload input method to be used by default
+PreloadInputMethod=True
+# Allow input method in the password field
+AllowInputMethodForPassword=False
+# Show preedit text when typing password
+ShowPreeditForPassword=False
+# Interval of saving user data in minutes
+AutoSavePeriod=30
+
+[Behavior/DisabledAddons]
+0=clipboard
+1=emoji
+2=imselector
+3=kimpanel
+4=notifications
+5=quickphrase
+6=spell
+

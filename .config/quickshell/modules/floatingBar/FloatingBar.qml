@@ -40,6 +40,8 @@ PanelWindow { // qmllint disable uncreatable-type
         FloatingNotificationsWidget {
             id: notificationsWidget
         }
+
+        FloatingInputMethodWidget {}
     }
 
     Loader {

@@ -91,6 +91,14 @@ binds {
     Mod+Shift+Ctrl+Up              { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Down            { move-column-to-monitor-down; }
 
+    ///// Keyboard layout /////
+
+    Mod+1                          { switch-layout "0"; }
+    Mod+2                          { switch-layout "1"; }
+    Mod+3                          { switch-layout "2"; }
+    Mod+Space                      { switch-layout "prev"; }
+    Alt+Space                      { switch-layout "next"; }
+
     ///// Control pointer with keyboard /////
 
     Mod+Alt+Left                   { spawn "wlrctl" "pointer" "move" "-10" "0"; }

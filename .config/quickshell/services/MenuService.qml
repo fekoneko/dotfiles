@@ -37,7 +37,6 @@ Singleton {
     }
 
     function showMenu(menu: QsMenuHandle): void {
-        console.log(menu);
         menuOpener.menu = menu;
         dmenuProcess.running = true;
     }
