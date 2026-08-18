@@ -28,14 +28,17 @@ window-rule {
     }
 }
 
-///// Disable blur for non-transparent apps /////
+///// Disable blur for non-transparent apps (for performance) /////
 window-rule {
     match app-id="^anki$"                                                  // Anki
     match app-id="^timeshift-gtk$"                                         // Timeshift
     match app-id="^org.kde.krita$"                                         // Krita
     match app-id="^net.drawpile.drawpile$"                                 // Drawpile
+    match app-id="^blender$"                                               // Blender
     match app-id="^io.github.celluloid_player.Celluloid$"                  // Celluloid
     match app-id="^mpv$"                                                   // MPV
+    match app-id="^org.pulseaudio.pavucontrol$"                            // Volume Control
+    match app-id="^veracrypt$"                                             // VeraCrypt
     match app-id="^chromium$"                                              // Chromium
     match app-id="^org.gnome.DiskUtility$"                                 // Gnome Disks
     match app-id="^org.gnome.Geary$"                                       // Geary
@@ -46,14 +49,30 @@ window-rule {
     match app-id="\\.exe$"                                                 // Wine apps
     match app-id="^org.prismlauncher.PrismLauncher$"                       // Prism Launcher
     match app-id="^steam$"                                                 // Steam
+    match app-id="^steam_app_"                                             // Steam apps
     match app-id="^gamescope$"                                             // Gamescope
+    match app-id="^XEyes$"                                                 // XEyes
+    match app-id="^evolution-alarm-notify$"                                // Evolution calendar event reminders
+    match app-id="^org.fcitx.fcitx5-config-qt$"                            // Fcitx 5 Configuration Utility
+    match app-id="^org.fcitx.fcitx5-migrator$"                             // Fcitx 5 Migration Wizard
+    match app-id="^qdbusviewer$"                                           // Qt D-Bus Viewer
+    match app-id="^designer$"                                              // Qt Widget Designer
+    match app-id="^linguist$"                                              // Qt Linguist
+    match app-id="^assistant$"                                             // Qt Assistant
+    match app-id="^qv4l2$"                                                 // Qt V4L2 Test Utility
+    match app-id="^bssh$"                                                  // Avahi SSH Server Browser
+    match app-id="^bvnc$"                                                  // Avahi VNC Server Browser
+    match app-id="^avahi-discover$"                                        // Avahi Zeroconf Browser
+    match app-id="^cmake-gui$"                                             // CMake GUI
+    match app-id="^kbd-layout-viewer$"                                     // Keyboard Layout Viewer
+    match app-id="^lstopo$"                                                // Hardware Locality
 
     background-effect {
         blur false
     }
 }
 
-///// Switch to non-xray blur for floating windows /////
+///// Switch to non-xray blur for floating windows (worse performance) /////
 window-rule {
     match is-floating=true
 
@@ -65,7 +84,7 @@ window-rule {
 ///// Fix window transparency /////
 window-rule {
     match app-id="^zen$"                                                     // Zen Browser
-    match app-id="^md.Obsidian$"                                             // Obsidian
+    match app-id="^md.obsidian.Obsidian$"                                    // Obsidian
     match app-id="^code$"                                                    // VS Code
 
     opacity 0.9999999
@@ -122,7 +141,7 @@ window-rule {
 
 ///// Floating 250 x 150 in the corner /////
 window-rule {
-    match app-id="^XEyes$" title="^xeyes$"                                   // XEyes
+    match app-id="^XEyes$"                                                   // XEyes
 
     open-floating true
     default-column-width { fixed 250; }

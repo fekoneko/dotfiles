@@ -40,7 +40,7 @@ Singleton {
             icon: "transmission-gtk"
         },
         {
-            appId: /^md.Obsidian$/,
+            appId: /^md.obsidian.Obsidian$/,
             icon: "obsidian"
         },
         {
