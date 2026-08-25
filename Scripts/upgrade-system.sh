@@ -16,6 +16,7 @@ paru_error() {
 }
 
 timeshift_error()      { echo $'\nFailed to create timeshift snapshot'      >&2; exit 1; }
+reflector_error()      { echo $'\nFailed to update the mirrorlist'          >&2; exit 1; }
 flatpak_error()        { echo $'\nFailed to update flatpak packages'        >&2; exit 1; }
 flatpak_unused_error() { echo $'\nFailed to remove unused flatpak packages' >&2; exit 1; }
 npm_error()            { echo $'\nFailed to update npm packages'            >&2; exit 1; }
@@ -36,6 +37,13 @@ case "$choice" in y|Y|'')
     command="sudo timeshift --create --comments 'before upgrade'"
     log_command 'Creating timeshift snapshot' "$command"
     eval "$command" || timeshift_error
+esac
+
+read -rep 'Update the mirrorlist? [Y/n]' choice
+case "$choice" in y|Y|'')
+    command="sudo systemctl start reflector.service"
+    log_command 'Updating the mirrorlist' "$command"
+    eval "$command" || reflector_error
 esac
 
 echo $'\nPlease check the news, could anything break?'
