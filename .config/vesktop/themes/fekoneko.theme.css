@@ -13,6 +13,7 @@ body,
 [class^='sidebarList'] > nav > :last-child,
 [class^='tabBody'],
 [class^='chat'],
+[class^='content'] > :first-child,
 main {
   background: transparent !important;
   backdrop-filter: none !important;
@@ -28,6 +29,7 @@ nav[aria-label='Servers sidebar'],
 [class^='subtitleContainer'] > *,
 [class^='nowPlayingColumn'],
 [class^='members'],
+[class^='chatLayerWrapper'] > [class^='container'],
 main > :first-child {
   background: #1a1a1e !important;
   backdrop-filter: none !important;
