@@ -1,3 +1,7 @@
 .monaco-editor .native-edit-context {
   opacity: 0 !important;
 }
+
+html body .modern-ui .monaco-pane-view .pane.pane.pane.pane.pane {
+  background-color: transparent !important;
+}

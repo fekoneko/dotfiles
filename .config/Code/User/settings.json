@@ -3,7 +3,7 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "postcss": "css",
+    "postcss": "css"
   },
   "git.enableSmartCommit": true,
   "editor.linkedEditing": true,
@@ -40,23 +40,23 @@
   "[kdl]": { "editor.tabSize": 4 },
   "[qml]": {
     "editor.defaultFormatter": "theqtcompany.qt-qml",
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "[rhai]": {
     "editor.defaultFormatter": "rhaiscript.vscode-rhai",
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.tabSize": 4,
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": false
   },
   "[blueprint]": {
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": false
   },
   "svelte.enable-ts-plugin": true,
   "editor.codeActionsOnSave": {},
@@ -69,7 +69,7 @@
     "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
     "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.ui": "default",
     "*.OBJ": "hexEditor.hexedit",
-    "*.qrc": "qt-core.qrcEditor",
+    "*.qrc": "qt-core.qrcEditor"
   },
   "zenMode.hideLineNumbers": false,
   "zenMode.showTabs": "single",
@@ -79,28 +79,28 @@
     "editor.fontSize",
     "gitlens.currentLine.fontFamily",
     "terminal.integrated.fontFamily",
-    "terminal.integrated.fontSize",
+    "terminal.integrated.fontSize"
   ],
   "supermaven.enable": {
-    "*": true,
+    "*": true
   },
   "cssVariables.lookupFiles": [
     "**/*.css",
     "**/*.scss",
     "**/*.sass",
     "**/*.less",
-    "node_modules/@mantine/core/styles.css",
+    "node_modules/@mantine/core/styles.css"
   ],
   "editor.largeFileOptimizations": false,
   "svg.preview.mode": "svg",
   "reactTsScss.diagnostics": false,
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1,
+    "asvetliakov.vscode-neovim": 1
   },
   "vscode-neovim.statusLineSeparator": "  |  ",
   "vscode-neovim.compositeKeys": {
     "jj": { "command": "vscode-neovim.escape" },
-    "kk": { "command": "vscode-neovim.escape" },
+    "kk": { "command": "vscode-neovim.escape" }
   },
   "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace",
   "editor.fontLigatures": true,
@@ -165,7 +165,7 @@
     { "text": "SAFETY ", "color": "#ffffff", "backgroundColor": "#d2587c" },
     { "text": "Safety ", "color": "#ffffff", "backgroundColor": "#d2587c" },
     { "text": "SAFETY(", "color": "#ffffff", "backgroundColor": "#d2587c" },
-    { "text": "Safety(", "color": "#ffffff", "backgroundColor": "#d2587c" },
+    { "text": "Safety(", "color": "#ffffff", "backgroundColor": "#d2587c" }
   ],
   "js/ts.preferences.importModuleSpecifier": "non-relative",
   "reactTsScss.cssSyntaxColor": false,
@@ -187,8 +187,8 @@
   "qt-core.additionalQtPaths": [
     {
       "name": "Qt-5.15.18-linux-g++_from_PATH",
-      "path": "/usr/sbin/qmake",
-    },
+      "path": "/usr/sbin/qmake"
+    }
   ],
   "qt-qml.qmlls.useQmlImportPathEnvVar": true,
   "Lua.completion.enable": true,
@@ -199,7 +199,6 @@
   "vscode_vibrancy.opacity": 0.92,
   "vscode_vibrancy.disableColorCustomizations": true,
   "vscode_vibrancy.imports": ["/home/fekoneko/.config/Code/User/custom-style.css"],
-  "window.controlsStyle": "custom",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#ffffff44",
     "editor.wordHighlightTextBackground": "#00000000",
@@ -208,7 +207,7 @@
     "editorIndentGuide.activeBackground1": "#45454599",
     "editorIndentGuide.background1": "#45454580",
     "editorRuler.foreground": "#45454580",
-    "editorOverviewRuler.background": "#222224",
+    "editorOverviewRuler.background": "#252426",
     "editorBracketMatch.background": "#45454520",
     "quickInput.background": "#2c2c2c",
     "selection.background": "#ffffff44",
@@ -223,29 +222,29 @@
     "notebookScrollbarSlider.background": "#77767B00",
     "notebookScrollbarSlider.hoverBackground": "#77767B22",
     "notebookScrollbarSlider.activeBackground": "#77767B44",
-    "minimap.background": "#222224",
+    "minimap.background": "#252426",
     "minimapSlider.background": "#77767B22",
     "minimapSlider.hoverBackground": "#77767B33",
     "minimapSlider.activeBackground": "#77767B44",
-    "editorStickyScroll.background": "#22222477",
-    "editorStickyScrollGutter.background": "#22222477",
+    "editorStickyScroll.background": "#25242677",
+    "editorStickyScrollGutter.background": "#25242677",
     "scrollbar.shadow": "#1c1c1e00",
     "activityBar.background": "#303030",
-    "titleBar.activeBackground": "#222224",
-    "titleBar.inactiveBackground": "#222224",
+    "titleBar.activeBackground": "#252426",
+    "titleBar.inactiveBackground": "#252426",
     "titleBar.activeForeground": "#ffffff44",
     "titleBar.inactiveForeground": "#ffffff44",
     "tab.activeBackground": "#303030",
     "tab.inactiveBackground": "#262626",
     "editorGroupHeader.tabsBackground": "#262626",
-    "breadcrumb.background": "#222224",
+    "breadcrumb.background": "#252426",
     "tab.hoverBackground": "#363636",
-    "panel.background": "#222224",
-    "sideBar.background": "#222224",
-    "statusBar.background": "#222224",
-    "statusBar.noFolderBackground": "#222224",
-    "statusBarItem.remoteBackground": "#222224",
-    "panelSectionHeader.background": "#222224",
+    "panel.background": "#252426",
+    "sideBar.background": "#252426",
+    "statusBar.background": "#252426",
+    "statusBar.noFolderBackground": "#252426",
+    "statusBarItem.remoteBackground": "#252426",
+    "panelSectionHeader.background": "#252426",
     "sideBarSectionHeader.background": "#1c1c1e00",
     "activityBar.border": "#1c1c1e00",
     "editorBracketMatch.border": "#565656",
@@ -300,8 +299,10 @@
     "editor.background": "#1c1c1e",
     "editorLineNumber.foreground": "#666666",
     "widget.shadow": "#00000033",
-    "terminal.background": "#1c1c1e00",
+    "terminal.background": "#1c1c1e00"
   },
   "workbench.colorTheme": "Dark+",
   "editor.overviewRulerBorder": false,
+  "qt-core.showWelcomePageOnActivation": false,
+  "window.controlsStyle": "custom"
 }

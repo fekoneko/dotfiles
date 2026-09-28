@@ -102,3 +102,9 @@ echo
 echo '-------------------------------------'
 echo 'System upgrade finished successfully!'
 echo '-------------------------------------'
+echo
+echo 'Things you can do manually to keep everything tidy:'
+echo '- Search for .pacnew files and migrate old configs'
+echo '- Check for newly added / removed optional dependencies'
+# shellcheck disable=SC2016
+echo '- Run `paru -Qqdt` and purge unused packages'
