@@ -12,13 +12,15 @@ binds {
         "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ --limit 1.5"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn-sh \
         "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-
     XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    F24                   allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
     XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioRewind       allow-when-locked=true { spawn "playerctl" "position" "5-"; }
+    XF86AudioForward      allow-when-locked=true { spawn "playerctl" "position" "5+"; }
 
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
@@ -196,7 +198,7 @@ binds {
     Mod+Escape                     allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Escape               { quit; }
 
-    // Yell at Microsoft when Copilot (c) button is pressed
-    // `leftmeta+leftshift+f23 = finance` is remapped with keyd
-    XF86Finance                    allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"; }
+    // Random Microsoft sounds when Copilot®️©️™️ button is pressed
+    // `leftmeta+leftshift+f23 = f23` is remapped with keyd
+    F23                            allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"; }
 }
