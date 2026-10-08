@@ -51,6 +51,7 @@ window-rule {
     match app-id="^steam$"                                                 // Steam
     match app-id="^steam_app_"                                             // Steam apps
     match app-id="^gamescope$"                                             // Gamescope
+    match app-id="^Minecraft"                                              // Minecraft
     match app-id="^XEyes$"                                                 // XEyes
     match app-id="^evolution-alarm-notify$"                                // Evolution calendar event reminders
     match app-id="^org.fcitx.fcitx5-config-qt$"                            // Fcitx 5 Configuration Utility
