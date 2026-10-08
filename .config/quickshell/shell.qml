@@ -1,6 +1,7 @@
 import Quickshell
 import qs.modules.bar
 import qs.modules.floatingBar
+import qs.modules.overlay
 
 Variants {
     model: Quickshell.screens
@@ -16,6 +17,11 @@ Variants {
 
         FloatingBar {
             id: floatingBarWindow
+            screen: barScope.modelData
+        }
+
+        Overlay {
+            id: overlayWindow
             screen: barScope.modelData
         }
     }

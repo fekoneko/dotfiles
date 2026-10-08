@@ -8,6 +8,7 @@ Singleton {
     id: root
 
     property bool barExpanded: false
+    property bool keymapOverlayVisible: false
 
     IpcHandler {
         target: "bar"
@@ -25,6 +26,25 @@ Singleton {
         // $ quickshell ipc call bar toggle
         function toggle(): void {
             root.barExpanded = !root.barExpanded;
+        }
+    }
+
+    IpcHandler {
+        target: "overlay"
+
+        // $ quickshell ipc call overlay showKeymap
+        function showKeymap(): void {
+            root.keymapOverlayVisible = true;
+        }
+
+        // $ quickshell ipc call overlay hideKeymap
+        function hideKeymap(): void {
+            root.keymapOverlayVisible = false;
+        }
+
+        // $ quickshell ipc call overlay toggleKeymap
+        function toggleKeymap(): void {
+            root.keymapOverlayVisible = !root.keymapOverlayVisible;
         }
     }
 

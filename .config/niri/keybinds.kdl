@@ -28,6 +28,7 @@ binds {
     ///// Windows /////
 
     Mod+Backslash                  { toggle-overview; }
+    Mod+Backspace                  { toggle-overview; }
     Mod+W                          { close-window; }
     Alt+F4                         { close-window; }
 
@@ -149,6 +150,8 @@ binds {
 
     ///// Shell /////
 
+    Mod+F1                         { spawn "quickshell" "ipc" "call" "overlay" "toggleKeymap"; }
+    Mod+Delete                     { spawn "quickshell" "ipc" "call" "overlay" "toggleKeymap"; }
     Mod+P                          { spawn "quickshell" "ipc" "call" "bar" "toggle"; }
     Mod+X                          { spawn "quickshell" "ipc" "call" "notifications" "clear"; }
     Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
