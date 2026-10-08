@@ -51,6 +51,10 @@ Singleton {
             appId: /^steam_app_(\d+)$/,
             icon: (_, id) => `steam_icon_${id}`
         },
+        {
+            appId: /^Minecraft/,
+            icon: "lutris_minecraft"
+        },
     ]
 
     Connections {
