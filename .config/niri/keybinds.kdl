@@ -119,15 +119,19 @@ binds {
     Mod+Alt+Home                   { spawn "wlrctl" "pointer" "scroll" "0" "-10"; }
     Mod+Alt+End                    { spawn "wlrctl" "pointer" "scroll" "0" "10"; }
 
-    Print                          { spawn "wlrctl" "pointer" "click" "left"; }
-    Shift+Print                    { spawn "wlrctl" "pointer" "click" "right"; }
-    Ctrl+Print                     { spawn "wlrctl" "pointer" "click" "right"; }
-    Ctrl+Shift+Print               { spawn "wlrctl" "pointer" "click" "middle"; }
-    Alt+Print                      { spawn "wlrctl" "pointer" "click" "middle"; }
+    Mod+Alt+Return                 { spawn "wlrctl" "pointer" "click" "left"; }
+    Mod+Alt+Shift+Return           { spawn "wlrctl" "pointer" "click" "right"; }
+    Mod+Alt+Ctrl+Return            { spawn "wlrctl" "pointer" "click" "middle"; }
 
     Mod+Return                     { spawn "wl-kbptr" "-o" "modes=floating,click" \
-                                                      "-o" "mode_floating.source=detect"; }
-    Mod+Alt+Return                 { spawn "wl-kbptr" "-o" "modes=split,click"; }
+                                                      "-o" "mode_floating.source=detect" \
+                                                      "-o" "mode_click.button=left"; }
+    Mod+Shift+Return               { spawn "wl-kbptr" "-o" "modes=floating,click" \
+                                                      "-o" "mode_floating.source=detect" \
+                                                      "-o" "mode_click.button=right"; }
+    Mod+Ctrl+Return                { spawn "wl-kbptr" "-o" "modes=floating,click" \
+                                                      "-o" "mode_floating.source=detect" \
+                                                      "-o" "mode_click.button=middle"; }
 
     ///// Launch applications /////
 
