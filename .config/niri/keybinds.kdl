@@ -167,7 +167,7 @@ binds {
 
     ///// Lock screen and toggle monitors /////
 
-    Mod+L                          { spawn-sh "niri msg action switch-layout 0; hyprlock"; }
+    Mod+L                          { spawn "loginctl" "lock-session"; }
     Mod+Ctrl+L                     { power-off-monitors; }
     Mod+Alt+L                      { power-off-monitors; }
     Mod+Shift+L                    allow-when-locked=true { spawn "~/Scripts/toggle-main-monitor.sh"; }
