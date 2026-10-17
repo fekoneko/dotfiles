@@ -39,7 +39,7 @@ case "$choice" in y|Y|'')
     eval "$command" || timeshift_error
 esac
 
-read -rep 'Update the mirrorlist? [Y/n]' choice
+read -rep 'Update the mirrorlist? [Y/n] ' choice
 case "$choice" in y|Y|'')
     command="sudo systemctl start reflector.service"
     log_command 'Updating the mirrorlist' "$command"
