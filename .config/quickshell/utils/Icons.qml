@@ -19,7 +19,7 @@ Singleton {
     // Resolve app icon URL. Contains file:// protocol prefix - ready to be used in Image source field.
     // Will automatically bind to DesktopEntries.applications.values changes.
     readonly property var appIconUrl: (appId, nothingOrFallbackOrCheck) => {
-        let icon = problematicAppIcons.find(entry => entry.appId.test(appId));
+        let icon = appIconOverrides.find(entry => entry.appId.test(appId));
         if (icon && typeof icon.icon === "function") {
             icon = icon.icon(...icon.appId.exec(appId));
         } else if (icon) {
@@ -30,7 +30,7 @@ Singleton {
         return Quickshell.iconPath(icon, nothingOrFallbackOrCheck);
     }
 
-    readonly property list<var> problematicAppIcons: [
+    readonly property list<var> appIconOverrides: [
         {
             appId: /^veracrypt$/,
             icon: "/usr/share/icons/hicolor/128x128/apps/veracrypt.xpm"
