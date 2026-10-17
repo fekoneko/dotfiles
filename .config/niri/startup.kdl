@@ -32,3 +32,6 @@ spawn-at-startup "fcitx5"
 
 ///// Persistent clipboard /////
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
+
+///// Parla (Delta Chat client) /////
+spawn-at-startup "parla" "--background"

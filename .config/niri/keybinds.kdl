@@ -146,7 +146,7 @@ binds {
     Mod+O                          { spawn "gtk-launch" "obsidian"; }
     Mod+U                          { spawn "gtk-launch" "chromium"; }
     Mod+M                          { spawn "gtk-launch" "org.gnome.Geary"; }
-    Mod+Q                          { spawn "gtk-launch" "vesktop"; }
+    Mod+Q                          { spawn "gtk-launch" "io.github.trufae.Parla"; }
     Mod+H                          { spawn "gtk-launch" "org.pulseaudio.pavucontrol"; }
     Mod+Y                          { spawn "gtk-launch" "org.gnome.Calendar"; }
     Mod+B                          { spawn "kitty" "-e" "bluetui"; }
