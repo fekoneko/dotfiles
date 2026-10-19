@@ -15,20 +15,26 @@ Repeater {
     }
 
     readonly property var overrides: {
-        "vesktop_status_icon_1": {
+        "steam": {
             order: 1,
+            icon: Icons.assetIconUrl("steam"),
+            iconSize: 15,
+            iconOpacity: 0.75
+        },
+        "vesktop_status_icon_1": {
+            order: 2,
             icon: Icons.assetIconUrl("discord"),
             iconSize: 15,
             iconOpacity: 0.75
         },
         "parla": {
-            order: 2,
+            order: 3,
             icon: Icons.assetIconUrl("mail"),
             iconSize: 12,
             iconOpacity: 0.75
         },
         "Fcitx": {
-            order: 3
+            order: 4
         }
     }
 

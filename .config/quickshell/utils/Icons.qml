@@ -55,6 +55,10 @@ Singleton {
             appId: /^Minecraft/,
             icon: "lutris_minecraft"
         },
+        {
+            appId: /^Terraria/,
+            icon: "lutris_terraria"
+        },
     ]
 
     Connections {
