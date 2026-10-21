@@ -154,8 +154,8 @@ binds {
 
     ///// Shell /////
 
-    Mod+F1                         { spawn "quickshell" "ipc" "call" "overlay" "toggleKeymap"; }
-    Mod+Delete                     { spawn "quickshell" "ipc" "call" "overlay" "toggleKeymap"; }
+    Mod+F1                         { spawn "quickshell" "ipc" "call" "keymapOverlay" "toggle"; }
+    Mod+Delete                     { spawn "quickshell" "ipc" "call" "keymapOverlay" "toggle"; }
     Mod+P                          { spawn "quickshell" "ipc" "call" "bar" "toggle"; }
     Mod+X                          { spawn "quickshell" "ipc" "call" "notifications" "clear"; }
     Mod+Comma                      { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }

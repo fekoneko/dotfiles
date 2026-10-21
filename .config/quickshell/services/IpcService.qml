@@ -30,20 +30,20 @@ Singleton {
     }
 
     IpcHandler {
-        target: "overlay"
+        target: "keymapOverlay"
 
-        // $ quickshell ipc call overlay showKeymap
-        function showKeymap(): void {
+        // $ quickshell ipc call keymapOverlay show
+        function show(): void {
             root.keymapOverlayVisible = true;
         }
 
-        // $ quickshell ipc call overlay hideKeymap
-        function hideKeymap(): void {
+        // $ quickshell ipc call keymapOverlay hide
+        function hide(): void {
             root.keymapOverlayVisible = false;
         }
 
-        // $ quickshell ipc call overlay toggleKeymap
-        function toggleKeymap(): void {
+        // $ quickshell ipc call keymapOverlay toggle
+        function toggle(): void {
             root.keymapOverlayVisible = !root.keymapOverlayVisible;
         }
     }
