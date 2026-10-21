@@ -1,7 +1,7 @@
 import Quickshell
 import qs.modules.bar
 import qs.modules.floatingBar
-import qs.modules.overlay
+import qs.modules.keymapOverlay
 
 Variants {
     model: Quickshell.screens
@@ -20,7 +20,7 @@ Variants {
             screen: barScope.modelData
         }
 
-        Overlay {
+        KeymapOverlay {
             id: overlayWindow
             screen: barScope.modelData
         }
