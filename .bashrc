@@ -33,10 +33,10 @@ if [[ $TERM == 'linux' ]]
   else PS1='\n\[\e[30;44;1m\] \W \[\e[0m\]\[\e[34m\]\[\e[0m\] \[\e[1m\]\$\[\e[0m\] '
 fi
 
-# Run fastfetch with fancy logo in kitty and with text logo in other terminals
-if [[ $TERM == 'xterm-kitty' ]]
-  then fastfetch
-  else fastfetch --logo ~/.config/fastfetch/logo.txt --logo-color-1 1
+# Run fastfetch with fancy logo or with text logo if in tty
+if [[ $TERM == 'linux' ]]
+  then fastfetch --logo-type file-raw --logo ~/.config/fastfetch/logo.txt --logo-color-1 1
+  else fastfetch
 fi
 
 # fzf

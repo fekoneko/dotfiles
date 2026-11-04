@@ -62,9 +62,9 @@
 !/.config/hypr/
 !/.config/hypr/*.conf
 
-# kitty
-!/.config/kitty/
-!/.config/kitty/*.conf
+# foot
+!/.config/foot/
+!/.config/foot/*.ini
 
 # fastfetch
 !/.config/fastfetch/

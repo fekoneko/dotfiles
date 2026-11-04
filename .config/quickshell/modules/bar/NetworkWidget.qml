@@ -14,9 +14,9 @@ Repeater {
         onSecondaryAction: {
             if (connection.type === "wireguard") {
                 const scriptPath = Quickshell.shellPath("assets/scripts/set-wg-ignored-ips.sh");
-                Quickshell.execDetached(["kitty", "-e", scriptPath]);
+                Quickshell.execDetached(["foot", scriptPath]);
             } else {
-                Quickshell.execDetached(["kitty", "-e", "nmtui"]);
+                Quickshell.execDetached(["foot", "nmtui"]);
             }
         }
 

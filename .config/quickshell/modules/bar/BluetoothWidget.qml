@@ -5,5 +5,5 @@ import qs.services
 BarButton {
     icon: BluetoothService.icon
     onMainAction: BluetoothService.toggle()
-    onSecondaryAction: Quickshell.execDetached(["kitty", "-e", "bluetui"])
+    onSecondaryAction: Quickshell.execDetached(["foot", "bluetui"])
 }

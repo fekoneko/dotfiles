@@ -4,11 +4,11 @@
     "source": "~/.config/fastfetch/logo.png",
     // "recache": true,
     "height": 11,
-    "padding": { "top": 1, "left": 1, "right": 2 }
+    "padding": { "top": 1, "left": 1, "right": 2 },
+    "type": "sixel"
   },
   "display": { "separator": "  " },
   "modules": [
-    "break",
     "title",
     { "type": "localip", "key": "ip:    ", "keyColor": "yellow" },
     { "type": "os", "key": "os:    ", "keyColor": "yellow" },

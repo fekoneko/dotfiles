@@ -102,7 +102,7 @@ window-rule {
 
 ///// Tiled half width /////
 window-rule {
-    match app-id="^kitty$"                                                   // Kitty
+    match app-id="^foot$"                                                    // Foot terminal
     match app-id="^org.gnome.Nautilus$" title=".+"                           // Nautilus
     match app-id="^org.gnome.FileRoller$"                                    // File Roller
     match app-id="^org.x.GnomeOnlineAccountsGtk$"                            // Gnome Online Accounts

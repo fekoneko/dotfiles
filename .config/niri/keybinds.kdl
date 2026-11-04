@@ -136,7 +136,7 @@ binds {
     ///// Launch applications /////
 
     Ctrl+Shift+Escape              { spawn "gtk-launch" "io.missioncenter.MissionCenter"; }
-    Mod+T                          { spawn "kitty"; }
+    Mod+T                          { spawn "foot"; }
     Mod+E                          { spawn "nautilus" "--new-window"; }
     Mod+C                          { spawn "gtk-launch" "com.microsoft.VSCode"; }
     Mod+Z                          { spawn "gtk-launch" "zen"; }
@@ -149,8 +149,8 @@ binds {
     Mod+Q                          { spawn "gtk-launch" "io.github.trufae.Parla"; }
     Mod+H                          { spawn "gtk-launch" "org.pulseaudio.pavucontrol"; }
     Mod+Y                          { spawn "gtk-launch" "org.gnome.Calendar"; }
-    Mod+B                          { spawn "kitty" "-e" "bluetui"; }
-    Mod+N                          { spawn "kitty" "-e" "nmtui"; }
+    Mod+B                          { spawn "foot" "bluetui"; }
+    Mod+N                          { spawn "foot" "nmtui"; }
 
     ///// Shell /////
 
