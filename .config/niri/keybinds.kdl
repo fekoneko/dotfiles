@@ -204,8 +204,4 @@ binds {
 
     Mod+Escape                     allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Escape               { quit; }
-
-    // Random Microsoft sounds when Copilot®️©️™️ button is pressed
-    // `leftmeta+leftshift+f23 = f23` is remapped with keyd
-    F23                            allow-when-locked=true { spawn "~/Scripts/microsoft-yell.sh"; }
 }
