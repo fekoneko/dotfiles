@@ -3,6 +3,9 @@
 # Usage: log_command <message> <command>
 log_command() { echo $'\n'"$1:"$'\n'"$ $2"; }
 
+# Usage: log_list <list>
+log_list() { echo "- ${1//$'\n'/$'\n- '}"; }
+
 paru_error() {
     echo $'\nFailed to update system packages' >&2
     echo $'Some troubleshooting commands:'
@@ -103,8 +106,27 @@ echo '-------------------------------------'
 echo 'System upgrade finished successfully!'
 echo '-------------------------------------'
 echo
-echo 'Things you can do manually to keep everything tidy:'
+
+foreign_packages="$(paru -Qmq)"
+# shellcheck disable=SC2086
+aur_packages="$(paru -Ta $foreign_packages)"
+removed_aur_packages="$(comm -23 <(echo "$foreign_packages") <(echo "$aur_packages"))"
+
+[[ -n $removed_aur_packages ]] && {
+    echo These packages no longer exist on the AUR, please find their replacements:
+    log_list "$removed_aur_packages"
+    echo
+}
+
+unused_dep_packages="$(paru -Qqdt)"
+
+[[ -n  $unused_dep_packages ]] && {
+    echo These packages were installed as dependencies, but nothing depends on them anymore:
+    log_list "$unused_dep_packages"
+    echo
+}
+
+echo 'Other things you can do to keep everything tidy:'
+echo '- Check stdout or /var/log/pacman.log for warnings and fix them'
 echo '- Search for .pacnew files and migrate old configs'
 echo '- Check for newly added / removed optional dependencies'
-# shellcheck disable=SC2016
-echo '- Run `paru -Qqdt` and purge unused packages'
