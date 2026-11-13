@@ -1,16 +1,17 @@
 @-moz-document domain(web.telegram.org) {
-  :root {
-    background: #eeffdd04 !important;
+  #Main > :first-child > :first-child > canvas:first-child {
+    display: none;
   }
 
+  :root,
   body,
-  #Main > :first-child {
+  #Main > :first-child,
+  #Main > :first-child > :first-child {
     background: transparent !important;
   }
 
-  body::before,
   #Main > :first-child {
-    opacity: 0.75 !important;
+    opacity: 0.6 !important;
   }
 }
 
